@@ -1,0 +1,68 @@
+@import "~/src/scss/index.scss";
+
+.footer {
+    position: relative;
+    background-color: $background-primary;
+    padding: 60px 0;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+
+    > div {
+        width: calc(100% / 4);
+
+        h4 {
+            text-transform: uppercase;
+            color: $light;
+            margin-bottom: 1rem;
+        }
+
+        > ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin: 0;
+            padding: 0;
+
+            > a {
+                cursor: pointer;
+                color: $lightgray;
+
+                &:hover {
+                    color: $light;
+                }
+            }
+
+            > div.contactSubmenu {
+                display: flex;
+                flex-direction: column;
+                margin: 1rem 0;
+
+                > ul.social {
+                    display: flex !important;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 5px;
+                    margin: 0;
+                    padding: 0;
+    
+                    > a {
+                        display: inline-flex !important;
+                        align-items: center;
+                        justify-content: center;
+                        width: 35px !important;
+                        background-color: $light !important;
+                        color: $primary !important;
+                    }
+                }
+            }
+
+            
+        }
+    }
+
+}

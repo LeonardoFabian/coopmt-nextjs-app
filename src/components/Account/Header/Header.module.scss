@@ -1,0 +1,36 @@
+@import "~/src/scss/index.scss";
+
+.header {    
+    height: 200px;
+    width: 100%;
+    background: url("/images/creatica-background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    color: $light;
+
+    > .wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.logout {
+    background-color: $background-light__blur;
+    color: $light;
+    // backdrop-filter: blur(20px);
+    border-width: inherit;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all .3s ease-in;
+
+    &:hover {
+        background-color: $light;
+        color: $secondary;
+        // backdrop-filter: blur(20px);
+    }
+}

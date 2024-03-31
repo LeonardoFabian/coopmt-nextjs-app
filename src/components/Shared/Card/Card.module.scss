@@ -1,0 +1,26 @@
+@import "~/src/scss/index.scss";
+
+.card {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: $light;
+    color: $text-secondary;
+    border-radius: .5rem;
+    border: 1px solid $lightgray;
+    transition: all .3s ease-in-out;
+
+    > i {
+        color: $secondary;
+        font-size: 35px;
+    }
+
+    > h5 {
+        color: $text-primary;
+    }
+
+    &:hover {
+        box-shadow: $box-shadow;
+    }
+}

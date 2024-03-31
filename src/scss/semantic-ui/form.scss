@@ -1,0 +1,69 @@
+.ui.form {
+    label {
+        position: relative;
+        bottom: 6px;
+    }
+
+    > div:first-of-type {
+        margin-top: 4rem !important;
+    }
+
+    .field {
+        .ui.input {
+            input {
+                border: 2px solid $border-primary;
+                background-color: $lightgray;
+                color: $text-primary;
+                padding: 14px;
+                border-radius: 6px;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    border-color: $primary;
+                }
+
+                &::placeholder {
+                    color: $text-secondary;
+                    opacity: .5;
+                }
+            }
+        }
+        .ui.selection.dropdown {
+            border: 2px solid $border-primary;
+            background-color: $lightgray;
+            color: $text-primary;
+            padding: 14px;
+            border-radius: 6px;
+
+        }
+
+        .ui.toggle.button,
+        .ui.active.toggle.button {
+            border: 2px solid $border-primary;
+            padding: 14px;
+            border-radius: 6px;
+        }
+    }
+
+    .field.error {
+        .ui.input {
+            input {
+                border-color: $danger;
+            }
+        }
+    }
+
+    .ui.button[type="submit"] {
+        background-color: $tertiary;
+        color: $primary;
+        margin: 0;
+        padding: 15.5px 30px;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: $primary;
+            color: $light;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+.ui.menu.secondary.pointing {
+    // border-bottom: 3px solid $border-primary;
+
+    a.item {
+        color: $light;
+        font-weight: bold !important;
+        text-transform: uppercase;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        font-size: 16px;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $background-light__blur !important;
+            color: $light;
+            // border-color: $tertiary !important;
+        }
+
+        &.active {
+            background-color: $light;
+            color: $primary;
+            border-color: $light !important;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+
+            &:hover {
+                color: $primary;
+                background-color: $light !important;
+                // border-color: $light !important;
+            }
+
+            > i {
+                color: $primary;
+            }
+        }
+
+        > i {
+            color: $light;
+        }
+    }
+
+}
+
+.ui.segment {
+    box-shadow: none;
+}
+
+.ui.tab.segment.active {
+    background-color: transparent;
+    border: none;
+    padding: 20px 0;
+}

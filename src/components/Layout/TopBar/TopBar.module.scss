@@ -1,0 +1,37 @@
+@import "~/src/scss/index.scss";
+
+.topBar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    z-index: 5;
+    justify-content: space-between;
+    background-color: $light;
+    border-bottom: 1px solid $gray;
+}
+
+.left {
+    width: 20%;
+
+    > a {
+        display: fles;
+        align-items: center;
+        
+        > img {
+            position: relative !important;
+            width: auto;
+            height: 40px;
+            max-height: 40px;
+        }
+    }
+}
+
+.right {
+    color: $text-primary;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    justify-content: end;
+}

@@ -1,0 +1,25 @@
+@import "~/src/scss/index.scss";
+
+.login {
+    width: 50%;
+
+    > h3 {
+        font-size: 22px;
+        color: $primary;
+        margin-bottom: 20px;
+    }
+
+    .actions {
+        color: $text-secondary;
+        margin-top: 1rem;
+        text-align: center;
+
+        > a {
+            color: $primary;
+
+            &:hover {
+                color: $secondary;
+            }
+        }
+    }
+}

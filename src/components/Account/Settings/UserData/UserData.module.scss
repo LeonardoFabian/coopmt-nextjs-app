@@ -1,0 +1,18 @@
+@import "~/src/scss/index.scss";
+
+.form {
+    background-color: $light;
+    padding: 20px;
+    box-shadow: $box-shadow;
+
+    > h2 {
+        margin-bottom: 20px;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: .5rem;
+    }
+}

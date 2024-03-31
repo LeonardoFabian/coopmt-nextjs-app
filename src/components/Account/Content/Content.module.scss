@@ -1,0 +1,25 @@
+@import "~/src/scss/index.scss";
+
+.AccountSidebar {
+
+    > .sidebarPusher {
+        > .segmentBasic {
+            > .mainContentHeader {
+                > .mainContentHeaderOptions {
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+        
+                    > .menuToggleButton {
+                        background-color: transparent !important;
+                        border-width: inherit;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }       
+            }
+        }
+    }
+
+}

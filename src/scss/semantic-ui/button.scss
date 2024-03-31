@@ -1,0 +1,49 @@
+.ui.button {
+    background-color: $light;
+    color: $text-secondary;
+    margin: 0;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    &:hover {
+        background-color: $lightgray;
+        color: $text-primary;
+    }
+    &:active,
+    &:focus {
+        background-color: $lightgray;
+        color: $text-primary;
+    }
+}
+
+.ui.primary.button {
+    background-color: $tertiary;
+    color: $primary;
+
+    &:hover {
+        background-color: $primary;
+        color: $light;
+    }
+    &:active,
+    &:focus {
+        background-color: $primary;
+        color: $light;
+    }
+}
+
+.ui.secondary.button {
+    background-color: $primary;
+
+    &:hover {
+        background-color: $secondary;
+    }
+    &:active,
+    &:focus {
+        background-color: $secondary;
+    }
+}
+
+

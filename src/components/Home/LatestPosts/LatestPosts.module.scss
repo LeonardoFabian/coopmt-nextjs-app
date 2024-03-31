@@ -1,0 +1,16 @@
+@import "~/src/scss/index.scss";
+
+.latestPosts {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    > .wrapper {
+        > h2 {
+            color: $text-accent;
+        }
+        > .content {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+}

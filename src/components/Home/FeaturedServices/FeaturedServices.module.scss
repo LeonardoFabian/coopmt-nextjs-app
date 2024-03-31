@@ -1,0 +1,17 @@
+@import "~/src/scss/index.scss";
+
+.featuredServices {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: $lightgreen;
+
+    > .wrapper {
+        > h2 {
+            color: $text-accent;
+        }
+        > .content {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+}
