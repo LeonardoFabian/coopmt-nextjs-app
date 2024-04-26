@@ -1,0 +1,36 @@
+@import "~/src/scss/index.scss";
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.5rem 1rem;
+
+  .imageWrapper {
+    max-height: 30px;
+
+    > img {
+      height: 30px;
+    }
+  }
+
+  .metaData {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .label {
+      font-size: 16px;
+      font-weight: bold;
+      color: $text-primary;
+
+      &:hover {
+        color: $secondary;
+      }
+    }
+
+    .description {
+      color: $text-secondary;
+    }
+  }
+}

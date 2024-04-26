@@ -67,9 +67,9 @@ export function AccountLayout(props) {
         <>
             {/* <RootLayout relative> */}
 
-                <TopBar isOpenSearch={isOpenSearch} />
+                {/* <TopBar isOpenSearch={isOpenSearch} /> */}
 
-                <Container fluid>
+                <div className={styles.accountLayout}>
                     <div className={classNames({ [styles.relative]: relative })}>                        
 
                         <SidebarPushable 
@@ -126,7 +126,7 @@ export function AccountLayout(props) {
 
                         </SidebarPushable>
                     </div>
-                </Container>
+                </div>
 
             {/* </RootLayout> */}
         </>

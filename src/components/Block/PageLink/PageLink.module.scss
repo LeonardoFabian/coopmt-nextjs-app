@@ -1,0 +1,38 @@
+@import '~/src/scss/index.scss';
+
+.pageLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: .5rem 1rem;        
+
+    .imageWrapper {
+        max-height: 30px;
+
+        > img {
+            height: 30px;
+        }
+    }
+
+    .metaData {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        .label {
+            font-size: 16px;
+            font-weight: bold;
+            color: $text-primary;
+            font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+
+            &:hover {
+                color: $secondary;
+            }
+        }
+
+        .description {
+            color: $text-secondary;
+            font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+        }
+    }
+}

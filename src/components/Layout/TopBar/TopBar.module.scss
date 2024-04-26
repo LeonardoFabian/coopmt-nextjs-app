@@ -1,7 +1,7 @@
 @import "~/src/scss/index.scss";
 
 .topBar {
-    position: fixed;
+    position: relative;
     display: flex;
     align-items: center;
     width: 100%;
@@ -9,14 +9,14 @@
     z-index: 5;
     justify-content: space-between;
     background-color: $light;
-    border-bottom: 1px solid $gray;
+    box-shadow: $box-shadow;
 }
 
 .left {
     width: 20%;
 
     > a {
-        display: fles;
+        display: flex;
         align-items: center;
         
         > img {

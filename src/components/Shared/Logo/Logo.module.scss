@@ -1,0 +1,14 @@
+@import "~/src/scss/index.scss";
+
+> .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    > img {
+        position: relative !important;
+        width: auto;
+        height: 40px;
+        max-height: 40px;
+    }
+}

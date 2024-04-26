@@ -1,23 +1,37 @@
-import styles from './home.module.scss';
+import styles from "./home.module.scss";
 import { RootLayout } from "@/layouts";
-import { Container } from "semantic-ui-react";
-import { Service } from '@/api';
-import { Home } from '@/components/Home';
+import { HomePageAPI } from "@/api";
+import { useState, useEffect } from "react";
+import { BlockRenderer } from "@/components/BlockRenderer";
 
-const serviceController = new Service();
+const homePageController = new HomePageAPI();
 
 export default function HomePage() {
-    return (
-        <>
-            {/* SEO */}
+  const [data, setData] = useState([]);
 
-            <RootLayout>
-                <main className={styles.content}>
-                    <Home.HeroSection />
-                    <Home.FeaturedServices />
-                    <Home.LatestPosts />
-                </main>
-            </RootLayout>
-        </>
-    )
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await homePageController.find();
+        console.log("HomePage data: ", response);
+        setData(response);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
+
+  // if (!data) return null;
+
+  const { title, description, blocks } = data;
+
+  return (
+    <>
+      <RootLayout>
+        <main className={styles.content}>
+          <BlockRenderer blocks={blocks} />
+        </main>
+      </RootLayout>
+    </>
+  );
 }

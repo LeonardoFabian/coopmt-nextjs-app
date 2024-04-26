@@ -1,0 +1,25 @@
+@import "~/src/scss/index.scss";
+
+.featuresSection {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    // background-color: $primary;
+
+    > .wrapper {
+        > .sectionTitle {
+            color: $text-accent;
+            text-align: center;
+        }
+
+        > .sectionDescription {
+            color: $text-secondary;
+            text-align: center;
+        }
+        
+        > .content {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+
+}

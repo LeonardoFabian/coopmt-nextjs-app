@@ -1,17 +1,30 @@
 @import "~/src/scss/index.scss";
 
 .featuredServices {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     background-color: $lightgreen;
 
     > .wrapper {
-        > h2 {
+        > .heading {
             color: $text-accent;
+            text-align: center;
         }
+
+        > .subHeading {
+            text-align: center;
+        }
+        
         > .content {
             padding-top: 30px;
             padding-bottom: 30px;
+        }
+
+        > .actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
         }
     }
 }

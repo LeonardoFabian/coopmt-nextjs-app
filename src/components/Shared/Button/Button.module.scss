@@ -1,0 +1,11 @@
+@import "~/src/scss/index.scss";
+
+.icon {
+    background-color: transparent !important;
+    color: $text-primary !important;
+
+    &:hover {
+        color: $text-secondary !important;
+    }
+}
+

@@ -55,15 +55,16 @@
     }
 
     .ui.button[type="submit"] {
-        background-color: $tertiary;
-        color: $primary;
+        background-color: $secondary;
+        color: $light;
         margin: 0;
         padding: 15.5px 30px;
         border-radius: 6px;
+        text-transform: uppercase;
 
         &:hover {
-            background-color: $primary;
-            color: $light;
+            background-color: $secondary;
+            color: $text-accent;
         }
     }
 }

@@ -1,11 +1,13 @@
 import { HeroSection } from "./HeroSection";
 import { FeaturedServices } from "./FeaturedServices";
-import { FeatureSection } from "./FeatureSection";
+import { FeaturesSection } from "./FeaturesSection";
 import { LatestPosts } from "./LatestPosts";
+import { LogoClouds } from "./LogoClouds";
 
 export const Home = {
     HeroSection,
     FeaturedServices,
-    FeatureSection,
+    FeaturesSection,
     LatestPosts,
+    LogoClouds,
 };

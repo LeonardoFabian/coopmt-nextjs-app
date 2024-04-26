@@ -3,10 +3,11 @@
     color: $text-secondary;
     margin: 0;
     padding: 1rem 1.5rem;
-    border-radius: 4px;
+    border-radius: 25px; // 4px;
     display: flex;
     align-items: center;
     gap: .5rem;
+    text-transform: uppercase;
 
     &:hover {
         background-color: $lightgray;
@@ -19,30 +20,44 @@
     }
 }
 
+.ui.button.hidden {
+    display: none !important;
+}
+
 .ui.primary.button {
-    background-color: $tertiary;
-    color: $primary;
+    background-color: $primary;
+    color: $light;
+    border: 2px solid $primary;
+    transition: all .3s ease-out;
 
     &:hover {
-        background-color: $primary;
+        background-color: $secondary;
         color: $light;
+        border: 2px solid $secondary;
     }
     &:active,
     &:focus {
-        background-color: $primary;
+        background-color: $secondary;
         color: $light;
+        border: 2px solid $secondary;
     }
 }
 
 .ui.secondary.button {
-    background-color: $primary;
+    background-color: transparent;
+    color: $primary;
+    border: 2px solid $primary;
+    transition: all .3s ease-out;
+
 
     &:hover {
-        background-color: $secondary;
+        background-color: $primary;
+        color: $light;
     }
     &:active,
     &:focus {
-        background-color: $secondary;
+        background-color: $primary;
+        color: $light;
     }
 }
 

@@ -1,16 +1,20 @@
 import styles from './Menu.module.scss';
-import { useState, useEffect } from 'react';
-import { Category } from '@/api';
-import { map } from 'lodash';
+import classNames from 'classnames';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { Category, MainMenu } from '@/api';
+import { map } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Icon, Input } from 'semantic-ui-react';
-import classNames from 'classnames';
+import { MenuItem } from './MenuItem';
 
 const categoryController = new Category();
+const mainMenuController = new MainMenu();
 
 export function Menu(props) {
+
+    const [data, setData] = useState(null);
 
     const {isOpenSearch} = props;
     const [categories, setCategories] = useState(null);
@@ -28,19 +32,28 @@ export function Menu(props) {
                 console.error(error);
             }
         })()
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const response = await mainMenuController.find();
+                console.log("Menu Data: ", response);
+                setData(response);
+            } catch (error) {
+                console.error(error);
+            }
+        })()
+    }, []);
+
+    if(!data?.menuItems || data?.menuItems?.length === 0) {
+        return <></>;
+    }
 
     return (
         <nav className={styles.menu}>
             <ul className={styles.wrapper}>
-                {map(categories, (category) => (
-                    <Link key={category.id} href={`/servicios/${category.attributes.slug}`} className={styles.item}>
-                        {category.attributes.name}
-                    </Link>
-                ))}
-                {/* <li className={styles.item}>Item 1</li>
-                <li className={styles.item}>Item 2</li>
-                <li className={styles.item}>Item 3</li> */}
+                <MenuItem blocks={data?.menuItems} />
 
                 <button className={styles.searchButton} onClick={handleShowSearchInput}>
                     <FontAwesomeIcon icon={faSearch} />

@@ -1,16 +1,30 @@
 @import "~/src/scss/index.scss";
 
 .latestPosts {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: $light;
 
     > .wrapper {
-        > h2 {
+        > .heading {
             color: $text-accent;
+            text-align: left;
         }
+
+        > .subHeading {
+            text-align: left;
+        }
+        
         > .content {
             padding-top: 30px;
             padding-bottom: 30px;
+        }
+
+        > .actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
         }
     }
 }

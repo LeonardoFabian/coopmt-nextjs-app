@@ -2,6 +2,7 @@ export const ENV = {
     SERVER_HOST: "http://localhost:1338",
     API_URL: "http://localhost:1338/api",
     ENDPOINTS: {
+        GLOBAL: "global",
         AUTH: {
             REGISTER: "auth/local/register",
             LOGIN: "auth/local",
@@ -30,6 +31,10 @@ export const ENV = {
         },
         SERVICES: "services",
         POSTS: "posts",
+        HOMEPAGE: "home-page",
+        MENU: {
+            MAIN: "main-menu"
+        }
     },
     TOKEN: "COOP_JWT",
     DB_API_URL: "",
