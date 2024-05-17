@@ -1,0 +1,73 @@
+@import "~/src/scss/index.scss";
+
+// .swiper {
+//   width: 100%;
+//   height: 100%;
+// }
+.mainSwiper {
+  width: 100%;
+  height: 80%;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.mainSwiper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    font-weight: bold;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 12px;
+    background-color: #333;
+    padding: 10px;
+  }
+}
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.swiperThumbs {
+  height: 20%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+.swiperThumbs {
+  > div {
+    > div {
+      width: 25%;
+      height: 100%;
+      //   opacity: 0.4;
+      border-radius: 8px;
+      overflow: hidden !important;
+
+      > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+}
+
+.swiperThumbs .swiper-slide-thumb-active {
+  opacity: 1;
+}

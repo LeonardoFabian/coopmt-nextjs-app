@@ -3,6 +3,7 @@ import { Container, Button } from "semantic-ui-react";
 import { useState, useEffect } from "react";
 import { Service } from "@/api";
 import { Shared } from "@/components/Shared";
+import { Custom } from "@/components/Custom";
 import { map } from "lodash";
 import Link from "next/link";
 
@@ -33,16 +34,21 @@ export function FeaturedServices({ data }) {
 
         <div className={styles.content}>
           <Shared.Grid cols="3" gap="30px">
-            {map(featuredServices, (featuredService) => (
-              <Shared.Card
-                key={featuredService?.id}
-                title={featuredService?.attributes?.title}
-              />
+            {map(featuredServices, (service) => (
+              <Link
+                key={service?.id}
+                href={`/servicios/${service?.attributes?.category?.data?.attributes?.slug}/${service?.attributes?.slug}`}
+              >
+                <Custom.ServiceCard title={service?.attributes?.title} />
+              </Link>
             ))}
           </Shared.Grid>
         </div>
         <div className={styles.actions}>
-          <Link href={link?.url || "/"} target={link?.target || "_self"}>
+          <Link
+            href={link?.url || "/servicios"}
+            target={link?.target || "_self"}
+          >
             <Button primary>{link?.label}</Button>
           </Link>
         </div>

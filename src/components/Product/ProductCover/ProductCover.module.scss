@@ -1,0 +1,40 @@
+@import "~/src/scss/index.scss";
+
+.productCover {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+
+  > .background {
+    // position: relative;
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    inset: 0px;
+    mix-blend-mode: multiply;
+  }
+
+  > .contentWrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: start;
+    justify-content: center;
+
+    > .header {
+      > a {
+        > .label {
+          color: $quaternary;
+          text-transform: uppercase;
+        }
+      }
+
+      > .heading {
+        color: $primary;
+      }
+    }
+  }
+}

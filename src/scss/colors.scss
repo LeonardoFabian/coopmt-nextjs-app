@@ -1,7 +1,8 @@
-$primary: #308a40;
-$secondary: #71c21b; // #6aba46
-$tertiary: #ffcb04;
-$quaternary: #f68c20;
+$primary: #2f925b; // #308a40;
+$secondary: #34a563;
+$tertiary: #71c21b; // #6aba46
+$quaternary: #f7df1e; // #feb91d; // #ffcb04;
+$accent: #ffcb04; //  #f68c20;
 
 $text-primary: #263238;
 $text-secondary: #455a64;
@@ -11,7 +12,7 @@ $text-light: #ffffff;
 $border-primary: #909090;
 $border-secondary: #474747;
 
-$background-primary: #007a34;
+$background-primary: #2f925b;
 $background-secondary: #0b4b6e; // #082442
 $background-tertiary: #345478;
 $background-quaternary: #3d3d3d;
@@ -19,12 +20,15 @@ $background-quaternary: #3d3d3d;
 $background-quaternary__blur: #3d3d3d10;
 $background-light__blur: #ffffff10;
 
-
-$linear-gradient-primary: linear-gradient(0deg, rgba(48, 138, 64, 0.4), rgba(106, 186, 70, 0.7));
+$linear-gradient-primary: linear-gradient(
+  0deg,
+  rgba(48, 138, 64, 0.4),
+  rgba(106, 186, 70, 0.7)
+);
 
 $success: #6aba46;
 $danger: #ff0a4e;
-$info: #0087e3; 
+$info: #0087e3;
 $warning: #f68c20;
 
 $dark: #263238;
@@ -35,4 +39,3 @@ $lightgray: #f6f7f9;
 $lightgreen: #f1f9eb;
 
 $box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-

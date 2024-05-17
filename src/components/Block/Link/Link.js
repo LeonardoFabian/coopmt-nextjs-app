@@ -6,11 +6,7 @@ export function Link({ block }) {
   const { url, target, label, description, icon } = block;
 
   return (
-    <NextLink
-      href={url || "#"}
-      target={target || "_self"}
-      className={styles.link}
-    >
+    <NextLink href={url} target={target || "_self"} className={styles.link}>
       {icon.url ? (
         <div className={styles.imageWrapper}>
           <Shared.Image src={icon.url} alt={icon.alternativeText || "Image"} />

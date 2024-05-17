@@ -1,0 +1,55 @@
+@import "~/src/scss/index.scss";
+
+.productOverview {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+
+  > .productPreview {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  > .productData {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    > .supplierData {
+      color: $primary;
+    }
+
+    > .corePriceDisplay {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      > .corePrice {
+        display: flex;
+        gap: 8px;
+
+        > .savingsPercentage {
+          color: $danger;
+          font-size: 28px;
+        }
+        > .priceToPay {
+          font-size: 28px;
+        }
+      }
+      > .regularPriceDisplay {
+        > .regularPrice {
+          text-decoration: line-through;
+        }
+      }
+    }
+
+    > .actions {
+      display: flex;
+      justify-content: start;
+      gap: 16px;
+    }
+  }
+}

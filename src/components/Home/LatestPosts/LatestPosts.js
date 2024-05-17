@@ -9,16 +9,19 @@ import Link from "next/link";
 
 const postController = new Post();
 
-export function LatestPosts({ data }) {
-  const { heading, subheading, link } = data;
+export function LatestPosts(props) {
+  const { heading, subheading, link, limit = 3, taxonomyId = 2 } = props;
 
   const [latestPost, setLatestPost] = useState(null);
 
   useEffect(() => {
     (async () => {
       try {
-        const limit = 3;
-        const response = await postController.getLatestPublished(limit);
+        // const limit = 3;
+        const response = await postController.getLatestPublished(
+          limit,
+          taxonomyId
+        );
         console.log("LATEST POSTS: ", response);
         setLatestPost(response.data);
       } catch (error) {
@@ -36,7 +39,12 @@ export function LatestPosts({ data }) {
         <div className={styles.content}>
           <Shared.Grid cols="3" gap="30px">
             {map(latestPost, (post) => (
-              <Custom.PostCard key={post.id} post={post} />
+              <Link
+                key={post?.id}
+                href={`publicaciones/${post.attributes.post_type.data.attributes.slug}/${post?.attributes?.slug}`}
+              >
+                <Custom.PostCard post={post} />
+              </Link>
             ))}
           </Shared.Grid>
         </div>

@@ -1,0 +1,16 @@
+@import "~/src/scss/index.scss";
+
+.pageHeader {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: $primary;
+  transition: all 0.3s ease-in-out;
+
+  .wrapper {
+    .title {
+      color: $light;
+    }
+  }
+}

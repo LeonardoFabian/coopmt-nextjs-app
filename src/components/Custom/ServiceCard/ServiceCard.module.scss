@@ -1,0 +1,33 @@
+@import "~/src/scss/index.scss";
+
+.serviceCard {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: $light;
+  color: $text-secondary;
+  border-radius: 0.5rem;
+  border: 1px solid $lightgray;
+  transition: all 0.3s ease-in-out;
+
+  > i {
+    color: $accent;
+    font-size: 40px;
+  }
+
+  > .title {
+    color: $primary;
+    margin-top: 15px;
+  }
+
+  > .description {
+    color: $text-secondary;
+    margin-top: 15px;
+  }
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+}

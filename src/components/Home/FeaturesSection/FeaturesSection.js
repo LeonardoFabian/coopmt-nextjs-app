@@ -4,6 +4,7 @@ import { Container } from "semantic-ui-react";
 import { map } from "lodash";
 
 export function FeaturesSection({ data }) {
+  // console.log("Features Section: ", data);
   const { title, description, feature } = data;
 
   return (
@@ -15,10 +16,10 @@ export function FeaturesSection({ data }) {
         <div className={styles.content}>
           <Shared.Grid cols="3" gap="30px">
             {map(feature, (item) => (
-              <Shared.Card
+              <Shared.TrustBadge
                 key={item.id}
                 title={item.heading}
-                content={item.subheading}
+                description={item.subheading}
                 icon={item.icon}
               />
             ))}

@@ -1,0 +1,152 @@
+@import "~/src/scss/index.scss";
+
+.productCard {
+  background-color: $light;
+  color: $text-secondary;
+  border-radius: 0.5rem;
+  border: 1px solid $lightgray;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  // padding: 16px;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+    0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
+  > .imageContainer {
+    position: relative;
+    background-color: $darkgray;
+    height: 15rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-top: 0.75rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+
+    > img {
+      width: 110%;
+      height: 15rem; /* 256px */
+      object-fit: cover;
+      transition: scale 750ms ease-out;
+
+      &:hover {
+        scale: 1.15;
+      }
+    }
+
+    .discount {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0.5rem;
+      border-radius: 9999px;
+      padding-left: 0.5rem; /* 8px */
+      padding-right: 0.5rem;
+      font-weight: 500;
+      background-color: $tertiary;
+      color: $light;
+    }
+  }
+
+  > .cardBody {
+    // padding: 1.5rem 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-top: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 1.25rem;
+
+    > .cardData {
+      margin-top: 0.5rem;
+      padding-bottom: 1.25rem;
+
+      > .supplierContainer {
+        margin-bottom: 1rem;
+
+        > .supplierLink {
+          > .supplier {
+            background-color: $lightgray;
+            color: $text-secondary;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 40px;
+
+            &:hover {
+              color: $text-primary;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      > .title {
+        color: $text-primary;
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: -0.025em;
+      }
+
+      > .description {
+        color: $text-secondary;
+        margin-top: 15px;
+      }
+
+      > .meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+
+        > .price {
+          display: flex;
+          align-items: end;
+          gap: 10px;
+
+          > p {
+            > .priceToPay {
+              color: $text-primary;
+              font-size: 1.875rem;
+              line-height: 2.25rem;
+              font-weight: 700;
+            }
+            > .regularPrice {
+              font-size: 0.875rem;
+              line-height: 1.25rem;
+              color: $text-secondary;
+              text-decoration: line-through;
+            }
+          }
+        }
+      }
+    }
+
+    > .cardFooter {
+      // display: flex;
+      margin-top: 1rem;
+      width: 100%;
+
+      > a {
+        display: flex;
+        width: 100%;
+
+        > button {
+          border-radius: 0.375rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+}

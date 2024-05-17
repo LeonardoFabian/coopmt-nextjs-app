@@ -1,17 +1,22 @@
 import styles from "./HeroSection.module.scss";
-import { Container } from "semantic-ui-react";
-import { Button } from "semantic-ui-react";
 import Link from "next/link";
+import { Container, Button } from "semantic-ui-react";
 import { Shared } from "@/components/Shared";
+import { Custom } from "@/components/Custom";
 
-export function HeroSection({ data }) {
-  const { heading, subheading, image, link } = data;
+export function HeroSection({ block }) {
+  //   const { heading, subheading, image, link } = block;
+  const { slides } = block;
 
-  if (!data) return null;
+  if (!block) return null;
 
   return (
     <Container fluid className={styles.heroSection}>
-      <Shared.Image
+      <>
+        {
+          <Custom.EmblaCarousel slides={slides?.data} />
+
+          /* <Shared.Image
         src={image.url}
         alt="Background"
         className={styles.background}
@@ -24,7 +29,9 @@ export function HeroSection({ data }) {
             <Button primary>{link.label}</Button>
           </Link>
         </div>
-      </Container>
+      </Container> */
+        }
+      </>
     </Container>
   );
 }

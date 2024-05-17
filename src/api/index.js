@@ -11,3 +11,8 @@ export * from "./post";
 export * from "./homePageAPI";
 export * from "./mainMenu";
 export * from "./global";
+export * from "./taxonomy";
+export * from "./postType";
+export * from "./product";
+export * from "./supplier";
+export * from "./page";
