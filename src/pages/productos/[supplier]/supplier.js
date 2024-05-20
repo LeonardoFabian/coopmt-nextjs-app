@@ -26,6 +26,7 @@ export default function SupplierPage(props) {
                     href={`/productos/${supplier?.attributes?.slug}/${product?.attributes?.slug}`}
                   >
                     <Custom.ProductCard
+                      productId={product?.id}
                       title={product?.attributes?.title}
                       image={product?.attributes?.image}
                       price={product?.attributes?.price}

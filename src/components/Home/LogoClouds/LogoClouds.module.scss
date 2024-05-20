@@ -1,41 +1,64 @@
 @import "~/src/scss/index.scss";
 
 .logoClouds {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    background-color: $lightgreen;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: $lightgreen;
 
-    > .wrapper {
-        > .heading {
-            color: $text-accent;
-            text-align: center;
-        }
-
-        > .subheading {
-            text-align: center;
-        }
-        
-        > .content {
-            padding-top: 30px;
-            padding-bottom: 30px;
-
-            img {
-                width: 100%;
-                aspect-ratio: 3/2;
-                object-fit: contain;
-                mix-blend-mode: luminosity;
-
-                &:hover {
-                    mix-blend-mode: normal;
-                }
-            }
-        }
-
-        > .actions {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-        }
+  > .wrapper {
+    > .heading {
+      color: $text-accent;
+      text-align: center;
     }
+
+    > .subheading {
+      text-align: center;
+    }
+
+    > .content {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    > .actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+  }
+}
+
+.logoImage {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  mix-blend-mode: luminosity !important;
+
+  &:hover {
+    mix-blend-mode: normal;
+  }
+}
+
+.dots {
+  display: flex !important;
+  align-items: flex-end;
+  justify-content: center;
+
+  > li {
+    height: 100%;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+
+    img {
+      border-radius: 8px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }

@@ -20,6 +20,7 @@ export default function SingleProduct(props) {
   const slides =
     product?.attributes?.gallery?.data ||
     Array.from(Array(TEST_SLIDE_COUNT).keys());
+  const video = product?.attributes?.video;
   const options = {};
   const price = product?.attributes?.price;
   const priceToPay = fn.calcDiscount(
@@ -43,7 +44,11 @@ export default function SingleProduct(props) {
         <Shared.Separator height={54} />
         <div className={styles.productOverview}>
           <div className={styles.productPreview}>
-            <Product.ProductGallery slides={slides} options={options} />
+            <Product.ProductGallery
+              slides={slides}
+              video={video}
+              options={options}
+            />
           </div>
           <div className={styles.productData}>
             <h3>{title}</h3>
@@ -79,11 +84,11 @@ export default function SingleProduct(props) {
             <p>{summary}</p>
             <Shared.Separator height={16} />
             <div className={styles.actions}>
-              <Button primary>
-                Añadir al carrito <Icon name="cart plus" />
+              <Button primary className={styles.addToCart}>
+                <Icon name="cart plus" /> Añadir al carrito
               </Button>
-              <Button secondary>
-                Cotizar <Icon name="calculator" />
+              <Button secondary className={styles.quote}>
+                <Icon name="calculator" /> Cotizar
               </Button>
             </div>
           </div>

@@ -3,14 +3,13 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs, FreeMode, Navigation } from "swiper/modules";
 import { Shared } from "@/components/Shared";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
+import { Icon } from "semantic-ui-react";
 
 export function SwiperThumbs(props) {
-  const { slides } = props;
-  console.log("SwiperThumbs slides: ", slides);
+  console.log("SwiperThumbs props: ", props);
+
+  const { slides, video } = props;
+  const hasVideo = Boolean(video);
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   console.log("thumbsSwiper: ", thumbsSwiper);
@@ -30,6 +29,11 @@ export function SwiperThumbs(props) {
             <Shared.Image src={slide.attributes.url} />
           </SwiperSlide>
         ))}
+        {hasVideo && (
+          <SwiperSlide className={styles.mainSwiper}>
+            <Shared.Video url={video} />
+          </SwiperSlide>
+        )}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -45,6 +49,13 @@ export function SwiperThumbs(props) {
             <Shared.Image src={slide.attributes.formats.thumbnail.url} />
           </SwiperSlide>
         ))}
+        {hasVideo && (
+          <SwiperSlide className={styles.swiperSlideThumb}>
+            <div className={styles.swiperSlideVideo}>
+              <Icon name="play circle outline" />
+            </div>
+          </SwiperSlide>
+        )}
       </Swiper>
     </>
   );

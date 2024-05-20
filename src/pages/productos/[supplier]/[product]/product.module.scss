@@ -50,6 +50,14 @@
       display: flex;
       justify-content: start;
       gap: 16px;
+
+      > .addToCart {
+        border-radius: 0.375rem;
+      }
+
+      .quote {
+        border-radius: 0.375rem;
+      }
     }
   }
 }

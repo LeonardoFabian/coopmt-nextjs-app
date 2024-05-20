@@ -8,8 +8,8 @@ import numeral from "numeral";
 import { fn } from "@/utils";
 
 export function ProductCard(props) {
-  const { title, image, price, discount, supplier } = props;
-  const hasDiscount = Boolean(discount);
+  const { productId, title, image, price, discount, supplier } = props;
+  const hasDiscount = discount > 0;
   const priceToPay = fn.calcDiscount(price, discount);
 
   return (
@@ -18,7 +18,7 @@ export function ProductCard(props) {
       <div className={styles.imageContainer}>
         <Shared.Image src={image?.data?.attributes?.url} />
         {hasDiscount && (
-          <span className={styles.discount}>{discount}% OFF</span>
+          <span className={styles.discount}>{`-${discount}`}% OFF</span>
         )}
       </div>
       <div className={styles.cardBody}>
@@ -59,6 +59,10 @@ export function ProductCard(props) {
               <Icon name="cart" /> Añadir al carrito
             </Button>
           </Link>
+          <Shared.AddToWishlist
+            productId={productId}
+            className={styles.wishlist}
+          />
         </div>
       </div>
     </div>

@@ -71,3 +71,27 @@
 .swiperThumbs .swiper-slide-thumb-active {
   opacity: 1;
 }
+
+.swiperSlideVideo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: $darkgray;
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    background-color: $dark;
+    cursor: pointer;
+
+    > i {
+      color: $light;
+    }
+  }
+
+  > i {
+    font-size: 35px;
+    display: contents;
+    color: $light;
+  }
+}
