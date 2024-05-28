@@ -1,14 +1,15 @@
 import styles from "./ProductCard.module.scss";
 import { Shared } from "@/components/Shared";
 import Link from "next/link";
-import { Button, Icon, Label } from "semantic-ui-react";
+import { Button, Icon, Loader } from "semantic-ui-react";
 import { DateTime } from "luxon";
 import { Suspense } from "react";
 import numeral from "numeral";
 import { fn } from "@/utils";
 
 export function ProductCard(props) {
-  const { productId, title, image, price, discount, supplier } = props;
+  const { productId, title, slug, image, price, discount, supplier } = props;
+
   const hasDiscount = discount > 0;
   const priceToPay = fn.calcDiscount(price, discount);
 
@@ -22,7 +23,9 @@ export function ProductCard(props) {
         )}
       </div>
       <div className={styles.cardBody}>
-        <h5 className={styles.title}>{title}</h5>
+        <Link href={`/productos/${supplier?.data?.attributes?.slug}/${slug}`}>
+          <h5 className={styles.title}>{title}</h5>
+        </Link>
 
         <div className={styles.supplierContainer}>
           <Link
@@ -54,11 +57,8 @@ export function ProductCard(props) {
           </div>
         </div>
         <div className={styles.cardFooter}>
-          <Link href={`/cart`}>
-            <Button secondary>
-              <Icon name="cart" /> Añadir al carrito
-            </Button>
-          </Link>
+          <Shared.AddToCart productId={productId} />
+
           <Shared.AddToWishlist
             productId={productId}
             className={styles.wishlist}

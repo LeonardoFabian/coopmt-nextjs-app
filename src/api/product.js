@@ -1,4 +1,4 @@
-import { ENV } from "@/utils";
+import { ENV, authFetch } from "@/utils";
 
 export class Product {
   async getBySupplier(slug, page) {
@@ -38,6 +38,21 @@ export class Product {
       if (response.status !== 200) throw result;
 
       return result.data[0];
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getById(id) {
+    const populate = `populate[0]=image&populate[1]=supplier`;
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCTS}/${id}?${populate}`;
+    try {
+      const response = await fetch(url);
+      const result = response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
     } catch (error) {
       throw error;
     }

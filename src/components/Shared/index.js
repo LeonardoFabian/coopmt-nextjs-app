@@ -19,6 +19,7 @@ import { AddToCart } from "./AddToCart";
 import { RequestService } from "./RequestService";
 import { QuoteProduct } from "./QuoteProduct";
 import { CalculateLoan } from "./CalculateLoan";
+import { Alert } from "./Alert";
 
 export const Shared = {
   Separator,
@@ -42,4 +43,5 @@ export const Shared = {
   RequestService,
   QuoteProduct,
   CalculateLoan,
+  Alert,
 };

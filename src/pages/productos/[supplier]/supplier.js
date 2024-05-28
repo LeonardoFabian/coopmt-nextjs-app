@@ -21,19 +21,16 @@ export default function SupplierPage(props) {
             <>
               <Shared.Grid cols={3} gap="30px">
                 {map(products, (product) => (
-                  <Link
+                  <Custom.ProductCard
                     key={product.id}
-                    href={`/productos/${supplier?.attributes?.slug}/${product?.attributes?.slug}`}
-                  >
-                    <Custom.ProductCard
-                      productId={product?.id}
-                      title={product?.attributes?.title}
-                      image={product?.attributes?.image}
-                      price={product?.attributes?.price}
-                      discount={product?.attributes?.discount}
-                      supplier={product?.attributes?.supplier}
-                    />
-                  </Link>
+                    productId={product?.id}
+                    title={product?.attributes?.title}
+                    slug={product?.attributes?.slug}
+                    image={product?.attributes?.image}
+                    price={product?.attributes?.price}
+                    discount={product?.attributes?.discount}
+                    supplier={product?.attributes?.supplier}
+                  />
                 ))}
               </Shared.Grid>
               <Shared.Separator height={54} />

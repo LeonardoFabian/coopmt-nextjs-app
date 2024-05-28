@@ -1,9 +1,9 @@
 import styles from "./Account.module.scss";
 import classNames from "classnames";
-import { Label, Button } from "semantic-ui-react";
+import { Label, Button, Loader } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
-import { useAuth } from "@/hooks";
+import { useAuth, useCart } from "@/hooks";
 import {
   faArrowRightToBracket,
   faCartShopping,
@@ -11,12 +11,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Shared } from "@/components/Shared";
 import { map } from "lodash";
+import { Cart } from "@/api";
 
-const totalCartItems = 5;
+// const total = 5;
+
+const cartController = new Cart();
 
 export function Account(props) {
   const { buttons } = props;
 
+  const { total } = useCart();
   const { user } = useAuth();
   const router = useRouter();
 
@@ -81,9 +85,7 @@ export function Account(props) {
 
       <Button className={styles.cart} onClick={goToCart}>
         <FontAwesomeIcon icon={faCartShopping} />
-        {totalCartItems > 0 && (
-          <Label circular>{totalCartItems > 9 ? "9+" : totalCartItems}</Label>
-        )}
+        {total > 0 && <Label circular>{total > 9 ? "9+" : total}</Label>}
       </Button>
 
       <Button

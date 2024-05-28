@@ -1,14 +1,13 @@
 @import "~/src/scss/index.scss";
 
-
 .mainContent {
-    .content {
-        margin-top: -60px !important;
-        // background-color: $light;
-    }
+  .content {
+    // margin-top: -60px !important;
+    // background-color: $light;
+  }
 }
 
 .formsContainer {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }

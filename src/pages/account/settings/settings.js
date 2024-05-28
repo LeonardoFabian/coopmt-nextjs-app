@@ -72,7 +72,7 @@ export default function SettingsPage() {
     <>
       <AccountLayout relative className={styles.settings}>
         <Header>
-          <h1>Ajustes</h1>
+          <h2>Ajustes</h2>
         </Header>
         <Container isContainer className={styles.mainContent}>
           <div className={styles.content}>

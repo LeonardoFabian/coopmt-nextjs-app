@@ -1,45 +1,43 @@
-@import '~/src/scss/index.scss';
+@import "~/src/scss/index.scss";
 
 .accountLayout {
-    // padding-top: 75px;
+  // padding-top: 75px;
+  height: 100vh !important;
+  width: 100%;
+
+  .accountSidebar {
     height: 100vh;
-    width: 100%;
-    
-    .accountSidebar {
-        // margin-left: 20px !important;
-        // margin-right: 20px !important;
-        // margin-bottom: 20px !important;
-    
-        > .sidebarPusher {
-            
+    // margin-left: 20px !important;
+    // margin-right: 20px !important;
+    // margin-bottom: 20px !important;
 
-            > .mainContentHeader {
-                padding-left: 30px;
-                padding-right: 30px;
-                padding-top: .5rem;
-                padding-bottom: .5rem;
-        
-                > .mainContentHeaderWrapper {
-                    padding-top: 1rem;
-                    padding-bottom: 1rem;
+    > .sidebarPusher {
+      > .mainContentHeader {
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
 
-                    > .mainContentHeaderOptions {
-                        display: flex;
-                        align-items: center;
-                        
-                        // position: absolute;
-            
-                        > .menuToggleButton {
-                            background-color: transparent !important;
-                            border-width: inherit;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                        }
-                    }
-            
-                }
+        > .mainContentHeaderWrapper {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+
+          > .mainContentHeaderOptions {
+            display: flex;
+            align-items: center;
+
+            // position: absolute;
+
+            > .menuToggleButton {
+              background-color: transparent !important;
+              border-width: inherit;
+              display: flex;
+              align-items: center;
+              justify-content: center;
             }
+          }
         }
+      }
     }
+  }
 }

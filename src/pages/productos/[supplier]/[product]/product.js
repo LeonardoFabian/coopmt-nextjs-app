@@ -84,12 +84,14 @@ export default function SingleProduct(props) {
             <p>{summary}</p>
             <Shared.Separator height={16} />
             <div className={styles.actions}>
-              <Button primary className={styles.addToCart}>
-                <Icon name="cart plus" /> Añadir al carrito
-              </Button>
+              <Shared.AddToCart productId={product?.id} />
               <Button secondary className={styles.quote}>
                 <Icon name="calculator" /> Cotizar
               </Button>
+              <Shared.AddToWishlist
+                productId={product?.id}
+                className={styles.wishlist}
+              />
             </div>
           </div>
         </div>

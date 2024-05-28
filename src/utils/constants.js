@@ -17,6 +17,7 @@ export const ENV = {
     POST_TYPES: "post-types",
     TAXONOMIES: "taxonomies",
     PRODUCTS: "products",
+    WISHLIST: "wishlists",
     SUPPLIERS: "suppliers",
     COUNTRIES: {
       FIND: "countries",
@@ -42,5 +43,8 @@ export const ENV = {
     },
   },
   TOKEN: "COOP_JWT",
+  CART: "COOP_CART_PRODUCTS",
+  CALCULATOR: "COOP_CALCULATOR",
+  APPLICATION: "COOP_APPLICATION",
   DB_API_URL: "",
 };
