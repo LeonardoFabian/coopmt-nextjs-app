@@ -22,7 +22,7 @@ export function Basket(props) {
 
   const { changeItemQuantity, deleteItem } = useCart();
 
-  const options = Array.from({ length: 15 }, (_, index) => {
+  const options = Array.from({ length: 25 }, (_, index) => {
     const number = index + 1;
     return { key: number, text: String(number), value: number };
   });
@@ -84,11 +84,13 @@ export function Basket(props) {
                 )}
                 <p className={styles.priceToBuy}>
                   {`RD$${numeral(
-                    fn.calcDiscount(
-                      product.attributes.price,
-                      product.attributes.discount
-                    )
-                  ).format("0,0")}`}
+                    fn
+                      .calcDiscount(
+                        product.attributes.price,
+                        product.attributes.discount
+                      )
+                      .toFixed(2)
+                  ).format("0,0.00")}`}
                 </p>
                 {product.attributes.discount && (
                   <>
@@ -96,7 +98,9 @@ export function Basket(props) {
                       className={styles.regularPriceText}
                     >{`Precio regular`}</p>
                     <p className={styles.regularPrice}>
-                      {`RD$${numeral(product.attributes.price).format("0,0")}`}
+                      {`RD$${numeral(
+                        product.attributes.price.toFixed(2)
+                      ).format("0,0.00")}`}
                     </p>
                   </>
                 )}
@@ -116,7 +120,20 @@ export function Basket(props) {
                 </div>
               </TableCell>
               <TableCell className={styles.productTotal}>
-                <p>Total aqui</p>
+                <p className={styles.totalByQuantity}>
+                  RD$
+                  {numeral(
+                    fn
+                      .calcTotalByQuantity(
+                        fn.calcDiscount(
+                          product.attributes.price,
+                          product.attributes.discount
+                        ),
+                        product.quantity
+                      )
+                      .toFixed(2)
+                  ).format("0,0.00")}
+                </p>
               </TableCell>
             </TableRow>
           ))}

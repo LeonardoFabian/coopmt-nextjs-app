@@ -55,15 +55,21 @@ export function Summary(props) {
         <div className={styles.totals}>
           <div className={styles.subtotal}>
             <span>Subtotal</span>
-            <span>{`RD$${totals.original.toFixed(2)}`}</span>
+            <span>{`RD$${numeral(totals.original.toFixed(2)).format(
+              "0,0.00"
+            )}`}</span>
           </div>
           <div className={styles.discount}>
             <span>Descuento</span>
-            <span>{`RD$${totals.discount.toFixed(2)}`}</span>
+            <span>{`-RD$${numeral(totals.discount.toFixed(2)).format(
+              "0,0.00"
+            )}`}</span>
           </div>
           <div className={styles.total}>
             <span>Total</span>
-            <span>{`RD$${totals.price.toFixed(2)}`}</span>
+            <span>{`RD$${numeral(totals.price.toFixed(2)).format(
+              "0,0.00"
+            )}`}</span>
           </div>
         </div>
 
