@@ -32,7 +32,7 @@ export function CartLayout(props) {
   return (
     <>
       <TopBar isOpenSearch={isOpenSearch} data={global?.header} />
-      <Container fluid>
+      <Container fluid className={styles.content}>
         <Shared.Separator height={16} />
         <Cart.Header />
         <div className={classNames({ [styles.relative]: relative })}>

@@ -12,7 +12,8 @@ export const CartContext = createContext();
 export function CartProvider(props) {
   const { children } = props;
   const [cart, setCart] = useState(null);
-  const [total, setTotal] = useState(cartController.count());
+  const [total, setTotal] = useState(null);
+  const [quantity, setQuantity] = useState(cartController.count());
 
   useEffect(() => {
     // TODO: obtener carrito
@@ -54,12 +55,14 @@ export function CartProvider(props) {
 
   const refreshCount = () => {
     setTotal(cartController.count());
+    setQuantity(cartController.count());
     setCart(cartController.getAll());
   };
 
   const data = {
     cart,
     addToCart,
+    quantity,
     total,
     deleteItem,
     deleteAllItems: () => {}, // TODO: create function

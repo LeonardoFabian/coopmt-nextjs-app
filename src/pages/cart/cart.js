@@ -7,10 +7,19 @@ import { useRouter } from "next/router";
 import { useCart } from "@/hooks";
 import { Product } from "@/api";
 import { Cart } from "@/components/Layout";
+import { useAuth } from "@/hooks";
 
 const productController = new Product();
 
 export default function CartPage() {
+  const { user } = useAuth();
+  const router = useRouter();
+
+  if (!user) {
+    router.push("/");
+    return null;
+  }
+
   const {
     query: { step = 1 },
   } = useRouter();

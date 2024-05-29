@@ -1,6 +1,10 @@
 @import "~/src/scss/index.scss";
 
 .basket {
+  background-color: $light;
+  box-shadow: $box-shadow;
+  padding: 20px;
+
   .heading {
     margin-bottom: 30px;
   }

@@ -13,14 +13,14 @@ import { Shared } from "@/components/Shared";
 import { map } from "lodash";
 import { Cart } from "@/api";
 
-// const total = 5;
+// const quantity = 5;
 
 const cartController = new Cart();
 
 export function Account(props) {
   const { buttons } = props;
 
-  const { total } = useCart();
+  const { quantity } = useCart();
   const { user } = useAuth();
   const router = useRouter();
 
@@ -85,7 +85,9 @@ export function Account(props) {
 
       <Button className={styles.cart} onClick={goToCart}>
         <FontAwesomeIcon icon={faCartShopping} />
-        {total > 0 && <Label circular>{total > 9 ? "9+" : total}</Label>}
+        {quantity > 0 && (
+          <Label circular>{quantity > 9 ? "9+" : quantity}</Label>
+        )}
       </Button>
 
       <Button

@@ -1,0 +1,70 @@
+@import "~/src/scss/index.scss";
+
+.summary {
+  background-color: $light;
+  box-shadow: $box-shadow;
+  padding: 20px;
+
+  .heading {
+    margin-bottom: 30px;
+  }
+
+  .cartTotal {
+    background-color: $lightgreen;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    // .cartTotalHeading {
+    //   margin-bottom: 20px;
+    // }
+
+    .totals {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .subtotal {
+        display: flex;
+        justify-content: space-between;
+
+        > span:last-of-type {
+          font-weight: bold;
+        }
+      }
+
+      .discount {
+        display: flex;
+        justify-content: space-between;
+
+        > span:last-of-type {
+          color: $tertiary;
+        }
+      }
+
+      .total {
+        display: flex;
+        justify-content: space-between;
+
+        > span:first-of-type {
+          font-weight: bold;
+        }
+
+        > span:last-of-type {
+          font-size: 18px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+    }
+
+    a {
+      text-align: center;
+    }
+  }
+}
