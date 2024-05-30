@@ -52,7 +52,7 @@ export default function CartPage() {
         <Container isContainer>
           <Shared.Separator height={30} />
           {currentStep === 1 && <Cart.StepOne products={products} />}
-          {currentStep === 2 && <Cart.StepTwo />}
+          {currentStep === 2 && <Cart.StepTwo products={products} />}
           {currentStep === 3 && <h5>Confirmación</h5>}
           <Shared.Separator height={30} />
         </Container>

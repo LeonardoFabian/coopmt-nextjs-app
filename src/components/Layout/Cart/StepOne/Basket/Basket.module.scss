@@ -4,10 +4,14 @@
   background-color: $light;
   box-shadow: $box-shadow;
   padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 
-  .heading {
-    margin-bottom: 30px;
-  }
+  // .heading {
+  //   margin-bottom: 30px;
+  // }
 
   .productList {
     // width: 100%;

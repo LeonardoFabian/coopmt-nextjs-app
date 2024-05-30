@@ -1,1 +1,17 @@
 @import "~/src/scss/index.scss";
+
+.stepTwo {
+  display: flex;
+  align-items: self-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 30px;
+
+  .left {
+    width: 65%;
+  }
+
+  .right {
+    width: 35%;
+  }
+}
