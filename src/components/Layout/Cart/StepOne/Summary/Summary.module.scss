@@ -65,6 +65,10 @@
 
     .actions {
       display: flex;
+
+      > button {
+        border-radius: 8px;
+      }
     }
 
     a {

@@ -79,4 +79,34 @@ export class Cart {
 
     localStorage.setItem(ENV.CART, JSON.stringify(updatedProducts));
   }
+
+  /**
+   * Eliminar todos los productos de local storage
+   */
+  deleteAll() {
+    localStorage.removeItem(ENV.CART);
+  }
+
+  async payment(token, products, userId, address) {
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PAYMENT_ORDER}`;
+      const params = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          token,
+          products,
+          userId,
+          shippingAddress: address,
+        }),
+      };
+
+      const response = await authFetch(url, params);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 }

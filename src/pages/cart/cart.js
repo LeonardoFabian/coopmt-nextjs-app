@@ -33,12 +33,12 @@ export default function CartPage() {
       try {
         const data = [];
         for await (const item of cart) {
-          console.log("Cart item: ", item);
+          // console.log("Cart item: ", item);
           const response = await productController.getById(item.id);
-          console.log("Cart item by ID: ", response);
+          // console.log("Cart item by ID: ", response);
           data.push({ ...response.data, quantity: item.quantity });
         }
-        console.log("products on cart data: ", data);
+        // console.log("products on cart data: ", data);
         setProducts(data);
       } catch (error) {
         console.error(error);

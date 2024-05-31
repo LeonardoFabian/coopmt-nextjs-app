@@ -53,6 +53,14 @@ export function CartProvider(props) {
     refreshCount();
   };
 
+  /**
+   * Elimina todos los productos del carrito
+   */
+  const deleteAllItems = () => {
+    cartController.deleteAll();
+    refreshCount();
+  };
+
   const refreshCount = () => {
     setTotal(cartController.count());
     setQuantity(cartController.count());
@@ -65,7 +73,7 @@ export function CartProvider(props) {
     quantity,
     total,
     deleteItem,
-    deleteAllItems: () => {}, // TODO: create function
+    deleteAllItems,
     changeItemQuantity,
   };
 

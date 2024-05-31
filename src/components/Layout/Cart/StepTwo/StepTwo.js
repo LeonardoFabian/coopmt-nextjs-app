@@ -22,7 +22,7 @@ export function StepTwo(props) {
             addressSelected={addressSelected}
             setAddressSelected={setAddressSelected}
           />
-          <Shared.Separator height={54} />
+          <Shared.Separator height={30} />
           {addressSelected && <Payment />}
         </div>
         <div className={styles.right}>
