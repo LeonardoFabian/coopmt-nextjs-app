@@ -42,6 +42,7 @@ export const ENV = {
       MAIN: "main-menu",
     },
     PAYMENT_ORDER: "payment-order",
+    ORDERS: "orders",
   },
   TOKEN: "COOP_JWT",
   CART: "COOP_CART_PRODUCTS",

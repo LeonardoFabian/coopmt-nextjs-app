@@ -9,6 +9,7 @@ export * from "./country";
 export * from "./global";
 export * from "./homePageAPI";
 export * from "./mainMenu";
+export * from "./order";
 export * from "./page";
 export * from "./post";
 export * from "./postType";

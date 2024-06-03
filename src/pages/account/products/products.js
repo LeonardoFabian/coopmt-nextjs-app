@@ -20,7 +20,9 @@ export default function ProductsPage() {
       menuItem: { key: 1, icon: "clipboard check", content: "Mis productos" },
       render: () => (
         <Tab.Pane attached={false}>
-          <p>Aqui mis productos</p>
+          {/* <Shared.Separator height={54} /> */}
+          <Products.Orders />
+          <Shared.Separator height={54} />
         </Tab.Pane>
       ),
     },

@@ -1,0 +1,40 @@
+@import "~/src/scss/index.scss";
+
+.order {
+  background-color: $light;
+  border: 1px solid $border-primary;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .header {
+    background-color: $lightgray;
+    padding: 20px;
+
+    > div {
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        > span {
+          &:first-of-type {
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+        }
+
+        &:last-of-type {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .body {
+    background-color: $light;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}
