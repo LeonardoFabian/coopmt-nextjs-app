@@ -12,24 +12,28 @@ export default function SingleService(props) {
     service?.attributes?.featuredImage?.data?.attributes?.formats?.large?.url;
   const category = service.attributes.category.data.attributes.name;
   const categoryLink = `/servicios/${service.attributes.category.data.attributes.slug}`;
+
   return (
-    <RootLayout>
-      <Service.ServiceCover
-        heading={title}
-        subheading={description}
-        label={category}
-        labelPermalink={categoryLink}
-        imageSrc={imageSrc}
-        link="#"
-        linkText="Solicitar"
-      />
-      <Shared.Separator height={54} />
-      <Container isContainer>
-        <h3>Descripción</h3>
-        <Shared.Separator height={30} />
-        <p>{description}</p>
-      </Container>
-      <Shared.Separator height={54} />
-    </RootLayout>
+    <>
+      <Shared.Seo title={title} description={description} />
+      <RootLayout>
+        <Service.ServiceCover
+          heading={title}
+          subheading={description}
+          label={category}
+          labelPermalink={categoryLink}
+          imageSrc={imageSrc}
+          link="#"
+          linkText="Solicitar"
+        />
+        <Shared.Separator height={54} />
+        <Container isContainer>
+          <h3>Descripción</h3>
+          <Shared.Separator height={30} />
+          <p>{description}</p>
+        </Container>
+        <Shared.Separator height={54} />
+      </RootLayout>
+    </>
   );
 }

@@ -33,6 +33,7 @@ export default function SearchPage(props) {
 
   return (
     <>
+      <Shared.Seo title={`Resultados para "${searchText}"`} />
       <RootLayout isOpenSearch={true}>
         <Shared.PageHeader title={`Resultados para "${searchText}"`} />
         <Container isContainer>

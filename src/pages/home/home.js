@@ -3,6 +3,7 @@ import { RootLayout } from "@/layouts";
 import { HomePageAPI } from "@/api";
 import { useState, useEffect } from "react";
 import { BlockRenderer } from "@/components/BlockRenderer";
+import { Shared } from "@/components/Shared";
 
 const homePageController = new HomePageAPI();
 
@@ -27,6 +28,7 @@ export default function HomePage() {
 
   return (
     <>
+      <Shared.Seo />
       <RootLayout>
         <main className={styles.content}>
           <BlockRenderer blocks={blocks} />

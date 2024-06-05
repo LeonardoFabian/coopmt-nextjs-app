@@ -48,6 +48,7 @@ export default function CartPage() {
 
   return (
     <>
+      <Shared.Seo title={`COOPMT - Carrito de compra`} />
       <CartLayout>
         <Container isContainer>
           <Shared.Separator height={30} />

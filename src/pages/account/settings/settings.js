@@ -70,6 +70,7 @@ export default function SettingsPage() {
 
   return (
     <>
+      <Shared.Seo title="Ajustes" />
       <AccountLayout relative className={styles.settings}>
         <Header>
           <h2>Ajustes</h2>

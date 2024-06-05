@@ -65,19 +65,22 @@ export default function ProductsPage() {
   ];
 
   return (
-    <AccountLayout relative className={styles.productsPage}>
-      <Header>
-        <h2>Productos</h2>
-      </Header>
-      <Container isContainer className={styles.mainContent}>
-        <div className={styles.content}>
-          <Tab
-            menu={{ secondary: true, pointing: true }}
-            panes={panes}
-            className={styles.tabs}
-          />
-        </div>
-      </Container>
-    </AccountLayout>
+    <>
+      <Shared.Seo title={`Mis productos`} />
+      <AccountLayout relative className={styles.productsPage}>
+        <Header>
+          <h2>Productos</h2>
+        </Header>
+        <Container isContainer className={styles.mainContent}>
+          <div className={styles.content}>
+            <Tab
+              menu={{ secondary: true, pointing: true }}
+              panes={panes}
+              className={styles.tabs}
+            />
+          </div>
+        </Container>
+      </AccountLayout>
+    </>
   );
 }

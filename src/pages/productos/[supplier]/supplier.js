@@ -13,6 +13,10 @@ export default function SupplierPage(props) {
 
   return (
     <>
+      <Shared.Seo
+        title={`COOPMT - ${supplier?.attributes?.name}`}
+        description="Suplidor autorizado"
+      />
       <RootLayout>
         <Shared.PageHeader title={supplier?.attributes?.name} />
         <Container isContainer>

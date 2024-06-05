@@ -4,6 +4,7 @@ import { Header } from "@/components/Account";
 import { useAuth } from "@/hooks";
 import { useRouter } from "next/router";
 import { Container, Tab } from "semantic-ui-react";
+import { Shared } from "@/components/Shared";
 
 export default function ServicesPage() {
   const { user, logout } = useAuth();
@@ -34,19 +35,22 @@ export default function ServicesPage() {
   ];
 
   return (
-    <AccountLayout relative className={styles.servicesPage}>
-      <Header>
-        <h2>Servicios</h2>
-      </Header>
-      <Container isContainer className={styles.mainContent}>
-        <div className={styles.content}>
-          <Tab
-            menu={{ secondary: true, pointing: true }}
-            panes={panes}
-            className={styles.tabs}
-          />
-        </div>
-      </Container>
-    </AccountLayout>
+    <>
+      <Shared.Seo title={`Mis servicios`} />
+      <AccountLayout relative className={styles.servicesPage}>
+        <Header>
+          <h2>Servicios</h2>
+        </Header>
+        <Container isContainer className={styles.mainContent}>
+          <div className={styles.content}>
+            <Tab
+              menu={{ secondary: true, pointing: true }}
+              panes={panes}
+              className={styles.tabs}
+            />
+          </div>
+        </Container>
+      </AccountLayout>
+    </>
   );
 }

@@ -32,71 +32,74 @@ export default function SingleProduct(props) {
   const supplierData = product?.attributes?.supplier?.data;
 
   return (
-    <RootLayout>
-      {/* <Product.ProductCover
+    <>
+      <Shared.Seo title={title} />
+      <RootLayout>
+        {/* <Product.ProductCover
         heading={title}
         description={summary}
         imageSrc={imageSrc}
         link="#"
         linkText="Cotizar"
       /> */}
-      <Container isContainer>
-        <Shared.Separator height={54} />
-        <div className={styles.productOverview}>
-          <div className={styles.productPreview}>
-            <Product.ProductGallery
-              slides={slides}
-              video={video}
-              options={options}
-            />
-          </div>
-          <div className={styles.productData}>
-            <h3>{title}</h3>
-            <Link
-              href={`/productos/${supplierData?.attributes?.slug}`}
-              className={styles.supplierData}
-              target="_self"
-            >
-              Suplidor: {supplierData?.attributes?.name}
-            </Link>
-            <Shared.Separator height={16} />
-            <div className={styles.corePriceDisplay}>
-              <div className={styles.corePrice}>
-                {hasDiscount && (
-                  <span
-                    className={styles.savingsPercentage}
-                  >{`-${discount}%`}</span>
-                )}
-                <span className={styles.priceToPay}>
-                  RD${numeral(priceToPay).format("0,0")}
-                </span>
-              </div>
-              {hasDiscount && (
-                <div className={styles.regularPriceDisplay}>
-                  Precio regular: RD$
-                  <span className={styles.regularPrice}>
-                    {numeral(price).format("0,0")}
-                  </span>
-                </div>
-              )}
-            </div>
-            <Shared.Separator height={16} />
-            <p>{summary}</p>
-            <Shared.Separator height={16} />
-            <div className={styles.actions}>
-              <Shared.AddToCart productId={product?.id} />
-              <Button secondary className={styles.quote}>
-                <Icon name="calculator" /> Cotizar
-              </Button>
-              <Shared.AddToWishlist
-                productId={product?.id}
-                className={styles.wishlist}
+        <Container isContainer>
+          <Shared.Separator height={54} />
+          <div className={styles.productOverview}>
+            <div className={styles.productPreview}>
+              <Product.ProductGallery
+                slides={slides}
+                video={video}
+                options={options}
               />
             </div>
+            <div className={styles.productData}>
+              <h3>{title}</h3>
+              <Link
+                href={`/productos/${supplierData?.attributes?.slug}`}
+                className={styles.supplierData}
+                target="_self"
+              >
+                Suplidor: {supplierData?.attributes?.name}
+              </Link>
+              <Shared.Separator height={16} />
+              <div className={styles.corePriceDisplay}>
+                <div className={styles.corePrice}>
+                  {hasDiscount && (
+                    <span
+                      className={styles.savingsPercentage}
+                    >{`-${discount}%`}</span>
+                  )}
+                  <span className={styles.priceToPay}>
+                    RD${numeral(priceToPay).format("0,0")}
+                  </span>
+                </div>
+                {hasDiscount && (
+                  <div className={styles.regularPriceDisplay}>
+                    Precio regular: RD$
+                    <span className={styles.regularPrice}>
+                      {numeral(price).format("0,0")}
+                    </span>
+                  </div>
+                )}
+              </div>
+              <Shared.Separator height={16} />
+              <p>{summary}</p>
+              <Shared.Separator height={16} />
+              <div className={styles.actions}>
+                <Shared.AddToCart productId={product?.id} />
+                <Button secondary className={styles.quote}>
+                  <Icon name="calculator" /> Cotizar
+                </Button>
+                <Shared.AddToWishlist
+                  productId={product?.id}
+                  className={styles.wishlist}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-        <Shared.Separator height={54} />
-      </Container>
-    </RootLayout>
+          <Shared.Separator height={54} />
+        </Container>
+      </RootLayout>
+    </>
   );
 }

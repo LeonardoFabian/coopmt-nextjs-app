@@ -13,6 +13,7 @@ export default function CategoryPage(props) {
 
   return (
     <>
+      <Shared.Seo title={`COOPMT - ${category?.attributes?.name}`} />
       <RootLayout>
         <Shared.PageHeader title={category?.attributes?.name} />
         <Container isContainer>

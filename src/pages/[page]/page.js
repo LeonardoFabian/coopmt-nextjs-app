@@ -11,14 +11,17 @@ export default function SinglePage(props) {
   const description = page?.attributes?.description;
 
   return (
-    <RootLayout>
-      <Container isContainer>
-        <Shared.Separator height={54} />
-        <h2>{title}</h2>
-        <Shared.Separator height={16} />
-        <p>{description}</p>
-        <Shared.Separator height={54} />
-      </Container>
-    </RootLayout>
+    <>
+      <Shared.Seo title={`COOPMT - ${title}`} description={description} />
+      <RootLayout>
+        <Container isContainer>
+          <Shared.Separator height={54} />
+          <h2>{title}</h2>
+          <Shared.Separator height={16} />
+          <p>{description}</p>
+          <Shared.Separator height={54} />
+        </Container>
+      </RootLayout>
+    </>
   );
 }
