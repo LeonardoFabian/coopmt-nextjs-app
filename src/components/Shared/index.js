@@ -20,6 +20,7 @@ import { RequestService } from "./RequestService";
 import { QuoteProduct } from "./QuoteProduct";
 import { CalculateLoan } from "./CalculateLoan";
 import { Alert } from "./Alert";
+import { Seo } from "./Seo";
 
 export const Shared = {
   Separator,
@@ -44,4 +45,5 @@ export const Shared = {
   QuoteProduct,
   CalculateLoan,
   Alert,
+  Seo,
 };
