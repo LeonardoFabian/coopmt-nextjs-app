@@ -1,16 +1,18 @@
-import styles from './AppModal.module.scss';
-import { Modal } from 'semantic-ui-react';
+import styles from "./AppModal.module.scss";
+import { Modal } from "semantic-ui-react";
 
 export function AppModal(props) {
+  const { children, show, onClose = null, title, width } = props;
 
-    const { children, show, onClose = null, title } = props;
-
-    return (
-        <Modal open={show} onClose={onClose} size='small'>
-            {title && (<Modal.Header>{ title }</Modal.Header>)}
-            <Modal.Content>
-                { children }
-            </Modal.Content>
-        </Modal>
-    )
+  return (
+    <Modal
+      open={show}
+      onClose={onClose}
+      size="small"
+      style={{ width: `${width}%` }}
+    >
+      {title && <Modal.Header>{title}</Modal.Header>}
+      <Modal.Content>{children}</Modal.Content>
+    </Modal>
+  );
 }
