@@ -35,7 +35,7 @@ export function Faqs(props) {
                 index={i}
                 onClick={handleClick}
               >
-                <Icon name="dropdown" />
+                <Icon name="chevron" />
                 <p>{faq.question}</p>
               </AccordionTitle>
               <AccordionContent active={activeIndex === i}>
