@@ -23,9 +23,9 @@ export function ServiceCover(props) {
           </Link>
           <h1 className={styles.heading}>{heading}</h1>
         </div>
-        <h4 className={styles.subheading}>{subheading}</h4>
+        <p className={styles.subheading}>{subheading}</p>
         <Link href={link}>
-          <Button primary>
+          <Button>
             <span>{linkText}</span> <Icon name="arrow right"></Icon>
           </Button>
         </Link>

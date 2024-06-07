@@ -20,10 +20,26 @@ $background-quaternary: #3d3d3d;
 $background-quaternary__blur: #3d3d3d10;
 $background-light__blur: #ffffff10;
 
+// $linear-gradient-primary: linear-gradient(
+//   0deg,
+//   rgba(47, 146, 91, 0.8),
+//   rgba(113, 194, 27, 0.8)
+// );
+
 $linear-gradient-primary: linear-gradient(
-  0deg,
-  rgba(48, 138, 64, 0.4),
-  rgba(106, 186, 70, 0.7)
+  217deg,
+  rgba(47, 146, 91, 0.8),
+  rgba(47, 146, 91, 0) 70.71%
+);
+$linear-gradient-secondary: linear-gradient(
+  127deg,
+  rgba(52, 165, 99, 0.8),
+  rgba(52, 165, 99, 0) 70.71%
+);
+$linear-gradient-tertiary: linear-gradient(
+  336deg,
+  rgba(113, 194, 27, 0.8),
+  rgba(113, 194, 27, 0) 70.71%
 );
 
 $success: #6aba46;

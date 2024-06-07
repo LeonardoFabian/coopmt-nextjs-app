@@ -1,6 +1,7 @@
 import { RootLayout } from "@/layouts";
 import { Container } from "semantic-ui-react";
 import { Shared } from "@/components/Shared";
+import { BlockRenderer } from "@/components/BlockRenderer";
 
 export default function SinglePage(props) {
   console.log("Page props: ", props);

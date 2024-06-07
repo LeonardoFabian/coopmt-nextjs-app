@@ -1,0 +1,25 @@
+@import "~/src/scss/index.scss";
+
+.fees {
+  max-width: 100%;
+  margin: 0 auto;
+
+  .heading {
+  }
+  .table {
+    .body {
+      .fee {
+        .title {
+          width: 50%;
+          font-weight: bold;
+          font-size: 17px;
+        }
+
+        .description {
+          width: 50%;
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}

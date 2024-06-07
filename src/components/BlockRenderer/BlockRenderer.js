@@ -1,10 +1,25 @@
 import { Home } from "../Home";
 import { Block } from "../Block";
 import { Shared } from "../Shared";
+import { Fees, Requirements, Faqs } from "../Layout";
 
 export function BlockRenderer({ blocks }) {
   return (blocks || []).map((block) => {
     switch (block?.__component) {
+      case "layout.faqs":
+        return <Faqs heading={block.heading} faqs={block.faqs} />;
+        break;
+      case "layout.requirements":
+        return (
+          <Requirements
+            heading={block.heading}
+            requirements={block.requirements}
+          />
+        );
+        break;
+      case "layout.fees":
+        return <Fees heading={block.heading} fees={block.fees} />;
+        break;
       case "layout.hero-section":
         return <Home.HeroSection key={block?.id} block={block} />;
         break;

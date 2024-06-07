@@ -1,0 +1,15 @@
+@import "~/src/scss/index.scss";
+
+.faqs {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  > .heading {
+    text-align: center;
+  }
+
+  > .wrapper {
+    margin: 0 auto;
+  }
+}

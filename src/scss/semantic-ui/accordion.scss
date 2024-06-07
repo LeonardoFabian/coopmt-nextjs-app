@@ -1,0 +1,25 @@
+.accordion.ui {
+  background-color: $light;
+
+  > .title {
+    display: flex;
+    align-items: center;
+    > i {
+      font-size: 20px !important;
+    }
+    > p {
+      font-size: 17px;
+    }
+  }
+
+  > .content {
+    // padding-top: 16px !important;
+    padding-bottom: 16px !important;
+    padding-left: 40px !important;
+
+    > p {
+      font-size: 17px;
+      color: $text-secondary;
+    }
+  }
+}

@@ -3,14 +3,12 @@ import NextLink from "next/link";
 import { Image } from "@/components/Shared";
 
 export function PageLink({ block }) {
-  const { page, target, label, description, icon } = block;
+  const { page, label, description, icon } = block;
+
+  console.log("page: ", page);
 
   return (
-    <NextLink
-      href={`/${page.path}` || "#"}
-      target="_self"
-      className={styles.pageLink}
-    >
+    <NextLink href={page.slug} target="_self" className={styles.pageLink}>
       {icon.url ? (
         <div className={styles.imageWrapper}>
           <Image src={icon?.url} alt={icon.alternativeText || "Image"} />

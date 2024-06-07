@@ -4,3 +4,6 @@ export * from "./Cart";
 export * from "./Menu";
 export * from "./Footer";
 export * from "./BottomBar";
+export * from "./Fees";
+export * from "./Requirements";
+export * from "./Faqs";

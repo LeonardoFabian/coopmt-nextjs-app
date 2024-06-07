@@ -2,17 +2,36 @@
 
 .serviceCover {
   position: relative;
+  // height: 100vh;
   height: 450px;
   overflow: hidden;
+  // background: $background-primary;
+  // background: $background-secondary;
+  background-color: $background-light__blur;
+  // background-image: $linear-gradient-primary, $linear-gradient-secondary,
+  //   $linear-gradient-tertiary;
 
   > .background {
     // position: relative;
     position: absolute;
+    background-position: center;
     object-fit: cover;
     width: 100%;
     height: 100%;
     inset: 0px;
-    mix-blend-mode: multiply;
+    // mix-blend-mode: multiply;
+
+    -webkit-mask-image: url(/images/service-cover.svg);
+    // -webkit-mask-image: url(/images/blob.svg);
+    -webkit-mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+
+    mask-image: url(/images/service-cover.svg);
+    // mask-image: url(/images/blob.svg);
+    mask-position: center center;
+    mask-repeat: no-repeat;
+    mask-size: cover;
   }
 
   > .contentWrapper {
@@ -25,15 +44,51 @@
     justify-content: center;
 
     > .header {
+      width: 50%;
+
       > a {
         > .label {
-          color: $tertiary;
+          font-size: 18px;
+          // color: $tertiary;
+          color: $primary;
+          // color: $text-accent;
+          // color: $light;
+          font-weight: bold;
           text-transform: uppercase;
+          letter-spacing: 0.2rem;
         }
       }
 
       > .heading {
-        color: $primary;
+        // color: $accent;
+        color: $tertiary;
+        // color: $light;
+        font-size: 48px;
+        // text-transform: uppercase;
+      }
+    }
+
+    .subheading {
+      width: 50%;
+      font-size: 20px;
+      letter-spacing: 1px;
+      // color: $lightgreen;
+      // color: $light;
+      color: $text-secondary;
+    }
+
+    a {
+      > button {
+        background-color: $tertiary;
+        color: $light;
+        transition: all 0.3s ease-in;
+
+        &:hover {
+          // background-color: $accent;
+          background-color: $primary;
+          color: $light;
+          box-shadow: $box-shadow;
+        }
       }
     }
   }
