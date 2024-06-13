@@ -67,6 +67,26 @@ export class Post {
     }
   }
 
+  async getByTaxonomy(slug, page) {
+    const filters = `filters[taxonomy][slug][$eq]=${slug}`;
+    const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;
+    const populate = "populate=*";
+    const params = `${filters}&${pagination}&${populate}`;
+
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.POSTS}?${params}`;
+
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async search(text, page) {
     const filters = `filters[title][$contains]=${text}`;
     const pagination = `pagination[page]=${page}&pagination[pageSize]=6`;

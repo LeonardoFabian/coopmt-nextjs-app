@@ -7,12 +7,15 @@ import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { ENV } from "@/utils";
+import { size } from "lodash";
 
 const stripeInit = loadStripe(ENV.STRIPE_TOKEN);
 
 export function StepTwo(props) {
   const { products } = props;
   const [addressSelected, setAddressSelected] = useState(null);
+
+  if (size(products) < 1) return null;
 
   return (
     <Elements stripe={stripeInit}>

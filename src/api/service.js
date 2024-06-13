@@ -27,8 +27,10 @@ export class Service {
     const populateCategory = "populate[2]=category.featuredImage";
     const populateTarget = "populate[3]=targets";
     const populateBlocks =
-      "populate[4]=blocks&populate[5]=blocks.fees&populate[6]=blocks.faqs&populate[7]=blocks.requirements&populate[8]=blocks.advantages";
-    const populates = `${populateService}&${populateCategory}&${populateTarget}&${populateBlocks}`;
+      "populate[4]=blocks&populate[5]=blocks.fees&populate[6]=blocks.faqs&populate[7]=blocks.requirements&populate[8]=blocks.advantages&populate[9]=blocks.title";
+    const populateFaqs =
+      "populate[10]=blocks.faqs.question&populate[11]=blocks.faqs.answers";
+    const populates = `${populateService}&${populateCategory}&${populateTarget}&${populateBlocks}&${populateFaqs}`;
     const params = `${filters}&${populates}`;
 
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.SERVICES}?${params}`;

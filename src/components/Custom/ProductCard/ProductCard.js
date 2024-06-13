@@ -23,13 +23,13 @@ export function ProductCard(props) {
         )}
       </div>
       <div className={styles.cardBody}>
-        <Link href={`/productos/${supplier?.data?.attributes?.slug}/${slug}`}>
+        <Link href={`/afiliados/${supplier?.data?.attributes?.slug}/${slug}`}>
           <h5 className={styles.title}>{title}</h5>
         </Link>
 
         <div className={styles.supplierContainer}>
           <Link
-            href={`/productos/${supplier?.data?.attributes?.slug}`}
+            href={`/afiliados/${supplier?.data?.attributes?.slug}`}
             className={styles.supplierLink}
           >
             <span className={styles.supplier}>

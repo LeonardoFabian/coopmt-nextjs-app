@@ -1,0 +1,41 @@
+@import "~/src/scss/index.scss";
+
+.serviceLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+
+  > i {
+    color: $tertiary;
+    font-size: 20px;
+    width: 30px;
+  }
+
+  .meta {
+    .name {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      color: $text-primary;
+    }
+    .description {
+      color: $text-secondary;
+    }
+  }
+
+  &:hover {
+    background-color: $lightgreen;
+
+    > i {
+      color: $primary;
+    }
+
+    > .meta {
+      .name {
+        color: $primary;
+      }
+    }
+  }
+}

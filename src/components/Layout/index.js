@@ -6,4 +6,5 @@ export * from "./Footer";
 export * from "./BottomBar";
 export * from "./Fees";
 export * from "./Requirements";
-export * from "./Faqs";
+export * from "./Container";
+export * from "./Group";

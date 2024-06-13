@@ -23,11 +23,11 @@ export function Product(props) {
       <div className={styles.wrapper}>
         <Shared.Image src={image.data.attributes.url} />
         <div className={styles.info}>
-          <Link href={`/productos/${supplier.attributes.slug}/${slug}`}>
+          <Link href={`/afiliados/${supplier.attributes.slug}/${slug}`}>
             <h6>{title}</h6>
           </Link>
           <Link
-            href={`/productos/${supplier.attributes.slug}`}
+            href={`/afiliados/${supplier.attributes.slug}`}
             className={styles.supplier}
           >
             <span>{supplier.attributes.name}</span>

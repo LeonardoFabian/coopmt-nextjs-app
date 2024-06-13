@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Button } from "semantic-ui-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { forEach } from "lodash";
+import { forEach, size } from "lodash";
 import { fn } from "@/utils";
 import numeral from "numeral";
 
@@ -39,7 +39,7 @@ export function Summary(props) {
     });
   }, [products]);
 
-  if (!totals) return null;
+  if (!totals || size(products) === 0) return null;
 
   const goToStepTwo = () => {
     router.replace({ query: { ...router.query, step: 2 } });

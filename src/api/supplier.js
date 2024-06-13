@@ -3,9 +3,15 @@ import { ENV } from "@/utils";
 export class Supplier {
   async find() {
     try {
-      const sort = "sort=order:asc";
-      const populate = "populate=logo";
-      const params = `${sort}&${populate}`;
+      const sort = "sort=name:asc";
+      const populate =
+        "populate[0]=logo&populate[1]=featuredImage&populate[2]=information&populate[3]=socialNetworks";
+      const populateInformation =
+        "populate[4]=information.location&populate[5]=information.opening_hours";
+      const populateLocation =
+        "populate[6]=information.location.contactAddress&populate[7]=information.location.contactPhones&populate[8]=information.location.contactEmail&populate[9]=information.location.website";
+
+      const params = `${sort}&${populate}&${populateInformation}&${populateLocation}`;
 
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.SUPPLIERS}?${params}`;
 

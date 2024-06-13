@@ -1,24 +1,25 @@
 @import "~/src/scss/index.scss";
 
-
 .account {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    margin-left: 35px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 35px;
 
-    button {
-        height: 40px;
-        max-height: 40px;
+  button {
+    height: 40px;
+    max-height: 40px;
+  }
+
+  .user {
+    background-color: transparent !important;
+    color: $primary !important;
+    font-size: 13px;
+
+    &:hover {
+      background-color: $lightgray !important;
+      color: $tertiary !important;
+      border-color: $tertiary !important;
     }
-
-    .user {
-        background-color: transparent !important;
-        color: $text-primary !important;
-
-        &:hover {
-            background-color: $lightgray !important;
-            color: $primary !important;
-        }
-    }
+  }
 }

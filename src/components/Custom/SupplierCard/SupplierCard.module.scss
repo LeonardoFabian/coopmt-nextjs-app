@@ -1,0 +1,114 @@
+@import "~/src/scss/index.scss";
+
+.supplierCard {
+  background-color: $light;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .header {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 16px;
+
+    > img {
+      height: 75px;
+      width: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      background-color: $lightgray;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    > div {
+      display: flex;
+      gap: 16px;
+
+      > span {
+        font-weight: bold;
+        width: 20%;
+      }
+
+      .hours {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        > .hour {
+          display: flex;
+          gap: 6px;
+          //   flex-direction: column;
+        }
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 30px;
+
+    > div {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+
+      > a {
+        box-shadow: $box-shadow;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        > i {
+          font-size: 20px;
+          color: $primary;
+        }
+
+        &:hover {
+          background-color: $primary;
+          transition: all 0.3s ease-in;
+
+          i {
+            // background-color: $primary;
+            color: $light;
+          }
+        }
+      }
+    }
+  }
+
+  .moreInfo {
+    > span:first-of-type {
+      font-weight: bold;
+    }
+  }
+}
+
+.phone {
+  color: $primary;
+
+  &:hover {
+    color: $tertiary;
+  }
+}
+
+.email {
+  color: $primary;
+
+  &:hover {
+    color: $tertiary;
+  }
+}

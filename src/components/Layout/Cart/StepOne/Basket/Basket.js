@@ -9,7 +9,7 @@ import {
   TableCell,
   TableBody,
 } from "semantic-ui-react";
-import { map } from "lodash";
+import { map, size } from "lodash";
 import { fn } from "@/utils";
 import { useCart } from "@/hooks";
 import { Shared } from "@/components/Shared";
@@ -26,6 +26,9 @@ export function Basket(props) {
     const number = index + 1;
     return { key: number, text: String(number), value: number };
   });
+
+  if (size(products) === 0)
+    return <Shared.NoResult text="No tienes productos añadidos al carrito." />;
 
   return (
     <div className={styles.basket}>
@@ -51,7 +54,7 @@ export function Basket(props) {
                 />
                 <div className={styles.info}>
                   <Link
-                    href={`/productos/${product.attributes.supplier.data.attributes.slug}/${product.attributes.slug}`}
+                    href={`/afiliados/${product.attributes.supplier.data.attributes.slug}/${product.attributes.slug}`}
                   >
                     <span className={styles.title}>
                       {product.attributes.title}
@@ -59,19 +62,17 @@ export function Basket(props) {
                   </Link>
                   <span className={styles.supplier}>
                     <Link
-                      href={`/productos/${product.attributes.supplier.data.attributes.slug}`}
+                      href={`/afiliados/${product.attributes.supplier.data.attributes.slug}`}
                     >
                       {product.attributes.supplier.data.attributes.name}
                     </Link>
                   </span>
                   <div className={styles.actions}>
-                    <span className={styles.remove}>
-                      <Icon
-                        name="trash"
-                        link
-                        onClick={() => deleteItem(product.id)}
-                      />{" "}
-                      Eliminar del carrito
+                    <span
+                      className={styles.remove}
+                      onClick={() => deleteItem(product.id)}
+                    >
+                      <Icon name="trash" link /> Eliminar del carrito
                     </span>
                   </div>
                 </div>

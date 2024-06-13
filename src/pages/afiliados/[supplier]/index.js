@@ -11,8 +11,8 @@ export async function getServerSideProps(context) {
   const { page = 1 } = query;
   const { supplier } = params;
 
-  const supplierConstroller = new Supplier();
-  const supplierResponse = await supplierConstroller.getBySlug(supplier);
+  const supplierController = new Supplier();
+  const supplierResponse = await supplierController.getBySlug(supplier);
 
   const productController = new Product();
   const productResponse = await productController.getBySupplier(supplier, page);

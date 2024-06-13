@@ -43,6 +43,13 @@ const homePageQuery = qs.stringify({
             },
           },
         },
+        suppliers: {
+          populate: {
+            logo: {
+              fields: ["url", "alternativeText"],
+            },
+          },
+        },
       },
     },
   },

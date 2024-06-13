@@ -44,7 +44,7 @@ export default function SupplierPage(props) {
               />
             </>
           ) : (
-            <p>No result</p>
+            <Shared.NoResult text="Por el momento no hemos publicado algunos de nuestros productos, pero pronto, podrás consultarlos desde aquí." />
           )}
           <Shared.Separator height={54} />
         </Container>

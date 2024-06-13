@@ -1,5 +1,9 @@
-@import '~/src/scss/index.scss';
+@import "~/src/scss/index.scss";
 
 .relative {
-    padding-top: 75px;
+  padding-top: 75px;
+}
+
+.main {
+  background-color: $lightgray;
 }

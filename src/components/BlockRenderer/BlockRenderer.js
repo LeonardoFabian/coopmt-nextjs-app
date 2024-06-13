@@ -1,13 +1,52 @@
 import { Home } from "../Home";
 import { Block } from "../Block";
+import { Blocks } from "../Blocks";
 import { Shared } from "../Shared";
-import { Fees, Requirements, Faqs } from "../Layout";
+import { Fees, Requirements, Container, Group } from "../Layout";
 
 export function BlockRenderer({ blocks }) {
   return (blocks || []).map((block) => {
+    // console.log("BlockRenderer: ", block);
     switch (block?.__component) {
-      case "layout.faqs":
-        return <Faqs heading={block.heading} faqs={block.faqs} />;
+      case "layout.container":
+        return (
+          <Container
+            key={block?.id}
+            display={block?.display}
+            theme={block?.theme}
+            alignItems={block?.alignItems}
+            flexDirection={block?.flexDirection}
+            justifyContent={block?.justifyContent}
+            gap={block?.gap}
+            isContainer={block?.isContainer}
+            blocks={block.blocks}
+          >
+            {block?.blocks?.map((innerBlocks) => {
+              return (
+                <Group
+                  key={innerBlocks.id}
+                  display={innerBlocks?.display}
+                  theme={innerBlocks?.theme}
+                  alignItems={innerBlocks?.alignItems}
+                  flexDirection={innerBlocks?.flexDirection}
+                  justifyContent={innerBlocks?.justifyContent}
+                  gap={innerBlocks?.gap}
+                  isContainer={innerBlocks?.isContainer}
+                  blocks={innerBlocks}
+                />
+              );
+            })}
+          </Container>
+        );
+        break;
+      case "blocks.faqs":
+        return (
+          <Blocks.Faqs
+            title={block.title}
+            faqs={block.faqs}
+            theme={block.theme}
+          />
+        );
         break;
       case "layout.requirements":
         return (
@@ -40,7 +79,14 @@ export function BlockRenderer({ blocks }) {
         );
         break;
       case "layout.logo-clouds":
-        return <Home.LogoClouds key={block?.id} block={block} />;
+        return (
+          <Home.LogoClouds
+            key={block?.id}
+            suppliers={block?.suppliers?.data}
+            heading={block?.heading}
+            subheading={block?.subheading}
+          />
+        );
         break;
       case "components.link":
         return <Block.Link key={block?.id} block={block} />;
@@ -50,6 +96,26 @@ export function BlockRenderer({ blocks }) {
         break;
       case "components.page-link":
         return <Block.PageLink key={block?.id} block={block} />;
+        break;
+      case "shared.postype-link":
+        return (
+          <Block.PosttypeLink
+            key={block?.id}
+            label={block?.label}
+            post_type={block?.post_type}
+          />
+        );
+        break;
+      case "shared.service-link":
+        return (
+          <Block.ServiceLink
+            key={block?.id}
+            label={block?.label}
+            description={block?.description}
+            service={block?.service}
+            icon={block?.icon}
+          />
+        );
         break;
       case "components.banner":
         return (

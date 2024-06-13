@@ -1,0 +1,31 @@
+@import "~/src/scss/index.scss";
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+  //   background-color: $lightgreen;
+
+  > .taxonomyWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: $light;
+    padding: 20px;
+    margin-bottom: 30px;
+    // border-bottom: 1px solid $border-primary;
+
+    &:last-of-type {
+      border: none;
+      margin-bottom: 0;
+    }
+
+    > .heading {
+      color: $primary;
+
+      > .taxonomyName {
+        color: $tertiary;
+      }
+    }
+  }
+}

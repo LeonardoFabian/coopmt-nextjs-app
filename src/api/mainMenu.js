@@ -13,6 +13,9 @@ const mainMenuQuery = qs.stringify({
             },
           },
         },
+        post_type: {
+          populate: true,
+        },
         icon: {
           fields: ["url", "alternativeText"],
         },
@@ -35,12 +38,32 @@ const mainMenuQuery = qs.stringify({
                   },
                 },
                 icon: {
-                  fields: ["url", "alternativeText"],
+                  fields: ["name"],
                 },
                 pages: {
                   populate: {
                     featuredImage: {
                       fields: ["url", "alternativeText"],
+                    },
+                  },
+                },
+                post_type: {
+                  populate: true,
+                },
+                service: {
+                  populate: {
+                    featuredImage: {
+                      fields: ["url", "alternativeText"],
+                    },
+                    category: {
+                      populate: {
+                        featuredImage: {
+                          fields: ["url", "alternativeText"],
+                        },
+                      },
+                    },
+                    targets: {
+                      fields: ["name", "description", "slug"],
                     },
                   },
                 },

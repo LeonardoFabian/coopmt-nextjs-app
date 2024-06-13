@@ -8,7 +8,7 @@ export function PageLink({ block }) {
   console.log("page: ", page);
 
   return (
-    <NextLink href={page.slug} target="_self" className={styles.pageLink}>
+    <NextLink href={`/${page.slug}`} target="_self" className={styles.pageLink}>
       {icon.url ? (
         <div className={styles.imageWrapper}>
           <Image src={icon?.url} alt={icon.alternativeText || "Image"} />

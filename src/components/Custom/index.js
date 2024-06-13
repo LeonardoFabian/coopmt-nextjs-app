@@ -4,6 +4,7 @@ import { EmblaCarouselThumbs } from "./EmblaCarouselThumbs";
 import { ServiceCard } from "./ServiceCard";
 import { ProductCard } from "./ProductCard";
 import { SwiperThumbs } from "./SwiperThumbs";
+import { SupplierCard } from "./SupplierCard";
 
 export const Custom = {
   PostCard,
@@ -12,4 +13,5 @@ export const Custom = {
   ServiceCard,
   ProductCard,
   SwiperThumbs,
+  SupplierCard,
 };

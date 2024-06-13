@@ -135,7 +135,7 @@ export default function SearchPage(props) {
                 {map(products, (product) => (
                   <Link
                     key={product.id}
-                    href={`/productos/${product.attributes.supplier.data.attributes.slug}/${product?.attributes?.slug}`}
+                    href={`/afiliados/${product.attributes.supplier.data.attributes.slug}/${product?.attributes?.slug}`}
                   >
                     <Custom.ProductCard
                       title={product?.attributes?.title}

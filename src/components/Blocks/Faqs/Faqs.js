@@ -10,9 +10,12 @@ import { map } from "lodash";
 import { useState } from "react";
 
 export function Faqs(props) {
-  const { heading, faqs } = props;
+  console.log("FAQs: ", props);
+  const { title, faqs, theme } = props;
   const [activeIndex, setActiveIndex] = useState(0);
   //   state = { activeIndex: 0 };
+
+  //   const heading = title?.title;
 
   const handleClick = (e, titleProps) => {
     console.log("titleProps: ", titleProps);
@@ -24,7 +27,12 @@ export function Faqs(props) {
   return (
     <div className={styles.faqs}>
       <Shared.Separator height={30} />
-      <h5 className={styles.heading}>{heading}</h5>
+      {/* <h5 className={styles.heading}>{heading}</h5> */}
+      <Shared.Title
+        text={title?.text}
+        tagName={title?.tagName}
+        align={title?.align}
+      />
       <div className={styles.wrapper}>
         <Accordion styled>
           {map(faqs, (faq, i) => (
@@ -35,11 +43,18 @@ export function Faqs(props) {
                 index={i}
                 onClick={handleClick}
               >
-                <Icon name="chevron" />
-                <p>{faq.question}</p>
+                <Icon name="dropdown" />
+                <Shared.Title
+                  text={faq.question.text}
+                  tagName={faq.question.tagName}
+                  align={faq.question.align}
+                />
+                {/* <p>{faq.question}</p> */}
               </AccordionTitle>
               <AccordionContent active={activeIndex === i}>
-                <p>{faq.answer}</p>
+                {map(faq.answers, (answer) => (
+                  <Shared.Paragraph paragraph={answer.text} />
+                ))}
               </AccordionContent>
             </>
           ))}
