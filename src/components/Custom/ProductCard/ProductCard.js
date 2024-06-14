@@ -41,6 +41,7 @@ export function ProductCard(props) {
         <div className={styles.cardData}>
           <div className={styles.meta}>
             <div className={styles.price}>
+              <p>Desde</p>
               <p className={styles.corePrice}>
                 <span className={styles.priceToPay}>
                   {`RD$${numeral(priceToPay).format("0,0")} `}

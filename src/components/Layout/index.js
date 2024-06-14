@@ -8,3 +8,4 @@ export * from "./Fees";
 export * from "./Requirements";
 export * from "./Container";
 export * from "./Group";
+export * from "./ProductList";

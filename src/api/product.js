@@ -1,6 +1,72 @@
 import { ENV, authFetch } from "@/utils";
+import qs from "qs";
 
 export class Product {
+  async getAll() {
+    const populate = "populate=*";
+    const params = `${populate}`;
+
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCTS}?${params}`;
+
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  async getRandom(limit) {
+    const products = this.getAll();
+    const firstID = this.getRandomInt(products.length);
+    const secondID = this.getRandomInt(limit);
+    const random = qs.stringify({ id_in: [firstID, secondID] });
+    const pagination = `pagination[limit]=${limit}`;
+    const populate = "populate=*";
+    const sort = "sort=id:desc";
+    const params = `${random}&${pagination}&${populate}&${sort}`;
+
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCTS}?${params}`;
+
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async find(limit) {
+    const pagination = `pagination[limit]=${limit}`;
+    const populate = "populate=*";
+    const params = `${pagination}&${populate}`;
+
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCTS}?${params}`;
+
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async getBySupplier(slug, page) {
     const filters = `filters[supplier][slug][$eq]=${slug}`;
     const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;

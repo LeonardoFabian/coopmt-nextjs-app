@@ -26,7 +26,7 @@ export function SwiperThumbs(props) {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className={styles.mainSwiperSlide}>
-            <Shared.Image src={slide.attributes.url} />
+            <Shared.Image src={slide?.attributes?.url} />
           </SwiperSlide>
         ))}
         {hasVideo && (
@@ -46,7 +46,7 @@ export function SwiperThumbs(props) {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className={styles.swiperSlideThumb}>
-            <Shared.Image src={slide.attributes.formats.thumbnail.url} />
+            <Shared.Image src={slide?.attributes?.formats?.thumbnail?.url} />
           </SwiperSlide>
         ))}
         {hasVideo && (

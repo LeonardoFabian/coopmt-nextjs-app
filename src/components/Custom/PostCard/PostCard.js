@@ -15,6 +15,7 @@ export function PostCard({
   date,
 }) {
   const hasTaxonomy = Boolean(post?.attributes?.taxonomy?.data?.attributes);
+  const postType = post?.attributes?.post_type?.data;
 
   return (
     // <Suspense fallback={<Skeleton />}>
@@ -38,7 +39,11 @@ export function PostCard({
               </Link>
             </div>
           )}
-          <h5 className={styles.title}>{post?.attributes?.title}</h5>
+          <Link
+            href={`/publicaciones/${postType?.attributes?.slug}/${post?.attributes?.slug}`}
+          >
+            <h5 className={styles.title}>{post?.attributes?.title}</h5>
+          </Link>
           {/* <p className={styles.description}>
                         {
                             content.length > 150 

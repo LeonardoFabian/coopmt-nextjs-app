@@ -1,0 +1,675 @@
+search  
+mail outline  
+external  
+signal  
+setting  
+home  
+inbox  
+browser  
+tag  
+tags  
+calendar  
+comment  
+comments  
+shop  
+privacy  
+settings  
+trophy  
+payment  
+feed  
+alarm outline  
+tasks  
+cloud  
+lab  
+mail  
+idea  
+dashboard  
+sitemap  
+alarm  
+terminal  
+code  
+protect  
+calendar outline  
+ticket  
+external square  
+map  
+bug  
+mail square  
+history  
+options  
+comment outline  
+comments outline  
+text telephone  
+find  
+wifi  
+alarm slash  
+alarm slash outline  
+copyright  
+at  
+eyedropper  
+paint brush  
+heartbeat  
+download  
+repeat  
+refresh  
+lock  
+bookmark  
+print  
+write  
+theme  
+adjust  
+edit  
+external share  
+ban  
+mail forward  
+share  
+expand  
+compress  
+unhide  
+hide  
+random  
+retweet  
+sign out  
+pin  
+sign in  
+upload  
+call  
+call square  
+remove bookmark  
+unlock  
+configure  
+filter  
+wizard  
+undo  
+exchange  
+cloud download  
+cloud upload  
+reply  
+reply all  
+erase  
+unlock alternate  
+archive  
+translate  
+recycle  
+send  
+send outline  
+share alternate  
+share alternate square  
+wait  
+write square  
+share square  
+add to cart  
+in cart  
+add user  
+remove user  
+help circle  
+info circle  
+warning  
+warning circle  
+warning sign  
+help  
+info  
+announcement  
+birthday  
+users  
+doctor  
+child  
+user  
+handicap  
+student  
+spy  
+female  
+male  
+woman  
+man  
+non binary transgender  
+intergender  
+transgender  
+lesbian  
+gay  
+heterosexual  
+other gender  
+other gender vertical  
+other gender horizontal  
+neuter  
+grid layout  
+list layout  
+block layout  
+zoom  
+zoom out  
+resize vertical  
+resize horizontal  
+maximize  
+crop  
+cocktail  
+road  
+flag  
+book  
+gift  
+leaf  
+fire  
+plane  
+magnet  
+legal  
+lemon  
+world  
+travel  
+shipping  
+money  
+lightning  
+rain  
+treatment  
+suitcase  
+bar  
+flag outline  
+flag checkered  
+puzzle  
+fire extinguisher  
+rocket  
+anchor  
+bullseye  
+sun  
+moon  
+fax  
+life ring  
+bomb  
+soccer  
+calculator  
+diamond  
+crosshairs  
+asterisk  
+certificate  
+circle  
+quote left  
+quote right  
+ellipsis horizontal  
+ellipsis vertical  
+cube  
+cubes  
+circle notched  
+circle thin  
+square outline  
+square  
+checkmark  
+remove  
+checkmark box  
+move  
+add circle  
+minus circle  
+remove circle  
+check circle  
+remove circle outline  
+check circle outline  
+plus  
+minus  
+add square  
+radio  
+selected radio  
+minus square  
+minus square outline  
+check square  
+plus square outline  
+toggle off  
+toggle on  
+film  
+sound  
+photo  
+bar chart  
+camera retro  
+newspaper  
+area chart  
+pie chart  
+line chart  
+arrow circle outline down  
+arrow circle outline up  
+chevron left  
+chevron right  
+arrow left  
+arrow right  
+arrow up  
+arrow down  
+chevron up  
+chevron down  
+pointing right  
+pointing left  
+pointing up  
+pointing down  
+arrow circle left  
+arrow circle right  
+arrow circle up  
+arrow circle down  
+caret down  
+caret up  
+caret left  
+caret right  
+angle double left  
+angle double right  
+angle double up  
+angle double down  
+angle left  
+angle right  
+angle up  
+angle down  
+chevron circle left  
+chevron circle right  
+chevron circle up  
+chevron circle down  
+toggle down  
+toggle up  
+toggle right  
+long arrow down  
+long arrow up  
+long arrow left  
+long arrow right  
+arrow circle outline right  
+arrow circle outline left  
+toggle left  
+power  
+trash  
+trash outline  
+disk outline  
+desktop  
+laptop  
+tablet  
+mobile  
+game  
+keyboard  
+plug  
+folder  
+folder open  
+level up  
+level down  
+file  
+file outline  
+file text  
+file text outline  
+folder outline  
+folder open outline  
+file pdf outline  
+file word outline  
+file excel outline  
+file powerpoint outline  
+file image outline  
+file archive outline  
+file audio outline  
+file video outline  
+file code outline  
+barcode  
+qrcode  
+fork  
+html5  
+css3  
+rss  
+rss square  
+openid  
+database  
+server  
+heart  
+star  
+empty star  
+thumbs outline up  
+thumbs outline down  
+star half  
+empty heart  
+smile  
+frown  
+meh  
+star half empty  
+thumbs up  
+thumbs down  
+music  
+video play outline  
+volume off  
+volume down  
+volume up  
+record  
+step backward  
+fast backward  
+backward  
+play  
+pause  
+stop  
+forward  
+fast forward  
+step forward  
+eject  
+unmute  
+mute  
+video play  
+closed captioning  
+marker  
+coffee  
+food  
+building outline  
+hospital  
+emergency  
+first aid  
+military  
+h  
+location arrow  
+space shuttle  
+university  
+building  
+paw  
+spoon  
+car  
+taxi  
+tree  
+bicycle  
+bus  
+ship  
+motorcycle  
+street view  
+hotel  
+train  
+subway  
+table  
+columns  
+sort  
+sort ascending  
+sort descending  
+sort alphabet ascending  
+sort alphabet descending  
+sort content ascending  
+sort content descending  
+sort numeric ascending  
+sort numeric descending  
+font  
+bold  
+italic  
+text height  
+text width  
+align left  
+align center  
+align right  
+align justify  
+list  
+outdent  
+indent  
+linkify  
+cut  
+copy  
+attach  
+save  
+content  
+unordered list  
+ordered list  
+strikethrough  
+underline  
+paste  
+unlink  
+superscript  
+subscript  
+header  
+paragraph  
+euro  
+pound  
+dollar  
+rupee  
+yen  
+ruble  
+won  
+lira  
+shekel  
+paypal  
+paypal card  
+google wallet  
+visa  
+mastercard  
+discover  
+american express  
+stripe  
+twitter square  
+facebook square  
+linkedin square  
+github square  
+twitter  
+facebook  
+github  
+pinterest  
+pinterest square  
+google plus square  
+google plus  
+linkedin  
+github alternate  
+maxcdn  
+bitcoin  
+youtube square  
+youtube  
+xing  
+xing square  
+youtube play  
+dropbox  
+stack overflow  
+instagram  
+flickr  
+adn  
+bitbucket  
+bitbucket square  
+tumblr  
+tumblr square  
+apple  
+windows  
+android  
+linux  
+dribbble  
+skype  
+foursquare  
+trello  
+gittip  
+vk  
+weibo  
+renren  
+pagelines  
+stack exchange  
+vimeo  
+slack  
+wordpress  
+yahoo  
+google  
+reddit  
+reddit square  
+stumbleupon circle  
+stumbleupon  
+delicious  
+digg  
+pied piper  
+pied piper alternate  
+drupal  
+joomla  
+behance  
+behance square  
+steam  
+steam square  
+spotify  
+deviantart  
+soundcloud  
+vine  
+codepen  
+jsfiddle  
+rebel  
+empire  
+git square  
+git  
+hacker news  
+tencent weibo  
+qq  
+wechat  
+slideshare  
+twitch  
+yelp  
+lastfm  
+lastfm square  
+ioxhost  
+angellist  
+meanpath  
+buysellads  
+connectdevelop  
+dashcube  
+forumbee  
+leanpub  
+sellsy  
+shirtsinbulk  
+simplybuilt  
+skyatlas  
+whatsapp  
+viacoin  
+medium  
+like  
+favorite  
+video  
+check  
+close  
+cancel  
+delete  
+x  
+user times  
+user close  
+user cancel  
+user delete  
+user x  
+zoom in  
+magnify  
+shutdown  
+clock  
+time  
+play circle outline  
+headphone  
+camera  
+video camera  
+picture  
+pencil  
+compose  
+point  
+tint  
+signup  
+plus circle  
+dont  
+minimize  
+add  
+eye  
+attention  
+cart  
+shuffle  
+talk  
+chat  
+shopping cart  
+bar graph  
+area graph  
+pie graph  
+line graph  
+key  
+cogs  
+discussions  
+like outline  
+dislike outline  
+heart outline  
+log out  
+thumb tack  
+winner  
+bookmark outline  
+phone  
+phone square  
+credit card  
+hdd outline  
+bullhorn  
+bell  
+bell outline  
+bell slash  
+bell slash outline  
+hand outline right  
+hand outline left  
+hand outline up  
+hand outline down  
+globe  
+wrench  
+briefcase  
+group  
+flask  
+sidebar  
+bars  
+list ul  
+list ol  
+numbered list  
+magic  
+truck  
+currency  
+triangle down  
+dropdown  
+triangle up  
+triangle left  
+triangle right  
+envelope  
+conversation  
+umbrella  
+clipboard  
+lightbulb  
+ambulance  
+medkit  
+fighter jet  
+beer  
+plus square  
+computer  
+circle outline  
+intersex  
+asexual  
+spinner  
+gamepad  
+star half full  
+question  
+eraser  
+microphone  
+microphone slash  
+shield  
+target  
+play circle  
+pencil square  
+compass  
+amex  
+eur  
+gbp  
+usd  
+inr  
+cny  
+rmb  
+jpy  
+rouble  
+rub  
+krw  
+btc  
+sheqel  
+ils  
+try  
+zip  
+dot circle outline  
+sliders  
+wi-fi  
+graduation  
+weixin  
+binoculars  
+gratipay  
+genderless  
+teletype  
+power cord  
+tty  
+cc  
+plus cart  
+arrow down cart  
+detective  
+venus  
+mars  
+mercury  
+venus double  
+female homosexual  
+mars double  
+male homosexual  
+venus mars  
+mars stroke  
+mars alternate  
+mars vertical  
+mars horizontal  
+mars stroke vertical  
+mars stroke horizontal  
+facebook official  
+pinterest official  
+bed 

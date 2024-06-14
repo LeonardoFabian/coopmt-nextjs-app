@@ -7,6 +7,7 @@ import styles from "./product.module.scss";
 import Link from "next/link";
 import numeral from "numeral";
 import { fn } from "@/utils";
+import { map, size } from "lodash";
 
 export default function SingleProduct(props) {
   console.log("SingleProduct props: ", props);
@@ -17,9 +18,11 @@ export default function SingleProduct(props) {
   const title = product?.attributes?.title;
   const summary = product?.attributes?.summary;
   const imageSrc = product?.attributes?.image?.data?.attributes?.url;
-  const slides =
-    product?.attributes?.gallery?.data ||
-    Array.from(Array(TEST_SLIDE_COUNT).keys());
+  const slides = product?.attributes?.gallery?.data;
+  const hasGallery = size(product?.attributes?.gallery?.data) > 0;
+  // const slides =
+  // product?.attributes?.gallery?.data ||
+  // Array.from(Array(TEST_SLIDE_COUNT).keys());
   const video = product?.attributes?.video;
   const options = {};
   const price = product?.attributes?.price;
@@ -46,16 +49,20 @@ export default function SingleProduct(props) {
           <Shared.Separator height={54} />
           <div className={styles.productOverview}>
             <div className={styles.productPreview}>
-              <Product.ProductGallery
-                slides={slides}
-                video={video}
-                options={options}
-              />
+              {hasGallery ? (
+                <Product.ProductGallery
+                  slides={slides}
+                  video={video}
+                  options={options}
+                />
+              ) : (
+                <Shared.Image src={imageSrc} />
+              )}
             </div>
             <div className={styles.productData}>
               <h3>{title}</h3>
               <Link
-                href={`/productos/${supplierData?.attributes?.slug}`}
+                href={`/afiliados/${supplierData?.attributes?.slug}`}
                 className={styles.supplierData}
                 target="_self"
               >

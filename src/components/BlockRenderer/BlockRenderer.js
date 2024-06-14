@@ -2,12 +2,24 @@ import { Home } from "../Home";
 import { Block } from "../Block";
 import { Blocks } from "../Blocks";
 import { Shared } from "../Shared";
-import { Fees, Requirements, Container, Group } from "../Layout";
+import { Fees, Requirements, Container, Group, ProductList } from "../Layout";
 
 export function BlockRenderer({ blocks }) {
   return (blocks || []).map((block) => {
     // console.log("BlockRenderer: ", block);
     switch (block?.__component) {
+      case "layout.product-list":
+        return (
+          <ProductList
+            key={block?.id}
+            heading={block?.heading}
+            subheading={block?.subheading}
+            limit={block?.limit}
+            columns={block?.columns}
+            link={block?.link}
+          />
+        );
+        break;
       case "layout.container":
         return (
           <Container
