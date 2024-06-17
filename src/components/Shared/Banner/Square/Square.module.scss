@@ -1,0 +1,20 @@
+@import "~/src/scss/index.scss";
+
+.square {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  //   display: inline-flex;
+  //   order: 5 !important;
+  //   flex-grow: 3 !important;
+  //   flex-shrink: 3 !important;
+  //   flex-basis: 33.33% !important;
+  //   gap: 30px;
+
+  img {
+    width: 100%;
+    max-width: 250px;
+    height: 100%;
+  }
+}

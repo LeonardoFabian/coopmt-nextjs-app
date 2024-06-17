@@ -1,0 +1,22 @@
+@import "~/src/scss/index.scss";
+
+.halfBanner {
+  width: 234px;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+  //   display: inline-flex;
+  //   order: 5 !important;
+  //   flex-grow: 3 !important;
+  //   flex-shrink: 3 !important;
+  //   flex-basis: 33.33% !important;
+  //   gap: 30px;
+  //   border-radius: 8px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    max-width: 234px;
+    height: 100%;
+  }
+}

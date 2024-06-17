@@ -1,8 +1,8 @@
 import { useState, useEffect, createContext } from "react";
 
-export const CalculatorContext = createContext();
+export const ServiceCalculatorContext = createContext();
 
-export function CalculatorProvider(props) {
+export function ServiceCalculatorProvider(props) {
   const { children } = props;
   const [monto, setMonto] = useState(0);
   const [tiempo, setTiempo] = useState(0);
@@ -26,8 +26,8 @@ export function CalculatorProvider(props) {
   };
 
   return (
-    <CalculatorContext.Provider value={data}>
+    <ServiceCalculatorContext.Provider value={data}>
       {children}
-    </CalculatorContext.Provider>
+    </ServiceCalculatorContext.Provider>
   );
 }

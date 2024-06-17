@@ -50,6 +50,16 @@ const homePageQuery = qs.stringify({
             },
           },
         },
+        ad: {
+          populate: {
+            image: {
+              fields: ["url", "alternativeText"],
+            },
+            supplier: {
+              populate: true,
+            },
+          },
+        },
       },
     },
   },

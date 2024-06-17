@@ -1,24 +1,37 @@
+import styles from "./supplier.module.scss";
 import { RootLayout } from "@/layouts";
 import { Container } from "semantic-ui-react";
 import { size, map } from "lodash";
 import { Shared } from "@/components/Shared";
 import { Custom } from "@/components/Custom";
 import Link from "next/link";
+import { BlockRenderer } from "@/components/BlockRenderer";
 
 export default function SupplierPage(props) {
   console.log("SupplierPage props: ", props);
 
-  const { supplier, products, pagination } = props;
+  const { supplier, products, pagination, ads } = props;
   const hasProducts = size(products) > 0;
+  const hasBlocks = size(supplier?.blocks) > 0;
+  const blocks = supplier?.blocks;
 
   return (
     <>
       <Shared.Seo
-        title={`COOPMT - ${supplier?.attributes?.name}`}
-        description="Suplidor autorizado"
+        title={`COOPMT - ${supplier?.name}`}
+        description={`${
+          supplier?.information?.description || "Suplidor autorizado"
+        }`}
       />
       <RootLayout>
-        <Shared.PageHeader title={supplier?.attributes?.name} />
+        <Shared.PageHeader title={supplier?.name} />
+        {hasBlocks && (
+          <Container isContainer>
+            <div className={styles.supplierPage}>
+              <BlockRenderer blocks={blocks} />
+            </div>
+          </Container>
+        )}
         <Container isContainer>
           <Shared.Separator height={54} />
           {hasProducts ? (

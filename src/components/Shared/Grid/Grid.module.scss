@@ -1,5 +1,13 @@
 @import "~/src/scss/index.scss";
 
 .grid {
-    display: grid;
+  display: grid;
+
+  @include tablet() {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  @include mobile() {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
 }

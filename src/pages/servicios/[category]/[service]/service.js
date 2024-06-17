@@ -3,6 +3,7 @@ import { Shared } from "@/components/Shared";
 import { Service } from "@/components/Service";
 import { Container } from "semantic-ui-react";
 import { BlockRenderer } from "@/components/BlockRenderer";
+import { ServiceProvider } from "@/contexts";
 
 export default function SingleService(props) {
   console.log("SingleService props: ", props);
@@ -18,27 +19,29 @@ export default function SingleService(props) {
 
   return (
     <>
-      <Shared.Seo title={title} description={description} />
-      <RootLayout>
-        <Service.ServiceCover
-          heading={title}
-          subheading={summary}
-          label={category}
-          labelPermalink={categoryLink}
-          imageSrc={imageSrc}
-          link="#"
-          linkText="Solicitar"
-        />
-        <Shared.Separator height={54} />
-        <Container isContainer>
-          <h5>Descripción</h5>
-          <Shared.Separator height={30} />
-          <p>{description}</p>
+      <ServiceProvider>
+        <Shared.Seo title={title} description={description} />
+        <RootLayout>
+          <Service.ServiceCover
+            heading={title}
+            subheading={summary}
+            label={category}
+            labelPermalink={categoryLink}
+            imageSrc={imageSrc}
+            link="#"
+            linkText="Solicitar"
+          />
           <Shared.Separator height={54} />
-          <BlockRenderer blocks={blocks} />
-        </Container>
-        <Shared.Separator height={54} />
-      </RootLayout>
+          <Container isContainer>
+            <h5>Descripción</h5>
+            <Shared.Separator height={30} />
+            <p>{description}</p>
+            <Shared.Separator height={54} />
+            <BlockRenderer blocks={blocks} />
+          </Container>
+          <Shared.Separator height={54} />
+        </RootLayout>
+      </ServiceProvider>
     </>
   );
 }

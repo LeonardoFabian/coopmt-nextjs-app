@@ -1,0 +1,14 @@
+@import "~/src/scss/index.scss";
+
+.supplierPage {
+  display: flex !important;
+  // flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
+  //   flex-flow: column wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 20px 20px;
+  //   gap: 30px;
+  //   column-gap: 30px;
+}

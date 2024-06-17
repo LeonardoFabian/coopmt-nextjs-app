@@ -21,3 +21,4 @@ export * from "./taxonomy";
 export * from "./token";
 export * from "./user";
 export * from "./wishlist";
+export * from "./ad";

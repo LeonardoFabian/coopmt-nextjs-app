@@ -3,11 +3,15 @@ import { Block } from "../Block";
 import { Blocks } from "../Blocks";
 import { Shared } from "../Shared";
 import { Fees, Requirements, Container, Group, ProductList } from "../Layout";
+import { Supplier } from "../Supplier";
 
 export function BlockRenderer({ blocks }) {
   return (blocks || []).map((block) => {
     // console.log("BlockRenderer: ", block);
     switch (block?.__component) {
+      case "supplier.hero":
+        return <Supplier.Hero key={block?.id} banner={block?.banner} />;
+        break;
       case "layout.product-list":
         return (
           <ProductList
@@ -133,10 +137,12 @@ export function BlockRenderer({ blocks }) {
         return (
           <Shared.Banner
             key={block?.id}
-            image={block?.image}
             title={block?.title}
-            link={block?.url || "#"}
-            target={block.target || "_self"}
+            text={block?.text}
+            url={block?.url || "#"}
+            target={block?.target || "_self"}
+            ad={block?.ad}
+            display={block?.display}
           />
         );
         break;

@@ -20,7 +20,7 @@ export function Footer(props) {
           </div>
 
           <div className={styles.about}>
-            <h4>Cooperativa</h4>
+            <h5 className={styles.heading}>Cooperativa</h5>
             <ul className={styles.aboutList}>
               <Link href="#">Sobre nosotros</Link>
               <Link href="#">Términos y condiciones</Link>
@@ -30,21 +30,21 @@ export function Footer(props) {
           </div>
 
           <div className={styles.tools}>
-            <h4>Herramientas</h4>
+            <h5 className={styles.heading}>Herramientas</h5>
             <ul className={styles.toolsList}>
               <Link href="#">Cálculadora de préstamos</Link>
             </ul>
           </div>
 
           <div className={styles.contactInfo}>
-            <h4>Contáctanos</h4>
+            <h5 className={styles.heading}>Contáctanos</h5>
             <ul className={styles.aboutList}>
               <Link href="#">Dirección</Link>
               <Link href="#">Télefono</Link>
               <Link href="#">Correo</Link>
               <Link href="#">Horarios</Link>
               <div className={styles.contactSubmenu}>
-                <h4>Síguenos en</h4>
+                <h5 className={styles.heading}>Síguenos en</h5>
                 <ul className={styles.social}>
                   <Button
                     as="a"

@@ -6,12 +6,19 @@ export function ServiceProvider(props) {
   const { children } = props;
   const [service, setService] = useState(null);
 
+  console.log("ServiceProvider...");
+
   useEffect(() => {
     // TODO: obtener servicio
   }, []);
 
   const data = {
     service,
+    // calculateLoan: null,
+    checkMyRate: () => {},
+    sendApplication: () => {},
+    checkApplicationStatus: () => {},
+    sendReview: () => {},
   };
 
   return (

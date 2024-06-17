@@ -7,7 +7,7 @@ export function PageHeader(props) {
   return (
     <Container fluid className={styles.pageHeader}>
       <Container isContainer className={styles.wrapper}>
-        <h2 className={styles.title}>{title}</h2>
+        <h3 className={styles.title}>{title}</h3>
       </Container>
     </Container>
   );

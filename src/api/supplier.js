@@ -1,4 +1,6 @@
 import { ENV } from "@/utils";
+import { flattenAttributes } from "@/utils";
+import qs from "qs";
 
 export class Supplier {
   async find() {
@@ -27,16 +29,121 @@ export class Supplier {
   }
 
   async getBySlug(slug) {
-    const filters = `filters[slug][$eq]=${slug}`;
-    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.SUPPLIERS}?${filters}`;
+    const supplierBySlugQuery = qs.stringify({
+      filters: {
+        slug: `${slug}`,
+      },
+      populate: {
+        logo: {
+          fields: ["url", "alternativeText"],
+        },
+        featuredImage: {
+          fields: ["url", "alternativeText"],
+        },
+        information: {
+          fields: ["description"],
+          populate: {
+            location: {
+              populate: {
+                contactAddress: {
+                  fields: [
+                    "title",
+                    "address",
+                    "city",
+                    "state",
+                    "postalCode",
+                    "icon",
+                  ],
+                },
+                contactPhones: {
+                  fields: ["number", "icon"],
+                },
+                contactEmail: {
+                  fields: ["email", "title", "icon"],
+                },
+                website: {
+                  fields: ["url"],
+                },
+              },
+            },
+            opening_hours: {
+              fields: ["day_interval", "opening_hour", "closing_hour"],
+            },
+          },
+        },
+        socialNetworks: {
+          fields: ["url", "icon"],
+        },
+        blocks: {
+          on: {
+            "components.banner": {
+              fields: ["url", "target", "title", "text", "display"],
+              populate: {
+                ad: {
+                  fields: [
+                    "title",
+                    "type",
+                    "status",
+                    "clicks",
+                    "planned_start_time",
+                    "planned_end_time",
+                    "start_time",
+                    "end_time",
+                  ],
+                  populate: {
+                    image: {
+                      fields: ["url", "alternativeText"],
+                    },
+                  },
+                },
+              },
+            },
+            "supplier.hero": {
+              populate: {
+                banner: {
+                  fields: ["url", "target", "title", "text", "display"],
+                  populate: {
+                    ad: {
+                      fields: [
+                        "title",
+                        "type",
+                        "status",
+                        "clicks",
+                        "planned_start_time",
+                        "planned_end_time",
+                        "start_time",
+                        "end_time",
+                      ],
+                      populate: {
+                        image: {
+                          fields: ["url", "alternativeText"],
+                        },
+                      },
+                    },
+                  }
+                }
+              }
+            }
+          },
+        },
+      },
+    });
+
+    const baseUrl = `${ENV.API_URL}/`;
+    const path = `${ENV.ENDPOINTS.SUPPLIERS}`;
+
+    const url = new URL(path, baseUrl);
+    url.search = supplierBySlugQuery;
 
     try {
-      const response = await fetch(url);
+      const response = await fetch(url.href, { cache: "no-store" });
       const result = await response.json();
 
-      if (response.status !== 200) throw result;
+      const flattenedData = flattenAttributes(result);
 
-      return result.data[0];
+      if (response.status !== 200) throw flattenedData;
+
+      return flattenedData.data[0];
     } catch (error) {
       throw error;
     }

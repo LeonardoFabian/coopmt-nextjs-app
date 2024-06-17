@@ -1,0 +1,14 @@
+@import "~/src/scss/index.scss";
+
+.responsiveSquareArt {
+  width: 550px;
+  height: 550px;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 550px;
+    height: 100%;
+    max-width: 600;
+  }
+}

@@ -13,6 +13,7 @@ export const ENV = {
       ME: "users/me",
       UPDATE: "users",
     },
+    MEMBERSHIP: "membership-applications",
     CATEGORIES: {
       FIND: "categories",
     },
@@ -21,6 +22,7 @@ export const ENV = {
     PRODUCTS: "products",
     WISHLIST: "wishlists",
     SUPPLIERS: "suppliers",
+    ADS: "ads",
     COUNTRIES: {
       FIND: "countries",
     },
