@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "coopmt-next",
+      "script": "coopmt-next-pm2.js",
+      "cwd": "./"
+    }
+  ]
+}

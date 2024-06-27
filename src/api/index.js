@@ -1,4 +1,5 @@
 export * from "./address";
+export * from "./affiliation";
 export * from "./application";
 export * from "./auth";
 export * from "./calculator";

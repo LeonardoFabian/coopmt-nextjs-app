@@ -1,0 +1,90 @@
+@import "~/src/scss/index.scss";
+
+.affiliationFormHeader {
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 30px;
+
+      .step {
+        display: flex;
+        align-items: center;
+
+        &.active {
+          > span {
+            color: $text-primary;
+            font-weight: bold;
+          }
+          .number {
+            border-color: $tertiary;
+          }
+        }
+
+        &.success .number {
+          border-color: $tertiary;
+          background-color: $tertiary;
+          color: $tertiary;
+
+          > i {
+            display: flex;
+            position: absolute;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+            color: $light;
+          }
+        }
+
+        &.success .title {
+          color: $tertiary;
+          font-weight: bold;
+        }
+
+        &.success .space {
+          background-color: $tertiary;
+        }
+
+        > span {
+          color: $gray;
+        }
+
+        .number {
+          border: 3px solid $gray;
+          font-size: 12px;
+          border-radius: 100px;
+          width: 35px;
+          min-width: 35px;
+          height: 34px;
+          min-height: 34px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-right: 1px;
+          margin-right: 10px;
+
+          > i {
+            display: none;
+          }
+        }
+
+        .space {
+          width: 80px;
+          height: 3px;
+          background-color: $gray;
+          margin-left: 15px;
+          margin-right: 20px;
+        }
+
+        &:last-of-type .space {
+          display: none;
+        }
+      }
+    }
+  }
+}

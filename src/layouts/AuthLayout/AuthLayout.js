@@ -17,23 +17,25 @@ export function AuthLayout(props) {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.topBar}>
-        <Link href="/">
-          <Image src="/images/logo.svg" alt="COOPMT" fill />
-        </Link>
-        <Link href="/">
-          <FontAwesomeIcon
-            icon={faClose}
-            size="xl"
-            inverse
-            className="highlight"
-          />
-        </Link>
-        {/* <Link href="/"><Icon name="close" /></Link> */}
+    <div className={styles.authLayout}>
+      <div className={styles.container}>
+        <div className={styles.topBar}>
+          <Link href="/">
+            <Image src="/images/logo.svg" alt="COOPMT" fill />
+          </Link>
+          <Link href="/" className={styles.close}>
+            <FontAwesomeIcon
+              icon={faClose}
+              size="xl"
+              inverse
+              className="highlight"
+            />
+          </Link>
+          {/* <Link href="/"><Icon name="close" /></Link> */}
+        </div>
+        <div className={styles.left}>{children}</div>
+        <div className={styles.right}></div>
       </div>
-      <div className={styles.left}>{children}</div>
-      <div className={styles.right}></div>
     </div>
   );
 }

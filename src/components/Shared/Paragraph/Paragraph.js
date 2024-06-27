@@ -1,7 +1,7 @@
 import styles from "./Paragraph.module.scss";
 
 export function Paragraph(props) {
-  const { paragraph, align, fontStyle, transform } = props;
+  const { paragraph, align, fontStyle, transform, className } = props;
 
   const paragraphStyles = {
     textAlign: align,
@@ -10,7 +10,7 @@ export function Paragraph(props) {
   };
 
   return (
-    <p className={styles.paragraph} style={paragraphStyles}>
+    <p className={className} style={paragraphStyles}>
       {paragraph}
     </p>
   );

@@ -23,8 +23,10 @@ import { Alert } from "./Alert";
 import { Seo } from "./Seo";
 import { Title } from "./Title";
 import { Paragraph } from "./Paragraph";
+import { RadioButtons } from "./RadioButtons";
 
 export const Shared = {
+  RadioButtons,
   Separator,
   AppModal,
   Confirm,

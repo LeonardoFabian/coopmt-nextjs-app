@@ -1,12 +1,15 @@
 @import "~/src/scss/index.scss";
 
 .pageHeader {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
   background-color: $light;
   transition: all 0.3s ease-in-out;
+  border-bottom: 0.2px solid $lightgreen;
+  // box-shadow: $box-shadow;
+  // margin-bottom: 30px;
 
   .wrapper {
     .title {

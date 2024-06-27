@@ -47,7 +47,7 @@ export function Header() {
                 <Icon name="check" />
                 {step.number}
               </span>
-              <span>{step.title}</span>
+              <span className={styles.title}>{step.title}</span>
               <span className={styles.space}></span>
             </div>
           ))}

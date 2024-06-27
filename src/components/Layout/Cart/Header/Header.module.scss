@@ -59,6 +59,11 @@
           }
         }
 
+        &.success .title {
+          color: $tertiary;
+          font-weight: bold;
+        }
+
         &.success .space {
           background-color: $tertiary;
         }

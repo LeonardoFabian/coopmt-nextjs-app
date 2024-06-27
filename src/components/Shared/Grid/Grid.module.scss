@@ -2,6 +2,7 @@
 
 .grid {
   display: grid;
+  grid-auto-rows: 1fr;
 
   @include tablet() {
     grid-template-columns: repeat(2, 1fr) !important;

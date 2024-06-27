@@ -1,7 +1,13 @@
 @import "~/src/scss/index.scss";
 
-.heading {
+.registerForm {
+  .heading {
     color: $text-primary;
     margin-bottom: 1rem;
     text-align: center;
+
+    .fields {
+      margin: 0 !important;
+    }
+  }
 }

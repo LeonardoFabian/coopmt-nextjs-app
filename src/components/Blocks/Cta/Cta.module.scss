@@ -1,0 +1,145 @@
+@import "~/src/scss/index.scss";
+
+.cta {
+  background-color: $lightgreen;
+  // background-color: $light-accent;
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 54px 0;
+
+    @include mobile() {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .contentWrapper {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      background-color: $primary;
+      // background: url(/images/ffflux.svg);
+      padding: 40px 84px;
+      border-radius: 20px 0px 0px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      @include mobile() {
+        padding: 32px;
+        border-radius: 20px;
+      }
+
+      .content {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @include mobile() {
+          width: 100%;
+          text-align: center;
+        }
+
+        .title {
+          color: $accent !important;
+
+          @include mobile() {
+            text-align: center !important;
+          }
+        }
+
+        .paragraph {
+          color: $light;
+
+          @include mobile() {
+            text-align: center !important;
+          }
+        }
+      }
+
+      .actions {
+        display: flex;
+
+        @include mobile() {
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          text-align: center !important;
+        }
+      }
+    }
+
+    .imageWrapper {
+      background-color: $lightgreen;
+      border-radius: 0px 30px 30px 0px;
+    }
+
+    .blockContentWrapper {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      // background-color: $accent;
+      background: url("/images/ffflux.svg");
+
+      padding: 40px 84px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 30px;
+
+      @include mobile() {
+        padding: 32px;
+        border-radius: 20px;
+        flex-direction: column;
+      }
+
+      .content {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @include mobile() {
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
+
+        .title {
+          color: $light;
+          // color: $text-accent !important;
+
+          @include mobile() {
+            text-align: center !important;
+          }
+        }
+
+        .paragraph {
+          color: $text-accent;
+          font-size: 18px;
+
+          @include mobile() {
+            text-align: center !important;
+          }
+        }
+      }
+
+      .actions {
+        width: 25%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: end;
+
+        @include mobile() {
+          width: 100%;
+          //   flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+          text-align: center !important;
+        }
+      }
+    }
+  }
+}

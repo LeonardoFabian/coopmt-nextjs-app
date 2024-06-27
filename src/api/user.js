@@ -1,55 +1,70 @@
 import { ENV, authFetch } from "@/utils";
 
 export class User {
+  async getByDocumentId(documentId) {
+    const filters = `filters[documentId][$eq]=${documentId}`;
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS.UPDATE}?${filters}`;
 
-    /**
-     * Get User data
-     * @returns 
-     */
-    async getMe() {
-        try {
-            const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS.ME}`;
-            // const params = {
-            //     headers: {
-            //         Authorization: `Bearer rqrqrqwerqwrqwer`,
-            //     },
-            // };
-            const response = await authFetch(url);
-            const result = await response.json();
-    
-            if(response.status !== 200) throw result;
-    
-            return result;
-        } catch(error) {
-            throw error;
-        }
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result.data;
+    } catch (error) {
+      throw error;
     }
+  }
 
-    /**
-     * Update authenticated User
-     * @param {*} userId 
-     * @param {*} data 
-     * @returns 
-     */
-    async updateMe(userId, data) {
-        try {
-            const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS.UPDATE}/${userId}`;
-            const params = {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            }
+  /**
+   * Get User data
+   * @returns
+   */
+  async getMe() {
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS.ME}`;
+      // const params = {
+      //     headers: {
+      //         Authorization: `Bearer rqrqrqwerqwrqwer`,
+      //     },
+      // };
+      const response = await authFetch(url);
+      const result = await response.json();
 
-            const response = await authFetch(url, params);
-            const result = await response.json();
+      if (response.status !== 200) throw result;
 
-            if(response.status !== 200) throw result;
-
-            return result;
-        } catch (error) {
-            throw error;
-        }
+      return result;
+    } catch (error) {
+      throw error;
     }
+  }
+
+  /**
+   * Update authenticated User
+   * @param {*} userId
+   * @param {*} data
+   * @returns
+   */
+  async updateMe(userId, data) {
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS.UPDATE}/${userId}`;
+      const params = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      };
+
+      const response = await authFetch(url, params);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
 }

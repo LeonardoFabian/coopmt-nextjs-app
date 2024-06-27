@@ -1,64 +1,62 @@
 .ui.button {
-    background-color: $light;
-    color: $text-secondary;
-    margin: 0;
-    padding: 1rem 1.5rem;
-    border-radius: 25px; // 4px;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    text-transform: uppercase;
+  background-color: $light;
+  color: $text-secondary;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  border-radius: 6px; // 25px; // 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
 
-    &:hover {
-        background-color: $lightgray;
-        color: $text-primary;
-    }
-    &:active,
-    &:focus {
-        background-color: $lightgray;
-        color: $text-primary;
-    }
+  &:hover {
+    background-color: $lightgray;
+    color: $text-primary;
+  }
+  &:active,
+  &:focus {
+    background-color: $lightgray;
+    color: $text-primary;
+  }
 }
 
 .ui.button.hidden {
-    display: none !important;
+  display: none !important;
 }
 
 .ui.primary.button {
-    background-color: $primary;
-    color: $light;
-    border: 2px solid $primary;
-    transition: all .3s ease-out;
+  background-color: $primary;
+  color: $light;
+  border: 2px solid $primary;
+  transition: all 0.3s ease-out;
 
-    &:hover {
-        background-color: $secondary;
-        color: $light;
-        border: 2px solid $secondary;
-    }
-    &:active,
-    &:focus {
-        background-color: $secondary;
-        color: $light;
-        border: 2px solid $secondary;
-    }
+  &:hover {
+    background-color: $secondary;
+    color: $light;
+    border: 2px solid $secondary;
+  }
+  &:active,
+  &:focus {
+    background-color: $secondary;
+    color: $light;
+    border: 2px solid $secondary;
+  }
 }
 
 .ui.secondary.button {
-    background-color: transparent;
+  background-color: $lightgray;
+  // background-color: transparent;
+  color: $primary;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    background-color: $lightgreen;
     color: $primary;
-    border: 2px solid $primary;
-    transition: all .3s ease-out;
-
-
-    &:hover {
-        background-color: $primary;
-        color: $light;
-    }
-    &:active,
-    &:focus {
-        background-color: $primary;
-        color: $light;
-    }
+  }
+  &:active,
+  &:focus {
+    background-color: $lightgreen;
+    color: $primary;
+  }
 }
-
-

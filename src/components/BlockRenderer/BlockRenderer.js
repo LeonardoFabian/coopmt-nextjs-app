@@ -9,6 +9,17 @@ export function BlockRenderer({ blocks }) {
   return (blocks || []).map((block) => {
     // console.log("BlockRenderer: ", block);
     switch (block?.__component) {
+      case "blocks.cta":
+        return (
+          <Blocks.Cta
+            key={block?.id}
+            buttons={block?.buttons}
+            text={block?.text}
+            title={block?.title}
+            theme={block?.theme}
+          />
+        );
+        break;
       case "supplier.hero":
         return <Supplier.Hero key={block?.id} banner={block?.banner} />;
         break;

@@ -60,6 +60,19 @@ const homePageQuery = qs.stringify({
             },
           },
         },
+        title: {
+          fields: ["tagName", "align", "text"],
+        },
+        text: {
+          fields: ["align", "transform", "fontStyle", "text"],
+        },
+        buttons: {
+          populate: {
+            link: {
+              populate: true,
+            },
+          },
+        },
       },
     },
   },

@@ -1,18 +1,18 @@
-import styles from './Grid.module.scss';
+import styles from "./Grid.module.scss";
+import classNames from "classnames";
 
 export function Grid(props) {
+  const { cols, gap, children, className } = props;
 
-    const { cols, gap, children } = props;
-
-    return (
-        <div 
-            className={styles.grid} 
-            style={{
-                gridTemplateColumns: `repeat(${cols}, 1fr)`,
-                gap: `${gap}`
-            }}
-        >
-            { children }
-        </div>
-    )
+  return (
+    <div
+      className={classNames(styles.grid)}
+      style={{
+        gridTemplateColumns: `repeat(${cols}, 1fr)`,
+        gap: `${gap}`,
+      }}
+    >
+      {children}
+    </div>
+  );
 }

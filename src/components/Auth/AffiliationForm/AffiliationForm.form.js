@@ -1,0 +1,26 @@
+export function initialValues() {
+  return {
+    documentId: "",
+    firstName: "",
+    lastName: "",
+    alias: "",
+    maritalStatus: "",
+    gender: "",
+    address: "",
+    address2: "",
+    country: 0,
+    state: 0,
+    city: 0,
+    postalCode: "",
+    employmentInformation: "",
+    beneficiaries: "",
+    userAgreements: "",
+    userAuthorizations: "",
+    userDeclarations: "",
+    hasChildrens: false,
+    childrensQty: 0,
+    phone: "",
+    mobile: "",
+    email: "",
+  };
+}

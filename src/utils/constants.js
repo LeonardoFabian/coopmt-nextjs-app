@@ -5,6 +5,7 @@ export const ENV = {
   // API_URL: "https://coopadmin.up.railway.app/api",
   ENDPOINTS: {
     GLOBAL: "global",
+    AFFILIATION: "affiliation-requests",
     AUTH: {
       REGISTER: "auth/local/register",
       LOGIN: "auth/local",
@@ -47,6 +48,7 @@ export const ENV = {
     },
     PAYMENT_ORDER: "payment-order",
     ORDERS: "orders",
+    LOAN_REQUEST: "loan-requests",
   },
   TOKEN: "COOP_JWT",
   CART: "COOP_CART_PRODUCTS",

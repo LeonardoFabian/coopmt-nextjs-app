@@ -4,6 +4,7 @@ import { initialValues, validationSchema } from "./LoginForm.form";
 import { Auth } from "@/api";
 import { useAuth } from "@/hooks";
 import { useRouter } from "next/router";
+import styles from "./LoginForm.module.scss";
 
 const authController = new Auth();
 
@@ -28,7 +29,7 @@ export function LoginForm() {
   });
 
   return (
-    <Form onSubmit={formik.handleSubmit}>
+    <Form onSubmit={formik.handleSubmit} className={styles.loginForm}>
       <Form.Input
         name="identifier"
         type="text"

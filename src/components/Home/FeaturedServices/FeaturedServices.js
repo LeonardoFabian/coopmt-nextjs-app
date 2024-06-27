@@ -33,7 +33,7 @@ export function FeaturedServices({ data }) {
         <p className={styles.subHeading}>{subheading}</p>
 
         <div className={styles.content}>
-          <Shared.Grid cols="3" gap="30px">
+          <Shared.Grid cols="3" gap="30px" className={styles.servicesWrapper}>
             {map(featuredServices, (service) => (
               <Link
                 key={service?.id}
@@ -49,7 +49,7 @@ export function FeaturedServices({ data }) {
             href={link?.url || "/servicios"}
             target={link?.target || "_self"}
           >
-            <Button primary>{link?.label}</Button>
+            <Button secondary>{link?.label}</Button>
           </Link>
         </div>
       </Container>

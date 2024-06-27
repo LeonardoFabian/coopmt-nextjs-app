@@ -2,7 +2,8 @@
 
 .footer {
   position: relative;
-  background-color: $background-primary;
+  // background-color: $background-primary;
+  background-color: $text-accent;
   padding: 60px 0;
 }
 
@@ -55,17 +56,39 @@
           flex-direction: row;
           align-items: center;
           justify-content: flex-start;
-          gap: 5px;
+          gap: 16px;
           margin: 0;
           padding: 0;
 
           > a {
-            display: inline-flex !important;
+            display: flex !important;
             align-items: center;
             justify-content: center;
-            width: 35px !important;
-            background-color: $light !important;
+            width: 40px !important;
+            height: 40px !important;
+            background-color: $tertiary !important;
             color: $primary !important;
+            transition: all 0.3s ease-in-out;
+
+            i {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 40px;
+              height: 40px;
+              font-size: 25px;
+              color: $text-accent;
+            }
+
+            &:hover {
+              background-color: $accent !important;
+
+              i {
+                color: $light;
+                font-size: 50px;
+                box-shadow: $box-shadow !important;
+              }
+            }
           }
         }
       }

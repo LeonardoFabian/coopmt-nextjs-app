@@ -4,9 +4,9 @@ $tertiary: #71c21b; // #6aba46
 $quaternary: #f7df1e; // #feb91d; // #ffcb04;
 $accent: #ffcb04; //  #f68c20;
 
-$text-primary: #263238;
+$text-primary: #093d31; // #263238;
 $text-secondary: #455a64;
-$text-accent: #0b4b6e;
+$text-accent: #093d31; // #2a5b57;
 $text-light: #ffffff;
 
 $border-primary: #909090;
@@ -16,6 +16,7 @@ $background-primary: #2f925b;
 $background-secondary: #0b4b6e; // #082442
 $background-tertiary: #345478;
 $background-quaternary: #3d3d3d;
+$background-lemon: #a2d24b;
 
 $background-quaternary__blur: #3d3d3d10;
 $background-light__blur: #ffffff10;
@@ -58,6 +59,9 @@ $light: #ffffff;
 $darkgray: #455a64;
 $gray: #cbd5e1;
 $lightgray: #f6f7f9;
-$lightgreen: #f1f9eb;
+$lightgreen: #edffcd; // #f1f9eb;
+$light-accent: #fff8dc;
 
-$box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+// $box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+$box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

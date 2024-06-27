@@ -1,16 +1,19 @@
 @import "~/src/scss/index.scss";
 
 .serviceCard {
+  height: 100%;
   text-align: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 64px;
+  padding-bottom: 64px;
   padding-left: 30px;
   padding-right: 30px;
-  background-color: $light;
+  background-color: $background-light__blur;
+  // background-color: $light;
+  backdrop-filter: blur(20px);
   color: $text-secondary;
   border-radius: 0.5rem;
-  border: 1px solid $lightgray;
-  transition: all 0.3s ease-in-out;
+  // border: 1px solid $lightgray;
+  transition: all 0.2s ease-in;
 
   > i {
     color: $accent;
@@ -18,7 +21,8 @@
   }
 
   > .title {
-    color: $primary;
+    color: $light;
+    // color: $primary;
     margin-top: 15px;
   }
 
@@ -28,6 +32,11 @@
   }
 
   &:hover {
+    background-color: $secondary;
     box-shadow: $box-shadow;
+
+    .title {
+      color: $light;
+    }
   }
 }
