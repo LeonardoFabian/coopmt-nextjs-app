@@ -1,6 +1,8 @@
 export const ENV = {
-  SERVER_HOST: "http://localhost:1338",
-  API_URL: "http://localhost:1338/api",
+  // SERVER_HOST: "https://apicoop.mt.gob.do:1337",
+  // API_URL: "https://apicoop.mt.gob.do:1337/api",
+  SERVER_HOST: "http://localhost:1337",
+  API_URL: "http://localhost:1337/api",
   // SERVER_HOST: "https://coopadmin.up.railway.app",
   // API_URL: "https://coopadmin.up.railway.app/api",
   ENDPOINTS: {

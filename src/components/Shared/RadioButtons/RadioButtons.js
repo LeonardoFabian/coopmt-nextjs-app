@@ -14,11 +14,11 @@ export function RadioButtons(props) {
   };
 
   return (
-    <div className={styles.radioButtons}>
+    <div className="field">
       <label>{label}</label>
-      <div className={styles.options}>
+      <div className="input">
         {map(options, (option) => (
-          <div key={option.value} className={styles.option}>
+          <div key={option.value} className={styles.radio}>
             <label htmlFor={option.value}>
               <span>{option.label}</span>
               <input

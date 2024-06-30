@@ -11,10 +11,28 @@ const nextConfig = {
         pathname: "/uploads/**/*",
       },
       {
+        protocol: "http",
+        hostname: "localhost",
+        port: "1337",
+        pathname: "/uploads/**/*",
+      },
+      {
         protocol: "https",
         hostname: "**",
       },
     ],
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      };
+    }
+
+    return config;
   },
 };
 

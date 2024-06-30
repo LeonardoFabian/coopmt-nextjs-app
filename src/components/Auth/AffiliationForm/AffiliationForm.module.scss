@@ -1,1 +1,16 @@
 @import "~/src/scss/index.scss";
+
+.affiliationForm {
+  background-color: $light;
+  padding: 30px;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+}

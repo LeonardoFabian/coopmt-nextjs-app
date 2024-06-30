@@ -2,6 +2,7 @@ import { ENV } from "@/utils";
 import { flattenAttributes } from "@/utils";
 import qs from "qs";
 import _, { merge } from "lodash";
+// import logger from "../../logger";
 
 export class Page {
   async getAll() {
@@ -167,8 +168,11 @@ export class Page {
 
       if (response.status !== 200) throw flattenedData;
 
+      // logger.info("Page loaded successfully");
+
       return flattenedData.data[0];
     } catch (error) {
+      // logger.error(`Error ocurred: ${error.message}`);
       throw error;
     }
   }

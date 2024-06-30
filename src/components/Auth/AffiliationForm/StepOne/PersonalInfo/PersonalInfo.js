@@ -1,17 +1,6 @@
 import styles from "./PersonalInfo.module.scss";
 
-import {
-  FormTextArea,
-  FormSelect,
-  FormRadio,
-  FormInput,
-  FormGroup,
-  FormCheckbox,
-  FormButton,
-  FormField,
-  Form,
-  Icon,
-} from "semantic-ui-react";
+import { Form, Icon } from "semantic-ui-react";
 import { Address, Country, State, City } from "@/api";
 import { map } from "lodash";
 import { useState, useEffect } from "react";
@@ -19,7 +8,6 @@ import { Shared } from "@/components/Shared";
 import { User } from "@/api";
 
 const userController = new User();
-const addressController = new Address();
 const countryController = new Country();
 const stateController = new State();
 const cityController = new City();
@@ -106,8 +94,9 @@ export function PersonalInfo({
    * @param {*} e
    * @param {*} param1
    */
-  const handleCountrySelect = (e) => {
-    setSelectedCountryId(e.target.value);
+  const handleCountrySelect = (e, { name, value }) => {
+    setFieldValue(name, value);
+    setSelectedCountryId(value);
   };
 
   /**
@@ -115,8 +104,9 @@ export function PersonalInfo({
    * @param {*} e
    * @param {*} param1
    */
-  const handleStateSelect = (e) => {
-    setSelectedStateId(e.target.value);
+  const handleStateSelect = (e, { name, value }) => {
+    setFieldValue(name, value);
+    setSelectedStateId(value);
   };
 
   /**
@@ -124,8 +114,9 @@ export function PersonalInfo({
    * @param {*} e
    * @param {*} param1
    */
-  const handleCitySelect = (e) => {
-    setSelectedCityId(e.target.value);
+  const handleCitySelect = (e, { name, value }) => {
+    setFieldValue(name, value);
+    setSelectedCityId(value);
   };
 
   /**
@@ -168,9 +159,7 @@ export function PersonalInfo({
           onChange={handleChange}
           error={errors?.documentId}
         />
-        {errors?.documentId && touched?.documentId && (
-          <div>{errors.documentId}</div>
-        )}
+
         <Form.Input
           width={8}
           type="text"
@@ -237,7 +226,7 @@ export function PersonalInfo({
             value: country.id,
           }))}
           onChange={handleCountrySelect}
-          value={values?.country}
+          value={values.country}
         />
         <Form.Select
           name="state"
@@ -284,7 +273,7 @@ export function PersonalInfo({
         />
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group widths="equal">
         <Form.Input
           width={4}
           type="text"

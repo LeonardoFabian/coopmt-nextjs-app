@@ -1,12 +1,18 @@
 .ui.form {
+  h3,
+  h4,
+  h5 {
+    margin-bottom: 1rem;
+  }
+
   label {
     position: relative;
     bottom: 6px;
   }
 
-  > div:first-of-type {
-    margin-top: 1rem !important;
-  }
+  // > div:first-of-type {
+  //   margin-top: 1rem !important;
+  // }
 
   .fields {
     width: 100% !important;
@@ -60,6 +66,9 @@
           opacity: 0.5;
         }
       }
+    }
+    .radio {
+      display: inline-block;
     }
     .ui.selection.dropdown {
       border: 2px solid $border-primary;

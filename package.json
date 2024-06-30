@@ -10,13 +10,11 @@
     "start-pm": "pm2 start coopmt-next-pm2.json"
   },
   "dependencies": {
-
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-
     "@stripe/react-stripe-js": "^2.7.1",
     "@stripe/stripe-js": "^3.4.1",
     "@types/qs": "^6.9.14",
@@ -40,6 +38,8 @@
     "semantic-ui-react": "^2.1.5",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.1.1",
+    "winston": "^3.13.0",
+    "winston-transport-browserconsole": "^1.0.5",
     "yup": "^1.4.0"
   },
   "devDependencies": {
