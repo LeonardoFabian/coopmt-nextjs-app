@@ -2,7 +2,9 @@
   h3,
   h4,
   h5 {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $border-primary;
+    padding-bottom: 1rem;
   }
 
   label {
