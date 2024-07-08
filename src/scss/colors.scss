@@ -43,10 +43,18 @@ $linear-gradient-tertiary: linear-gradient(
   rgba(113, 194, 27, 0) 70.71%
 );
 
-$success: #6aba46;
-$danger: #ee2a24;
-$info: #0087e3;
-$warning: #f68c20;
+$red: #ee2a24;
+$orange: #f68c20;
+$blue: #0087e3;
+
+$success: #2b5f4a; // #6aba46;
+$background-success: #edf5f2;
+$danger: #9b324e;
+$background-danger: #f8dae2;
+$info: #488af7;
+$background-info: #dae8fd;
+$warning: #665937;
+$background-warning: #fef4d7;
 
 $success__blur: #6bba4610;
 $danger__blur: #ee2a2410;

@@ -4,7 +4,7 @@ import { map } from "lodash";
 import classNames from "classnames";
 
 export function RadioButtons(props) {
-  const { label, options } = props;
+  const { label, options, error } = props;
 
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -19,25 +19,28 @@ export function RadioButtons(props) {
       <div className="input">
         {map(options, (option) => (
           <div key={option.value} className={styles.radio}>
-            <label htmlFor={option.value}>
-              <span>{option.label}</span>
-              <input
-                type="radio"
-                id={option.value}
-                name={option.name}
-                value={option.value}
-                checked={selectedOption === option.value}
-                onChange={handleOptionChange}
-                className={classNames(styles.radio, {
-                  [styles.checked]: selectedOption === option.value,
-                })}
-              />
-              <span
-                className={classNames(styles.checkmark, {
-                  [styles.checkmarked]: selectedOption === option.value,
-                })}
-              ></span>
-            </label>
+            <>
+              <label htmlFor={option.value}>
+                <span>{option.label}</span>
+                <input
+                  type="radio"
+                  id={option.value}
+                  name={option.name}
+                  value={option.value}
+                  checked={selectedOption === option.value}
+                  onChange={handleOptionChange}
+                  className={classNames(styles.radio, {
+                    [styles.checked]: selectedOption === option.value,
+                  })}
+                />
+                <span
+                  className={classNames(styles.checkmark, {
+                    [styles.checkmarked]: selectedOption === option.value,
+                  })}
+                ></span>
+              </label>
+              {error ? <span>{error.message}</span> : null}
+            </>
           </div>
         ))}
       </div>

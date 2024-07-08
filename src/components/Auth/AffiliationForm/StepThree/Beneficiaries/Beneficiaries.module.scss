@@ -1,0 +1,49 @@
+@import "~/src/scss/index.scss";
+
+.beneficiaries {
+  .beneficiary {
+    background-color: $lightgray;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+
+    .removeBtn {
+      margin-top: 20px;
+      background-color: $red !important;
+      color: $light !important;
+      opacity: 0.8;
+
+      &:hover {
+        box-shadow: $box-shadow;
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      box-shadow: $box-shadow;
+    }
+  }
+
+  .addBtn {
+    background-color: $blue !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    border-radius: 8px;
+    color: $light !important;
+    opacity: 0.8;
+
+    > i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $light !important;
+    }
+
+    &:hover {
+      box-shadow: $box-shadow;
+      opacity: 1;
+    }
+  }
+}

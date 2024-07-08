@@ -3,11 +3,17 @@ export const ENV = {
   // API_URL: "https://apicoop.mt.gob.do:1337/api",
   SERVER_HOST: "http://localhost:1337",
   API_URL: "http://localhost:1337/api",
+
   // SERVER_HOST: "https://coopadmin.up.railway.app",
   // API_URL: "https://coopadmin.up.railway.app/api",
   ENDPOINTS: {
+    UPLOAD: "upload",
     GLOBAL: "global",
-    AFFILIATION: "affiliation-requests",
+    AFFILIATION: {
+      REQUEST: "affiliation-requests",
+      SUBMIT_FORM: "affiliation-request/submit-form",
+      STATUS_CHANGE: "affiliation-request-status-history/change-status",
+    },
     AUTH: {
       REGISTER: "auth/local/register",
       LOGIN: "auth/local",

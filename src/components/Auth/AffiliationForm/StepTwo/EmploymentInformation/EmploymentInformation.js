@@ -1,5 +1,5 @@
 import styles from "./EmploymentInformation.module.scss";
-import { Form } from "semantic-ui-react";
+import { Form, Radio } from "semantic-ui-react";
 import { map } from "lodash";
 import { Shared } from "@/components/Shared";
 import { Country, State, City } from "@/api";
@@ -115,23 +115,36 @@ export function EmploymentInformation({
     setSelectedCityId(value);
   };
 
+  const handleIsCareerEmployee = (e, { name, value }) => {
+    setFieldValue(name, value);
+  };
+
   return (
     <div className={styles.employmentInfo}>
       <h5>Datos Laborales</h5>
 
       <Form.Input
         type="text"
-        name="companyName"
+        name="employmentInformation.companyName"
         label="Lugar de trabajo"
         placeholder="Nombre de la empresa o institución"
-        value={values?.companyName}
+        value={values?.employmentInformation.companyName}
         onChange={handleChange}
-        error={errors?.companyName}
+        error={errors?.employmentInformation?.companyName}
       />
 
       <Form.Group widths="equal">
+        <Form.Input
+          type="text"
+          name="employmentInformation.department"
+          label="Departamento"
+          placeholder="Nombre del departamento"
+          value={values?.employmentInformation.department}
+          onChange={handleChange}
+          error={errors?.employmentInformation?.department}
+        />
         <Form.Select
-          name="sector"
+          name="employmentInformation.sector"
           label="Sector"
           placeholder="Sector al que pertenece"
           options={map(sectors, (sector) => ({
@@ -139,49 +152,67 @@ export function EmploymentInformation({
             value: sector.value,
           }))}
           onChange={handleSectorSelect}
-          value={values.sector}
+          value={values.employmentInformation.sector}
+          error={errors?.employmentInformation?.sector}
         />
-        <Form.Input
-          type="text"
-          name="department"
-          label="Departamento"
-          placeholder="Nombre del departamento"
-          value={values?.department}
-          onChange={handleChange}
-          error={errors?.department}
-        />
-        <Shared.RadioButtons
-          label="Está en Carrera Administrativa?"
-          options={isCareerEmployeeOptions}
-        />
+        {values.employmentInformation.sector === "publico" && (
+          <Form.Field>
+            <label>Es empleado de Carrera Administrativa?</label>
+            <Form.Group inline widths="equal">
+              <Form.Field>
+                <Radio
+                  label="NO"
+                  name="employmentInformation.isCareerEmployee"
+                  value={false}
+                  checked={
+                    values.employmentInformation.isCareerEmployee === false
+                  }
+                  onChange={handleIsCareerEmployee}
+                />
+              </Form.Field>
+              <Form.Field>
+                <Radio
+                  label="SI"
+                  name="employmentInformation.isCareerEmployee"
+                  value={true}
+                  checked={
+                    values.employmentInformation.isCareerEmployee === true
+                  }
+                  onChange={handleIsCareerEmployee}
+                />
+              </Form.Field>
+            </Form.Group>
+          </Form.Field>
+        )}
       </Form.Group>
 
       <Form.Group widths="equal">
         <Form.Select
-          name="employmentType"
+          name="employmentInformation.employmentType"
           label="Vinculo laboral"
           placeholder="Seleccione su vinculo laboral"
           options={map(employmentTypeOptions, (type) => ({
             text: `${type.text}`,
             value: type.value,
           }))}
-          value={values.employmentType}
+          value={values.employmentInformation.employmentType}
+          error={errors?.employmentInformation?.employmentType}
           onChange={handleEmploymentTypeSelect}
         />
         <Form.Input
           type="number"
-          name="salary"
+          name="employmentInformation.salary"
           label="Salario (RD$)"
           placeholder="0.00"
-          value={values?.salary}
+          value={values?.employmentInformation.salary}
           onChange={handleChange}
-          error={errors?.salary}
+          error={errors?.employmentInformation?.salary}
         />
       </Form.Group>
 
       <Form.Group widths="equal">
         <Form.Select
-          name="employmentCountry"
+          name="employmentInformation.employmentCountry"
           label="País"
           placeholder="Selecciona tu país"
           options={map(countries, (country) => ({
@@ -189,10 +220,10 @@ export function EmploymentInformation({
             value: country.id,
           }))}
           onChange={handleCountrySelect}
-          value={values.employmentCountry}
+          value={values?.employmentInformation?.employmentCountry}
         />
         <Form.Select
-          name="employmentState"
+          name="employmentInformation.employmentState"
           label="Estado/Provincia"
           placeholder="Selecciona"
           options={map(states, (state) => ({
@@ -200,10 +231,10 @@ export function EmploymentInformation({
             value: state.id,
           }))}
           onChange={handleStateSelect}
-          value={values?.employmentState}
+          value={values?.employmentInformation?.employmentState}
         />
         <Form.Select
-          name="employmentCity"
+          name="employmentInformation.employmentCity"
           label="Ciudad/Municipio"
           placeholder="Selecciona"
           options={map(cities, (city) => ({
@@ -211,49 +242,49 @@ export function EmploymentInformation({
             value: city.id,
           }))}
           onChange={handleCitySelect}
-          value={values?.employmentCity}
+          value={values?.employmentInformation?.employmentCity}
         />
       </Form.Group>
 
       <Form.Group widths="equal">
         <Form.Input
-          name="employmentAddress"
+          name="employmentInformation.employmentAddress"
           type="text"
           label="Domicilio (calle, casa, edificio, apartamento)"
           placeholder="Calle, número de casa o apartamento, edificio"
-          value={values?.employmentAddress}
+          value={values?.employmentInformation.employmentAddress}
           onChange={handleChange}
-          error={errors?.employmentAddress}
+          error={errors?.employmentInformation?.employmentAddress}
         />
         <Form.Input
-          name="employmentAddress2"
+          name="employmentInformation.employmentAddress2"
           type="text"
           label="Sector, municipio"
           placeholder="Sector y municipio de domicilio"
-          value={values?.employmentAddress2}
+          value={values?.employmentInformation.employmentAddress2}
           onChange={handleChange}
-          error={errors?.employmentAddress2}
+          error={errors?.employmentInformation?.employmentAddress2}
         />
       </Form.Group>
 
       <Form.Group widths="equal">
         <Form.Input
-          name="employmentPhone"
+          name="employmentInformation.employmentPhone"
           type="text"
           label="Télefono"
           placeholder="Ej.: 8095555555"
-          value={values?.employmentPhone}
+          value={values?.employmentInformation.employmentPhone}
           onChange={handleChange}
-          error={errors?.employmentPhone}
+          error={errors?.employmentInformation?.employmentPhone}
         />
         <Form.Input
-          name="employmentPhoneExt"
+          name="employmentInformation.employmentPhoneExt"
           type="text"
           label="Ext"
           placeholder="Ej.: 9999"
-          value={values?.employmentPhoneExt}
+          value={values?.employmentInformation.employmentPhoneExt}
           onChange={handleChange}
-          error={errors?.employmentPhoneExt}
+          error={errors?.employmentInformation?.employmentPhoneExt}
         />
       </Form.Group>
     </div>

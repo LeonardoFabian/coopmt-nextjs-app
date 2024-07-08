@@ -38,10 +38,11 @@ export class Service {
     try {
       const response = await fetch(url);
       const result = await response.json();
+      console.log("Service API result: ", result);
 
       if (response.status !== 200) throw result;
 
-      return result.data[0];
+      return result.results[0];
     } catch (error) {
       throw error;
     }

@@ -19,7 +19,7 @@ export function FeaturedServices({ data }) {
       try {
         const response = await serviceController.find();
         console.log("FEATURED SERVICES: ", response);
-        setFeaturedServices(response.data);
+        setFeaturedServices(response.results);
       } catch (error) {
         console.error(error);
       }
@@ -37,9 +37,9 @@ export function FeaturedServices({ data }) {
             {map(featuredServices, (service) => (
               <Link
                 key={service?.id}
-                href={`/servicios/${service?.attributes?.category?.data?.attributes?.slug}/${service?.attributes?.slug}`}
+                href={`/servicios/${service?.category?.slug}/${service?.slug}`}
               >
-                <Custom.ServiceCard title={service?.attributes?.title} />
+                <Custom.ServiceCard title={service?.title} />
               </Link>
             ))}
           </Shared.Grid>

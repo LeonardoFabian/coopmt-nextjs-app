@@ -1,6 +1,6 @@
 import styles from "./PersonalInfo.module.scss";
 
-import { Form, Icon } from "semantic-ui-react";
+import { Form, Icon, FormGroup, FormField, Radio } from "semantic-ui-react";
 import { Address, Country, State, City } from "@/api";
 import { map } from "lodash";
 import { useState, useEffect } from "react";
@@ -24,12 +24,12 @@ export function PersonalInfo({
     {
       label: "NO",
       name: "hasChildrens",
-      value: "false",
+      value: 0,
     },
     {
       label: "SI",
       name: "hasChildrens",
-      value: "true",
+      value: 1,
     },
   ];
   const genders = [
@@ -145,6 +145,10 @@ export function PersonalInfo({
     setFieldValue(name, value);
   };
 
+  const handleHasChildrens = (e, { name, value }) => {
+    setFieldValue(name, value);
+  };
+
   return (
     <div className={styles.personalInfo}>
       <h5>Datos personales</h5>
@@ -202,6 +206,7 @@ export function PersonalInfo({
           }))}
           onChange={handleGenderSelect}
           value={values?.gender}
+          error={errors.gender}
         />
         <Form.Select
           name="maritalStatus"
@@ -213,93 +218,115 @@ export function PersonalInfo({
           }))}
           onChange={handleMaritalStatusSelect}
           value={values?.maritalStatus}
+          error={errors.maritalStatus}
         />
       </Form.Group>
 
       <Form.Group widths="equal">
         <Form.Select
-          name="country"
-          label="País"
-          placeholder="Selecciona tu país"
+          name="location.country"
+          label="País (domicilio)"
+          placeholder="Selecciona"
           options={map(countries, (country) => ({
             text: `${country.attributes.name}`,
             value: country.id,
           }))}
           onChange={handleCountrySelect}
-          value={values.country}
+          value={values.location.country}
+          error={errors?.location?.country}
         />
         <Form.Select
-          name="state"
-          label="Estado/Provincia"
+          name="location.state"
+          label="Estado o Provincia (domicilio)"
           placeholder="Selecciona"
           options={map(states, (state) => ({
             text: `${state.attributes.name}`,
             value: state.id,
           }))}
           onChange={handleStateSelect}
-          value={values?.state}
+          value={values?.location.state}
+          error={errors?.location?.state}
         />
         <Form.Select
-          name="city"
-          label="Ciudad/Municipio"
+          name="location.city"
+          label="Ciudad o Municipio (domicilio)"
           placeholder="Selecciona"
           options={map(cities, (city) => ({
             text: `${city.attributes.name}`,
             value: city.id,
           }))}
           onChange={handleCitySelect}
-          value={values?.city}
+          value={values?.location.city}
+          error={errors?.location?.city}
         />
       </Form.Group>
 
       <Form.Group widths="equal">
         <Form.Input
-          name="address"
+          name="location.address"
           type="text"
           label="Domicilio (calle, casa, edificio, apartamento)"
           placeholder="Calle, número de casa o apartamento, edificio"
-          value={values?.address}
+          value={values?.location.address}
           onChange={handleChange}
-          error={errors?.address}
+          error={errors?.location?.address}
         />
         <Form.Input
-          name="address2"
+          name="location.address2"
           type="text"
           label="Sector, municipio"
           placeholder="Sector y municipio de domicilio"
-          value={values?.address2}
+          value={values?.location.address2}
           onChange={handleChange}
-          error={errors?.address2}
+          error={errors?.location?.address2}
         />
       </Form.Group>
 
       <Form.Group widths="equal">
         <Form.Input
-          width={4}
           type="text"
-          name="postalCode"
+          name="location.postalCode"
           label="Código postal"
           placeholder="Ej.: 10100"
-          value={values?.postalCode}
+          value={values?.location.postalCode}
           onChange={handleChange}
-          error={errors?.postalCode}
+          error={errors?.location?.postalCode}
         />
-        <div className={styles.field}>
-          <Shared.RadioButtons
-            label="Tiene hijos dependientes?"
-            options={hasChildrensOptions}
+        <Form.Field>
+          <label>Tiene hijos dependientes?</label>
+          <Form.Group inline widths="equal">
+            <Form.Field>
+              <Radio
+                label="NO"
+                name="hasChildrens"
+                value={false}
+                checked={values.hasChildrens === false}
+                onChange={handleHasChildrens}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Radio
+                label="SI"
+                name="hasChildrens"
+                value={true}
+                checked={values.hasChildrens === true}
+                onChange={handleHasChildrens}
+              />
+            </Form.Field>
+          </Form.Group>
+        </Form.Field>
+
+        {values.hasChildrens === true && (
+          <Form.Input
+            type="number"
+            name="childrensQty"
+            label="Hijos dependientes (cantidad)"
+            placeholder="0"
+            value={values?.childrensQty}
+            onChange={handleChange}
+            error={errors?.childrensQty}
           />
-        </div>
-        <Form.Input
-          width={4}
-          type="number"
-          name="childrensQty"
-          label="Hijos dependientes"
-          placeholder="0"
-          value={values?.childrensQty}
-          onChange={handleChange}
-          error={errors?.childrensQty}
-        />
+        )}
       </Form.Group>
 
       <Form.Input

@@ -9,11 +9,12 @@ import { useRouter } from "next/router";
 export function ServiceCover(props) {
   const { serviceId, service } = props;
   const [loading, setLoading] = useState(false);
+  console.log("ServiceCover service: ", service);
 
   const link = "#";
   const linkText = "Solicitar";
-  const image = service?.attributes?.featuredImage?.data;
-  const category = service.attributes.category.data;
+  const image = service?.featuredImage;
+  const category = service?.category;
 
   console.log("SERVICE COVER: ", service);
 
@@ -39,18 +40,18 @@ export function ServiceCover(props) {
   return (
     <Container fluid className={styles.serviceCover}>
       <Shared.Image
-        src={image?.attributes?.url}
+        src={image?.url}
         className={styles.background}
-        alt={image?.attributes?.alternativeText}
+        alt={image?.alternativeText}
       />
       <Container isContainer className={styles.contentWrapper}>
         <div className={styles.header}>
-          <Link href={`/servicios/${category?.attributes?.slug}`}>
-            <span className={styles.label}>{category?.attributes?.name}</span>
+          <Link href={`/servicios/${category?.slug}`}>
+            <span className={styles.label}>{category?.name}</span>
           </Link>
-          <h1 className={styles.heading}>{service?.attributes?.title}</h1>
+          <h1 className={styles.heading}>{service?.title}</h1>
         </div>
-        <p className={styles.subheading}>{service?.attributes?.summary}</p>
+        <p className={styles.subheading}>{service?.summary}</p>
 
         <div className={styles.actions}>
           <Button
