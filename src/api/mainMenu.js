@@ -23,6 +23,8 @@ import qs from "qs";
 //   locale: ['en'],
 // }
 
+// comment to delete
+
 const mainMenuQuery = qs.stringify({
   populate: {
     menuItems: {
