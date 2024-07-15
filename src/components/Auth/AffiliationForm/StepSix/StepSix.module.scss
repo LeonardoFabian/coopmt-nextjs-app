@@ -1,0 +1,46 @@
+@import "~/src/scss/index.scss";
+
+@import "~/src/scss/index.scss";
+
+.stepThree {
+  width: 50%;
+  background-color: $lightgreen;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto;
+  box-shadow: $box-shadow;
+
+  > i {
+    margin: 0 auto;
+    color: $success;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .heading {
+      color: $success;
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > .action {
+      display: inline-flex;
+      border-radius: 8px;
+    }
+  }
+}

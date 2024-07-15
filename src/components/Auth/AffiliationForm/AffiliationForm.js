@@ -6,6 +6,7 @@ import { StepTwo } from "./StepTwo";
 import { StepThree } from "./StepThree";
 import { StepFour } from "./StepFour";
 import { StepFive } from "./StepFive";
+import { StepSix } from "./StepSix";
 import { Container } from "@/components/Layout";
 import { initialValues } from "./AffiliationForm.form";
 import { useFormik, FormikProvider } from "formik";
@@ -229,6 +230,8 @@ export function AffiliationForm() {
         setTimeout(() => {
           setLoading(false);
         }, 1000);
+
+        setStep(5); // the final step
       } else {
         setStep(step + 1);
       }
@@ -236,36 +239,41 @@ export function AffiliationForm() {
   });
 
   return (
-    <FormikProvider value={formik}>
-      <Form onSubmit={formik.handleSubmit} className={styles.affiliationForm}>
-        {step === 0 && <StepOne {...formik} />}
-        {step === 1 && <StepTwo {...formik} />}
-        {step === 2 && <StepThree {...formik} />}
-        {step === 3 && <StepFour {...formik} />}
-        {step === 4 && <StepFive {...formik} />}
-        <div className={styles.actions}>
-          {step > 0 && (
-            <Button secondary type="button" onClick={() => setStep(step - 1)}>
-              <Icon name="arrow left" />
-              Volver atras
-            </Button>
-          )}
-
-          <Button primary type="submit" loading={loading}>
-            {step === steps.length - 1 ? (
-              <>
-                Enviar
-                <Icon name="paper plane" />
-              </>
-            ) : (
-              <>
-                Continuar
-                <Icon name="arrow right" />
-              </>
+    <>
+      <FormikProvider value={formik}>
+        <Form onSubmit={formik.handleSubmit} className={styles.affiliationForm}>
+          {step === 0 && <StepOne {...formik} />}
+          {step === 1 && <StepTwo {...formik} />}
+          {step === 2 && <StepThree {...formik} />}
+          {step === 3 && <StepFour {...formik} />}
+          {step === 4 && <StepFive {...formik} />}
+          {step === 5 && <StepSix />}
+          <div className={styles.actions}>
+            {step > 0 && step < 5 && (
+              <Button secondary type="button" onClick={() => setStep(step - 1)}>
+                <Icon name="arrow left" />
+                Volver atras
+              </Button>
             )}
-          </Button>
-        </div>
-      </Form>
-    </FormikProvider>
+
+            {step < 5 && (
+              <Button primary type="submit" loading={loading}>
+                {step === steps.length - 1 ? (
+                  <>
+                    Enviar
+                    <Icon name="paper plane" />
+                  </>
+                ) : (
+                  <>
+                    Continuar
+                    <Icon name="arrow right" />
+                  </>
+                )}
+              </Button>
+            )}
+          </div>
+        </Form>
+      </FormikProvider>
+    </>
   );
 }
