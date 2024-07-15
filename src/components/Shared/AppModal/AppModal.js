@@ -9,7 +9,8 @@ export function AppModal(props) {
       open={show}
       onClose={onClose}
       size="small"
-      style={{ width: `${width}%` }}
+      style={{ width: `${width}px` }}
+      className={styles.modal}
     >
       {title && <Modal.Header>{title}</Modal.Header>}
       <Modal.Content>{children}</Modal.Content>

@@ -12,7 +12,7 @@ export function BlockRenderer({ blocks }) {
       case "blocks.cta":
         return (
           <Blocks.Cta
-            key={block?.id}
+            key={`cta-${block?.id}`}
             buttons={block?.buttons}
             text={block?.text}
             title={block?.title}

@@ -21,6 +21,9 @@
 body {
   margin: 0;
   background-color: $light;
+  font-family: $body-font, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h1,
@@ -30,6 +33,22 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $heading-font, serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+h4,
+h5,
+h6 {
+  font-family: $body-font, serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 p {

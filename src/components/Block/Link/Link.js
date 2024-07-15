@@ -1,15 +1,16 @@
 import styles from "./Link.module.scss";
 import NextLink from "next/link";
 import { Shared } from "@/components/Shared";
+import { Icon } from "semantic-ui-react";
 
 export function Link({ block }) {
   const { url, target, label, description, icon } = block;
 
   return (
     <NextLink href={url} target={target || "_self"} className={styles.link}>
-      {icon.url ? (
+      {icon?.name ? (
         <div className={styles.imageWrapper}>
-          <Shared.Image src={icon.url} alt={icon.alternativeText || "Image"} />
+          <Icon name={icon.name} />
         </div>
       ) : null}
       <div className={styles.metaData}>

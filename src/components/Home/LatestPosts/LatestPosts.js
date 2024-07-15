@@ -39,12 +39,9 @@ export function LatestPosts(props) {
         <div className={styles.content}>
           <Shared.Grid cols="3" gap="30px">
             {map(latestPost, (post) => (
-              <Link
-                key={post?.id}
-                href={`publicaciones/${post.attributes.post_type.data.attributes.slug}/${post?.attributes?.slug}`}
-              >
+              <div key={`post-${post?.id}`}>
                 <Custom.PostCard post={post} />
-              </Link>
+              </div>
             ))}
           </Shared.Grid>
         </div>

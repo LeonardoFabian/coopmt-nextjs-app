@@ -44,13 +44,7 @@ export function PostCard({
           >
             <h5 className={styles.title}>{post?.attributes?.title}</h5>
           </Link>
-          {/* <p className={styles.description}>
-                        {
-                            content.length > 150 
-                            ? `${content.substring(0, 150)}...`
-                            : content
-                        }
-                    </p> */}
+
           <div className={styles.postMeta}>
             <div className={styles.author}>
               <Icon name="user outline" /> <small>Admin</small>
@@ -65,71 +59,7 @@ export function PostCard({
             </div>
           </div>
         </div>
-        {link && (
-          <div className={styles.cardFooter}>
-            {/* <Link href={link}>
-                            <Button secondary>
-                                Ver más <Icon name='arrow right' />
-                            </Button>
-                        </Link> */}
-          </div>
-        )}
       </div>
     </div>
-    // </Suspense>
   );
 }
-
-// function Skeleton() {
-//   return (
-//     <div className={styles.skeleton}>
-//       <div className={styles.skeletonImageContainer}>
-//         <Icon name="image outline"/>
-//       </div>
-//       <div className={styles.skeletonCardBody}>
-//         <div className={styles.skeletonCardData}>
-//           {hasTaxonomy && (
-//             <div className={styles.skeletonTaxonomyContainer}>
-//               <Link
-//                 href={`/taxonomy/${post?.attributes?.taxonomy?.data?.attributes?.slug}`}
-//                 className={styles.taxonomyLink}
-//               >
-//                 <span className={styles.taxonomy}>
-//                   {post?.attributes?.taxonomy?.data?.attributes?.name}
-//                 </span>
-//               </Link>
-//             </div>
-//           )}
-//           <h5 className={styles.title}>{post?.attributes?.title}</h5>
-//           {/* <p className={styles.description}>
-//                       {
-//                           content.length > 150
-//                           ? `${content.substring(0, 150)}...`
-//                           : content
-//                       }
-//                   </p> */}
-//           <div className={styles.postMeta}>
-//             <div className={styles.author}>
-//               <Icon name="user outline" /> Admin
-//             </div>
-//             <div className={styles.date}>
-//               <Icon name="calendar outline" />{" "}
-//               {DateTime.fromISO(post?.attributes?.publishedAt, {
-//                 locale: "es",
-//               }).toFormat("DDD")}
-//             </div>
-//           </div>
-//         </div>
-//         {link && (
-//           <div className={styles.cardFooter}>
-//             {/* <Link href={link}>
-//                           <Button secondary>
-//                               Ver más <Icon name='arrow right' />
-//                           </Button>
-//                       </Link> */}
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }

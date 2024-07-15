@@ -24,17 +24,22 @@ export async function getServerSideProps(context) {
   const productResponse = await productController.search(s, productsPage);
   const pageResponse = await pageController.search(s, pagesPage);
 
+  console.log("serviceResponse: ", serviceResponse);
+  console.log("postResponse: ", postResponse);
+  console.log("productResponse: ", productResponse);
+  console.log("pageResponse: ", pageResponse);
+
   return {
     props: {
       searchText: s,
-      services: serviceResponse.data,
-      posts: postResponse.data,
-      products: productResponse.data,
-      pages: pageResponse.data,
-      servicesPagination: serviceResponse.meta.pagination,
-      postsPagination: postResponse.meta.pagination,
-      productsPagination: productResponse.meta.pagination,
-      pagesPagination: pageResponse.meta.pagination,
+      services: serviceResponse,
+      posts: postResponse?.data,
+      products: productResponse?.data,
+      pages: pageResponse,
+      servicesPagination: serviceResponse?.pagination,
+      postsPagination: postResponse?.meta?.pagination,
+      productsPagination: productResponse?.meta?.pagination,
+      pagesPagination: pageResponse?.pagination,
     },
   };
 }

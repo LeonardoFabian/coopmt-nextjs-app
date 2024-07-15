@@ -1,17 +1,20 @@
 .ui.modal.visible.active {
+  background-color: $light;
+  border-radius: 12px;
+  height: 90vh;
+  overflow: scroll;
+
+  > .header {
     background-color: $light;
-    border-radius: 12px;
-    overflow: hidden;
+    color: $text-primary;
+    font-size: 20px;
+    padding: 1rem;
+  }
 
-    > .header {
-        background-color: $light;
-        color: $text-primary;
-        font-size: 20px;
-        padding: 1rem;
-    }
-
-    > .content {
-        background-color: $light;
-        padding: 30px;
-    }
+  > .content {
+    position: relative;
+    background-color: $light;
+    padding: 30px;
+    margin-bottom: 30px;
+  }
 }

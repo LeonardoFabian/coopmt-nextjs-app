@@ -1,3 +1,4 @@
+import { useRef, forwardRef } from "react";
 import styles from "./AffiliationForm.module.scss";
 import { useState } from "react";
 import { Form, Icon, Button } from "semantic-ui-react";
@@ -6,13 +7,17 @@ import { StepTwo } from "./StepTwo";
 import { StepThree } from "./StepThree";
 import { StepFour } from "./StepFour";
 import { StepFive } from "./StepFive";
-import { StepSix } from "./StepSix";
+import { StepFinal } from "./StepFinal";
 import { Container } from "@/components/Layout";
 import { initialValues } from "./AffiliationForm.form";
 import { useFormik, FormikProvider } from "formik";
 import { Affiliation, File } from "@/api";
 import * as Yup from "yup";
 import { PersonalInfo } from "./StepOne/PersonalInfo";
+// import ReactToPrint from "react-to-print";
+// import jsPDF from "jspdf";
+// import html2canvas from "html2canvas";
+
 // import logger from "../../../../clientLogger";
 
 const affiliationController = new Affiliation();
@@ -35,6 +40,7 @@ const steps = [
   "Beneficiaries",
   "File Upload",
   "Agreements",
+  "Confirmation",
 ];
 
 const validationSchema = [
@@ -187,12 +193,14 @@ const validationSchema = [
 export function AffiliationForm() {
   const [step, setStep] = useState(0);
   const [loading, setLoading] = useState(false);
+  // const componentRef = useRef();
+  // const [userDocumentId, setUserDocumentId] = useState(null);
 
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: validationSchema[step],
     onSubmit: async (values) => {
-      if (step === steps.length - 1) {
+      if (step === steps.length - 2) {
         setLoading(true);
         const formFiles = new FormData();
         formFiles.append("files", values.documentIdFront);
@@ -234,9 +242,31 @@ export function AffiliationForm() {
         setStep(5); // the final step
       } else {
         setStep(step + 1);
+        // if (step > 0) {
+        //   setUserDocumentId(values.documentId);
+        // }
       }
     },
   });
+
+  // const handleDownloadPDF = async () => {
+  //   const input = componentRef.current;
+  //   const canvas = await html2canvas(input);
+  //   const imgData = canvas.toDataURL("image/png");
+  //   const pdf = new jsPDF({
+  //     orientation: "portrait",
+  //     unit: "in",
+  //     format: "letter",
+  //   });
+  //   pdf.addImage(imgData, "PNG", 0, 0);
+  //   pdf.save(`${userDocumentId}-solicitud-afiliacion.pdf`);
+  // };
+
+  // const Preview = forwardRef(({ formik }, ref) => (
+  //   <div ref={ref}>
+  //     <p>Aqui ejemplo</p>
+  //   </div>
+  // ));
 
   return (
     <>
@@ -247,18 +277,31 @@ export function AffiliationForm() {
           {step === 2 && <StepThree {...formik} />}
           {step === 3 && <StepFour {...formik} />}
           {step === 4 && <StepFive {...formik} />}
-          {step === 5 && <StepSix />}
+          {/* {step === 5 && <Preview formik={formik} ref={componentRef} />} */}
+          {step === 5 && <StepFinal {...formik} />}
           <div className={styles.actions}>
-            {step > 0 && step < 5 && (
+            {step > 0 && step < steps.length - 1 && (
               <Button secondary type="button" onClick={() => setStep(step - 1)}>
                 <Icon name="arrow left" />
                 Volver atras
               </Button>
             )}
 
-            {step < 5 && (
+            {/* {step === steps.length - 1 && (
+              <>
+                <ReactToPrint
+                  trigger={() => <Button type="button">Imprimir</Button>}
+                  content={() => componentRef.current}
+                />
+                <Button type="button" onClick={handleDownloadPDF}>
+                  Descargar PDF
+                </Button>
+              </>
+            )} */}
+
+            {step < steps.length - 1 && (
               <Button primary type="submit" loading={loading}>
-                {step === steps.length - 1 ? (
+                {step === steps.length - 2 ? (
                   <>
                     Enviar
                     <Icon name="paper plane" />

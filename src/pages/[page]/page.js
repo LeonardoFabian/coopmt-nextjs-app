@@ -8,16 +8,20 @@ export default function SinglePage(props) {
   console.log("Page props: ", props);
   var _ = require("lodash");
 
-  const { page } = props;
+  const { errorCode, page } = props;
+
+  if (errorCode) {
+    return <Error statusCode={errorCode} />;
+  }
 
   const title = page?.title;
   const description = page?.description;
-  const blocks = [{}];
+  // const blocks = [{}];
 
   let innerBlocks = [{}];
   forEach(page?.blocks, (container, j) => {
     // page.blocks[j] = { ...container, __component: "layout.container" };
-    forEach(container.blocks, (block, i) => {
+    forEach(container?.blocks, (block, i) => {
       block.button = { ...block.button, __component: "shared.button" };
       block.icon = { ...block.icon, __component: "components.icon" };
       block.image = { ...block.image, __component: "shared.image" };
@@ -63,7 +67,7 @@ export default function SinglePage(props) {
 
           <Shared.Separator height={54} />
         </Container>
-        <BlockRenderer blocks={page.blocks} />
+        <BlockRenderer blocks={page?.blocks} />
         <Shared.Separator height={54} />
       </RootLayout>
     </>

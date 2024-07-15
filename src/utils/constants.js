@@ -8,6 +8,7 @@ export const ENV = {
   // API_URL: "https://coopadmin.up.railway.app/api",
   ENDPOINTS: {
     UPLOAD: "upload",
+    OPTIONS: "option",
     GLOBAL: "global",
     AFFILIATION: {
       REQUEST: "affiliation-requests",

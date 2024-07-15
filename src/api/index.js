@@ -24,3 +24,4 @@ export * from "./user";
 export * from "./wishlist";
 export * from "./ad";
 export * from "./file";
+export * from "./option";

@@ -44,7 +44,7 @@ export default function SearchPage(props) {
             <>
               <ul>
                 {map(pages, (page) => (
-                  <li key={page.id}>{page.attributes.title}</li>
+                  <li key={page.id}>{page?.title}</li>
                 ))}
               </ul>
               <Shared.Separator height={54} />
@@ -70,11 +70,11 @@ export default function SearchPage(props) {
                 {map(services, (service) => (
                   <Link
                     key={service.id}
-                    href={`/servicios/${service.attributes.category.data.attributes.slug}/${service.attributes.slug}`}
+                    href={`/servicios/${service?.category?.data?.slug}/${service?.slug}`}
                   >
                     <Custom.ServiceCard
-                      title={service.attributes.title}
-                      icon={service.attributes.icon}
+                      title={service.title}
+                      icon={service.icon}
                     />
                   </Link>
                 ))}

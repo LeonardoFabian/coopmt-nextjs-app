@@ -20,7 +20,7 @@ const homePageQuery = qs.stringify({
             blocks: {
               populate: {
                 icon: {
-                  fields: ["url", "alternativeText"],
+                  fields: ["name"],
                 },
                 page: {
                   populate: {
