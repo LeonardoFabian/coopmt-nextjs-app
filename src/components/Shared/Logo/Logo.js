@@ -1,31 +1,51 @@
-import styles from './Logo.module.scss';
-import Link from 'next/link';
-import { Image } from '../Image';
+import styles from "./Logo.module.scss";
+import Link from "next/link";
+import { Image } from "../Image";
+import { Option } from "@/api";
+import { useState, useEffect } from "react";
+
+const optionController = new Option();
 
 export function Logo(props) {
+  const { width = 196, height = 80, dark = false } = props;
+  const [option, setOption] = useState(null);
 
-    const { image, text, link, dark = false } = props;
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await optionController.getAll();
+        console.log("Options: ", response);
+        setOption(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
 
-    return (
-        <>
-            {
-                image?.url
-                ? (
-                    <Link href={link || "/"} className={styles.logo}>
-                        <Image src={image?.url} alt="Logo" height="80" width="196" />
-                    </Link>
-                )
-                : (
-                    <Link href={text?.url || '/'} target={text?.target} className={styles.logo}>
-                        {
-                            text?.icon?.url 
-                            ? <Image src={text?.icon?.url} alt={text?.icon?.alternativeText} height="80" width="196" />
-                            : null
-                        }
-                        <h3>{text?.label}</h3>
-                    </Link>
-                )
-            }
-        </>
-    )
+  const logoUrl =
+    option?.attributes?.logo?.data?.attributes?.url ?? "/images/logo.svg";
+  const logoDarkUrl = option?.attributes?.logoDark?.data
+    ? option?.attributes?.logoDark?.data?.attributes?.url
+    : "/images/logo-dark.svg";
+  const logoAlt =
+    option?.attributes?.logo?.data?.attributes?.alternativeText ?? "Logo";
+
+  return (
+    <>
+      {dark ? (
+        <Link href={"/"} className={styles.logo}>
+          <Image
+            src={logoDarkUrl}
+            alt={logoAlt}
+            height={height}
+            width={width}
+          />
+        </Link>
+      ) : (
+        <Link href={"/"} className={styles.logo}>
+          <Image src={logoUrl} alt={logoAlt} height={height} width={width} />
+        </Link>
+      )}
+    </>
+  );
 }

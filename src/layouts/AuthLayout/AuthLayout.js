@@ -1,27 +1,52 @@
 import styles from "./AuthLayout.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import { Shared } from "@/components/Shared";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "@/hooks";
 import { useRouter } from "next/router";
+import { Option } from "@/api";
+import { useState, useEffect } from "react";
+
+const optionController = new Option();
 
 export function AuthLayout(props) {
   const { children } = props;
   const { user } = useAuth();
   const router = useRouter();
+  const [option, setOption] = useState(null);
 
   if (user) {
     router.push("/");
     return null;
   }
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await optionController.getAll();
+        console.log("Options: ", response);
+        setOption(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
+
+  const logoUrl =
+    option?.attributes?.logo?.data?.attributes?.url ?? "/images/logo.svg";
+  const logoAlt =
+    option?.attributes?.logo?.data?.attributes?.alternativeText ?? "Logo";
+
+  // console.log("logoUrl: ", logoUrl);
+
   return (
     <div className={styles.authLayout}>
       <div className={styles.container}>
         <div className={styles.topBar}>
           <Link href="/">
-            <Image src="/images/logo.svg" alt="COOPMT" fill />
+            <Shared.Image src={logoUrl} alt={logoAlt} fill />
           </Link>
           <Link href="/" className={styles.close}>
             <FontAwesomeIcon

@@ -21,6 +21,13 @@ export function ProductCard(props) {
         {hasDiscount && (
           <span className={styles.discount}>{`-${discount}`}% OFF</span>
         )}
+
+        <span className={styles.wishlistBtn}>
+          <Shared.AddToWishlist
+            productId={productId}
+            className={styles.wishlist}
+          />
+        </span>
       </div>
       <div className={styles.cardBody}>
         <Link href={`/afiliados/${supplier?.data?.attributes?.slug}/${slug}`}>
@@ -59,11 +66,6 @@ export function ProductCard(props) {
         </div>
         <div className={styles.cardFooter}>
           <Shared.AddToCart productId={productId} />
-
-          <Shared.AddToWishlist
-            productId={productId}
-            className={styles.wishlist}
-          />
         </div>
       </div>
     </div>

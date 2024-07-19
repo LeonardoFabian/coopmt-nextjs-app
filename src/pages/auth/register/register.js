@@ -11,7 +11,9 @@ export default function Register() {
       <Shared.Seo title="Regístrate" />
       <AuthLayout>
         <div className={styles.register}>
-          <h3>Regístrate</h3>
+          <h6 className={styles.heading}>
+            <strong>Regístrate</strong>
+          </h6>
           <RegisterForm />
           <div className={styles.actions}>
             ¿Ya tienes una cuenta? <Link href="/auth/login">Inicia sesión</Link>

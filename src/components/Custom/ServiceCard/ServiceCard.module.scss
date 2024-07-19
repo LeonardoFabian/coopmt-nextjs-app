@@ -7,21 +7,37 @@
   padding-bottom: 64px;
   padding-left: 30px;
   padding-right: 30px;
-  background-color: $background-light__blur;
+  background-color: $light;
   // background-color: $light;
-  backdrop-filter: blur(20px);
+  // backdrop-filter: blur(20px);
   color: $text-secondary;
   border-radius: 0.5rem;
   // border: 1px solid $lightgray;
   transition: all 0.2s ease-in;
 
-  > i {
-    color: $accent;
-    font-size: 40px;
+  > div {
+    background-color: $lightgray;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    > i {
+      color: $secondary;
+      width: 30px;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   > .title {
-    color: $light;
+    color: $text-primary;
+    font-weight: bold;
     // color: $primary;
     margin-top: 15px;
   }
@@ -32,11 +48,19 @@
   }
 
   &:hover {
-    background-color: $secondary;
+    background-color: $light;
     box-shadow: $box-shadow;
 
+    > div {
+      background-color: $accent;
+
+      > i {
+        color: $primary;
+      }
+    }
+
     .title {
-      color: $light;
+      color: $secondary;
     }
   }
 }

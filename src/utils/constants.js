@@ -9,6 +9,8 @@ export const ENV = {
   ENDPOINTS: {
     UPLOAD: "upload",
     OPTIONS: "option",
+    HEADER: "header",
+    FOOTER: "footer",
     GLOBAL: "global",
     AFFILIATION: {
       REQUEST: "affiliation-requests",

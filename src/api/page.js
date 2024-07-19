@@ -24,122 +24,106 @@ export class Page {
   }
 
   async getBySlug(slug) {
-    // const filters = `filters[slug][$eq]=${slug}`;
-    // const populate = "populate=*";
-    // const params = `${filters}`;
-
     const pageQuery = qs.stringify({
       filters: {
-        slug: `${slug}`,
+        slug: {
+          $eq: `${slug}`,
+        },
       },
       populate: {
+        featuredImage: {
+          fields: ["url", "alternativeText"],
+        },
         blocks: {
-          on: {
-            "layout.container": {
-              fields: [
-                "display",
-                "theme",
-                "alignItems",
-                "flexDirection",
-                "justifyContent",
-                "gap",
-                "isContainer",
-              ],
+          populate: {
+            multimedia: {
+              fields: ["url", "alternativeText"],
+            },
+            title: {
+              populate: "*",
+            },
+            text: {
+              populate: "*",
+            },
+            buttons: {
               populate: {
-                backgroundImage: {
+                link: {
                   populate: {
-                    image: {
-                      fields: ["url", "alternativeText"],
-                    },
-                  },
-                },
-                blocks: {
-                  fields: [
-                    "display",
-                    "theme",
-                    "alignItems",
-                    "flexDirection",
-                    "justifyContent",
-                    "gap",
-                    "isContainer",
-                  ],
-                  populate: {
-                    title: {
-                      fields: ["tagName", "text", "align"],
-                    },
-                    paragraph: {
-                      fields: ["text", "align", "transform", "fontStyle"],
-                    },
-                    image: {
-                      fields: ["link", "caption", "description"],
-                      component: "_shared.image",
-                      populate: {
-                        media: {
-                          fields: ["url", "alternativeText"],
-                        },
-                      },
-                    },
-                    button: {
-                      fields: ["theme"],
-                      populate: {
-                        link: {
-                          fields: [
-                            "url",
-                            "label",
-                            "target",
-                            "description",
-                            "isExternal",
-                          ],
-                          populate: {
-                            icon: {
-                              fields: ["url", "alternativeText"],
-                            },
-                          },
-                        },
-                      },
-                    },
-                    list: {
-                      fields: ["listStyle"],
-                      populate: {
-                        item: {
-                          fields: ["text", "align", "transform", "fontStyle"],
-                        },
-                      },
-                    },
                     icon: {
                       fields: ["name"],
-                    },
-                    link: {
-                      fields: [
-                        "url",
-                        "label",
-                        "target",
-                        "description",
-                        "isExternal",
-                      ],
-                      populate: {
-                        icon: {
-                          fields: ["url", "alternativeText"],
-                        },
-                      },
                     },
                   },
                 },
               },
             },
-            "blocks.faqs": {
-              fields: ["theme"],
+            paragraph: {
+              populate: "*",
+            },
+            image: {
+              populate: {
+                media: {
+                  fields: ["url", "alternativeText"],
+                },
+              },
+            },
+            button: {
+              populate: {
+                link: {
+                  populate: {
+                    icon: {
+                      fields: ["name"],
+                    },
+                  },
+                },
+              },
+            },
+            list: {
+              populate: {
+                item: {
+                  populate: "*",
+                },
+              },
+            },
+            icon: {
+              fields: ["name"],
+            },
+            link: {
+              populate: {
+                icon: {
+                  fields: ["name"],
+                },
+              },
+            },
+            backgroundImage: {
+              populate: {
+                image: {
+                  fields: ["url", "alternativeText"],
+                },
+              },
+            },
+            blocks: {
               populate: {
                 title: {
-                  fields: ["tagName", "text", "align"],
+                  populate: "*",
                 },
-                faqs: {
+                paragraph: {
+                  populate: "*",
+                },
+                image: {
                   populate: {
-                    question: {
-                      fields: ["tagName", "text", "align"],
+                    media: {
+                      fields: ["url", "alternativeText"],
                     },
-                    answers: {
-                      fields: ["text", "align", "transform", "fontStyle"],
+                  },
+                },
+                button: {
+                  populate: {
+                    link: {
+                      populate: {
+                        icon: {
+                          fields: ["name"],
+                        },
+                      },
                     },
                   },
                 },
@@ -148,6 +132,11 @@ export class Page {
           },
         },
       },
+      pagination: {
+        pageSize: 10,
+        page: 1,
+      },
+      publicationState: "live",
     });
 
     const baseUrl = `${ENV.API_URL}/`;

@@ -1,5 +1,5 @@
 import styles from "./Cta.module.scss";
-import { Container } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
 import { Shared } from "@/components/Shared";
 import { size, map } from "lodash";
 import Link from "next/link";
@@ -65,7 +65,7 @@ export function Cta(props) {
                 <div className={styles.actions}>
                   {map(buttons, (button) => (
                     <Link href={`/${button?.link?.url}`}>
-                      <Shared.Button label={button?.link?.label} />
+                      <Button primary>{button?.link?.label}</Button>
                     </Link>
                   ))}
                 </div>

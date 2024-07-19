@@ -8,7 +8,9 @@ export function ServiceCard(props) {
 
   return (
     <div className={styles.serviceCard}>
-      <Icon name={icon || "image"} />
+      <div>
+        <Icon name={icon || "image"} />
+      </div>
       <h5 className={styles.title}>{title}</h5>
       {hasDescription && <p className={styles.description}>{content}</p>}
     </div>

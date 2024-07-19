@@ -3,85 +3,130 @@ import Link from "next/link";
 import { Container, Button, Icon } from "semantic-ui-react";
 import { Shared } from "@/components/Shared";
 import { BottomBar } from "../BottomBar";
+import { Option, Footer as FooterCtrl } from "@/api";
+import { useState, useEffect } from "react";
+import { map, size } from "lodash";
+
+const optionController = new Option();
+const footerController = new FooterCtrl();
 
 export function Footer(props) {
-  const { data } = props;
+  const [option, setOption] = useState(null);
+  const [data, setData] = useState(null);
+  // const { data } = props;
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await optionController.getAll();
+        console.log("Options: ", response);
+        setOption(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await footerController.find();
+        console.log("Footer data: ", response);
+        setData(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
+
+  const menus = data?.attributes?.footerMenus?.data;
+  const hasMenus = size(menus) > 0;
 
   return (
     <footer className={styles.footer}>
-      <Container>
+      <Container className={styles.footerWrapper}>
         <div className={styles.columns}>
-          <div className={styles.logo}>
-            <Shared.Logo
-              image={data?.logo}
-              text={data?.siteTitle}
-              link={data?.logoUrl}
-            />
-          </div>
+          <div className={styles.companyInfo}>
+            {data?.attributes?.showLogo ? (
+              <Shared.Logo dark={true} height="100%" />
+            ) : (
+              <h3>{option?.attributes?.siteTitle}</h3>
+            )}
+            {data?.attributes?.showCompanyInfo && (
+              <div className={styles.info}>
+                <p>{option?.attributes?.name}</p>
 
-          <div className={styles.about}>
-            <h5 className={styles.heading}>Cooperativa</h5>
-            <ul className={styles.aboutList}>
-              <Link href="#">Sobre nosotros</Link>
-              <Link href="#">Términos y condiciones</Link>
-              <Link href="#">Política de privacidad</Link>
-              <Link href="#">FAQs</Link>
-            </ul>
-          </div>
-
-          <div className={styles.tools}>
-            <h5 className={styles.heading}>Herramientas</h5>
-            <ul className={styles.toolsList}>
-              <Link href="#">Cálculadora de préstamos</Link>
-            </ul>
-          </div>
-
-          <div className={styles.contactInfo}>
-            <h5 className={styles.heading}>Contáctanos</h5>
-            <ul className={styles.aboutList}>
-              <Link href="#">Dirección</Link>
-              <Link href="#">Télefono</Link>
-              <Link href="#">Correo</Link>
-              <Link href="#">Horarios</Link>
-              <div className={styles.contactSubmenu}>
-                <h5 className={styles.heading}>Síguenos en</h5>
-                <ul className={styles.social}>
-                  <Button
-                    as="a"
-                    href="#"
-                    circular
-                    color="facebook"
-                    icon="facebook"
-                  />
-                  <Button
-                    as="a"
-                    href="#"
-                    circular
-                    color="instagram"
-                    icon="instagram"
-                  />
-                  <Button
-                    as="a"
-                    href="#"
-                    circular
-                    color="twitter"
-                    icon="twitter"
-                  />
-                  <Button
-                    as="a"
-                    href="#"
-                    circular
-                    color="youtube"
-                    icon="youtube"
-                  />
+                <ul>
+                  <li>
+                    <Icon name="envelope outline" />
+                    <Link href={`mailto:${option?.attributes?.contactEmail}`}>
+                      {option?.attributes?.contactEmail}
+                    </Link>
+                  </li>
+                  <li>
+                    <Icon name="phone" />
+                    <Link href={`tel:${option?.attributes?.contactPhone}`}>
+                      {option?.attributes?.contactPhone}
+                    </Link>
+                  </li>
+                  <li>
+                    <Icon name="whatsapp" />
+                    <Link
+                      href={`https://wa.me/1${option?.attributes?.contactWhatsapp}?text=Saludos,%20les%20escribo%20desde%20su%20sitio%20web,%20y%20me%20interesaría%20saber...%20`}
+                    >
+                      {option?.attributes?.contactWhatsapp}
+                    </Link>
+                  </li>
+                  <li>
+                    <Icon name="map marker alternate" />
+                    {option?.attributes?.contactAddress}
+                  </li>
                 </ul>
               </div>
-            </ul>
+            )}
+
+            {data?.attributes?.showSocialLinks &&
+              size(option?.attributes?.socialLinks) > 0 && (
+                <ul className={styles.social}>
+                  {map(option?.attributes?.socialLinks, (socialLink) => (
+                    <Button
+                      as="a"
+                      key={socialLink?.id}
+                      href={socialLink?.url}
+                      target={`_blank`}
+                      circular
+                      icon={socialLink?.icon}
+                    />
+                  ))}
+                </ul>
+              )}
           </div>
+
+          {hasMenus &&
+            map(menus, (menu) => (
+              <div>
+                <h6>{menu?.attributes?.name}</h6>
+                {menu?.attributes?.menuItems && (
+                  <ul>
+                    {map(menu?.attributes?.menuItems, (menuItem) => (
+                      <li>
+                        <Link href={`/${menuItem?.url}`}>
+                          {menuItem?.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
         </div>
       </Container>
 
-      <BottomBar copyright={data?.copyright} />
+      <BottomBar
+        copyright={option?.attributes?.siteTitle}
+        socialLinks={option?.attributes?.socialLinks}
+        showSocialLinks={data?.attributes?.showSocialLinks}
+      />
     </footer>
   );
 }

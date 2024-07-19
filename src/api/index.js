@@ -25,3 +25,4 @@ export * from "./wishlist";
 export * from "./ad";
 export * from "./file";
 export * from "./option";
+export * from "./footer";

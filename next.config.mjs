@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: ["https://placehold.co"],
+    domains: [
+      "http://localhost:1337",
+      "https://apicoop.mt.gob.do",
+      "https://placehold.co",
+    ],
     remotePatterns: [
       {
         protocol: "http",

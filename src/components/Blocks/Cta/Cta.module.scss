@@ -1,7 +1,7 @@
 @import "~/src/scss/index.scss";
 
 .cta {
-  background-color: $lightgreen;
+  background-color: $lightgray;
   // background-color: $light-accent;
 
   .wrapper {
@@ -16,7 +16,7 @@
     .contentWrapper {
       grid-column-start: 1;
       grid-column-end: 3;
-      background-color: $primary;
+      background-color: $lightgreen;
       // background: url(/images/ffflux.svg);
       padding: 40px 84px;
       border-radius: 20px 0px 0px 20px;
@@ -77,11 +77,12 @@
     .blockContentWrapper {
       grid-column-start: 1;
       grid-column-end: 4;
-      // background-color: $accent;
-      background: url("/images/ffflux.svg");
+      background-color: $lightgreen;
+
+      // background: url("/images/ffflux.svg");
 
       padding: 40px 84px;
-      border-radius: 20px;
+      border-radius: 8px;
       display: flex;
       justify-content: space-between;
       flex-direction: row;
@@ -94,7 +95,7 @@
       }
 
       .content {
-        width: 75%;
+        width: 60%;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -106,16 +107,21 @@
         }
 
         .title {
-          color: $light;
+          width: 80%;
+          color: $primary;
+          // text-transform: uppercase;
+          line-height: 1;
+          margin-bottom: 1rem;
           // color: $text-accent !important;
 
           @include mobile() {
+            width: 100%;
             text-align: center !important;
           }
         }
 
         .paragraph {
-          color: $text-accent;
+          color: $text-secondary;
           font-size: 18px;
 
           @include mobile() {
@@ -138,6 +144,12 @@
           justify-content: center;
           gap: 16px;
           text-align: center !important;
+        }
+
+        > a {
+          > button {
+            box-shadow: $box-shadow;
+          }
         }
       }
     }

@@ -4,6 +4,7 @@ import styles from "./AddToWishlist.module.scss";
 import classNames from "classnames";
 import { Wishlist } from "@/api";
 import { useAuth } from "@/hooks";
+import { useRouter } from "next/router";
 
 const wishlistController = new Wishlist();
 
@@ -12,6 +13,7 @@ export function AddToWishlist(props) {
 
   const { productId, className } = props;
   const { user } = useAuth();
+  const router = useRouter();
 
   const [wishlisted, setWishlisted] = useState(null);
 
@@ -29,7 +31,11 @@ export function AddToWishlist(props) {
   }, [productId]);
 
   const addToWishlist = async () => {
-    const response = await wishlistController.add(user.id, productId);
+    if (!user) {
+      router.push("/auth/login");
+      return null;
+    }
+    const response = await wishlistController.add(user?.id, productId);
     if (response) {
       setWishlisted(response);
     }
