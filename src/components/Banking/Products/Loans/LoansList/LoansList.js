@@ -14,7 +14,7 @@ export function LoansList(props) {
             {loans.activeLoans.map((loan) => {
               const number = loan["number"];
               const type = loan["type"];
-              const amount = loan["amount"];
+              const totalBalance = loan["totalBalance"];
 
               return (
                 <li key={`loan-item-${number}`} className={styles.loanListItem}>
@@ -32,7 +32,7 @@ export function LoansList(props) {
                     <span className={styles.balanceCol}>
                       <span className={styles.label}>Balance</span>
                       <span className={styles.balance}>{`RD$${numeral(
-                        amount.toFixed(2)
+                        totalBalance.toFixed(2)
                       ).format("0,0.00")}`}</span>
                     </span>
                   </span>
