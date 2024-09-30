@@ -7,6 +7,7 @@ import { PageLink } from "./PageLink";
 import { DropdownMenu } from "./DropdownMenu";
 import { PosttypeLink } from "./PosttypeLink";
 import { ServiceLink } from "./ServiceLink";
+import { MaterialIcon } from "./MaterialIcon";
 
 export const Block = {
   Link,
@@ -14,4 +15,5 @@ export const Block = {
   DropdownMenu,
   PosttypeLink,
   ServiceLink,
+  MaterialIcon,
 };

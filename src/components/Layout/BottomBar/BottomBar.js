@@ -17,8 +17,8 @@ export function BottomBar(props) {
         </div>
         {showSocialLinks && size(socialLinks) > 0 && (
           <ul className={styles.social}>
-            {map(socialLinks, (socialLink) => (
-              <li>
+            {map(socialLinks, (socialLink, i) => (
+              <li key={`bottom-bar-social-link-${i}`}>
                 <Link href={socialLink?.url} target="_blank">
                   <Icon name={socialLink?.icon} />
                 </Link>

@@ -13,7 +13,7 @@
       width: 100%;
       display: flex;
       flex-direction: row;
-      align-items: start;
+      align-items: flex-start;
       // grid-template-columns: repeat(4, 1fr);
       justify-content: space-between;
       gap: 60px;
@@ -108,8 +108,8 @@
       > div:first-of-type {
         display: flex;
         flex-direction: column;
-        justify-content: start;
-        align-items: start;
+        justify-content: flex-start;
+        align-items: flex-start;
         max-width: 40%;
         gap: 16px;
         text-align: left;

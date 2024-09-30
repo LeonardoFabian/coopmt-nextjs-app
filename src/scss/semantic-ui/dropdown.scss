@@ -10,7 +10,7 @@
     color: $text-primary;
   }
 
-  .visible.menu.transition {
+  .menu.transition.visible {
     background-color: $lightgray;
     margin-top: 10px;
     border-radius: 6px;
@@ -28,12 +28,47 @@
 
       &:hover,
       &.activ {
-        background-color: $gray;
+        background-color: $lightgray;
+        color: $primary;
       }
 
       .text {
+        font-size: 14px;
         margin: 0;
       }
+    }
+  }
+}
+
+.menu.transition.visible {
+  width: 250px;
+  background-color: $light;
+  box-shadow: $box-shadow;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 0;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .item {
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,
+    &.activ {
+      background-color: $lightgreen;
+      font-weight: bold;
+      color: $primary;
+    }
+
+    .text {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0;
     }
   }
 }

@@ -10,7 +10,7 @@ import Link from "next/link";
 const serviceController = new Service();
 
 export function FeaturedServices({ data }) {
-  const { heading, subheading, link } = data;
+  const { heading, subheading, link, icon } = data;
 
   const [featuredServices, setFeaturedServices] = useState(null);
 
@@ -19,7 +19,7 @@ export function FeaturedServices({ data }) {
       try {
         const response = await serviceController.find();
         console.log("FEATURED SERVICES: ", response);
-        setFeaturedServices(response.results);
+        setFeaturedServices(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -37,9 +37,12 @@ export function FeaturedServices({ data }) {
             {map(featuredServices, (service) => (
               <Link
                 key={service?.id}
-                href={`/servicios/${service?.category?.slug}/${service?.slug}`}
+                href={`/servicios/${service?.attributes?.category?.data?.attributes?.slug}/${service?.attributes?.slug}`}
               >
-                <Custom.ServiceCard title={service?.title} />
+                <Custom.ServiceCard
+                  title={service?.attributes?.title}
+                  icon={service?.attributes?.icon?.icons}
+                />
               </Link>
             ))}
           </Shared.Grid>

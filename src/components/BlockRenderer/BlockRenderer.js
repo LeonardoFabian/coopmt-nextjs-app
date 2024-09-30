@@ -21,12 +21,14 @@ export function BlockRenderer({ blocks }) {
         );
         break;
       case "supplier.hero":
-        return <Supplier.Hero key={block?.id} banner={block?.banner} />;
+        return (
+          <Supplier.Hero key={`hero-${block?.id}`} banner={block?.banner} />
+        );
         break;
       case "layout.product-list":
         return (
           <ProductList
-            key={block?.id}
+            key={`product-list-${block?.id}`}
             heading={block?.heading}
             subheading={block?.subheading}
             limit={block?.limit}
@@ -38,7 +40,7 @@ export function BlockRenderer({ blocks }) {
       case "layout.container":
         return (
           <Container
-            key={block?.id}
+            key={`container-${block?.id}`}
             display={block?.display}
             theme={block?.theme}
             alignItems={block?.alignItems}
@@ -51,7 +53,7 @@ export function BlockRenderer({ blocks }) {
             {block?.blocks?.map((innerBlocks) => {
               return (
                 <Group
-                  key={innerBlocks.id}
+                  key={`group-${innerBlocks?.id}`}
                   display={innerBlocks?.display}
                   theme={innerBlocks?.theme}
                   alignItems={innerBlocks?.alignItems}
@@ -69,6 +71,7 @@ export function BlockRenderer({ blocks }) {
       case "blocks.faqs":
         return (
           <Blocks.Faqs
+            key={`faqs-${block?.id}`}
             title={block.title}
             faqs={block.faqs}
             theme={block.theme}
@@ -78,6 +81,7 @@ export function BlockRenderer({ blocks }) {
       case "layout.requirements":
         return (
           <Requirements
+            key={`requirements-${block?.id}`}
             heading={block.heading}
             requirements={block.requirements}
           />
@@ -87,18 +91,30 @@ export function BlockRenderer({ blocks }) {
         return <Fees heading={block.heading} fees={block.fees} />;
         break;
       case "layout.hero-section":
-        return <Home.HeroSection key={block?.id} block={block} />;
+        return (
+          <Home.HeroSection key={`hero-section-${block?.id}`} block={block} />
+        );
         break;
       case "layout.features-section":
-        return <Home.FeaturesSection key={block?.id} data={block} />;
+        return (
+          <Home.FeaturesSection
+            key={`features-section-${block?.id}`}
+            data={block}
+          />
+        );
         break;
       case "layout.services-section":
-        return <Home.FeaturedServices key={block?.id} data={block} />;
+        return (
+          <Home.FeaturedServices
+            key={`featured-service-${block?.id}`}
+            data={block}
+          />
+        );
         break;
       case "layout.blog-section":
         return (
           <Home.LatestPosts
-            key={block?.id}
+            key={`latest-posts-${block?.id}`}
             heading={block?.heading}
             subheading={block?.subheading}
             link={block?.link}
@@ -108,7 +124,7 @@ export function BlockRenderer({ blocks }) {
       case "layout.logo-clouds":
         return (
           <Home.LogoClouds
-            key={block?.id}
+            key={`logo-clouds-${block?.id}`}
             suppliers={block?.suppliers?.data}
             heading={block?.heading}
             subheading={block?.subheading}
@@ -116,18 +132,23 @@ export function BlockRenderer({ blocks }) {
         );
         break;
       case "components.link":
-        return <Block.Link key={block?.id} block={block} />;
+        return <Block.Link key={`link-${block?.id}`} block={block} />;
         break;
       case "layout.dropdown-menu":
-        return <Block.DropdownMenu key={block?.id} block={block} />;
+        return (
+          <Block.DropdownMenu
+            key={`dropdown-menu-${block?.id}`}
+            block={block}
+          />
+        );
         break;
       case "components.page-link":
-        return <Block.PageLink key={block?.id} block={block} />;
+        return <Block.PageLink key={`page-link-${block?.id}`} block={block} />;
         break;
       case "shared.postype-link":
         return (
           <Block.PosttypeLink
-            key={block?.id}
+            key={`postype-link-${block?.id}`}
             label={block?.label}
             post_type={block?.post_type}
           />
@@ -136,7 +157,7 @@ export function BlockRenderer({ blocks }) {
       case "shared.service-link":
         return (
           <Block.ServiceLink
-            key={block?.id}
+            key={`service-link-${block?.id}`}
             label={block?.label}
             description={block?.description}
             service={block?.service}
@@ -147,7 +168,7 @@ export function BlockRenderer({ blocks }) {
       case "components.banner":
         return (
           <Shared.Banner
-            key={block?.id}
+            key={`banner-${block?.id}`}
             title={block?.title}
             text={block?.text}
             url={block?.url || "#"}

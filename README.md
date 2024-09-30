@@ -274,3 +274,19 @@ http {
     }
 }
 ```
+
+### Registro de Usuario
+
+#### Requisitos:
+-	Haber sido registrado en el sistema de la cooperativa previamente, mediante solicitud de afiliación.
+-	Tener un número de socio vinculado a su número de documento.
+#### Procedimiento:
+Al momento de registrarse en el sitio web el sistema realizará el siguiente procedimiento;
+-	Le pedirá al usuario que ingrese su número de cédula para habilitar los demás campos.
+-	Si el número ingresado por el usuario no se encuentra en el sistema, mostrará el siguiente error: No hemos encontrado datos con el número de cédula proporcionado. Por favor intente más tarde, y se deshabilitaran los campos del formulario.
+-	Si el número de cedula coincide con los datos del sistema, le pedirá al usuario que ingrese su número de socio.
+-	Le permitirá al usuario ingresar los demás datos y habilitará el botón para enviar el formulario.
+-	Al momento de enviar el formulario el sistema verificará que el número de socio ingresado por el usuario coincida con el número de socio vinculado al número de cedula proporcionado.
+-	Si los datos no coinciden mostrará el siguiente mensaje: Los datos ingresados no coinciden con nuestros registros, y procederá a crear una alerta con los datos proporcionados, notificando al administrador del sistema.
+-	Si los datos coinciden el sistema realizará otra validación. Verificará que no exista un usuario registrado en el sistema con el número de cédula o el correo ingresado.
+-	Si el número de cedula o el correo electrónico ya están registrados, mostrará el siguiente mensaje de error: Ya existe un usuario registrado con este correo o número de documento.

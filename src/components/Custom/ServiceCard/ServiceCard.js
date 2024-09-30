@@ -1,4 +1,5 @@
 import styles from "./ServiceCard.module.scss";
+import { Block } from "@/components/Block";
 import { Icon } from "semantic-ui-react";
 
 export function ServiceCard(props) {
@@ -9,7 +10,8 @@ export function ServiceCard(props) {
   return (
     <div className={styles.serviceCard}>
       <div>
-        <Icon name={icon || "image"} />
+        <Block.MaterialIcon icon={icon} height="50px" />
+        {/* <Icon name={icon || "image"} /> */}
       </div>
       <h5 className={styles.title}>{title}</h5>
       {hasDescription && <p className={styles.description}>{content}</p>}

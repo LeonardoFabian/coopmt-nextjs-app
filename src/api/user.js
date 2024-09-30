@@ -18,18 +18,15 @@ export class User {
   }
 
   /**
-   * Get User data
-   * @returns
+   * Retrieves the currently authenticated user's information.
+   *
+   * @return {object} The user's data.
    */
   async getMe() {
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS.ME}`;
-      // const params = {
-      //     headers: {
-      //         Authorization: `Bearer rqrqrqwerqwrqwer`,
-      //     },
-      // };
-      const response = await authFetch(url);
+
+      const response = await authFetch(url); // authFetch(url, params);
       const result = await response.json();
 
       if (response.status !== 200) throw result;
@@ -41,10 +38,11 @@ export class User {
   }
 
   /**
-   * Update authenticated User
-   * @param {*} userId
-   * @param {*} data
-   * @returns
+   * Updates the authenticated user's information.
+   *
+   * @param {string} userId - The ID of the user to update.
+   * @param {object} data - The updated user data.
+   * @return {object} The updated user's data.
    */
   async updateMe(userId, data) {
     try {

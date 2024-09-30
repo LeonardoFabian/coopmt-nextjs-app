@@ -6,9 +6,11 @@ import { DateTime } from "luxon";
 import { Suspense } from "react";
 import numeral from "numeral";
 import { fn } from "@/utils";
+import { useAuth } from "@/hooks";
 
 export function ProductCard(props) {
   const { productId, title, slug, image, price, discount, supplier } = props;
+  const { user } = useAuth();
 
   const hasDiscount = discount > 0;
   const priceToPay = fn.calcDiscount(price, discount);
@@ -21,13 +23,6 @@ export function ProductCard(props) {
         {hasDiscount && (
           <span className={styles.discount}>{`-${discount}`}% OFF</span>
         )}
-
-        <span className={styles.wishlistBtn}>
-          <Shared.AddToWishlist
-            productId={productId}
-            className={styles.wishlist}
-          />
-        </span>
       </div>
       <div className={styles.cardBody}>
         <Link href={`/afiliados/${supplier?.data?.attributes?.slug}/${slug}`}>
@@ -66,6 +61,14 @@ export function ProductCard(props) {
         </div>
         <div className={styles.cardFooter}>
           <Shared.AddToCart productId={productId} />
+          {user && (
+            <span className={styles.wishlistBtn}>
+              <Shared.AddToWishlist
+                productId={productId}
+                className={styles.wishlist}
+              />
+            </span>
+          )}
         </div>
       </div>
     </div>

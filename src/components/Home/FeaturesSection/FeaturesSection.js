@@ -17,10 +17,10 @@ export function FeaturesSection({ data }) {
           <Shared.Grid cols="3" gap="30px">
             {map(feature, (item) => (
               <Shared.TrustBadge
-                key={item.id}
-                title={item.heading}
-                description={item.subheading}
-                icon={item.icon}
+                key={item?.id}
+                title={item?.heading}
+                description={item?.subheading}
+                icon={item?.icon?.icons}
               />
             ))}
           </Shared.Grid>

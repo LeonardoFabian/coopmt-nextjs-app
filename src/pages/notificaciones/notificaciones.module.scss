@@ -1,0 +1,40 @@
+@import "~/src/scss/index.scss";
+
+.notifications {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+
+  .notification {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    gap: 20px;
+    border-top: 1px solid $lightgray;
+
+    a {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      h6 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    div {
+      white-space: nowrap;
+      color: $text-secondary;
+      width: 150px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+}

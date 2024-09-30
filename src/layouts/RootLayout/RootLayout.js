@@ -4,6 +4,7 @@ import { Container } from "semantic-ui-react";
 import { Footer, TopBar } from "@/components/Layout";
 import { Global } from "@/api";
 import { useState, useEffect } from "react";
+import search from "@/pages/search";
 
 const globalController = new Global();
 
@@ -22,6 +23,9 @@ export function RootLayout(props) {
     })();
   }, []);
 
+  // if isOpenSearch is true, the search bar is open
+  // if isContainer is true, the children are wrapped in a container
+  // if relative is true, the children are wrapped in a relative container
   const {
     children,
     isOpenSearch = false,

@@ -26,7 +26,7 @@ const fileController = new File();
 const checkDocumentIdExists = async (documentId) => {
   try {
     const response = await affiliationController.findByDocumentId(documentId);
-    console.log(response);
+    // console.log(response);
     return response.data.length > 0;
   } catch (error) {
     console.error("Error checking document ID: ", error);
@@ -206,11 +206,11 @@ export function AffiliationForm() {
         formFiles.append("files", values.documentIdFront);
         formFiles.append("files", values.documentIdBack);
 
-        console.log("AffiliationForm values: ", values);
+        // console.log("AffiliationForm values: ", values);
         try {
           // upload files
           const fileResponse = await fileController.upload(formFiles);
-          console.log("fileResponse: ", fileResponse);
+          // console.log("fileResponse: ", fileResponse);
           if (fileResponse) {
             const documentIdFrontID = fileResponse[0].id;
             const documentIdBackID = fileResponse[1].id;
@@ -224,7 +224,7 @@ export function AffiliationForm() {
               const response = await affiliationController.submit(
                 formDataValues
               );
-              console.log("Solicitud de afiliacion response: ", response);
+              // console.log("Solicitud de afiliacion response: ", response);
             } catch (error) {
               console.error(error);
             }

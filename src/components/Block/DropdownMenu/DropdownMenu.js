@@ -3,9 +3,11 @@ import { Icon } from "semantic-ui-react";
 import { useState } from "react";
 import { DropdownSection } from "./DropdownSection";
 import { map } from "lodash";
+import classNames from "classnames";
 
 export function DropdownMenu({ block }) {
-  const { heading, sections } = block;
+  console.log("Dropdown menu: ", block);
+  const { heading, sections, alignment } = block;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,7 +34,11 @@ export function DropdownMenu({ block }) {
       </button>
       {sections?.data?.length !== 0 && isOpen && (
         <div
-          className={styles.dropdownMenu}
+          className={classNames([styles.dropdownMenu], {
+            [styles.alignLeft]: alignment === "left",
+            [styles.alignCenter]: alignment === "center",
+            [styles.alignRight]: alignment === "right",
+          })}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >

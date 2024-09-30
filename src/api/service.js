@@ -6,12 +6,19 @@ export class Service {
    * @returns
    */
   async find() {
-    try {
-      const populate = `populate=*`;
-      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.SERVICES}?${populate}`;
+    // const populateService =
+    // "populate[0]=featuredImage&populate[1]=category";
+    // const populateCategory = "populate[5]=category.featuredImage";
+    // const populateIcon = "populate[6]=icon.icons";
+    // const populate = `${populateService}`;
+    const populate = "populate=*";
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.SERVICES}?${populate}`;
 
+    try {
       const response = await fetch(url);
       const result = await response.json();
+
+      console.log("API Service result: ", result);
 
       if (response.status !== 200) throw result;
 
@@ -42,7 +49,7 @@ export class Service {
 
       if (response.status !== 200) throw result;
 
-      return result.results[0];
+      return result.data[0];
     } catch (error) {
       throw error;
     }

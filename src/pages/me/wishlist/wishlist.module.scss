@@ -1,0 +1,34 @@
+@import "~/src/scss/index.scss";
+
+.wishlist {
+  background-color: $light;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  p {
+    color: $text-secondary;
+    font-size: 14px;
+  }
+
+  .wishlistItems {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+    row-gap: 30px;
+
+    .wishlistItem {
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+    }
+  }
+}

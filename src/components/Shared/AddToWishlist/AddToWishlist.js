@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { Wishlist } from "@/api";
 import { useAuth } from "@/hooks";
 import { useRouter } from "next/router";
+// import { Block } from "@/components/Block";
 
 const wishlistController = new Wishlist();
 
@@ -17,10 +18,15 @@ export function AddToWishlist(props) {
 
   const [wishlisted, setWishlisted] = useState(null);
 
+  if (!user) {
+    // router.push("/auth/login");
+    return null;
+  }
+
   useEffect(() => {
     (async () => {
       try {
-        const response = await wishlistController.check(user.id, productId);
+        const response = await wishlistController.check(user?.id, productId);
         console.log("wishlistController response: ", response);
         setWishlisted(response);
       } catch (error) {
@@ -55,11 +61,14 @@ export function AddToWishlist(props) {
   return (
     <>
       <Icon
-        name={wishlisted ? "heart" : "heart outline"}
+        name={wishlisted ? "bookmark" : "bookmark outline"}
         className={classNames(styles.wishlistIcon, {
           [className]: className,
+          [styles.wishlisted]: wishlisted,
         })}
-        title={wishlisted ? "Añadido a tu lista" : "Añadir a lista de deseos"}
+        title={
+          wishlisted ? "Remover de lista de deseos" : "Añadir a lista de deseos"
+        }
         onClick={wishlisted ? removeFromWishlist : addToWishlist}
       />
     </>

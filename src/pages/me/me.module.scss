@@ -1,0 +1,57 @@
+@import "~/src/scss/index.scss";
+
+.me {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  .mainContentLeft {
+    flex-grow: 1;
+  }
+
+  .mainContentRight {
+    width: 350px;
+  }
+}
+
+.userProfile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.memberId {
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid $gray;
+  font-weight: 500;
+}
+
+.card {
+  padding: 20px;
+  background-color: $light;
+  border-radius: 12px;
+  color: $text-secondary;
+
+  .cardHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &.flexStart {
+      align-items: flex-start;
+    }
+  }
+
+  h6 {
+    font-weight: bold;
+  }
+}

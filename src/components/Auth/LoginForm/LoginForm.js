@@ -1,16 +1,20 @@
 import { Form } from "semantic-ui-react";
 import { useFormik } from "formik";
-import { initialValues, validationSchema } from "./LoginForm.form";
 import { Auth } from "@/api";
+import { initialValues, validationSchema } from "./LoginForm.form";
 import { useAuth } from "@/hooks";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import styles from "./LoginForm.module.scss";
 
 const authController = new Auth();
 
 export function LoginForm() {
-  const router = useRouter();
-  const { accessToken, user, login, logout, updateUser } = useAuth();
+  // const router = useRouter();
+  const { login } = useAuth();
+
+  if (!login) {
+    return <div>Cargando...</div>;
+  }
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -19,9 +23,11 @@ export function LoginForm() {
     onSubmit: async (formValues) => {
       try {
         const response = await authController.login(formValues);
-        login(response.jwt);
-        console.log("LOGIN DATA: ", formValues);
-        console.log("LOGIN RESPONSE: ", response);
+        if (response?.jwt) {
+          login(response.jwt);
+        }
+        // console.log("LOGIN DATA: ", formValues);
+        // console.log("LOGIN RESPONSE: ", response);
       } catch (error) {
         console.log("LOGIN ERROR: ", error);
       }
@@ -36,7 +42,7 @@ export function LoginForm() {
         placeholder="Correo electrónico o nombre de usuario"
         value={formik.values.identifier}
         onChange={formik.handleChange}
-        error={formik.errors.identifier}
+        error={formik?.errors?.identifier}
       />
       <Form.Input
         name="password"
@@ -44,7 +50,7 @@ export function LoginForm() {
         placeholder="Password"
         value={formik.values.password}
         onChange={formik.handleChange}
-        error={formik.errors.password}
+        error={formik?.errors?.password}
       />
       <Form.Button type="submit" fluid loading={formik.isSubmitting}>
         Entrar

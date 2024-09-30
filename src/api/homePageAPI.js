@@ -34,7 +34,11 @@ const homePageQuery = qs.stringify({
           },
         },
         feature: {
-          populate: true,
+          populate: {
+            icon: {
+              fields: ["icons"],
+            },
+          },
         },
         banners: {
           populate: {

@@ -52,7 +52,7 @@
     box-shadow: $box-shadow;
 
     > div {
-      background-color: $accent;
+      // background-color: $accent;
 
       > i {
         color: $primary;
@@ -60,7 +60,7 @@
     }
 
     .title {
-      color: $secondary;
+      color: $primary;
     }
   }
 }

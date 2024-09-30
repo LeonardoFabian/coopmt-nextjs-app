@@ -4,7 +4,7 @@ import { ENV } from "@/utils";
 export class Affiliation {
   async submit(data) {
     try {
-      console.log("Affiliation create: ", data);
+      // console.log("Affiliation create: ", data);
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.AFFILIATION.SUBMIT_FORM}`;
       const params = {
         method: "POST",
@@ -24,7 +24,7 @@ export class Affiliation {
   }
 
   async findByDocumentId(documentId) {
-    console.log("findByDocumentId: ", documentId);
+    // console.log("findByDocumentId: ", documentId);
     const filters = `filters[documentId][$eq]=${documentId}`;
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.AFFILIATION.REQUEST}?${filters}`;
 

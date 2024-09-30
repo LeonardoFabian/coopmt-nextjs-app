@@ -1,25 +1,25 @@
 .ui.sidebar {
-    background-color: $background-primary !important;
+  background-color: $background-primary !important;
 }
 
 .ui.thin.left.sidebar {
-    width: 250px;
+  width: 250px;
 
-    > a {
-        display: inline-block !important;
-        align-items: center;
-        justify-content: start;
-        text-align: left;
-        width: 100%;
+  > a {
+    display: inline-block !important;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
 
-        > i {
-            display: inline-block !important;
-            margin-right: 20px;
-        }
-
-        > span {
-            display: inline-block;
-            margin-left: 20px;
-        }
+    > i {
+      display: inline-block !important;
+      margin-right: 20px;
     }
+
+    > span {
+      display: inline-block;
+      margin-left: 20px;
+    }
+  }
 }

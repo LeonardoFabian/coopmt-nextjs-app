@@ -1,8 +1,12 @@
+const SERVER_HOST =
+  process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://localhost:1337";
+const API_URL = `${SERVER_HOST}/api`;
+
 export const ENV = {
   // SERVER_HOST: "https://apicoop.mt.gob.do:1337",
   // API_URL: "https://apicoop.mt.gob.do:1337/api",
-  SERVER_HOST: "http://localhost:1337",
-  API_URL: "http://localhost:1337/api",
+  SERVER_HOST,
+  API_URL,
 
   // SERVER_HOST: "https://coopadmin.up.railway.app",
   // API_URL: "https://coopadmin.up.railway.app/api",
@@ -25,7 +29,26 @@ export const ENV = {
       ME: "users/me",
       UPDATE: "users",
     },
-    MEMBERSHIP: "membership-applications",
+    // MEMBERSHIP: "membership-applications",
+    MEMBERSHIP: {
+      CHECK: "check-membership",
+    },
+    NOTIFICATIONS: {
+      USER_NOTIFICATIONS: "notifications",
+      PUBLIC_NOTIFICATIONS: "notifications",
+    },
+    ACCOUNT: {
+      BALANCE: "get-balance",
+      WITHDRAW: {
+        TOTAL: "get-total-withdrawals",
+      },
+      SAVINGS: {
+        TOTAL: "get-total-savings",
+      },
+      LOANS: {
+        ACTIVE: "get-active-loans",
+      },
+    },
     CATEGORIES: {
       FIND: "categories",
     },

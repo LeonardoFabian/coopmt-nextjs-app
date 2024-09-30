@@ -35,6 +35,7 @@ export function ProductList(props) {
           <Shared.Grid cols={columns} gap="30px">
             {map(products, (product) => (
               <Custom.ProductCard
+                key={`product-list-product-${product?.id}`}
                 productId={product?.id}
                 title={product?.attributes?.title}
                 slug={product?.attributes?.slug}

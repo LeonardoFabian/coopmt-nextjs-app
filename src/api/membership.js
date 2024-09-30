@@ -1,15 +1,17 @@
 import { ENV } from "@/utils";
 
 export class Membership {
-  async create(data) {
+  async check(documentId) {
     try {
-      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.MEMBERSHIP}`;
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.MEMBERSHIP.CHECK}`;
       const params = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          documentId,
+        }),
       };
 
       const response = await fetch(url, params);

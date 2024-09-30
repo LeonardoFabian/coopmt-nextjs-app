@@ -26,7 +26,10 @@ export function EmblaCarousel({ slides }) {
       <div className={styles.embla} ref={emblaRef}>
         <div className={styles.emblaContainer}>
           {map(slides, (slide) => (
-            <div className={styles.emblaSlide}>
+            <div
+              key={`embla-carousel-${slide.id}`}
+              className={styles.emblaSlide}
+            >
               {slide?.image?.url && (
                 <Shared.Image
                   src={slide.image.url}
@@ -46,11 +49,19 @@ export function EmblaCarousel({ slides }) {
                     {map(slide.blocks, (block) => {
                       switch (block.__component) {
                         case "components.link":
-                          return <Block.Link key={block.id} block={block} />;
+                          return (
+                            <Block.Link
+                              key={`embla-carousel-link-${block.id}`}
+                              block={block}
+                            />
+                          );
                           break;
                         case "components.page-link":
                           return (
-                            <Block.PageLink key={block.id} block={block} />
+                            <Block.PageLink
+                              key={`embla-carousel-page-link-${block.id}`}
+                              block={block}
+                            />
                           );
                           break;
                         default:

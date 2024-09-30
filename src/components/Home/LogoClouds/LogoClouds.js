@@ -17,7 +17,7 @@ export function LogoClouds(props) {
     // dotsClass: styles.dots,
     // arrows: true,
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
     autoplay: true,
     speed: 3000,
     autoplaySpeed: 3000,

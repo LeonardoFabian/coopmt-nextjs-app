@@ -13,8 +13,14 @@ export function ServiceCover(props) {
 
   const link = "#";
   const linkText = "Solicitar";
-  const image = service?.featuredImage;
-  const category = service?.category;
+  const serviceTitle = service?.attributes?.title;
+  const serviceSummary = service?.attributes?.summary;
+  const imageUrl = service?.attributes?.featuredImage?.data?.attributes?.url;
+  const imageAlt =
+    service?.attributes?.featuredImage?.data?.attributes?.alternativeText;
+  const category = service?.attributes?.category;
+  const categoryName = category?.data?.attributes?.name;
+  const categorySlug = category?.data?.attributes?.slug;
 
   console.log("SERVICE COVER: ", service);
 
@@ -40,18 +46,18 @@ export function ServiceCover(props) {
   return (
     <Container fluid className={styles.serviceCover}>
       <Shared.Image
-        src={image?.url}
+        src={imageUrl}
         className={styles.background}
-        alt={image?.alternativeText}
+        alt={imageAlt}
       />
       <Container isContainer className={styles.contentWrapper}>
         <div className={styles.header}>
-          <Link href={`/servicios/${category?.slug}`}>
-            <span className={styles.label}>{category?.name}</span>
+          <Link href={`/servicios/${categorySlug}`}>
+            <span className={styles.label}>{categoryName}</span>
           </Link>
-          <h1 className={styles.heading}>{service?.title}</h1>
+          <h1 className={styles.heading}>{serviceTitle}</h1>
         </div>
-        <p className={styles.subheading}>{service?.summary}</p>
+        <p className={styles.subheading}>{serviceSummary}</p>
 
         <div className={styles.actions}>
           <Button

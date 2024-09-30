@@ -11,15 +11,55 @@
     max-height: 40px;
   }
 
+  .notifications {
+    padding: 8px;
+
+    > i {
+      color: $darkgray;
+    }
+
+    > span {
+      color: $darkgray;
+    }
+  }
+
+  .cart {
+    padding: 8px;
+  }
+
   .user {
     background-color: transparent !important;
     color: $primary !important;
     font-size: 13px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid $primary;
+    padding: 0 !important;
 
     &:hover {
-      background-color: $lightgray !important;
-      color: $tertiary !important;
+      background-color: $primary !important;
+      color: $light !important;
       border-color: $tertiary !important;
+    }
+  }
+
+  .logout {
+    padding: 4px;
+    text-align: center;
+
+    > span {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 10px 32px;
+      background-color: $lightgreen;
+      color: $primary;
+      border: 2px solid $primary;
+      border-radius: 4px;
     }
   }
 }

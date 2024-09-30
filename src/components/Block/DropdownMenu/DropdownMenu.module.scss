@@ -25,8 +25,8 @@
   }
 
   .dropdownMenu {
-    position: absolute;
-    right: 0;
+    top: 26%; // Posiciona el menú en el centro vertical
+
     display: flex;
     justify-content: space-between;
     gap: 30px;
@@ -35,5 +35,24 @@
     padding: 20px;
     border-radius: 10px;
     z-index: 1;
+    width: auto; // Ajusta el ancho según sea necesario
+
+    &.alignCenter {
+      position: fixed; // Usamos fixed para que siempre se quede en pantalla
+      left: 50%; // Posiciona el menú en el centro horizontal
+      transform: translate(
+        -50%,
+        -50%
+      ); // Ajuste para que el centro del menú coincida con el centro de la pantalla
+      max-width: 90%; // Evita que el menú se extienda demasiado en pantallas pequeñas
+    }
+
+    &.alignRight {
+      position: absolute;
+      top: 30px;
+      right: 0;
+      flex-direction: column;
+      min-width: 200px;
+    }
   }
 }

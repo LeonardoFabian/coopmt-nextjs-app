@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 const optionController = new Option();
 
 export function Logo(props) {
-  const { width = 196, height = 80, dark = false } = props;
+  const { width = 196, height = 80, dark = false, className = "" } = props;
   const [option, setOption] = useState(null);
 
   useEffect(() => {
@@ -43,7 +43,13 @@ export function Logo(props) {
         </Link>
       ) : (
         <Link href={"/"} className={styles.logo}>
-          <Image src={logoUrl} alt={logoAlt} height={height} width={width} />
+          <Image
+            src={logoUrl}
+            alt={logoAlt}
+            height={height}
+            width={width}
+            className={className}
+          />
         </Link>
       )}
     </>

@@ -1,0 +1,14 @@
+@import "~/src/scss/index.scss";
+
+.userAccounts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: $light;
+  padding: 20px;
+  gap: 20px;
+
+  .title {
+    font-weight: bold;
+  }
+}

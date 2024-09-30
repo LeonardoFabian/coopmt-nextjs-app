@@ -25,6 +25,7 @@ export function AddToCart(props) {
       ) : (
         <>
           <Button
+            type="button"
             secondary
             fluid
             onClick={handleAddToCart}

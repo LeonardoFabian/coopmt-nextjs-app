@@ -161,7 +161,7 @@ export class Page {
 
       console.log(flattenedData);
 
-      return flattenedData.results[0]; // flattenData.data[0];
+      return flattenedData.data[0]; // flattenData.data[0];
     } catch (error) {
       // logger.error(`Error ocurred: ${error.message}`);
       throw error;

@@ -32,8 +32,11 @@ export function Cta(props) {
               </div>
               {hasButtons && (
                 <div className={styles.actions}>
-                  {map(buttons, (button) => (
-                    <Link href={`/${button?.link?.url}`}>
+                  {map(buttons, (button, i) => (
+                    <Link
+                      key={`cta-button-${i}`}
+                      href={`/${button?.link?.url}`}
+                    >
                       <Shared.Button label={button?.link?.label} />
                     </Link>
                   ))}
@@ -63,8 +66,11 @@ export function Cta(props) {
               </div>
               {hasButtons && (
                 <div className={styles.actions}>
-                  {map(buttons, (button) => (
-                    <Link href={`/${button?.link?.url}`}>
+                  {map(buttons, (button, i) => (
+                    <Link
+                      key={`cta-button-${i}`}
+                      href={`/${button?.link?.url}`}
+                    >
                       <Button primary>{button?.link?.label}</Button>
                     </Link>
                   ))}

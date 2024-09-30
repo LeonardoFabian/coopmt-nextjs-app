@@ -1,7 +1,12 @@
 @import "~/src/scss/index.scss";
 
 .dropdownSection {
+  width: 300px;
   min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
   .heading {
     font-size: 16px;
     font-weight: bold;

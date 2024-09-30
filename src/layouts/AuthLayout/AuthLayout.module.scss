@@ -1,8 +1,8 @@
 @import "~/src/scss/index.scss";
 
 .authLayout {
-  background-color: $light;
-  padding: 20px 100px;
+  background-color: $primary;
+  padding: 20px 200px;
   height: 100vh;
   //   width: 100vw;
 
@@ -17,8 +17,9 @@
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    background-color: $lightgreen;
-    padding: 16px;
+    // gap: 30px;
+    background-color: $light;
+    // padding: 30px;
     position: relative;
     border-radius: 15px;
     box-shadow: $box-shadow;
@@ -30,56 +31,39 @@
 
     .topBar {
       position: absolute;
-      top: 30px;
-      left: 60px;
-      right: 60px;
+      top: 15px;
+      right: 15px;
       //   width: 100%;
       display: flex;
-      justify-content: space-between;
-      //   padding: 40px;
-
-      @include mobile() {
-        left: 25px;
-        right: 25px;
-        top: 16px;
-      }
+      justify-content: center;
 
       > a {
         display: flex;
         align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        width: 25px;
+        height: 25px;
+        border-radius: 20px;
+        box-shadow: $box-shadow;
 
-        > img {
-          position: relative !important;
-          width: auto;
-          height: 25px !important;
-          max-height: 25px;
+        > svg {
+          margin: 0;
         }
 
-        &:last-of-type {
-          display: flex;
-          width: 35px;
-          height: 35px;
-          background-color: $background-light__blur;
-          backdrop-filter: blur(50px);
-          padding: 10px;
-          border-radius: 50px;
-
-          > svg {
-            margin: 0;
-          }
-
-          &:hover {
-            backdrop-filter: blur(10px);
-          }
+        &:hover {
+          backdrop-filter: blur(30px);
         }
       }
     }
 
     .left {
       width: 50%;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: $box-shadow;
       //   background-color: $light;
 
       @include mobile() {
@@ -95,8 +79,9 @@
       background-position: center;
       background-size: cover;
       height: 100%;
-      border-radius: 10px;
+      border-radius: 0px 10px 10px 0px;
       width: 50%;
+      padding: 30px;
       //   padding: 20px;
 
       @include mobile() {

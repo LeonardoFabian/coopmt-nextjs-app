@@ -2,9 +2,16 @@
 
 .postTypeLink {
   display: flex;
+  width: 100%;
   align-items: center;
   gap: 10px;
   padding: 0.5rem 1rem;
+
+  &:hover {
+    .label {
+      color: $secondary;
+    }
+  }
 
   .label {
     font-size: 16px;

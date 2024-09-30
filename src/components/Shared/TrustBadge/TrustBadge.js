@@ -1,5 +1,5 @@
 import styles from "./TrustBadge.module.scss";
-import { Icon } from "semantic-ui-react";
+import { Block } from "@/components/Block";
 
 export function TrustBadge(props) {
   const { icon, title, description, ...rest } = props;
@@ -8,7 +8,7 @@ export function TrustBadge(props) {
 
   return (
     <div className={styles.trustBadge}>
-      <Icon name={icon || "icon"} />
+      <Block.MaterialIcon icon={icon} />
       <h5 className={styles.title}>{title}</h5>
       {hasDescription && <p className={styles.description}>{description}</p>}
     </div>

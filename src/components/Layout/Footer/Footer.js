@@ -91,7 +91,7 @@ export function Footer(props) {
                   {map(option?.attributes?.socialLinks, (socialLink) => (
                     <Button
                       as="a"
-                      key={socialLink?.id}
+                      key={`footer-social-link-${socialLink?.id}`}
                       href={socialLink?.url}
                       target={`_blank`}
                       circular
@@ -109,7 +109,7 @@ export function Footer(props) {
                 {menu?.attributes?.menuItems && (
                   <ul>
                     {map(menu?.attributes?.menuItems, (menuItem) => (
-                      <li>
+                      <li key={`footer-menu-item-${menuItem?.id}`}>
                         <Link href={`/${menuItem?.url}`}>
                           {menuItem?.label}
                         </Link>

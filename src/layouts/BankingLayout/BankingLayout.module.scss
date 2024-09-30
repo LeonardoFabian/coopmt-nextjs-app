@@ -1,0 +1,324 @@
+@import "~/src/scss/index.scss";
+
+.bankingLayout {
+  display: flex;
+  height: 100vh;
+
+  .sidebar {
+    width: 250px;
+    min-width: 250px;
+    background-color: $lightgreen;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &.hidden {
+      width: 60px;
+      min-width: 60px;
+    }
+
+    .topBar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+
+      .menuTriggerButton {
+        padding: 0;
+        font-size: 20px;
+        color: $darkgray;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      > a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 30px;
+        overflow: hidden;
+      }
+    }
+
+    h6 {
+      font-size: 12px;
+      text-transform: uppercase;
+
+      &.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    > .header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      //   padding: 8px 0;
+      height: 64px;
+      overflow: hidden;
+
+      &.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      > .initialsAvatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: $tertiary;
+        color: $light;
+        border-radius: 50%;
+        font-size: 20px;
+      }
+
+      .userInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .name {
+          font-size: 12px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    > .navigation {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+
+          a {
+            font-weight: 400;
+            color: $darkgray;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+
+            > span {
+              font-size: 14px;
+              color: $darkgray;
+            }
+
+            > i {
+              font-size: 14px;
+              color: $darkgray;
+            }
+
+            &:hover {
+              color: $primary !important;
+              font-weight: bold;
+
+              > span {
+                color: $primary !important;
+              }
+            }
+          }
+
+          &.active {
+            font-weight: bold;
+
+            a {
+              color: $primary;
+              font-weight: bold;
+
+              > span {
+                color: $primary;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      button {
+        height: 40px;
+        max-height: 40px;
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid $gray;
+        font-weight: 500;
+
+        &.icon {
+          background-color: transparent;
+          padding: 0;
+          border: none;
+
+          span {
+            color: $primary;
+          }
+        }
+
+        span {
+          color: $light;
+        }
+      }
+    }
+  }
+
+  .content {
+    flex-grow: 1;
+    width: 100%;
+    overflow: hidden;
+    background-color: $lightgray;
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 20px;
+      background-color: $light;
+      gap: 20px;
+
+      > .title {
+        font-size: 18px;
+        text-transform: uppercase;
+        color: $darkgray;
+      }
+
+      .userHeaderOptions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+
+        .loginInfoBlock {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: center;
+          color: $primary;
+
+          .loginInfo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 4px;
+            font-size: 16px;
+            line-height: 1;
+            margin: 0;
+
+            .name {
+              font-weight: 600;
+              color: $primary;
+              margin: 0;
+            }
+          }
+
+          .lastConnection {
+            font-size: 13px;
+            color: $primary;
+            line-height: 1;
+          }
+        }
+
+        .user {
+          background-color: transparent !important;
+          color: $primary !important;
+          font-size: 13px;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          border: 2px solid $primary;
+          padding: 0 !important;
+
+          &:hover {
+            background-color: $lightgray !important;
+            color: $tertiary !important;
+            border-color: $tertiary !important;
+          }
+        }
+      }
+
+      .logout {
+        padding: 4px;
+        text-align: center;
+
+        > span {
+          display: block;
+          width: 100%;
+          text-align: center;
+          padding: 10px 32px;
+          background-color: $lightgreen;
+          color: $primary;
+          border: 2px solid $primary;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .mainContent {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100vh;
+      // overflow: hidden;
+      gap: 20px;
+      padding: 20px;
+      overflow-y: auto;
+
+      .mainContentHeader {
+        h6 {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .linkText {
+    display: none;
+
+    &.visible {
+      display: inline;
+    }
+  }
+
+  .logo {
+    width: 100%;
+    height: 25px !important;
+    transition: opacity 0.3s ease-in-out;
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
