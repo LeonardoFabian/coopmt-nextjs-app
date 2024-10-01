@@ -17,6 +17,10 @@ export function AccountProvider(props) {
 
   const [accounts, setAccounts] = useState([]);
   const [contributionBalance, setContributionBalance] = useState(null);
+  const [contributionTotalSavings, setContributionTotalSavings] =
+    useState(null);
+  const [contributionTotalWithdrawals, setContributionTotalWithdrawals] =
+    useState(null);
   const [activeLoans, setActiveLoans] = useState([]);
   // const [loading, setLoading] = useState(false);
   const [applications, setApplications] = useState([]);
@@ -54,6 +58,24 @@ export function AccountProvider(props) {
         await accountController.getContributionBalance(user.memberId);
       console.log("contributionBalance: ", contributionBalanceResponse);
       setContributionBalance(contributionBalanceResponse);
+
+      // get contribution total savings
+      const contributionTotalSavingsResponse =
+        await accountController.getTotalSavings(user.memberId);
+      console.log(
+        "contributionTotalSavings: ",
+        contributionTotalSavingsResponse
+      );
+      setContributionTotalSavings(contributionTotalSavingsResponse);
+
+      // get contribution total withdrawals
+      const contributionTotalWithdrawalsResponse =
+        await accountController.getTotalWithdrawals(user.memberId);
+      console.log(
+        "contributionTotalWithdrawals: ",
+        contributionTotalWithdrawalsResponse
+      );
+      setContributionTotalWithdrawals(contributionTotalWithdrawalsResponse);
     } catch (error) {
       console.error("Error fetching user account data: ", error);
     }
@@ -65,8 +87,10 @@ export function AccountProvider(props) {
 
   const data = {
     accounts,
-    contributionBalance,
-    activeLoans, // COMPLETE
+    contributionBalance, // COMPLETE
+    contributionTotalSavings,
+    contributionTotalWithdrawals,
+    activeLoans, // TODO verificar balance, a Joel Lahoz no le da el balance exacto
     requests: null, // solicitudes de prestamo, cambio de aportes, solicitud de reenganche, etc el usuario con status
     recentTransactions: null, // transacciones recientes
     checkAccountTransactions: null, // ver momivientos de la cuenta

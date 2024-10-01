@@ -5,6 +5,8 @@ import { ServiceCard } from "./ServiceCard";
 import { ProductCard } from "./ProductCard";
 import { SwiperThumbs } from "./SwiperThumbs";
 import { SupplierCard } from "./SupplierCard";
+import { MuiXCardPaper } from "./MuiXCardPaper";
+import { MuiXChip } from "./MuiXChip";
 
 export const Custom = {
   PostCard,
@@ -14,4 +16,6 @@ export const Custom = {
   ProductCard,
   SwiperThumbs,
   SupplierCard,
+  MuiXCardPaper,
+  MuiXChip,
 };

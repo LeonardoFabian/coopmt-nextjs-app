@@ -1,4 +1,5 @@
 import { calcDiscount } from "./calcDiscount";
+import { calcLoansTotalBalance } from "./calcLoansTotalBalance";
 import { calcTotalByQuantity } from "./calcTotalByQuantity";
 import { getStringInitials } from "./getStringInitials";
 import { formatDate } from "./formatDate";
@@ -9,6 +10,7 @@ import { getCurrentDateTimeInHumansReadable } from "./getCurrentDateTimeInHumans
 
 export const fn = {
   calcDiscount,
+  calcLoansTotalBalance,
   calcTotalByQuantity,
   getStringInitials,
   formatDate,

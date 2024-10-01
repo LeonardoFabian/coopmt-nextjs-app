@@ -1,0 +1,69 @@
+@import "~/src/scss/index.scss";
+
+.muiXCardPaper {
+  box-sizing: border-box;
+
+  .muiXCardPaperWrapper {
+    border: 1px solid $border-primary;
+    border-radius: 8px;
+    padding: 16px;
+    overflow: hidden;
+    background: $light;
+    color: $darkgray;
+    height: 100%;
+    flex-grow: 1;
+
+    .muiXCardContent {
+      padding: 0;
+
+      .muiXCardSubtitle {
+        margin: 0;
+        font-weight: 500;
+        font-size: 0.875rem;
+        line-height: 1.57;
+        margin-bottom: 0.35em;
+      }
+
+      .muiXCardStackWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        gap: 8px;
+
+        .muiXCardStackContent {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .muiXCardStack {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .muiXCardText {
+              margin: 0;
+              font-weight: 600;
+              font-size: 1.3rem;
+              line-height: 1.5;
+            }
+          }
+
+          .caption {
+            margin: 0;
+            font-weight: 400;
+            font-size: 0.75rem;
+            line-height: 1.66;
+            color: $gray;
+          }
+        }
+
+        .muiXCardBox {
+          width: 100%;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
