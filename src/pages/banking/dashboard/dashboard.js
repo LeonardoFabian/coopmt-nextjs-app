@@ -18,6 +18,7 @@ export default function BankingDashboardPage() {
       <BankingLayout title="Dashboard">
         <div className={styles.bankingDashboard}>
           <Dashboard.DashboardCardGrid />
+          <Dashboard.DashboardCharts />
         </div>
       </BankingLayout>
     </>

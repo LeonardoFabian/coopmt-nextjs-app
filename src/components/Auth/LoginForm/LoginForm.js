@@ -5,6 +5,7 @@ import { initialValues, validationSchema } from "./LoginForm.form";
 import { useAuth } from "@/hooks";
 // import { useRouter } from "next/router";
 import styles from "./LoginForm.module.scss";
+import Link from "next/link";
 
 const authController = new Auth();
 
@@ -39,7 +40,7 @@ export function LoginForm() {
       <Form.Input
         name="identifier"
         type="text"
-        placeholder="Correo electrónico o nombre de usuario"
+        placeholder="Correo electrónico o cédula sin guiones"
         value={formik.values.identifier}
         onChange={formik.handleChange}
         error={formik?.errors?.identifier}
@@ -47,13 +48,16 @@ export function LoginForm() {
       <Form.Input
         name="password"
         type="password"
-        placeholder="Password"
+        placeholder="Ingrese su contraseña"
         value={formik.values.password}
         onChange={formik.handleChange}
         error={formik?.errors?.password}
       />
+      <div className={styles.forgotPasswordLink}>
+        <Link href="/auth/forgot-password">¿Olvidaste tu contraseña?</Link>
+      </div>
       <Form.Button type="submit" fluid loading={formik.isSubmitting}>
-        Entrar
+        Iniciar sesión
       </Form.Button>
     </Form>
   );

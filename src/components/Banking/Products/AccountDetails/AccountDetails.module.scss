@@ -1,0 +1,13 @@
+@import "~/src/scss/index.scss";
+
+.accountDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .accountDetailsInfo {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+}

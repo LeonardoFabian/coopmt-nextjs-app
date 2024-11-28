@@ -57,4 +57,60 @@ export class Auth {
       throw error;
     }
   }
+
+  /**
+   * Requests a password reset for the user with the given email address.
+   *
+   * @param {object} data - The user's email address.
+   * @return {object} The result of the request.
+   */
+  async forgotPassword(data) {
+    console.log(data);
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.AUTH.FORGOT_PASSWORD}`;
+      const params = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      };
+
+      const response = await fetch(url, params);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async resetPassword(data, code) {
+    console.log(data);
+    console.log(code);
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.AUTH.RESET_PASSWORD}`;
+      const params = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          code: code,
+        }),
+      };
+
+      const response = await fetch(url, params);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
 }

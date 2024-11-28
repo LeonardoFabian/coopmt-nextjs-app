@@ -35,27 +35,82 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          gap: 16px;
 
           .muiXCardStack {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
             justify-content: space-between;
-            align-items: center;
 
             .muiXCardText {
               margin: 0;
               font-weight: 600;
               font-size: 1.3rem;
-              line-height: 1.5;
+              line-height: 1;
+            }
+
+            .caption {
+              margin: 0;
+              font-weight: 500;
+              font-size: 0.65rem;
+              line-height: 1;
+              color: $darkgray;
             }
           }
 
-          .caption {
-            margin: 0;
-            font-weight: 400;
-            font-size: 0.75rem;
-            line-height: 1.66;
-            color: $gray;
+          .muiXCardMeta {
+            display: flex;
+            flex-direction: column;
+            // gap: 2px;
+
+            .chipDescription {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 4px;
+
+              .chipDescriptionContent {
+                font-size: 0.75rem;
+                line-height: 1;
+                font-weight: 600;
+              }
+
+              &.success {
+                .chipDescriptionIcon {
+                  color: $primary;
+                }
+                .chipDescriptionContent {
+                  color: $primary;
+                }
+              }
+
+              &.danger {
+                .chipDescriptionIcon {
+                  color: $danger;
+                }
+                .chipDescriptionContent {
+                  color: $danger;
+                }
+              }
+
+              &.info {
+                .chipDescriptionIcon {
+                  color: $darkgray;
+                }
+                .chipDescriptionContent {
+                  color: $darkgray;
+                }
+              }
+
+              .chipDescriptionCaption {
+                font-size: 0.65rem;
+                line-height: 1;
+                font-weight: 500;
+                color: $darkgray;
+              }
+            }
           }
         }
 

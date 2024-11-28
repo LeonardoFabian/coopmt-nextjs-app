@@ -5,6 +5,7 @@ import Link from "next/link";
 import { RegisterForm } from "@/components/Auth";
 import { Shared } from "@/components/Shared";
 import { Block } from "@/components/Block";
+import { Button } from "semantic-ui-react";
 
 import { Option } from "@/api";
 import { useEffect, useState } from "react";
@@ -13,6 +14,7 @@ const optionController = new Option();
 
 export default function Register() {
   const [options, setOptions] = useState(null);
+  const [isMember, setIsMember] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -41,14 +43,26 @@ export default function Register() {
             <Shared.Image src={logoUrl} alt={logoAlt} fill />
           </Link>
           <div className={styles.content}>
-            <h6 className={styles.heading}>
-              <strong>Regístrate</strong>
-            </h6>
-            <RegisterForm />
-            <div className={styles.actions}>
-              ¿Ya tienes una cuenta?{" "}
-              <Link href="/auth/login">Inicia sesión</Link>
-            </div>
+            {isMember ? (
+              <>
+                <h6 className={styles.heading}>
+                  <strong>Regístrate</strong>
+                </h6>
+                <RegisterForm />
+                <div className={styles.actions}>
+                  ¿Ya tienes una cuenta?{" "}
+                  <Link href="/auth/login">Inicia sesión</Link>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className={styles.actions}>
+                  <Link href="/affiliation" className={styles.affiliateLink}>
+                    Afiliate ahora!
+                  </Link>
+                </div>
+              </>
+            )}
           </div>
           {/* support link */}
           {options?.attributes?.supportPhone ? (

@@ -1,6 +1,183 @@
 .formik {
-  .fields {
-    width: 100%;
+  background-color: $light;
+  padding: 30px;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: column;
+  // gap: 30px;
+
+  section {
     display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 16px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid $border-secondary;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+
+      h5 {
+        font-weight: 700;
+      }
+    }
+
+    .options {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      border-top: 1px solid $border-primary;
+      // border-bottom: 1px solid $border-primary;
+      background-color: $light;
+      padding: 16px 4px 4px 4px;
+
+      h6 {
+        font-weight: 700;
+        color: $text-secondary;
+      }
+    }
+
+    .fields {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        gap: 4px;
+
+        label {
+          color: $text-secondary;
+        }
+
+        label:has(input[type="checkbox"]) {
+          display: flex;
+          align-items: center;
+          margin-top: auto;
+          gap: 8px;
+        }
+
+        input {
+          height: 40px;
+          padding: 8px 16px;
+          border-radius: 8px;
+          border: 1px solid $border-primary;
+          color: $text-primary;
+          font-size: 16px;
+        }
+
+        input[type="checkbox"] {
+          margin-top: auto;
+
+          &:checked {
+            background-color: $primary !important;
+            border-color: $primary !important;
+          }
+        }
+
+        select {
+          height: 40px;
+          padding: 8px 16px;
+          border-radius: 8px;
+          border: 1px solid $border-primary;
+          color: $text-primary;
+          font-size: 16px;
+        }
+
+        span {
+          color: $danger;
+        }
+      }
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    gap: 4px;
+
+    label {
+      color: $text-secondary;
+      font-size: 12px;
+    }
+
+    label:has(input[type="checkbox"]) {
+      display: flex;
+      align-items: center;
+      margin-top: auto;
+      gap: 8px;
+    }
+
+    input {
+      height: 40px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid $border-primary;
+      color: $text-primary;
+      font-size: 16px;
+
+      &:focus {
+        outline: none;
+        border: 1px solid $border-secondary !important;
+      }
+    }
+
+    input[type="checkbox"] {
+      margin-top: auto;
+
+      &:checked {
+        background-color: $primary;
+        border-color: $primary;
+      }
+    }
+
+    select {
+      height: 40px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid $border-primary;
+      color: $text-primary;
+      font-size: 16px;
+    }
+
+    textarea {
+      height: 100px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid $border-primary;
+      color: $text-primary;
+      font-size: 16px;
+
+      &:focus {
+        outline: none;
+        border: 1px solid $border-secondary !important;
+      }
+    }
+
+    span {
+      color: $danger;
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
   }
 }

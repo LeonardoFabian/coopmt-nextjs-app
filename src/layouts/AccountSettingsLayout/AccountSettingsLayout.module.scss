@@ -4,7 +4,11 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  border-radius: 16px;
+  padding: 16px;
   overflow: hidden;
+  background-color: $light;
+  box-shadow: $box-shadow;
 
   .sidebar {
     width: 250px;
@@ -14,7 +18,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border-right: 1px solid $gray;
+    border-right: 1px solid $border-primary;
 
     > .navigation {
       ul {
@@ -66,11 +70,11 @@
             // background-color: $lightgreen;
 
             a {
-              color: $secondary;
+              color: $primary;
               font-weight: bold;
 
               > span {
-                color: $secondary;
+                color: $primary;
               }
             }
           }
@@ -90,8 +94,11 @@
       display: flex;
       flex-direction: column;
       width: 100%;
+      height: 100%;
+      overflow: hidden;
       gap: 20px;
-      padding: 20px;
+      padding: 20px 20px 54px 20px;
+      overflow-y: auto;
 
       .header {
         h6 {

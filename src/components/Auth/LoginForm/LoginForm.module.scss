@@ -1,5 +1,16 @@
 @import "~/src/scss/index.scss";
 
+.forgotPasswordLink {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+  a {
+    color: $primary;
+    font-size: 13px;
+  }
+}
+
 // .heading {
 //     color: $text-primary;
 //     margin-bottom: 1rem;

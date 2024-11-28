@@ -7,28 +7,44 @@ import { Shared } from "@/components/Shared";
 import { Block } from "@/components/Block";
 import { Option } from "@/api";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/hooks";
+import { useRouter } from "next/router";
 
 const optionController = new Option();
 
 export default function Login() {
-  const [options, setOptions] = useState(null);
+  const { user } = useAuth();
+  const [options, setOptions] = useState({});
+  const router = useRouter();
+  // const [isMember, setIsMember] = useState(true);
+
+  // if (user) {
+  //   router.push("/");
+  //   return null;
+  // }
 
   useEffect(() => {
-    (async () => {
-      try {
-        const response = await optionController.getAll();
-        // console.log("Preview options response: ", response);
-        setOptions(response.data);
-      } catch (error) {
-        console.error("Options request error: ", error);
-      }
-    })();
-  }, []);
+    if (user) {
+      router.push("/");
+    } else {
+      (async () => {
+        try {
+          const response = await optionController.getAll();
+          // console.log("Preview options response: ", response);
+          setOptions(response);
+        } catch (error) {
+          console.error("Options request error: ", error);
+        }
+      })();
+    }
+  }, [user]);
 
   const logoUrl =
-    options?.attributes?.logo?.data?.attributes?.url ?? "/images/logo.svg";
+    options?.data?.attributes?.logo?.data?.attributes?.url ??
+    "/images/logo.svg";
   const logoAlt =
-    options?.attributes?.logo?.data?.attributes?.alternativeText ?? "Logo";
+    options?.data?.attributes?.logo?.data?.attributes?.alternativeText ??
+    "Logo";
 
   return (
     <>
@@ -40,25 +56,35 @@ export default function Login() {
             <Shared.Image src={logoUrl} alt={logoAlt} fill />
           </Link>
           <div className={styles.content}>
+            <p>¿Ya eres socio?</p>
             <h3>Inicia sesión</h3>
             <LoginForm />
             <div className={styles.actions}>
               ¿No tienes cuenta? <Link href="/auth/register">Regístrate</Link>
             </div>
+            <Shared.Separator height={30} />
+            <div className={styles.actions}>
+              <p>¿Todavía no eres socio?</p>
+
+              <Link href="/affiliation" className={styles.affiliateLink}>
+                ¡Afiliate ahora!
+              </Link>
+            </div>
           </div>
           {/* support link */}
-          {options?.attributes?.supportPhone ? (
-            <a
-              href={`https://wa.me/1${options.attributes.supportPhone}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.supportLink}
-            >
-              <Block.MaterialIcon icon="headset_mic" height="20px" /> Soporte
-            </a>
-          ) : (
-            <p>{new Date().getFullYear()}. Todos los derechos reservados.</p>
-          )}
+          {options?.data &&
+            (options?.data?.attributes?.supportPhone ? (
+              <a
+                href={`https://wa.me/1${options?.data?.attributes?.supportPhone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.supportLink}
+              >
+                <Block.MaterialIcon icon="headset_mic" height="20px" /> Soporte
+              </a>
+            ) : (
+              <p>{new Date().getFullYear()}. Todos los derechos reservados.</p>
+            ))}
         </div>
       </AuthLayout>
     </>

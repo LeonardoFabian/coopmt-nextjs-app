@@ -25,7 +25,8 @@
   }
 
   .dropdownMenu {
-    top: 26%; // Posiciona el menú en el centro vertical
+    // position: absolute;
+    top: 58px; // Posiciona el menú en el centro vertical
 
     display: flex;
     justify-content: space-between;
@@ -42,7 +43,7 @@
       left: 50%; // Posiciona el menú en el centro horizontal
       transform: translate(
         -50%,
-        -50%
+        -15px
       ); // Ajuste para que el centro del menú coincida con el centro de la pantalla
       max-width: 90%; // Evita que el menú se extienda demasiado en pantallas pequeñas
     }

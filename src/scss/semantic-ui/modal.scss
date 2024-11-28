@@ -1,20 +1,25 @@
+.ui.dimmer {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
 .ui.modal.visible.active {
   background-color: $light;
   border-radius: 12px;
-  height: 90vh;
-  overflow: scroll;
+  height: auto;
+  overflow: hidden;
 
   > .header {
     background-color: $light;
     color: $text-primary;
-    font-size: 20px;
-    padding: 1rem;
+    font-size: 16px;
+    padding: 0 0 8px 0;
   }
 
   > .content {
     position: relative;
     background-color: $light;
-    padding: 30px;
-    margin-bottom: 30px;
+    padding: 16px 0;
+    // margin-bottom: 30px;
+    overflow-y: auto;
   }
 }

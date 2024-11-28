@@ -1,0 +1,45 @@
+@import "~/src/scss/index.scss";
+
+.form {
+  background-color: $light;
+  padding: 30px;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h5 {
+    font-weight: 700;
+  }
+
+  .fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 4px;
+
+      span {
+        color: $danger;
+      }
+    }
+  }
+
+  .field {
+    span {
+      color: $danger;
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+  }
+}

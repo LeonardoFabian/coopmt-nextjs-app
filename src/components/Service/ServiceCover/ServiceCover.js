@@ -21,26 +21,29 @@ export function ServiceCover(props) {
   const category = service?.attributes?.category;
   const categoryName = category?.data?.attributes?.name;
   const categorySlug = category?.data?.attributes?.slug;
+  const CTAs = service?.attributes?.cta;
 
   console.log("SERVICE COVER: ", service);
 
-  const { fillApplication } = useApplication();
+  // const { fillApplication } = useApplication();
   const { user } = useAuth();
   const router = useRouter();
 
-  const handleFillApplication = () => {
-    setLoading(true);
+  const handleUrl = (url) => {
+    // setLoading(true);
 
-    if (!user) {
-      router.push("/auth/login");
-      return null;
-    }
+    router.push(url);
 
-    fillApplication(user.id, serviceId);
+    // if (!user) {
+    //   router.push("/auth/login");
+    //   return null;
+    // }
 
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
+    // fillApplication(user.id, serviceId);
+
+    // setTimeout(() => {
+    //   setLoading(false);
+    // }, 500);
   };
 
   return (
@@ -52,23 +55,27 @@ export function ServiceCover(props) {
       />
       <Container isContainer className={styles.contentWrapper}>
         <div className={styles.header}>
-          <Link href={`/servicios/${categorySlug}`}>
+          <Link href={`/categories/${categorySlug}`}>
             <span className={styles.label}>{categoryName}</span>
           </Link>
           <h1 className={styles.heading}>{serviceTitle}</h1>
         </div>
         <p className={styles.subheading}>{serviceSummary}</p>
 
-        <div className={styles.actions}>
-          <Button
-            primary
-            fluid
-            onClick={handleFillApplication}
-            loading={loading}
-          >
-            <span>{linkText}</span> <Icon name="arrow right"></Icon>
-          </Button>
-        </div>
+        {CTAs?.length > 0 && (
+          <div className={styles.actions}>
+            {CTAs?.map((cta) => (
+              <Button
+                primary
+                fluid
+                onClick={() => handleUrl(cta.url)}
+                loading={loading}
+              >
+                <span>{cta.label}</span> <Icon name="arrow right"></Icon>
+              </Button>
+            ))}
+          </div>
+        )}
       </Container>
     </Container>
   );

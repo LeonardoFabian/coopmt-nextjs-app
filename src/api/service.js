@@ -1,4 +1,5 @@
 import { ENV } from "@/utils";
+import https from "https";
 
 export class Service {
   /**
@@ -6,6 +7,10 @@ export class Service {
    * @returns
    */
   async find() {
+    const agent = new https.Agent({
+      rejectUnauthorized: false, // ignorar errores de certificado
+    });
+
     // const populateService =
     // "populate[0]=featuredImage&populate[1]=category";
     // const populateCategory = "populate[5]=category.featuredImage";
@@ -15,7 +20,7 @@ export class Service {
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.SERVICES}?${populate}`;
 
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, { agent });
       const result = await response.json();
 
       console.log("API Service result: ", result);
@@ -29,6 +34,10 @@ export class Service {
   }
 
   async getBySlug(slug) {
+    const agent = new https.Agent({
+      rejectUnauthorized: false, // ignorar errores de certificado
+    });
+
     const filters = `filters[slug][$eq]=${slug}`;
     const populateService = "populate[0]=featuredImage&populate[1]=category";
     const populateCategory = "populate[2]=category.featuredImage";
@@ -37,19 +46,20 @@ export class Service {
       "populate[4]=blocks&populate[5]=blocks.fees&populate[6]=blocks.faqs&populate[7]=blocks.requirements&populate[8]=blocks.advantages&populate[9]=blocks.title";
     const populateFaqs =
       "populate[10]=blocks.faqs.question&populate[11]=blocks.faqs.answers";
-    const populates = `${populateService}&${populateCategory}&${populateTarget}&${populateBlocks}&${populateFaqs}`;
+    const populateCta = "populate[12]=cta";
+    const populates = `${populateService}&${populateCategory}&${populateTarget}&${populateBlocks}&${populateFaqs}&${populateCta}`;
     const params = `${filters}&${populates}`;
 
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.SERVICES}?${params}`;
 
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, { agent });
       const result = await response.json();
       console.log("Service API result: ", result);
 
       if (response.status !== 200) throw result;
 
-      return result.data[0];
+      return result;
     } catch (error) {
       throw error;
     }
@@ -64,7 +74,7 @@ export class Service {
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.SERVICES}?${params}`;
 
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, { cache: "no-store" });
       const result = await response.json();
 
       if (response.status !== 200) throw result;

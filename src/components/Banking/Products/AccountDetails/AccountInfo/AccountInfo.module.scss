@@ -1,0 +1,49 @@
+@import "~/src/scss/index.scss";
+
+.accountInfo {
+  box-sizing: border-box;
+  flex-grow: 1;
+
+  .accountInfoWrapper {
+    border: 1px solid $border-primary;
+    border-radius: 8px;
+    padding: 16px;
+    overflow: hidden;
+    background: $light;
+    color: $darkgray;
+    flex-grow: 1;
+
+    .accountInfoList {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      li {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          label {
+            font-size: 12px;
+            color: $gray;
+            line-height: 1;
+          }
+
+          span {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
+}

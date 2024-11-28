@@ -56,7 +56,7 @@ export function Footer(props) {
               <div className={styles.info}>
                 <p>{option?.attributes?.name}</p>
 
-                <ul>
+                <ul className={styles.contactInfo}>
                   <li>
                     <Icon name="envelope outline" />
                     <Link href={`mailto:${option?.attributes?.contactEmail}`}>

@@ -6,6 +6,11 @@ import { formatDate } from "./formatDate";
 import { getFirstWordForString } from "./getFirstWordForString";
 import { getCurrentDateTime } from "./getCurrentDateTime";
 import { getCurrentDateTimeInHumansReadable } from "./getCurrentDateTimeInHumansReadable";
+import { getCurrentYear } from "./getCurrentYear";
+import { calcLastTwoMonthsTotalAmountPercentageDifference } from "./calcLastTwoMonthsTotalAmountPercentageDifference";
+import { calcSingleLoanInstallmentTotalAmount } from "./calcLoanInstallmentTotalAmount";
+import { toUpper } from "./toUpper";
+import { getRandomInputWidth } from "./getRandomInputWidth";
 // import checkMembership from "./checkMembership";
 
 export const fn = {
@@ -17,5 +22,10 @@ export const fn = {
   getFirstWordForString,
   getCurrentDateTime,
   getCurrentDateTimeInHumansReadable,
+  getCurrentYear,
+  calcLastTwoMonthsTotalAmountPercentageDifference,
+  calcSingleLoanInstallmentTotalAmount,
+  toUpper,
+  getRandomInputWidth,
   // checkMembership,
 };

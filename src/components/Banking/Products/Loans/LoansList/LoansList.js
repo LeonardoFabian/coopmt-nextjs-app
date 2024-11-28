@@ -1,10 +1,16 @@
 import { Shared } from "@/components/Shared";
 import styles from "./LoansList.module.scss";
 import numeral from "numeral";
+import { useRouter } from "next/router";
 
 export function LoansList(props) {
-  const { loans } = props;
+  const { user, loans } = props;
+  const router = useRouter();
   console.log("loansList loans: ", loans);
+
+  const handleLoanClick = (loanId) => {
+    router.push(`/banking/products/loans/${loanId}`);
+  };
 
   return (
     <>
@@ -12,16 +18,20 @@ export function LoansList(props) {
         {loans?.activeLoans && loans?.activeLoans?.length > 0 ? (
           <ul className={styles.loanListWrapper}>
             {loans.activeLoans.map((loan) => {
-              const number = loan["number"];
+              const loanId = loan["number"];
               const type = loan["type"];
               const totalBalance = loan["totalBalance"];
 
               return (
-                <li key={`loan-item-${number}`} className={styles.loanListItem}>
+                <li
+                  key={`loan-item-${loanId}`}
+                  className={styles.loanListItem}
+                  onClick={() => handleLoanClick(loanId)}
+                >
                   <span className={styles.loanListLeft}>
                     <span className={styles.numberCol}>
                       <span className={styles.label}>No.</span>
-                      <span className={styles.number}>{`*${number}`}</span>
+                      <span className={styles.number}>{`*${loanId}`}</span>
                     </span>
                     <span className={styles.typeCol}>
                       <span className={styles.label}>Tipo</span>
@@ -43,8 +53,7 @@ export function LoansList(props) {
         ) : (
           <Shared.Alert
             className="info"
-            text="No tienes prestamos activos. Para más información, consulta el
-Historial."
+            text="No tienes prestamos activos o no hemos podido establecer comunicación con el servidor. Por favor, actualiza la página o intenta más tarde."
           />
         )}
       </div>

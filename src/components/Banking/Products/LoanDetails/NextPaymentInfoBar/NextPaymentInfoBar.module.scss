@@ -1,0 +1,28 @@
+@import "~/src/scss/index.scss";
+
+.nextPaymentInfoBar {
+  box-sizing: border-box;
+  flex-grow: 1;
+
+  .nextPaymentInfoBarWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+    .nextPaymentAmount {
+      font-weight: 600;
+      color: $text-primary;
+    }
+
+    .nextPaymentDate {
+      color: $danger;
+      font-weight: 600;
+    }
+
+    .nextPaymentInstallmentNumber {
+      font-weight: 600;
+      color: $text-primary;
+    }
+  }
+}

@@ -1,17 +1,34 @@
 import styles from "./Accounts.module.scss";
 import { useAuth } from "@/hooks";
-import { useAccount } from "@/hooks";
 import { AccountsList } from "./AccountsList";
+import { useEffect, useState } from "react";
+import { Account } from "@/api";
+
+const accountController = new Account();
 
 export function UserAccounts() {
   const { user } = useAuth();
-  const { contributionBalance } = useAccount();
+  const [contributionBalance, setContributionBalance] = useState(null);
 
   if (!user) {
     return null;
   }
 
-  console.log("userAccounts contributionBalance: ", contributionBalance);
+  useEffect(() => {
+    if (user) {
+      (async () => {
+        try {
+          const contributionBalanceResponse =
+            await accountController.getContributionBalance(user.memberId);
+          setContributionBalance(contributionBalanceResponse);
+        } catch (error) {
+          console.log("Error getting user accounts: ", error);
+        }
+      })();
+    }
+  }, []);
+
+  // console.log("userAccounts contributionBalance: ", contributionBalance);
 
   return (
     <>

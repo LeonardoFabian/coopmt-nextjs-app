@@ -13,7 +13,7 @@ export function AccountProvider(props) {
   const { children } = props;
   const { user } = useAuth();
 
-  console.log("AccountContext user: ", user);
+  // console.log("AccountContext user: ", user);
 
   const [accounts, setAccounts] = useState([]);
   const [contributionBalance, setContributionBalance] = useState(null);
@@ -85,15 +85,41 @@ export function AccountProvider(props) {
     fetchUserData();
   }, []);
 
+  // const getAccountTransactions = async (
+  //   user,
+  //   limit = 10,
+  //   offset = 0,
+  //   orderBy = "FECHA",
+  //   orderDir = "DESC"
+  // ) => {
+  //   if (!user || !user.memberId) {
+  //     console.log("User or memberId is not available.");
+  //     return;
+  //   }
+
+  //   try {
+  //     const response = await accountController.getAccountTransactions(
+  //       user.memberId,
+  //       limit,
+  //       offset,
+  //       orderBy,
+  //       orderDir
+  //     );
+  //     console.log("getAccountTransactions: ", response);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
   const data = {
     accounts,
     contributionBalance, // COMPLETE
-    contributionTotalSavings,
-    contributionTotalWithdrawals,
+    contributionTotalSavings, // COMPLETE
+    contributionTotalWithdrawals, // COMPLETE
     activeLoans, // TODO verificar balance, a Joel Lahoz no le da el balance exacto
     requests: null, // solicitudes de prestamo, cambio de aportes, solicitud de reenganche, etc el usuario con status
     recentTransactions: null, // transacciones recientes
-    checkAccountTransactions: null, // ver momivientos de la cuenta
+    // getAccountTransactions(), // ver momivientos de la cuenta de aportes
     checkLoan: null, // consultar un prestamo
     applications, // si el usuario tiene solicitudes
     courses, // si el usuario tiene cursos

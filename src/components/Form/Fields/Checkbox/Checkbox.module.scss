@@ -1,0 +1,13 @@
+@import "~/src/scss/index.scss";
+
+.input.error {
+  border: 1px solid $danger;
+
+  &:focus {
+    border: 1px solid $danger;
+  }
+}
+
+.input.success {
+  background-color: $background-success;
+}

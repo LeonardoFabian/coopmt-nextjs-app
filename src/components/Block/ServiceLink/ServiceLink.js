@@ -8,7 +8,7 @@ export function ServiceLink(props) {
 
   return (
     <Link
-      href={`/servicios/${service?.category?.slug}/${service?.slug}`}
+      href={`/services/${service?.slug}`}
       target="_self"
       className={styles.serviceLink}
     >

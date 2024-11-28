@@ -1,0 +1,27 @@
+@import "~/src/scss/index.scss";
+
+// // Aplicar estilos de los inputs para 2-3 por línea
+// .field {
+//   flex: 1 1 calc(33.33% - 16px) !important; // 3 por línea
+
+//   // Para pantallas más pequeñas, reducir a 2 por línea
+//   @media (max-width: 768px) {
+//     flex: 1 1 calc(50% - 16px) !important; // 2 por línea en tablets
+//   }
+
+//   // En móviles, hacer los campos de ancho completo
+//   @media (max-width: 480px) {
+//     flex: 1 1 100% !important;
+//   }
+// }
+
+// .field {
+//   display: flex;
+//   flex-direction: column;
+//   flex-grow: 1;
+//   gap: 4px;
+
+//   span {
+//     color: $danger;
+//   }
+// }

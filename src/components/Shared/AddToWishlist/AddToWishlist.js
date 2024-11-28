@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 const wishlistController = new Wishlist();
 
 export function AddToWishlist(props) {
-  console.log("AddToWishlist props: ", props);
+  // console.log("AddToWishlist props: ", props);
 
   const { productId, className } = props;
   const { user } = useAuth();
@@ -27,7 +27,7 @@ export function AddToWishlist(props) {
     (async () => {
       try {
         const response = await wishlistController.check(user?.id, productId);
-        console.log("wishlistController response: ", response);
+        // console.log("wishlistController response: ", response);
         setWishlisted(response);
       } catch (error) {
         setWishlisted(false);

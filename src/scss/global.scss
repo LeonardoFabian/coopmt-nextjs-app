@@ -46,7 +46,7 @@ h3 {
 h4,
 h5,
 h6 {
-  font-family: $body-font, serif;
+  font-family: $heading-font, serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -61,7 +61,7 @@ a {
   color: $text-primary;
 
   &:hover {
-    color: $secondary;
+    color: $primary;
   }
 }
 
@@ -123,4 +123,136 @@ h6 {
   //         color: $light !important;
   //     }
   // }
+}
+
+.edit_button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  background-color: $light;
+  color: $primary;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 16px;
+  padding: 8px;
+  border: 1px solid $primary;
+  transition: all 0.3s ease-in-out;
+
+  span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $primary;
+  }
+
+  &:hover {
+    background-color: $lightgreen;
+    color: $primary;
+    border-color: $primary;
+    cursor: pointer;
+
+    span {
+      color: $primary;
+    }
+  }
+}
+
+.add_button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  background-color: $primary;
+  color: $light;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 16px;
+  padding: 8px;
+  border: 1px solid $primary;
+  transition: all 0.3s ease-in-out;
+
+  span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $light;
+  }
+
+  &:hover {
+    background-color: $primary_dark;
+    color: $light;
+    border-color: $primary_dark;
+    cursor: pointer;
+
+    span {
+      color: $light;
+    }
+  }
+}
+
+.delete_button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  background-color: $light;
+  color: $danger;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 16px;
+  padding: 8px;
+  border: 1px solid $danger;
+  transition: all 0.3s ease-in-out;
+
+  span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $danger;
+  }
+
+  &:hover {
+    background-color: $background-danger;
+    color: $danger;
+    border-color: $danger;
+    cursor: pointer;
+
+    span {
+      color: $danger;
+    }
+  }
+}
+
+.info_button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  background-color: $light;
+  color: $info;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 16px;
+  padding: 8px;
+  border: 1px solid $info;
+  transition: all 0.3s ease-in-out;
+
+  span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $info;
+  }
+
+  &:hover {
+    background-color: $background-info;
+    color: $info;
+    border-color: $info;
+    cursor: pointer;
+
+    span {
+      color: $info;
+    }
+  }
 }

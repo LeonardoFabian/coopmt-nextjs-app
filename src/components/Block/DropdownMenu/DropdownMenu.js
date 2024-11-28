@@ -25,6 +25,7 @@ export function DropdownMenu({ block }) {
     <div className={styles.dropdown}>
       <button
         type="button"
+        // onClick={handleMouseEnter}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className={styles.dropdownButton}
@@ -40,6 +41,7 @@ export function DropdownMenu({ block }) {
             [styles.alignRight]: alignment === "right",
           })}
           onMouseEnter={handleMouseEnter}
+          // onClick={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
           {map(sections?.data, (section) => (

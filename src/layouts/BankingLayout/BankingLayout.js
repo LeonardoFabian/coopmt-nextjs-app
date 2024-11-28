@@ -7,7 +7,7 @@ import { Block } from "@/components/Block";
 import { Shared } from "@/components/Shared";
 import { fn } from "@/utils";
 import { Option, User } from "@/api";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { Button, Dropdown } from "semantic-ui-react";
 
 const optionController = new Option();
@@ -20,10 +20,11 @@ export function BankingLayout(props) {
   const [options, setOptions] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
 
-  if (!user) {
-    router.push("/");
-    return null;
-  }
+  useEffect(() => {
+    if (!user) {
+      router.push("/");
+    }
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -180,7 +181,13 @@ Cuentas de ahorro: Listado de cuentas y saldos disponibles.
 Préstamos: Listado de préstamos activos, monto, plazos y cuotas. */}
               <li
                 className={classNames({
-                  [styles.active]: router.pathname === "/banking/products",
+                  [styles.active]:
+                    router.pathname === "/banking/products" ||
+                    router.pathname === "/banking/products/accounts" ||
+                    router.pathname ===
+                      "/banking/products/accounts/[accountId]" ||
+                    router.pathname === "/banking/products/loans" ||
+                    router.pathname === "/banking/products/loans/[loanId]",
                 })}
               >
                 <Link href="/banking/products">

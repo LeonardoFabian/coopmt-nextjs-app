@@ -26,7 +26,7 @@ export function Account(props) {
   const { user, logout } = useAuth();
   const router = useRouter();
 
-  console.log("Account user: ", user);
+  // console.log("Account user: ", user);
 
   const goToLogin = () => router.push("/auth/login");
 

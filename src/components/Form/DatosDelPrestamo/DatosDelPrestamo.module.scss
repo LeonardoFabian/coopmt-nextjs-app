@@ -1,0 +1,13 @@
+@import "~/src/scss/index.scss";
+
+.datosDelPrestamo {
+  display: flex;
+  flex-direction: column;
+  width: 100%; // Ocupa todo el ancho disponible
+
+  .fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}

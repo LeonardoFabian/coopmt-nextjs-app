@@ -37,7 +37,7 @@ export function FeaturedServices({ data }) {
             {map(featuredServices, (service) => (
               <Link
                 key={service?.id}
-                href={`/servicios/${service?.attributes?.category?.data?.attributes?.slug}/${service?.attributes?.slug}`}
+                href={`/services/${service?.attributes?.slug}`}
               >
                 <Custom.ServiceCard
                   title={service?.attributes?.title}
@@ -49,7 +49,7 @@ export function FeaturedServices({ data }) {
         </div>
         <div className={styles.actions}>
           <Link
-            href={link?.url || "/servicios"}
+            href={link?.url || "/services"}
             target={link?.target || "_self"}
           >
             <Button secondary>{link?.label}</Button>

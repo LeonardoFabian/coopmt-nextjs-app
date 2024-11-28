@@ -1,0 +1,62 @@
+@import "~/src/scss/index.scss";
+
+.accountTransactions {
+  box-sizing: border-box;
+
+  .accountTransactionsWrapper {
+    border: 1px solid $border-primary;
+    border-radius: 8px;
+    padding: 16px;
+    overflow: hidden;
+    background: $light;
+    color: $darkgray;
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .title {
+      margin: 0;
+      font-weight: 700;
+      font-size: 0.875rem;
+      line-height: 1.57;
+      margin-bottom: 0.35em;
+    }
+  }
+}
+
+.description {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+
+  &.saving {
+    background-color: $lightgreen;
+    border: 1px solid $primary;
+    color: $primary;
+  }
+
+  &.withdrawal {
+    background-color: $background-danger;
+    border: 1px solid $danger;
+    color: $danger;
+  }
+}
+
+.centerAlignHeader {
+  text-align: center !important;
+}
+
+.rightAlignHeader {
+  text-align: right !important;
+}
+
+.rightAlign {
+  text-align: right !important;
+}
+
+.centerAlign {
+  text-align: center !important;
+}

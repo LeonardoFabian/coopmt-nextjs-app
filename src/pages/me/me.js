@@ -17,7 +17,7 @@ export default function MePage() {
 
   const name = `${user?.firstName} ${user?.lastName}`;
   const memberId = user?.memberId;
-  const userGender = user?.gender;
+  const userGender = user?.gender?.name;
 
   return (
     <>

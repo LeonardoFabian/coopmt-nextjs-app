@@ -6,3 +6,4 @@ export * from "./RootLayout";
 export * from "./AccountLayout";
 export * from "./CartLayout";
 export * from "./AccountSettingsLayout";
+export * from "./EmptyLayout";

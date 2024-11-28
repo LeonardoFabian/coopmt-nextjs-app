@@ -122,7 +122,7 @@ export function MeLayout(props) {
     <>
       <div className={styles.meLayout}>
         {/* sidebar */}
-        <div
+        <aside
           className={classNames([styles.sidebar], {
             [styles.hidden]: !isMenuOpen,
           })}
@@ -149,7 +149,9 @@ export function MeLayout(props) {
               [styles.hidden]: !isMenuOpen,
             })}
           >
-            <span className={styles.initialsAvatar}>{userInitials}</span>
+            {userInitials !== "" && (
+              <span className={styles.initialsAvatar}>{userInitials}</span>
+            )}
             <span className={styles.userInfo}>
               <span className={styles.name}>{user?.firstName}</span>
               <span>Socio No. {user?.memberId}</span>
@@ -178,7 +180,15 @@ export function MeLayout(props) {
               {/* Información personal: Permite gestionar datos como dirección, teléfono y cuenta bancaria. */}
               <li
                 className={classNames({
-                  [styles.active]: router.pathname === "/me/account",
+                  [styles.active]:
+                    router.pathname === "/me/account" ||
+                    router.pathname === "/me/account/profile" ||
+                    router.pathname === "/me/account/address" ||
+                    router.pathname === "/me/account/employment-information" ||
+                    router.pathname === "/me/account/beneficiaries" ||
+                    router.pathname === "/me/account/personal-references" ||
+                    router.pathname === "/me/account/bank-accounts" ||
+                    router.pathname === "/me/account/contact",
                 })}
               >
                 <Link href="/me/account">
@@ -188,7 +198,7 @@ export function MeLayout(props) {
                       [styles.visible]: isMenuOpen === true,
                     })}
                   >
-                    Ajustes de la cuenta
+                    Mi Cuenta
                   </span>
                 </Link>
               </li>
@@ -314,9 +324,9 @@ export function MeLayout(props) {
               </span>
             </Button>
           </div>
-        </div>
+        </aside>
         {/* content */}
-        <div className={styles.content}>
+        <main className={styles.content}>
           <header>
             <span className={styles.title}>{router.pathname}</span>
             <span className={styles.userHeaderOptions}>
@@ -325,7 +335,9 @@ export function MeLayout(props) {
                   {user?.gender && user.gender === "feminino"
                     ? "Bienvenida"
                     : "Bienvenido"}
-                  <span className={styles.name}>{userFormattedName}</span>
+                  {userFormattedName !== "" && (
+                    <span className={styles.name}>{userFormattedName}</span>
+                  )}
                 </span>
                 <span className={styles.lastConnection}>
                   Última conexion {user?.lastConnection}
@@ -362,7 +374,7 @@ export function MeLayout(props) {
             </div>
             {children}
           </div>
-        </div>
+        </main>
       </div>
     </>
   );

@@ -11,7 +11,7 @@ import { StepFinal } from "./StepFinal";
 import { Container } from "@/components/Layout";
 import { initialValues } from "./AffiliationForm.form";
 import { useFormik, FormikProvider } from "formik";
-import { Affiliation, File } from "@/api";
+import { Affiliation, File, Membership } from "@/api";
 import * as Yup from "yup";
 import { PersonalInfo } from "./StepOne/PersonalInfo";
 // import ReactToPrint from "react-to-print";
@@ -21,13 +21,30 @@ import { PersonalInfo } from "./StepOne/PersonalInfo";
 // import logger from "../../../../clientLogger";
 
 const affiliationController = new Affiliation();
+const membershipController = new Membership();
 const fileController = new File();
 
 const checkDocumentIdExists = async (documentId) => {
   try {
-    const response = await affiliationController.findByDocumentId(documentId);
+    // verificar si existe un número de afiliación con este documento
+    const affiliationResponse = await affiliationController.findByDocumentId(
+      documentId
+    );
+    console.log(affiliationResponse);
+
+    if (affiliationResponse.data.length > 0) {
+      return true;
+    }
+    // verificar si existe un socio con este documento
+    const membershipResponse = await membershipController.check(documentId);
+    console.log(membershipResponse);
+
+    if (membershipResponse.isMember) {
+      return true;
+    }
+
     // console.log(response);
-    return response.data.length > 0;
+    return false;
   } catch (error) {
     console.error("Error checking document ID: ", error);
     return false;
@@ -50,7 +67,7 @@ const validationSchema = [
       .required("El número de cédula es requerido.")
       .test(
         "checkDocumentIdExists",
-        "Ya existe una solicitud de afiliación con este número de documento",
+        "Ya existe un socio o una solicitud de afiliación con este número de documento",
         async (value) => {
           if (!value) return false;
           const exists = await checkDocumentIdExists(value);

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Cuenta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            max-width: 150px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #308a40;
+            color: #ffffff;
+            padding: 12px 24px;
+            margin-top: 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .thank-you-message {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://ibetcha.site/uploads/i_Betchalogo_Dark_35dae2a9cb.svg" alt="Logo de tu empresa" class="logo">
+
+        <p>¡Hola! Gracias por registrarte en nuestro sitio. Por favor, confirma tu cuenta haciendo clic en el botón de abajo:</p>
+
+        <a href="https://main.d2qcfhr0as8mq0.amplifyapp.com/authentication/email-confirmed?confirmation=<%= CODE %>" class="button" style="color: #fff;">Confirmar Cuenta</a>
+
+        <p class="thank-you-message">¡Gracias por ser parte de nuestra comunidad!</p>
+    </div>
+</body>
+</html>

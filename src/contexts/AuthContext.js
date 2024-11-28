@@ -53,7 +53,7 @@ export function AuthProvider(props) {
       tokenController.setToken(token);
       // get user data
       const response = await userController.getMe();
-      console.log("AUTHCONTEXT GET ME: ", response);
+      // console.log("AUTHCONTEXT GET ME: ", response);
       // set the user data in the user state
       setUser(response);
       // set the token in the token state

@@ -1,1 +1,7 @@
 @import "~/src/scss/index.scss";
+
+.profilePage {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

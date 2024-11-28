@@ -75,18 +75,140 @@
     }
 
     .right {
-      background: url("/images/auth-wallpaper.jpg");
-      background-position: center;
-      background-size: cover;
-      height: 100%;
+      position: relative;
+      // background: url("/images/auth-wallpaper.jpg");
+      // background-position: center;
+      // background-size: cover;
+      height: 100% !important;
       border-radius: 0px 10px 10px 0px;
       width: 50%;
-      padding: 30px;
+      // padding: 30px;
+      overflow: hidden;
       //   padding: 20px;
 
       @include mobile() {
         width: 100%;
         border-radius: 0px;
+      }
+
+      .events {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .slickSlider {
+          height: 100% !important;
+          overflow: hidden;
+
+          > div {
+            height: 100% !important;
+            overflow: hidden;
+
+            > div {
+              height: 100% !important;
+              overflow: hidden;
+
+              > div {
+                height: 100% !important;
+                overflow: hidden;
+
+                > div {
+                  height: 100% !important;
+                  overflow: hidden;
+
+                  .event {
+                    width: 100%;
+                    height: 100% !important;
+                    position: relative;
+
+                    > img {
+                      width: auto !important;
+                      height: 100% !important;
+                      object-fit: cover;
+                      background-position: center;
+                      background-size: cover;
+                      background-repeat: no-repeat;
+                    }
+
+                    .eventOverlay {
+                      width: 100%;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      bottom: 0;
+                      background: $transparency_linear-gradient-primary;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    }
+
+                    .eventContent {
+                      position: absolute;
+                      bottom: 16px;
+                      left: 16px;
+                      font-size: 12.5px;
+                      font-weight: 500;
+                      color: $text-secondary;
+                      background-color: $light;
+                      // backdrop-filter: blur(5px);
+                      padding: 16px;
+                      border-radius: 12px;
+                      display: flex;
+                      flex-direction: column;
+                      gap: 12px;
+
+                      .eventInfo {
+                        display: flex;
+                        flex-direction: column;
+                        // gap: 8px;
+
+                        .eventTitle {
+                          color: $text-primary;
+                          font-size: 16px;
+                          font-weight: 600;
+                        }
+
+                        .eventDate {
+                          color: $text-secondary;
+                          font-size: 13px;
+                          font-weight: 500;
+                        }
+
+                        .eventTime {
+                          color: $text-secondary;
+                          font-size: 13px;
+                          font-weight: 500;
+                        }
+                      }
+
+                      div {
+                        .eventPriceTitle {
+                          color: $text-primary;
+                          font-size: 13px;
+                          font-weight: 600;
+                        }
+                        .eventPrices {
+                          list-style: none;
+                          margin: 0;
+                          padding: 0;
+
+                          > li {
+                            .eventPrice {
+                              color: $primary;
+                              font-weight: 600;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

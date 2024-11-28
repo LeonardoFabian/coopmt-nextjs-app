@@ -1,11 +1,17 @@
-$primary: #308a40; // #2f925b; // #308a40;
-$secondary: #54c500; // #2f925b;
-$tertiary: #297737; // #71c21b; // #6aba46
-$quaternary: #f99519; // #feb913; // #f7df1e; // #feb91d; // #ffcb04;
-$accent: #feb913; // #f99519; // #ffae1a; // #ffcb04; //  #f68c20;
+$primary: rgb(58, 181, 74);
+$primary_light: #c6e8c8; // #a1daa6;
+$primary_dark: #17822b;
+$secondary: rgb(47, 53, 143);
+$secondary_light: #c6cae8;
+$secondary_dark: #22247a;
+$tertiary: #297737;
+$quaternary: #f99519;
+$accent: rgb(255, 196, 20);
+$accent_light: #ffe284;
+$accent_dark: #ffa309;
 
-$text-primary: #212121; // #263238;
-$text-secondary: #757575;
+$text-primary: #333333; // #0f172a; // #263238;
+$text-secondary: #666666; // rgb(30 41 59);
 $text-accent: #093d31; // #2a5b57;
 $text-light: #ffffff;
 
@@ -18,19 +24,22 @@ $background-tertiary: #345478;
 $background-quaternary: #3d3d3d;
 $background-lemon: #a2d24b;
 
+$background-primary__blur: rgba(48, 138, 64, 0.2);
+$background-secondary__blur: #54c50010;
+$background-tertiary__blur: #29773710;
 $background-quaternary__blur: #3d3d3d10;
 $background-light__blur: #ffffff10;
 
-// $linear-gradient-primary: linear-gradient(
-//   0deg,
-//   rgba(47, 146, 91, 0.8),
-//   rgba(113, 194, 27, 0.8)
-// );
+$transparency_linear-gradient-primary: linear-gradient(
+  0deg,
+  rgba(48, 138, 64, 0.1),
+  rgba(48, 138, 64, 0)
+);
 
 $linear-gradient-primary: linear-gradient(
   217deg,
-  rgba(47, 146, 91, 0.8),
-  rgba(47, 146, 91, 0) 70.71%
+  rgba(48, 138, 64, 0.8),
+  rgba(48, 138, 64, 0) 70.71%
 );
 $linear-gradient-secondary: linear-gradient(
   127deg,
@@ -41,6 +50,16 @@ $linear-gradient-tertiary: linear-gradient(
   336deg,
   rgba(113, 194, 27, 0.8),
   rgba(113, 194, 27, 0) 70.71%
+);
+$linear-gradient-blue: linear-gradient(
+  336deg,
+  rgba(0, 56, 118, 0.8),
+  rgba(0, 56, 118, 0) 70.71%
+);
+$linear-gradient-red: linear-gradient(
+  336deg,
+  rgba(238, 42, 36, 0.8),
+  rgba(238, 42, 36, 0) 70.71%
 );
 
 $red: #ee2a24;
@@ -67,7 +86,7 @@ $light: #ffffff;
 $darkgray: #334155;
 $gray: #64748b;
 $lightgray: #f8fafc;
-$lightgreen: #e9f7eb; // #daf2df; // #ccedd2; // #f1f9eb;
+$lightgreen: #c5e5ca; // #e9f7eb; // #daf2df; // #ccedd2; // #f1f9eb;
 $light-accent: #fff8dc;
 
 // $box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);

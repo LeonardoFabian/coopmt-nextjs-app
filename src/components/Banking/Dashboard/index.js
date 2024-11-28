@@ -1,7 +1,11 @@
-import { ContributionBalancePie } from "./ContributionBalancePie";
+import { ContributionBalanceChart } from "./ContributionBalanceChart";
 import { DashboardCardGrid } from "./DashboardCardGrid";
+import { DashboardCharts } from "./DashboardCharts";
+import { MonthlyDiscountsChart } from "./MonthlyDiscountsChart";
 
 export const Dashboard = {
-  ContributionBalancePie,
+  ContributionBalanceChart,
   DashboardCardGrid,
+  DashboardCharts,
+  MonthlyDiscountsChart,
 };

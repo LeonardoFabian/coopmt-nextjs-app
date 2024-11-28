@@ -2,13 +2,24 @@ import { Home } from "../Home";
 import { Block } from "../Block";
 import { Blocks } from "../Blocks";
 import { Shared } from "../Shared";
+import { Page } from "../Page";
 import { Fees, Requirements, Container, Group, ProductList } from "../Layout";
 import { Supplier } from "../Supplier";
 
 export function BlockRenderer({ blocks }) {
   return (blocks || []).map((block) => {
-    // console.log("BlockRenderer: ", block);
+    console.log("BlockRenderer: ", block);
+
     switch (block?.__component) {
+      case "page.board-section":
+        return (
+          <Page.BoardSection
+            key={`c-board-section-${block?.id}`}
+            title={block?.title}
+            groups={block?.board_groups}
+          />
+        );
+        break;
       case "blocks.cta":
         return (
           <Blocks.Cta

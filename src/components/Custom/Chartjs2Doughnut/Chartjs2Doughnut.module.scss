@@ -1,0 +1,28 @@
+@import "~/src/scss/index.scss";
+
+.chartjs2Doughnut {
+  box-sizing: border-box;
+
+  .chartjs2DoughnutWrapper {
+    border: 1px solid $border-primary;
+    border-radius: 8px;
+    padding: 16px;
+    overflow: hidden;
+    background: $light;
+    color: $darkgray;
+    height: 100%;
+    flex-grow: 1;
+
+    .title {
+      margin: 0;
+      font-weight: 500;
+      font-size: 0.875rem;
+      line-height: 1.57;
+      margin-bottom: 0.35em;
+    }
+
+    .chartjs2DoughnutBox {
+      height: 250px;
+    }
+  }
+}

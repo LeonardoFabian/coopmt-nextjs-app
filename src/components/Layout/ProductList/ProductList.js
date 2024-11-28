@@ -17,7 +17,7 @@ export function ProductList(props) {
     (async () => {
       try {
         const response = await productController.getRandom(limit);
-        console.log("ProductList products response: ", response);
+        // console.log("ProductList products response: ", response);
         setProducts(response.data);
       } catch (error) {
         console.error(error);

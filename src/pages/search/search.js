@@ -1,10 +1,12 @@
 import { RootLayout } from "@/layouts";
+import styles from "./search.module.scss";
 import { useEffect } from "react";
 import { Shared } from "@/components/Shared";
 import { Custom } from "@/components/Custom";
 import { size, map } from "lodash";
 import { Container } from "semantic-ui-react";
 import Link from "next/link";
+import { Search } from "@/components/Search";
 
 export default function SearchPage(props) {
   console.log("SearchPage props: ", props);
@@ -21,6 +23,10 @@ export default function SearchPage(props) {
     pagesPagination,
   } = props;
 
+  // console.log("Search pages: ", pages);
+  // console.log("Search services: ", services);
+  console.log("Search posts: ", posts);
+
   const hasServices = size(services) > 0;
   const hasPosts = size(posts) > 0;
   const hasProducts = size(products) > 0;
@@ -35,131 +41,144 @@ export default function SearchPage(props) {
     <>
       <Shared.Seo title={`Resultados para "${searchText}"`} />
       <RootLayout isOpenSearch={true}>
-        <Shared.PageHeader title={`Resultados para "${searchText}"`} />
-        <Container isContainer>
-          <Shared.Separator height={54} />
-          <h3>Páginas</h3>
-          <Shared.Separator height={30} />
-          {hasPages ? (
-            <>
-              <ul>
-                {map(pages, (page) => (
-                  <li key={page.id}>{page?.title}</li>
-                ))}
-              </ul>
-              <Shared.Separator height={54} />
-              <Shared.Pagination
-                currentPage={pagesPagination?.page}
-                totalPages={pagesPagination?.pageCount}
-              />
-            </>
-          ) : (
-            <>
-              <Shared.NoResult
-                text={`No se encontraron páginas que coincidan con tu busqueda.`}
-              />
-            </>
-          )}
+        <div className={styles.searchPage}>
+          <header>
+            <Shared.PageHeader title={`Resultados para "${searchText}"`} />
+          </header>
+          <Container isContainer>
+            {hasPages && (
+              <>
+                <ul>
+                  {map(pages?.data, (page) => {
+                    console.log("page: ", page);
+                    const title = page?.attributes?.title;
+                    const description = page?.attributes?.description || "";
+                    const link = `/pages/${page?.attributes?.slug}`;
+                    const publishedAt = page?.attributes?.publishedAt;
 
-          <Shared.Separator height={54} />
-          <h3>Servicios</h3>
-          <Shared.Separator height={30} />
-          {hasServices ? (
-            <>
-              <Shared.Grid cols={3} gap="30px">
-                {map(services, (service) => (
-                  <Link
-                    key={service.id}
-                    href={`/servicios/${service?.category?.data?.slug}/${service?.slug}`}
-                  >
-                    <Custom.ServiceCard
-                      title={service.title}
-                      icon={service.icon}
-                    />
-                  </Link>
-                ))}
-              </Shared.Grid>
-              <Shared.Separator height={54} />
-              <Shared.Pagination
-                currentPage={servicesPagination?.page}
-                totalPages={servicesPagination?.pageCount}
-              />
-            </>
-          ) : (
-            <>
-              <Shared.NoResult
-                text={`No se encontraron servicios que coincidan con tu busqueda.`}
-              />
-            </>
-          )}
+                    return (
+                      <li key={page.id}>
+                        <Search.ResultItem
+                          title={title}
+                          link={link}
+                          description={description}
+                          date={publishedAt}
+                          category="Páginas"
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
+                {/* <Shared.Pagination
+                  currentPage={pagesPagination?.page}
+                  totalPages={pagesPagination?.pageCount}
+                /> */}
+              </>
+            )}
 
-          <Shared.Separator height={54} />
-          <h3>Publicaciones</h3>
-          <Shared.Separator height={30} />
-          {hasPosts ? (
-            <>
-              <Shared.Grid cols={3} gap="30px">
-                {map(posts, (post) => (
-                  <Link
-                    key={post.id}
-                    href={`/publicaciones/${post.attributes.post_type.data.attributes.slug}/${post.attributes.slug}`}
-                  >
-                    <Custom.PostCard
-                      post={post}
-                      title={post?.attributes?.title}
-                      image={post?.attributes?.featuredImage}
-                    />
-                  </Link>
-                ))}
-              </Shared.Grid>
-              <Shared.Separator height={54} />
-              <Shared.Pagination
-                currentPage={postsPagination?.page}
-                totalPages={postsPagination?.pageCount}
-              />
-            </>
-          ) : (
-            <>
-              <Shared.NoResult
-                text={`No se encontraron publicaciones que coincidan con tu busqueda.`}
-              />
-            </>
-          )}
+            {hasServices && (
+              <>
+                <ul>
+                  {map(services?.data, (service) => {
+                    console.log("service: ", service);
 
-          <Shared.Separator height={54} />
-          <h3>Productos</h3>
-          <Shared.Separator height={30} />
-          {hasProducts ? (
-            <>
-              <Shared.Grid cols={3} gap="30px">
-                {map(products, (product) => (
-                  <Link
-                    key={product.id}
-                    href={`/afiliados/${product.attributes.supplier.data.attributes.slug}/${product?.attributes?.slug}`}
-                  >
-                    <Custom.ProductCard
-                      title={product?.attributes?.title}
-                      image={product?.attributes?.image}
-                      price={product?.attributes?.price}
-                    />
-                  </Link>
-                ))}
-              </Shared.Grid>
-              <Shared.Separator height={54} />
-              <Shared.Pagination
-                currentPage={productsPagination?.page}
-                totalPages={productsPagination?.pageCount}
-              />
-            </>
-          ) : (
-            <>
-              <Shared.NoResult
-                text={`No se encontraron productos que coincidan con tu busqueda.`}
-              />
-            </>
-          )}
-          <Shared.Separator height={54} />
-        </Container>
+                    const title = service?.attributes?.title;
+                    const description = service?.attributes?.description || "";
+                    const link = `/services/${service?.attributes?.slug}`;
+                    const publishedAt = service?.attributes?.createdAt;
+                    const image = service?.attributes?.featuredImage?.data;
+
+                    return (
+                      <li key={service?.id}>
+                        <Search.ResultItem
+                          title={title}
+                          link={link}
+                          description={description}
+                          date={publishedAt}
+                          image={image}
+                          category="Servicios"
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                {/* {servicesPagination && (
+                  <Shared.Pagination
+                    currentPage={servicesPagination?.page}
+                    totalPages={servicesPagination?.pageCount}
+                  />
+                )} */}
+              </>
+            )}
+
+            {hasPosts && (
+              <>
+                <ul>
+                  {map(posts, (post) => {
+                    {
+                      /* console.log("post: ", post); */
+                    }
+
+                    const title = post?.attributes?.title;
+                    const link = `/publicaciones/${post?.attributes?.post_type?.data?.attributes?.slug}/${post?.attributes?.slug}`;
+                    const publishedAt = post?.attributes?.publishedAt;
+
+                    return (
+                      <li key={post.id}>
+                        <Search.ResultItem
+                          title={title}
+                          link={link}
+                          date={publishedAt}
+                          category="Publicaciones"
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                {/* <Shared.Pagination
+                  currentPage={postsPagination?.page}
+                  totalPages={postsPagination?.pageCount}
+                /> */}
+              </>
+            )}
+
+            {hasProducts && (
+              <>
+                <ul>
+                  {map(products, (product) => {
+                    console.log("product: ", product);
+
+                    const title = product?.attributes?.title;
+                    const description = product?.attributes?.summary || "";
+                    const link = `/afiliados/${product?.attributes?.supplier?.data?.attributes?.slug}/${product?.attributes?.slug}`;
+                    const publishedAt = product?.attributes?.createdAt;
+                    const image = product?.attributes?.image?.data;
+
+                    return (
+                      <li key={product?.id}>
+                        <Search.ResultItem
+                          title={title}
+                          description={description}
+                          link={link}
+                          date={publishedAt}
+                          image={image}
+                          category="Productos"
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                {/* <Shared.Pagination
+                  currentPage={productsPagination?.page}
+                  totalPages={productsPagination?.pageCount}
+                /> */}
+              </>
+            )}
+          </Container>
+        </div>
       </RootLayout>
     </>
   );

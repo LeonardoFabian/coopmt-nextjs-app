@@ -3,19 +3,28 @@ const SERVER_HOST =
 const API_URL = `${SERVER_HOST}/api`;
 
 export const ENV = {
-  // SERVER_HOST: "https://apicoop.mt.gob.do:1337",
-  // API_URL: "https://apicoop.mt.gob.do:1337/api",
   SERVER_HOST,
   API_URL,
-
-  // SERVER_HOST: "https://coopadmin.up.railway.app",
-  // API_URL: "https://coopadmin.up.railway.app/api",
   ENDPOINTS: {
+    LOANS: {
+      CLASSIFICATIONS: "loan-classifications",
+      COLLATERALS: "collaterals",
+      DISBURSEMENT_METHODS: "disbursement-methods",
+    },
+    FORMS: {
+      LOANS: {
+        APPLICATION: "loan-request-form/schema",
+      },
+    },
     UPLOAD: "upload",
     OPTIONS: "option",
     HEADER: "header",
     FOOTER: "footer",
     GLOBAL: "global",
+    PRICES: "prices",
+    EVENTS: {
+      FIND: "events",
+    },
     AFFILIATION: {
       REQUEST: "affiliation-requests",
       SUBMIT_FORM: "affiliation-request/submit-form",
@@ -24,12 +33,31 @@ export const ENV = {
     AUTH: {
       REGISTER: "auth/local/register",
       LOGIN: "auth/local",
+      FORGOT_PASSWORD: "auth/forgot-password",
+      RESET_PASSWORD: "auth/reset-password",
+    },
+    RELATIONSHIP_TYPES: "relationship-types",
+    EMPLOYMENT_TYPES: "employment-types",
+    EMPLOYMENT_SECTORS: "sectors",
+    CURRENCIES: "currencies",
+    BANKS: {
+      FINANCIAL_INSTITUTIONS: "financial-institutions",
+      ACCOUNTS: {
+        TYPES: "bank-account-types",
+      },
     },
     USERS: {
       ME: "users/me",
       UPDATE: "users",
+      MARITAL_STATUSES: "marital-statuses",
+      PERSONAL_REFERENCES: "personal-references",
+      BENEFICIARIES: "beneficiaries",
+      EMPLOYMENT_INFORMATION: "employment-informations",
+      EMPLOYEE_DATA: "mt-employee-data",
+      BANK_ACCOUNTS: "bank-accounts",
+      USER_GROUPS: "user-groups",
+      GENDERS: "genders",
     },
-    // MEMBERSHIP: "membership-applications",
     MEMBERSHIP: {
       CHECK: "check-membership",
     },
@@ -39,14 +67,57 @@ export const ENV = {
     },
     ACCOUNT: {
       BALANCE: "get-balance",
+      TRANSACTIONS: {
+        FIND: "get-account-transactions",
+        SAVINGS: "get-account-savings-transactions",
+        WITHDRAWALS: "get-account-withdrawals-transactions",
+        DISCOUNTS: {
+          MONTHLY: "get-monthly-discounts",
+          CURRENT_YEAR: {
+            MONTHLY: "get-current-year-monthly-discounts",
+          },
+        },
+      },
       WITHDRAW: {
         TOTAL: "get-total-withdrawals",
       },
       SAVINGS: {
         TOTAL: "get-total-savings",
+        MONTHLY: {
+          TOTAL_AMOUNT: "get-last-month-total-contribution-amount",
+        },
+        HISTORY: {
+          LAST_TWO_MONTHS: "get-last-two-month-total-contribution-amount",
+        },
       },
       LOANS: {
-        ACTIVE: "get-active-loans",
+        ACTIVE: {
+          FIND: "get-active-loans",
+          FIND_ONE: {
+            DETAILS: "get-loan-details",
+            AMORTIZATION_SCHEDULE: "get-loan-amortization-schedule",
+            INSTALLMENTS: {
+              NEXT_ONE: {
+                DETAILS: "get-loan-next-installment-details",
+              },
+            },
+          },
+          INSTALLMENTS: {
+            NEXT_ONE: {
+              DETAILS: "get-member-loans-next-installment-details",
+            },
+            NEXT_ALL: {
+              DETAILS: "get-member-active-loans-next-installments-details",
+            },
+          },
+        },
+
+        MONTHLY: {
+          TOTAL_AMOUNT: "get-last-month-total-loans-amount",
+        },
+        HISTORY: {
+          LAST_TWO_MONTHS: "get-last-two-month-total-loans-amount",
+        },
       },
     },
     CATEGORIES: {
@@ -73,6 +144,7 @@ export const ENV = {
       UPDATE: "addresses",
       DELETE: "addresses",
     },
+    PHONES: "phones",
     SERVICES: "services",
     POSTS: "posts",
     PAGES: "pages",
