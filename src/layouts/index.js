@@ -7,3 +7,4 @@ export * from "./AccountLayout";
 export * from "./CartLayout";
 export * from "./AccountSettingsLayout";
 export * from "./EmptyLayout";
+export * from "./ApplicationsLayout";

@@ -29,7 +29,7 @@ export function RichText({ content }) {
           }
         },
         link: ({ children, url }) => (
-          <Link to={url} className={styles.link}>
+          <Link href={url} className={styles.link}>
             {children}
           </Link>
         ),

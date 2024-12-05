@@ -2,6 +2,30 @@ import { ENV, authFetch } from "@/utils";
 import qs from "qs";
 
 export class Product {
+  /**
+   * Retrieves a list of user quotation requests from the API.
+   *
+   * @param {string} userId - The ID of the user to retrieve quotation requests for.
+   * @return {object} The JSON response containing the list of user quotation requests.
+   * @throws Will throw an error if the network request fails or the response status is not 200.
+   */
+  async getUserQuotationRequests(userId) {
+    try {
+      const populate = "populate=*";
+      const filters = `filters[user][id][$eq]=${userId}`;
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.QUOTATION_REQUEST}?${filters}&${populate}`;
+
+      const response = await authFetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async getAll() {
     const populate = "populate=*";
     const params = `${populate}`;

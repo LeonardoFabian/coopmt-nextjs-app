@@ -1,24 +1,5 @@
 @import "~/src/scss/index.scss";
 
-.applicationLayout {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border-radius: 16px;
-  padding: 16px;
-  gap: 20px;
-  overflow: hidden;
-  background-color: $light;
-  box-shadow: $box-shadow;
-
-  .content {
-    flex-grow: 1;
-    background-color: $light;
-    width: 100%;
-    overflow: hidden;
-  }
-}
-
 .navigation {
   ul {
     list-style: none;

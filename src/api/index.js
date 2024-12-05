@@ -22,6 +22,7 @@ export * from "./loan";
 export * from "./mainMenu";
 export * from "./marital-status";
 export * from "./membership";
+export * from "./message";
 export * from "./notification";
 export * from "./order";
 export * from "./page";

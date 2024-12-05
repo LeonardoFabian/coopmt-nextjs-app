@@ -6,6 +6,10 @@ export const ENV = {
   SERVER_HOST,
   API_URL,
   ENDPOINTS: {
+    MESSAGES: {
+      FIND: "messages",
+      TYPES: "message-types",
+    },
     LOANS: {
       CLASSIFICATIONS: "loan-classifications",
       COLLATERALS: "collaterals",
@@ -155,6 +159,9 @@ export const ENV = {
     PAYMENT_ORDER: "payment-order",
     ORDERS: "orders",
     LOAN_REQUEST: "loan-requests",
+    QUOTATION_REQUEST: "quotation-requests",
+    CONTRIBUTION_CHANGE_REQUEST: "contribution-change-requests",
+    CONTRIBUTION_CHANGE_TYPES: "contribution-change-types",
   },
   TOKEN: "COOP_JWT",
   CART: "COOP_CART_PRODUCTS",

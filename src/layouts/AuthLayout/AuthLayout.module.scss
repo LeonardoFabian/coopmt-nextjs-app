@@ -87,8 +87,9 @@
       //   padding: 20px;
 
       @include mobile() {
-        width: 100%;
-        border-radius: 0px;
+        display: none;
+        // width: 100%;
+        // border-radius: 0px;
       }
 
       .events {

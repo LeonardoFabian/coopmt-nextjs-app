@@ -24,14 +24,21 @@
       width: auto;
       height: 40px;
       max-height: 40px;
+
+      @include mobile() {
+        height: 25px !important;
+        max-height: 25px;
+      }
     }
   }
 }
 
 .right {
-  color: $text-primary;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  justify-content: flex-end;
+  .menu {
+    color: $text-primary;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
 }

@@ -1,0 +1,63 @@
+@import "~/src/scss/index.scss";
+
+.messageBar {
+  //   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: $primary_dark;
+  color: $light;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  padding: 4px 0px;
+}
+
+.messageContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  animation: slideLeft 40s linear infinite;
+}
+
+.messageType {
+  font-weight: 700;
+  //   color: $light;
+}
+
+.messageText {
+  font-weight: 400;
+  //   color: $light;
+  display: inline-block;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+// .messageType.informacion {
+//     color: $light;
+//   }
+
+// .notice {
+//   color: #2196f3;
+// }
+
+// .alerta {
+//   color: #f44336;
+// }
+
+// .promocion {
+//   color: #4caf50;
+// }

@@ -1,4 +1,5 @@
 export * from "./User";
+export * from "./Applications";
 export * from "./Header";
 export * from "./Content";
 export * from "./Settings";

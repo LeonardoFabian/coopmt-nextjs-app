@@ -1,0 +1,240 @@
+@import "~/src/scss/index.scss";
+
+.sideMenu {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 320px;
+  height: 100%;
+  background-color: $light;
+  box-shadow: $box-shadow;
+  transition: right 0.3s ease-in-out;
+  // z-index: 9999;
+
+  &.open {
+    left: 0;
+  }
+
+  .content {
+    height: 100%;
+    padding: 12px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+
+    .top {
+      .menuUserOptions {
+        display: flex;
+        flex-direction: column;
+        //   gap: 20px;
+
+        > button {
+          height: 40px;
+          width: 100%;
+        }
+
+        .header {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 8px;
+          padding: 30px 0;
+          // height: 64px;
+          overflow: hidden;
+          border-bottom: 1px solid $border-primary;
+
+          &.hidden {
+            opacity: 0;
+            visibility: hidden;
+          }
+
+          > .initialsAvatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: $primary_dark;
+            color: $light;
+            border-radius: 50%;
+            font-size: 20px;
+          }
+
+          .userInfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .name {
+              font-size: 16px;
+              font-weight: 700;
+            }
+          }
+        }
+
+        .userMenu {
+          padding: 20px 0;
+          border-bottom: 1px solid $border-primary;
+
+          > ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+
+            > li {
+              > a {
+                font-weight: 700;
+                text-transform: uppercase;
+                display: flex;
+                align-items: center;
+                height: 40px;
+              }
+            }
+          }
+        }
+      }
+
+      .menuGlobalOptions {
+        padding: 20px 0;
+        height: 40vh;
+        overflow-y: auto;
+
+        .globalMenu {
+          > ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            //   gap: 16px;
+
+            > li {
+              > a {
+                font-weight: 700;
+                text-transform: uppercase;
+                display: flex;
+                align-items: center;
+                height: 40px;
+              }
+              > button {
+                font-weight: 700;
+                text-transform: uppercase;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                height: 40px;
+                padding: 0;
+              }
+
+              .subMenuLevel1 {
+                display: none;
+                transition: all 0.3s ease;
+
+                &.open {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 16px;
+                }
+
+                > ul {
+                  list-style: none;
+                  margin: 0;
+                  padding: 0;
+                  // padding: 0 12px;
+                  display: flex;
+                  flex-direction: column;
+                  // background-color: $lightgray;
+
+                  > li {
+                    border-bottom: 1px solid $border-primary;
+
+                    &:last-of-type {
+                      border: none;
+                    }
+
+                    button {
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      width: 100%;
+                      background-color: transparent;
+                      border: none;
+                      height: 40px;
+                      padding: 0;
+                    }
+
+                    .subMenuLevel2 {
+                      display: none;
+                      transition: all 0.3s ease;
+
+                      &.open {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 16px;
+                      }
+
+                      > ul {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0 12px;
+                        display: flex;
+                        flex-direction: column;
+                        background-color: $lightgray;
+
+                        > li {
+                          border-bottom: 1px solid $border-primary;
+
+                          &:last-of-type {
+                            border: none;
+                          }
+                          a {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 100%;
+                            background-color: transparent;
+                            border: none;
+                            height: 40px;
+                            padding: 0;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .actions {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+        //   gap: 20px;
+
+        > button {
+          font-weight: 700;
+          text-transform: uppercase;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          background-color: $light;
+          border: 1px solid $border-primary;
+          border-radius: 8px;
+          height: 40px;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

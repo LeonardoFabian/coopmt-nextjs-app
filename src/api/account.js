@@ -1,6 +1,51 @@
 import { ENV, authFetch } from "@/utils";
 
 export class Account {
+  /**
+   * Retrieves a list of contribution change requests associated with a given user ID
+   *
+   * @param {string} userId - The ID of the user to retrieve contribution change requests for
+   * @return {Promise<object[]>} The JSON response containing the list of contribution change requests
+   * @throws Will throw an error if the network request fails or the response status is not 200
+   */
+  async getUserContributionChangeRequests(userId) {
+    try {
+      const populate = "populate=*";
+      const filters = `filters[user][id][$eq]=${userId}`;
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.CONTRIBUTION_CHANGE_REQUEST}?${filters}&${populate}`;
+
+      const response = await authFetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  /**
+   * Retrieves a list of contribution change types from the API.
+   *
+   * @return {Promise<object[]>} The JSON response containing the list of contribution change types.
+   * @throws Will throw an error if the network request fails or the response status is not 200.
+   */
+  async getContributionChangeTypes() {
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.CONTRIBUTION_CHANGE_TYPES}`;
+
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   // cuentas del socio
   async getAccounts() {
     console.log("GET ACCOUNTS API CALL");

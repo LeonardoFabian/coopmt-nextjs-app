@@ -15,6 +15,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "material-symbols";
+import { MessageBar } from "@/components/Layout";
 
 export default function App(props) {
   const { Component, pageProps } = props;
@@ -24,6 +25,7 @@ export default function App(props) {
       <AccountProvider>
         <CartProvider>
           <ApplicationProvider>
+            <MessageBar />
             <ToastContainer />
             <Component {...pageProps} />
           </ApplicationProvider>

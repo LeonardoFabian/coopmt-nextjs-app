@@ -1,7 +1,7 @@
 import styles from "./RootLayout.module.scss";
 import classNames from "classnames";
 import { Container } from "semantic-ui-react";
-import { Footer, TopBar } from "@/components/Layout";
+import { Footer, TopBar, MessageBar } from "@/components/Layout";
 import { Global } from "@/api";
 import { useState, useEffect } from "react";
 import search from "@/pages/search";
@@ -35,6 +35,7 @@ export function RootLayout(props) {
 
   return (
     <>
+      {/* <MessageBar /> */}
       {/* TopBar */}
       <TopBar isOpenSearch={isOpenSearch} data={data?.header} />
 

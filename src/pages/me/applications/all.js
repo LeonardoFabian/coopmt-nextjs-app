@@ -1,5 +1,5 @@
 import styles from "./applications.module.scss";
-import { MeLayout } from "@/layouts";
+import { MeLayout, ApplicationsLayout } from "@/layouts";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -19,7 +19,9 @@ export default function MeApplicationsPage() {
 
   return (
     <MeLayout title="Solicitudes">
-      <h3>Solicitudes</h3>
+      <ApplicationsLayout title="Solicitudes">
+        <div className={styles.applications}>Solicitudes</div>
+      </ApplicationsLayout>
     </MeLayout>
   );
 }

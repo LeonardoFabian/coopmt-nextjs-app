@@ -205,10 +205,10 @@ export function MeLayout(props) {
               {/* Solicitudes: Muestra solicitudes de afiliación, préstamos y cotizaciones. */}
               <li
                 className={classNames({
-                  [styles.active]: router.pathname === "/me/applications",
+                  [styles.active]: router.pathname === "/me/applications/all",
                 })}
               >
-                <Link href="/me/applications">
+                <Link href="/me/applications/all">
                   <Block.MaterialIcon icon="request_quote" />
                   <span
                     className={classNames([styles.linkText], {

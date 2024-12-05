@@ -67,11 +67,7 @@ export function Account(props) {
   };
 
   const goToCart = () => {
-    if (!user) {
-      goToLogin();
-    } else {
-      router.push("/cart");
-    }
+    router.push("/cart");
   };
 
   const handleClick = (e, { fn }) => {
@@ -134,12 +130,14 @@ export function Account(props) {
         </Button>
       )}
 
-      <Button className={styles.cart} title="Mi Carrito" onClick={goToCart}>
-        <FontAwesomeIcon icon={faCartShopping} />
-        {quantity > 0 && (
-          <Label circular>{quantity > 9 ? "9+" : quantity}</Label>
-        )}
-      </Button>
+      {user && (
+        <Button className={styles.cart} title="Mi Carrito" onClick={goToCart}>
+          <FontAwesomeIcon icon={faCartShopping} />
+          {quantity > 0 && (
+            <Label circular>{quantity > 9 ? "9+" : quantity}</Label>
+          )}
+        </Button>
+      )}
 
       {/* user dropdown */}
       {/* <Button
