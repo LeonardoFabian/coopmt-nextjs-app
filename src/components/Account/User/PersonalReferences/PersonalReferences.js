@@ -245,7 +245,7 @@ export function PersonalReferences() {
             <Form.Input
               type="text"
               name="state"
-              label="Departamento"
+              label="Estado/Provincia"
               placeholder="Ingrese el departamento"
               onChange={formik.handleChange}
               value={formik?.values?.state}

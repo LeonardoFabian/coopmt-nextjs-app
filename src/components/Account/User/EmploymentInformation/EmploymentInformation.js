@@ -3,18 +3,17 @@ import { Block } from "@/components/Block";
 import { useAuth } from "@/hooks";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { EmploymentInformation as EmploymentCtrl } from "@/api";
+import { EmploymentInformation as EmploymentCtrl, User } from "@/api";
 import { EmploymentItem } from "./EmploymentItem";
 import { Shared } from "@/components/Shared";
 import { Form } from "semantic-ui-react";
 import { useFormik } from "formik";
-import {
-  initialValues,
-  validationSchema,
-} from "./EmploymentItem/EmploymentItem.form";
+import { validationSchema } from "./EmploymentItem/EmploymentItem.form";
 import { map } from "lodash";
+import { format } from "date-fns";
 
 const employmentController = new EmploymentCtrl();
+// const userController = new User();
 
 // const sectorOptions = [
 //   { text: "Público", value: "publico" },
@@ -27,7 +26,7 @@ const isCareerEmployeeOptions = [
 ];
 
 export function EmploymentInformation() {
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const router = useRouter();
   const [employments, setEmployments] = useState({});
   const [reload, setReload] = useState(false);
@@ -35,6 +34,10 @@ export function EmploymentInformation() {
   const [showModal, setShowModal] = useState(false);
   const [employmentSectors, setEmploymentSectors] = useState({});
   const [employmentTypes, setEmploymentTypes] = useState({});
+
+  // useEffect(() => {
+  //   console.log("Reload");
+  // }, [user]);
 
   useEffect(() => {
     if (!user) {
@@ -44,7 +47,7 @@ export function EmploymentInformation() {
         try {
           const employmentsResponse =
             await employmentController.getEmploymentInformation(user?.id);
-          console.log("employmentsResponse: ", employmentsResponse);
+          // console.log("employmentsResponse: ", employmentsResponse);
           setEmployments(employmentsResponse);
         } catch (error) {
           console.error("Error loading employments: ", error);
@@ -72,12 +75,39 @@ export function EmploymentInformation() {
   }, [showModal]);
 
   const formik = useFormik({
-    initialValues: initialValues(),
+    initialValues: {
+      companyName: "",
+      sector: 0,
+      department: "",
+      isCareerEmployee: false,
+      salary: 0,
+      address: "",
+      phone: "",
+      employment_type: 0,
+      address2: "",
+      city: "",
+      state: "",
+      country: "",
+      ext: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+    },
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValues) => {
       try {
-        await employmentController.create(user.id, formValues);
+        const formattedValues = {
+          ...formValues,
+          startDate: formValues.startDate
+            ? format(new Date(formValues.startDate), "yyyy-MM-dd")
+            : null,
+          endDate: formValues.endDate
+            ? format(new Date(formValues.endDate), "yyyy-MM-dd")
+            : null,
+        };
+
+        await employmentController.create(user.id, formattedValues);
         onReload();
         onClose();
       } catch (error) {
@@ -119,18 +149,32 @@ export function EmploymentInformation() {
             <div className={styles.contentWrapper}>
               {employments?.data ? (
                 <div className={styles.employments}>
-                  {employments?.data.map((employment) => {
-                    console.log("Employment: ", employment);
-                    {
-                      return (
-                        <EmploymentItem
-                          key={employment.id}
-                          employment={employment}
-                          onReload={onReload}
-                        />
-                      );
-                    }
-                  })}
+                  <>
+                    {employments?.data?.map((employment) => {
+                      console.log("Employment: ", employment);
+                      {
+                        return (
+                          <EmploymentItem
+                            key={employment.id}
+                            employment={employment}
+                            onReload={onReload}
+                            updateUser={updateUser}
+                            reload={reload}
+                          />
+                        );
+                      }
+                    })}
+                    <div className={styles.notes}>
+                      {/* <p>NOTA</p> */}
+                      <ul>
+                        <li>
+                          Cuando estableces un Dato Laboral como predeterminado,
+                          se utilizará dicha información como lugar de trabajo
+                          actual para el envío de formularios.
+                        </li>
+                      </ul>
+                    </div>
+                  </>
                 </div>
               ) : (
                 <Shared.NoResult text="No has añadido ninguna información laboral." />
@@ -256,7 +300,10 @@ export function EmploymentInformation() {
               name="startDate"
               label="Fecha de Inicio"
               onChange={formik.handleChange}
-              value={formik?.values?.startDate}
+              value={
+                formik?.values?.startDate &&
+                new Date(formik?.values?.startDate)?.toISOString().split("T")[0]
+              }
               error={formik?.errors?.startDate}
             />
             <Form.Input
@@ -264,7 +311,10 @@ export function EmploymentInformation() {
               name="endDate"
               label="Fecha de Salida"
               onChange={formik.handleChange}
-              value={formik?.values?.endDate}
+              value={
+                formik?.values?.endDate &&
+                new Date(formik?.values?.endDate).toISOString().split("T")[0]
+              }
               error={formik?.errors?.endDate}
             />
           </Form.Group>

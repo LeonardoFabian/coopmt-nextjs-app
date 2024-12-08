@@ -97,6 +97,8 @@ export function AuthProvider(props) {
     login,
     logout,
     updateUser,
+    loading,
+    setLoading,
   };
 
   if (loading) return null;

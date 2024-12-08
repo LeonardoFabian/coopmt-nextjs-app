@@ -20,36 +20,49 @@
   .content {
     .contentWrapper {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
+      // align-items: flex-start;
+      // justify-content: space-between;
       gap: 16px;
 
-      .info {
+      .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        // margin-bottom: 16px;
+
+        .title {
+          margin: 0;
+          font-weight: 700;
+          font-size: 1rem;
+          line-height: 1.57;
+          margin-bottom: 0.35em;
+        }
+        span {
+          color: $primary;
+          font-size: 13px;
+          font-weight: 500;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 4px;
+        }
+      }
+
+      .data {
         display: flex;
         flex-direction: column;
         gap: 2px;
+      }
 
-        .label {
-          font-size: 16px;
-          font-weight: 500;
-          color: $text-primary;
-          line-height: 1;
-        }
-
-        .data {
-          display: flex;
-          flex-direction: column;
-          gap: 2px;
-        }
+      .actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 8px;
       }
     }
   }
-}
-
-.actions {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: 8px;
 }

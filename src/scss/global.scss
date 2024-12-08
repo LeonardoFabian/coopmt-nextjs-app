@@ -126,6 +126,39 @@ h6 {
   // }
 }
 
+.default_button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  background-color: $lightgray;
+  color: $text-primary;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 16px;
+  padding: 8px;
+  border: 1px solid $text-primary;
+  transition: all 0.3s ease-in-out;
+
+  span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $text-primary;
+  }
+
+  &:hover {
+    background-color: $text-primary;
+    color: $light;
+    border-color: $text-primary;
+    cursor: pointer;
+
+    span {
+      color: $light;
+    }
+  }
+}
+
 .edit_button {
   display: flex;
   flex-direction: row;

@@ -6,14 +6,27 @@ import { Form } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "./ContactItem.form";
 import { useAuth } from "@/hooks";
-import { Phone } from "@/api";
+import { Phone, User } from "@/api";
 
 const phoneController = new Phone();
+const userController = new User();
 
 export function ContactItem(props) {
-  const { phone, onReload } = props;
+  const { phone, onReload, updateUser, reload } = props;
   console.log("phone: ", phone);
-  const { user } = useAuth();
+  // const { user } = useAuth();
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await userController.getMe();
+        setUser(response);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, [reload]);
+
   const [showModal, setShowModal] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
@@ -57,6 +70,21 @@ export function ContactItem(props) {
     }
   };
 
+  const setDefaultContactPhone = async (phoneId) => {
+    try {
+      await userController.updateMe(user.id, {
+        defaultPhone: phoneId,
+      });
+      updateUser("defaultPhone", phoneId);
+      onReload();
+    } catch (error) {
+      console.error("Error setting default contact phone: ", error);
+    }
+  };
+
+  const showButton = user?.defaultPhone?.id !== phone?.id ? true : false;
+  console.log("Show BTN: ", showButton);
+
   return (
     <>
       <div className={styles.component}>
@@ -64,10 +92,18 @@ export function ContactItem(props) {
           <div className={styles.content}>
             {phone && (
               <div className={styles.contentWrapper}>
-                <div className={styles.info}>
-                  <span className={styles.label}>{label}</span>
-                  <span className={styles.number}>{formattedContact}</span>
+                <div className={styles.header}>
+                  <h6 className={styles.title}>{label}</h6>
+                  {user?.defaultPhone?.id == phone?.id ? (
+                    <span>
+                      Número de contacto principal{" "}
+                      <Block.MaterialIcon icon="star" height="13px" />
+                    </span>
+                  ) : (
+                    ""
+                  )}
                 </div>
+                <span className={styles.number}>{formattedContact}</span>
                 <div className={styles.actions}>
                   <button className="edit_button" onClick={handleShowModal}>
                     <span>Editar</span>
@@ -77,6 +113,14 @@ export function ContactItem(props) {
                     <span>Eliminar</span>
                     <Block.MaterialIcon icon="delete" height="16px" />
                   </button>
+                  {showButton && (
+                    <button
+                      className="default_button"
+                      onClick={() => setDefaultContactPhone(phone.id)}
+                    >
+                      Establecer como predeterminada
+                    </button>
+                  )}
                 </div>
               </div>
             )}

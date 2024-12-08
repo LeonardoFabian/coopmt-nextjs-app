@@ -85,8 +85,8 @@ export function FieldRenderer(props) {
           <Select
             name={name ? name : field?.name}
             label={field.label}
-            readOnly={field.readOnly}
-            disabled={field.disabled}
+            // readOnly={field.readOnly}
+            // disabled={field.disabled}
           >
             {field?.options?.map((option) => (
               <option value={option.value}>{option.text}</option>

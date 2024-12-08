@@ -254,7 +254,7 @@ export function MeLayout(props) {
                 </Link>
               </li>
               {/* Beneficiarios y relaciones: Gestión de beneficiarios y relaciones familiares.  */}
-              <li
+              {/* <li
                 className={classNames({
                   [styles.active]: router.pathname === "/me/beneficiaries",
                 })}
@@ -269,7 +269,7 @@ export function MeLayout(props) {
                     Beneficiarios
                   </span>
                 </Link>
-              </li>
+              </li> */}
               {/* Notificaciones: Panel para ver notificaciones importantes. */}
               <li
                 className={classNames({

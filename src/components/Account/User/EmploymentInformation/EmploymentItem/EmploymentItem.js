@@ -1,14 +1,16 @@
 import styles from "./EmploymentItem.module.scss";
 import { Block } from "@/components/Block";
 import { Shared } from "@/components/Shared";
-import { useAuth } from "@/hooks";
+// import { useAuth } from "@/hooks";
+// import { useContext } from "react";
+// import { AuthContext } from "@/contexts";
 import { useState, useEffect } from "react";
 import { Form, Radio } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { User, EmploymentInformation } from "@/api";
 import numeral from "numeral";
-import { initialValues, validationSchema } from "./EmploymentItem.form";
-import { map } from "lodash";
+import { validationSchema } from "./EmploymentItem.form";
+import { map, set } from "lodash";
 import { fn } from "@/utils";
 
 const userController = new User();
@@ -24,17 +26,35 @@ const isCareerEmployeeOptions = [
   { text: "NO", value: false },
 ];
 
-export function EmploymentItem(props) {
-  const { employment, onReload } = props;
+export function EmploymentItem({ employment, onReload, updateUser, reload }) {
+  // const { user, updateUser, loading, setLoading } = useContext(AuthContext);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await userController.getMe();
+        setUser(response);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, [reload]);
+
+  // const { employment, onReload } = props;
   console.log("employment: ", employment);
 
-  const { user } = useAuth();
+  console.log("user: ", user);
   const [showModal, setShowModal] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [employmentSectors, setEmploymentSectors] = useState(null);
   const [employmentTypes, setEmploymentTypes] = useState(null);
+  // const [currentJobId, setCurrentJobId] = useState(user.currentJob.id);
+  console.log("userCurrentJob: ", user?.currentJob?.id);
+  console.log("employmentId: ", employment.id);
+  // console.log("currentJobId: ", currentJobId);
 
-  const companyName = employment?.attributes?.companyName || "";
+  const companyName = employment?.attributes?.companyName;
   const department = employment?.attributes?.department || "--";
   const position = employment?.attributes?.position || "--";
   const salary = employment?.attributes?.salary || "--";
@@ -93,8 +113,8 @@ export function EmploymentItem(props) {
   }, [showModal]);
 
   const formik = useFormik({
-    initialValues: initialValues({
-      companyName,
+    initialValues: {
+      companyName: employment?.attributes?.companyName || "",
       sector: sector.id,
       department,
       isCareerEmployee,
@@ -110,7 +130,7 @@ export function EmploymentItem(props) {
       position,
       startDate,
       endDate,
-    }),
+    },
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValues) => {
@@ -159,26 +179,45 @@ export function EmploymentItem(props) {
     formik.setFieldValue(name, value);
   };
 
+  /**
+   * Sets the default employment information for the user.
+   *
+   * @param {number} employmentId The ID of the employment information to set as default.
+   * @returns {Promise<void>}
+   */
+  const setDefaultEmploymentInformation = async (employmentId) => {
+    try {
+      await userController.updateMe(user.id, {
+        currentJob: employmentId,
+      });
+      updateUser("currentJob", employmentId);
+      onReload();
+    } catch (error) {
+      console.error("Error setting default employment information: ", error);
+    }
+  };
+
+  const showButton = user?.currentJob?.id !== employment?.id ? true : false;
+  console.log("Show BTN: ", showButton);
+
   return (
     <>
       <div className={styles.component}>
         <div className={styles.wrapper}>
           <div className={styles.header}>
-            <div>
-              <h6 className={styles.title}>{companyName}</h6>
-              <span>{formattedAddress}</span>
-            </div>
-            <div className={styles.actions}>
-              <button className="edit_button" onClick={handleShowModal}>
-                <span>Editar</span>
-                <Block.MaterialIcon icon="edit" height="16px" />
-              </button>
-              <button className="delete_button" onClick={handleShowConfirm}>
-                <span>Eliminar</span>
-                <Block.MaterialIcon icon="delete" height="16px" />
-              </button>
-            </div>
+            <h6 className={styles.title}>
+              {employment?.attributes?.companyName}
+            </h6>
+            {user?.currentJob?.id == employment?.id ? (
+              <span>
+                Lugar de trabajo actual{" "}
+                <Block.MaterialIcon icon="star" height="13px" />
+              </span>
+            ) : (
+              ""
+            )}
           </div>
+          <span>{formattedAddress}</span>
           <div className={styles.content}>
             {employment && (
               <div className={styles.contentWrapper}>
@@ -230,6 +269,24 @@ export function EmploymentItem(props) {
                   <span className={styles.sector}>{formattedEndDate}</span>
                 </div>
               </div>
+            )}
+          </div>
+          <div className={styles.actions}>
+            <button className="edit_button" onClick={handleShowModal}>
+              <span>Editar</span>
+              <Block.MaterialIcon icon="edit" height="16px" />
+            </button>
+            <button className="delete_button" onClick={handleShowConfirm}>
+              <span>Eliminar</span>
+              <Block.MaterialIcon icon="delete" height="16px" />
+            </button>
+            {showButton && (
+              <button
+                className="default_button"
+                onClick={() => setDefaultEmploymentInformation(employment.id)}
+              >
+                Establecer como predeterminada
+              </button>
             )}
           </div>
         </div>

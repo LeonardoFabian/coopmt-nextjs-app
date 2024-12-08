@@ -7,18 +7,33 @@ import { Block } from "@/components/Block";
 import { useFormik } from "formik";
 import { Form } from "semantic-ui-react";
 import { initialValues, validationSchema } from "./AddressItem.form";
-import { useAuth } from "@/hooks";
+// import { useAuth } from "@/hooks";
 import { map } from "lodash";
+import { User } from "@/api";
 
 const addressController = new Address();
 const countryController = new Country();
 const stateController = new State();
 const cityController = new City();
+const userController = new User();
 
 export function AddressItem(props) {
-  const { address, onReload } = props;
+  const { address, onReload, reload, updateUser } = props;
   console.log(address);
-  const { user } = useAuth();
+  // const { user } = useAuth();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await userController.getMe();
+        setUser(response);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, [reload]);
+
   const [showModal, setShowModal] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [countries, setCountries] = useState([]);
@@ -159,17 +174,40 @@ export function AddressItem(props) {
     }
   };
 
+  const setDefaultAddress = async (addressId) => {
+    try {
+      await userController.updateMe(user.id, {
+        defaultAddress: addressId,
+      });
+      updateUser("defaultAddress", addressId);
+      onReload();
+    } catch (error) {
+      console.error("Error setting default address: ", error);
+    }
+  };
+
+  const showButton = user?.defaultAddress?.id !== address?.id ? true : false;
+  console.log("Show BTN: ", showButton);
+
   return (
     <>
       <div className={styles.component}>
         <div className={styles.wrapper}>
           <div className={styles.content}>
             <div className={styles.contentWrapper}>
-              <div className={styles.info}>
-                <div className={styles.label}>{label}</div>
-                <div className={styles.address}>
-                  <span>{formattedAddress}</span>
-                </div>
+              <div className={styles.header}>
+                <h6 className={styles.title}>{label}</h6>
+                {user?.defaultAddress?.id == address?.id ? (
+                  <span>
+                    Domicilio actual{" "}
+                    <Block.MaterialIcon icon="star" height="13px" />
+                  </span>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className={styles.address}>
+                <span>{formattedAddress}</span>
               </div>
               <div className={styles.actions}>
                 <button className="edit_button" onClick={handleShowModal}>
@@ -180,6 +218,14 @@ export function AddressItem(props) {
                   <span>Eliminar</span>
                   <Block.MaterialIcon icon="delete" height="16px" />
                 </button>
+                {showButton && (
+                  <button
+                    className="default_button"
+                    onClick={() => setDefaultAddress(address.id)}
+                  >
+                    Establecer como predeterminada
+                  </button>
+                )}
               </div>
             </div>
           </div>

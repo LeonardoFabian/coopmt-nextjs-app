@@ -39,6 +39,12 @@ export function CuentaBancaria(props) {
     };
   }, []);
 
+  // console.log(values.MetodoDeDesembolso);
+
+  if (values.MetodoDeDesembolso !== "2") {
+    return null;
+  }
+
   return (
     <section className={styles.cuentaBancaria}>
       <div className="header">

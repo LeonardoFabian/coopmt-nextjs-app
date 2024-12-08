@@ -5,7 +5,7 @@ export default function MeContributionsChangeRequestPage() {
   return (
     <MeLayout title="Solicitudes">
       <ApplicationsLayout title="Cambio de Aportes">
-        <div className={styles.applications}>Cambio de Aportes</div>
+        <div className={styles.applications}>Cambio de AportesSS</div>
       </ApplicationsLayout>
     </MeLayout>
   );

@@ -28,6 +28,7 @@
     "@types/qs": "^6.9.14",
     "chart.js": "^4.4.4",
     "classnames": "^2.5.1",
+    "date-fns": "^4.1.0",
     "embla-carousel-autoplay": "^8.0.2",
     "embla-carousel-react": "^8.0.2",
     "formik": "^2.4.5",

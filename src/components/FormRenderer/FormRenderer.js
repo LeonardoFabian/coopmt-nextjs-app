@@ -10,6 +10,7 @@ import { DatosDelPrestamo } from "../Form/DatosDelPrestamo";
 import { DatosDelGarante } from "../Form/DatosDelGarante";
 import { useAuth } from "@/hooks";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Form as FormSUI } from "semantic-ui-react";
 import * as Yup from "yup";
 import { initialValues } from "./FormRenderer.form";
 import { CuentaBancaria } from "../Form/CuentaBancaria";
@@ -119,7 +120,7 @@ export function FormRenderer({ formData }) {
             // console.log("Response: ", response);
             if (response?.data) {
               toast.success("Solicitud de préstamo enviada con exito.");
-              router.push("/me/applications");
+              router.push("/me/applications/all");
             } else {
               toast.error("Error al enviar la solicitud de préstamo.");
             }
@@ -130,6 +131,7 @@ export function FormRenderer({ formData }) {
             );
           }
         }}
+        validateOnChange={true}
         validationSchema={Yup.object({
           Cedula: Yup.string()
             .max(
@@ -192,14 +194,20 @@ export function FormRenderer({ formData }) {
               Pais: Yup.string(),
             })
           ),
-          Tipo: Yup.number(),
+          Tipo: Yup.number().min(0, "Debes seleccionar un tipo de préstamo"),
           Monto: Yup.number(),
           Plazo: Yup.number(),
-          Garantias: Yup.number(),
-          MetodoDesembolso: Yup.number(),
-          EntidadFinanciera: Yup.number(),
-          TipoDeCuenta: Yup.number(),
-          NumeroDeCuenta: Yup.string(),
+          Garantias: Yup.number().min(
+            0,
+            "Debes seleccionar un tipo de garantía."
+          ),
+          MetodoDesembolso: Yup.number().min(
+            0,
+            "Debes seleccionar un método de desembolso"
+          ),
+          EntidadFinanciera: Yup.number().nullable(),
+          TipoDeCuenta: Yup.number().nullable(),
+          NumeroDeCuenta: Yup.string().nullable(),
           CedulaDelGarante: Yup.string().nullable(),
           NombreDelGarante: Yup.string(),
           ApellidoDelGarante: Yup.string(),
@@ -299,7 +307,11 @@ export function FormRenderer({ formData }) {
               >
                 Limpiar Formulario
               </button>
-              <button type="submit" className="add_button">
+              <button
+                type="submit"
+                className="add_button"
+                loading={formik.isSubmitting}
+              >
                 Enviar Solicitud
               </button>
             </div>

@@ -20,7 +20,7 @@ const stateController = new State();
 const cityController = new City();
 
 export function Address() {
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const router = useRouter();
   const [addresses, setAddresses] = useState(null);
   const [reload, setReload] = useState(false);
@@ -52,7 +52,7 @@ export function Address() {
         }
       })();
     }
-  }, [reload]);
+  }, [reload, user]);
 
   useEffect(() => {
     if (!user) {
@@ -163,9 +163,21 @@ export function Address() {
                         key={address.id}
                         address={address}
                         onReload={onReload}
+                        reload={reload}
+                        updateUser={updateUser}
                       />
                     );
                   })}
+                  <div className={styles.notes}>
+                    {/* <p>NOTA</p> */}
+                    <ul>
+                      <li>
+                        Cuando estableces una Dirección como predeterminada, se
+                        utilizará dicha información como Domicilio actual
+                        durante el envío de formularios.
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               ) : (
                 <Shared.NoResult text="No tienes direcciones registradas." />

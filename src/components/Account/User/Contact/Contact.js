@@ -16,7 +16,7 @@ import { Form } from "semantic-ui-react";
 const phoneController = new Phone();
 
 export function Contact() {
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const router = useRouter();
   const [phones, setPhones] = useState({});
   const [reload, setReload] = useState(false);
@@ -37,7 +37,7 @@ export function Contact() {
         }
       })();
     }
-  }, [reload]);
+  }, [reload, user]);
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -83,9 +83,21 @@ export function Contact() {
                         key={phone.id}
                         phone={phone}
                         onReload={onReload}
+                        reload={reload}
+                        updateUser={updateUser}
                       />
                     );
                   })}
+                  <div className={styles.notes}>
+                    {/* <p>NOTA</p> */}
+                    <ul>
+                      <li>
+                        Cuando estableces un número de contacto como
+                        predeterminado, se utilizará dicha información durante
+                        el envío de formularios.
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               ) : (
                 <Shared.NoResult text="No tienes números de contacto registrados." />

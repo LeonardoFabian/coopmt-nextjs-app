@@ -20,7 +20,7 @@ export default function MeApplicationsPage() {
   return (
     <MeLayout title="Solicitudes">
       <ApplicationsLayout title="Solicitudes">
-        <div className={styles.applications}>Solicitudes</div>
+        {/* <div className={styles.applications}>Solicitudes</div> */}
       </ApplicationsLayout>
     </MeLayout>
   );

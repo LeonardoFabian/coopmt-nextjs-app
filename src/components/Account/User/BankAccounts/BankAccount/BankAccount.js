@@ -2,7 +2,7 @@ import styles from "./BankAccount.module.scss";
 import { useAuth } from "@/hooks";
 import { useEffect, useState } from "react";
 import { Block } from "@/components/Block";
-import { BankAccount as BankAccountApi, Currency, Bank } from "@/api";
+import { BankAccount as BankAccountApi, Currency, Bank, User } from "@/api";
 import { useRouter } from "next/router";
 import { Shared } from "@/components/Shared";
 import { Form } from "semantic-ui-react";
@@ -14,11 +14,25 @@ import { text } from "@fortawesome/fontawesome-svg-core";
 const bankAccountController = new BankAccountApi();
 const currencyController = new Currency();
 const bankController = new Bank();
+const userController = new User();
 
 export function BankAccount(props) {
-  const { account, onReload } = props;
+  const { account, onReload, updateUser, reload } = props;
   console.log("account: ", account);
-  const { user } = useAuth();
+  // const { user } = useAuth();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await userController.getMe();
+        setUser(response);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, [reload]);
+
   const [showModal, setShowModal] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [currencies, setCurrencies] = useState(null);
@@ -110,21 +124,45 @@ export function BankAccount(props) {
     }
   };
 
+  const setDefaultBankAccount = async (accountId) => {
+    try {
+      await userController.updateMe(user.id, {
+        defaultBankAccount: accountId,
+      });
+      updateUser("defaultBankAccount", accountId);
+      onReload();
+    } catch (error) {
+      console.error("Error setting default bank account: ", error);
+    }
+  };
+
+  const showButton =
+    user?.defaultBankAccount?.id !== account?.id ? true : false;
+  console.log("Show BTN: ", showButton);
+
   return (
     <>
       <div className={styles.component}>
         <div className={styles.wrapper}>
           <div className={styles.content}>
             <div className={styles.contentWrapper}>
-              <div className={styles.info}>
-                <div className={styles.label}>{label}</div>
-                <div className={styles.data}>
-                  <span>{bankName}</span>
+              <div className={styles.header}>
+                <h6 className={styles.title}>{label}</h6>
+                {user?.defaultBankAccount?.id == account?.id ? (
                   <span>
-                    {typeLabel} en {currencyName} ({currencySymbol})
+                    Cuenta bancaria predeterminada{" "}
+                    <Block.MaterialIcon icon="star" height="13px" />
                   </span>
-                  <span>{number}</span>
-                </div>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className={styles.data}>
+                <span>{bankName}</span>
+                <span>
+                  {typeLabel} en {currencyName} ({currencySymbol})
+                </span>
+                <span>{number}</span>
               </div>
               <div className={styles.actions}>
                 <button className="edit_button" onClick={handleShowModal}>
@@ -135,6 +173,14 @@ export function BankAccount(props) {
                   <span>Eliminar</span>
                   <Block.MaterialIcon icon="delete" height="16px" />
                 </button>
+                {showButton && (
+                  <button
+                    className="default_button"
+                    onClick={() => setDefaultBankAccount(account.id)}
+                  >
+                    Establecer como predeterminada
+                  </button>
+                )}
               </div>
             </div>
           </div>

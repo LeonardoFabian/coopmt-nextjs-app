@@ -19,7 +19,7 @@ const bankController = new Bank();
 const currencyController = new Currency();
 
 export function BankAccounts() {
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const router = useRouter();
   const [bankAccounts, setBankAccounts] = useState(null);
   const [banks, setBanks] = useState(null);
@@ -44,7 +44,7 @@ export function BankAccounts() {
         }
       })();
     }
-  }, [reload]);
+  }, [reload, user]);
 
   useEffect(() => {
     (async () => {
@@ -130,9 +130,22 @@ export function BankAccounts() {
                         key={account.id}
                         account={account}
                         onReload={onReload}
+                        updateUser={updateUser}
+                        reload={reload}
                       />
                     );
                   })}
+                  <div className={styles.notes}>
+                    {/* <p>NOTA</p> */}
+                    <ul>
+                      <li>
+                        Cuando estableces una cuenta bancaria como
+                        predeterminada, la misma se utilizará cuando establezcas
+                        como metodo de desembolso "Transferencia" durante una
+                        solicitud.
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               ) : (
                 <Shared.NoResult text="No tienes cuentas bancarias registradas." />

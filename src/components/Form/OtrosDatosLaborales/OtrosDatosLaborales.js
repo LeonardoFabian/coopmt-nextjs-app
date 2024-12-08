@@ -65,8 +65,10 @@ export function OtrosDatosLaborales(props) {
         {map(data.attributes, (field, index) => {
           let value = null;
           let options = [];
-          let readOnly = false;
-          let disabled = false;
+          {
+            /* let readOnly = false;
+          let disabled = false; */
+          }
 
           switch (field.name) {
             case "Grupo":
@@ -91,8 +93,10 @@ export function OtrosDatosLaborales(props) {
                 text: `${userGroup?.attributes?.name}`,
                 value: userGroup?.id,
               }));
-              readOnly = true;
-              disabled = true;
+              {
+                /* readOnly = true;
+              disabled = true; */
+              }
               break;
             case "EsEmpleadoDeCarrera":
               value = employeeData
@@ -110,7 +114,7 @@ export function OtrosDatosLaborales(props) {
           return (
             <FieldRenderer
               key={index}
-              field={{ ...field, options, readOnly, disabled }}
+              field={{ ...field, options }}
               // name={`otrosDatosLaborales.${field.name}`}
               // value={value}
               // {...props}

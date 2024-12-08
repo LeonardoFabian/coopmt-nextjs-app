@@ -38,6 +38,21 @@
           display: flex;
           flex-direction: column;
           gap: 8px;
+
+          .notes {
+            background-color: $background-info;
+            color: $info;
+            // display: flex;
+            // flex-direction: column;
+            // gap: 8px;
+            padding: 12px;
+            font-size: 13px;
+
+            ul {
+              margin: 0;
+              padding-inline-start: 16px;
+            }
+          }
         }
       }
     }

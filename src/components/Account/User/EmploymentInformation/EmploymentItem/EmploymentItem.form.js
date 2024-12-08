@@ -1,42 +1,42 @@
 import * as Yup from "yup";
 
-export function initialValues(
-  companyName,
-  sector,
-  department,
-  isCareerEmployee,
-  salary,
-  address,
-  phone,
-  employment_type,
-  address2,
-  city,
-  state,
-  country,
-  ext,
-  position,
-  startDate,
-  endDate
-) {
-  return {
-    companyName: companyName || "",
-    sector: sector || 0,
-    department: department || "",
-    isCareerEmployee: isCareerEmployee || false,
-    salary: salary || 0,
-    address: address || "",
-    phone: phone || "",
-    employment_type: employment_type || 0,
-    address2: address2 || "",
-    city: city || "",
-    state: state || "",
-    country: country || "",
-    ext: ext || "",
-    position: position || "",
-    startDate: startDate || "",
-    endDate: endDate || "",
-  };
-}
+// export function initialValues(
+//   companyName,
+//   sector,
+//   department,
+//   isCareerEmployee,
+//   salary,
+//   address,
+//   phone,
+//   employment_type,
+//   address2,
+//   city,
+//   state,
+//   country,
+//   ext,
+//   position,
+//   startDate,
+//   endDate
+// ) {
+//   return {
+//     companyName: companyName || "",
+//     sector: sector || 0,
+//     department: department || "",
+//     isCareerEmployee: isCareerEmployee || false,
+//     salary: salary || 0,
+//     address: address || "",
+//     phone: phone || "",
+//     employment_type: employment_type || 0,
+//     address2: address2 || "",
+//     city: city || "",
+//     state: state || "",
+//     country: country || "",
+//     ext: ext || "",
+//     position: position || "",
+//     startDate: startDate || "",
+//     endDate: endDate || "",
+//   };
+// }
 
 export function validationSchema() {
   return Yup.object({
@@ -59,6 +59,6 @@ export function validationSchema() {
     ext: Yup.string().nullable(),
     position: Yup.string().required("La posición es requerida."),
     startDate: Yup.string().required("La fecha de inicio es requerida."),
-    endDate: Yup.string().nullable(),
+    endDate: Yup.string(),
   });
 }
