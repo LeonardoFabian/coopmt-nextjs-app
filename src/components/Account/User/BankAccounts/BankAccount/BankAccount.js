@@ -18,7 +18,7 @@ const userController = new User();
 
 export function BankAccount(props) {
   const { account, onReload, updateUser, reload } = props;
-  console.log("account: ", account);
+  // console.log("account: ", account);
   // const { user } = useAuth();
   const [user, setUser] = useState(null);
 
@@ -53,7 +53,7 @@ export function BankAccount(props) {
     (async () => {
       try {
         const banksResponse = await bankController.getFinancialInstitutions();
-        console.log("banksResponse: ", banksResponse);
+        // console.log("banksResponse: ", banksResponse);
         setBanks(banksResponse);
       } catch (error) {
         console.log("Error getting financial institutions: ", error);
@@ -65,7 +65,7 @@ export function BankAccount(props) {
     (async () => {
       try {
         const currenciesResponse = await currencyController.getAll();
-        console.log("currenciesResponse: ", currenciesResponse);
+        // console.log("currenciesResponse: ", currenciesResponse);
         setCurrencies(currenciesResponse);
       } catch (error) {
         console.log("Error getting currencies: ", error);
@@ -77,7 +77,7 @@ export function BankAccount(props) {
     (async () => {
       try {
         const accountTypesResponse = await bankController.getAccountTypes();
-        console.log("accountTypesResponse: ", accountTypesResponse);
+        // console.log("accountTypesResponse: ", accountTypesResponse);
         setAccountTypes(accountTypesResponse);
       } catch (error) {
         console.log("Error getting account types: ", error);
@@ -90,7 +90,7 @@ export function BankAccount(props) {
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValues) => {
-      console.log("formValues: ", formValues);
+      // console.log("formValues: ", formValues);
       try {
         if (account.id) {
           await bankAccountController.update(account.id, user.id, formValues);
@@ -138,7 +138,7 @@ export function BankAccount(props) {
 
   const showButton =
     user?.defaultBankAccount?.id !== account?.id ? true : false;
-  console.log("Show BTN: ", showButton);
+  // console.log("Show BTN: ", showButton);
 
   return (
     <>

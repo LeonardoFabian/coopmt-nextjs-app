@@ -27,7 +27,10 @@ export function BoardSection(props) {
                 const user = item?.attributes?.user?.data;
                 const firstName = user?.attributes?.firstName;
                 const lastName = user?.attributes?.lastName;
-                const imageUrl = user?.attributes?.image?.data?.attributes?.url;
+                const image = user?.attributes?.profile_photo;
+                const imageUrl = image?.data
+                  ? image?.data?.attributes?.url
+                  : null;
 
                 var userInitials = "";
                 if (user) {
@@ -42,16 +45,19 @@ export function BoardSection(props) {
                     key={`position-${position.id}`}
                     className={styles.position}
                   >
-                    <div className={styles.imageWrapper}>
-                      {imageUrl ? (
-                        <Shared.Image src={imageUrl} />
-                      ) : (
-                        <div className={styles.avatar}>
-                          <span className={styles.initialsAvatar}>
-                            {userInitials}
-                          </span>
-                        </div>
-                      )}
+                    <div className={styles.container}>
+                      <div className={styles.containerInner}>
+                        <div className={styles.circle}></div>
+                        {imageUrl !== null ? (
+                          <Shared.Image src={imageUrl} />
+                        ) : (
+                          <div className={styles.avatar}>
+                            <span className={styles.initialsAvatar}>
+                              {userInitials}
+                            </span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                     <div className={styles.name}>
                       <span className={styles.firstName}>{firstName}</span>

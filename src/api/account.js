@@ -68,7 +68,7 @@ export class Account {
     orderBy = "FECHA",
     orderDir = "DESC"
   ) {
-    console.log("getAccountTransactions memberId: ", memberId);
+    // console.log("getAccountTransactions memberId: ", memberId);
     const params = `memberId=${memberId}&limit=${limit}&offset=${offset}&orderBy=${orderBy}&orderDir=${orderDir}`;
 
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.ACCOUNT.TRANSACTIONS.FIND}?${params}`;
@@ -77,7 +77,7 @@ export class Account {
       const response = await authFetch(url);
       const result = await response.json();
 
-      console.log("getAccountTransactions result: ", result);
+      // console.log("getAccountTransactions result: ", result);
 
       if (response.status !== 200) throw result;
 
@@ -104,7 +104,7 @@ export class Account {
     orderBy = "FECHA",
     orderDir = "DESC"
   ) {
-    console.log("getAccountSavingsTransactions memberId: ", memberId);
+    // console.log("getAccountSavingsTransactions memberId: ", memberId);
     const params = `memberId=${memberId}&limit=${limit}&offset=${offset}&orderBy=${orderBy}&orderDir=${orderDir}`;
 
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.ACCOUNT.TRANSACTIONS.SAVINGS}?${params}`;
@@ -113,7 +113,7 @@ export class Account {
       const response = await authFetch(url);
       const result = await response.json();
 
-      console.log("getAccountSavingsTransactions result: ", result);
+      // console.log("getAccountSavingsTransactions result: ", result);
 
       if (response.status !== 200) throw result;
 
@@ -140,7 +140,7 @@ export class Account {
     orderBy = "FECHA",
     orderDir = "DESC"
   ) {
-    console.log("getAccountWithdrawalsTransactions memberId: ", memberId);
+    // console.log("getAccountWithdrawalsTransactions memberId: ", memberId);
     const params = `memberId=${memberId}&limit=${limit}&offset=${offset}&orderBy=${orderBy}&orderDir=${orderDir}`;
 
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.ACCOUNT.TRANSACTIONS.WITHDRAWALS}?${params}`;
@@ -149,7 +149,7 @@ export class Account {
       const response = await authFetch(url);
       const result = await response.json();
 
-      console.log("getAccountWithdrawalsTransactions result: ", result);
+      // console.log("getAccountWithdrawalsTransactions result: ", result);
 
       if (response.status !== 200) throw result;
 
@@ -166,14 +166,14 @@ export class Account {
    * @return {object} The monthly discounts data for the member.
    */
   async getMonthlyDiscounts(memberId) {
-    console.log("getMonthlyDiscounts memberId: ", memberId);
+    // console.log("getMonthlyDiscounts memberId: ", memberId);
     const params = `memberId=${memberId}`;
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.ACCOUNT.TRANSACTIONS.DISCOUNTS.MONTHLY}?${params}`;
 
     try {
       const response = await authFetch(url);
       const result = await response.json();
-      console.log("getMonthlyDiscounts result: ", result);
+      // console.log("getMonthlyDiscounts result: ", result);
       if (response.status !== 200) throw result;
       return result;
     } catch (error) {
@@ -182,14 +182,14 @@ export class Account {
   }
 
   async getCurrentYearMonthlyDiscounts(memberId) {
-    console.log("getCurrentYearMonthlyDiscounts memberId: ", memberId);
+    // console.log("getCurrentYearMonthlyDiscounts memberId: ", memberId);
     const params = `memberId=${memberId}`;
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.ACCOUNT.TRANSACTIONS.DISCOUNTS.CURRENT_YEAR.MONTHLY}?${params}`;
 
     try {
       const response = await authFetch(url);
       const result = await response.json();
-      console.log("getCurrentYearMonthlyDiscounts result: ", result);
+      // console.log("getCurrentYearMonthlyDiscounts result: ", result);
       if (response.status !== 200) throw result;
       return result;
     } catch (error) {
@@ -204,14 +204,14 @@ export class Account {
    * @return {object} The total savings amount data for the member.
    */
   async getLastMonthTotalContributionAmount(memberId) {
-    console.log("getLastMonthTotalContributionAmount memberId: ", memberId);
+    // console.log("getLastMonthTotalContributionAmount memberId: ", memberId);
     const params = `memberId=${memberId}`;
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.ACCOUNT.SAVINGS.MONTHLY.TOTAL_AMOUNT}?${params}`;
 
     try {
       const response = await authFetch(url);
       const result = await response.json();
-      console.log("getLastMonthTotalContributionAmount result: ", result);
+      // console.log("getLastMonthTotalContributionAmount result: ", result);
       if (response.status !== 200) throw result;
       return result;
     } catch (error) {
@@ -226,14 +226,14 @@ export class Account {
    * @return {object} The total savings amount data for the member.
    */
   async getLastTwoMonthTotalContributionAmount(memberId) {
-    console.log("getLastMonthTotalContributionAmount memberId: ", memberId);
+    // console.log("getLastMonthTotalContributionAmount memberId: ", memberId);
     const params = `memberId=${memberId}`;
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.ACCOUNT.SAVINGS.HISTORY.LAST_TWO_MONTHS}?${params}`;
 
     try {
       const response = await authFetch(url);
       const result = await response.json();
-      console.log("getLastTwoMonthTotalContributionAmount result: ", result);
+      // console.log("getLastTwoMonthTotalContributionAmount result: ", result);
       if (response.status !== 200) throw result;
       return result;
     } catch (error) {

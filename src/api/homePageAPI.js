@@ -92,7 +92,7 @@ export class HomePageAPI {
     const url = new URL(path, baseUrl);
     url.search = homePageQuery;
 
-    console.log(url.href);
+    // console.log(url.href);
 
     try {
       const response = await fetch(url.href, { cache: "no-store" });

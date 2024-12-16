@@ -177,7 +177,7 @@ export class Page {
     const populateGroup = "populate[5]=blocks.group";
     const populateContainer = "populate[6]=blocks.container";
     const populateBoardSection =
-      "populate[7]=blocks.board-section&populate[8]=blocks.board_groups&populate[9]=blocks.board_groups.board_positions&populate[10]=blocks.board_groups.board_positions.user";
+      "populate[7]=blocks.board-section&populate[8]=blocks.board_groups&populate[9]=blocks.board_groups.board_positions&populate[10]=blocks.board_groups.board_positions.user&populate[11]=blocks.board_groups.board_positions.user.profile_photo";
 
     // const populateFaqs = "populate[7]=blocks.faqs";
 
@@ -192,7 +192,7 @@ export class Page {
       const response = await fetch(url, { agent });
       const result = await response.json();
 
-      console.log("result: ", result);
+      // console.log("result: ", result);
 
       if (response.status !== 200) throw result;
 

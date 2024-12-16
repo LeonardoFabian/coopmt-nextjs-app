@@ -38,10 +38,10 @@ export function PersonalReferences() {
         try {
           const personalReferencesResponse =
             await personalReferencesController.getAll(user.id);
-          console.log(
-            "personalReferencesResponse: ",
-            personalReferencesResponse
-          );
+          // console.log(
+          //   "personalReferencesResponse: ",
+          //   personalReferencesResponse
+          // );
           setPersonalReferences(personalReferencesResponse);
         } catch (error) {
           console.error("Error loading personal references: ", error);

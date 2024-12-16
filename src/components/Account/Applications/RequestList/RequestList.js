@@ -30,18 +30,18 @@ export function RequestList() {
           const loanRequestsResponse = await loanController.getUserLoanRequests(
             user.id
           );
-          console.log("loanRequestResponse: ", loanRequestsResponse);
+          // console.log("loanRequestResponse: ", loanRequestsResponse);
 
           const quotationRequestsResponse =
             await productController.getUserQuotationRequests(user.id);
-          console.log("quotationRequestsResponse: ", quotationRequestsResponse);
+          // console.log("quotationRequestsResponse: ", quotationRequestsResponse);
 
           const contributionChangeRequestsResponse =
             await accountController.getUserContributionChangeRequests(user.id);
-          console.log(
-            "contributionChangeRequestsResponse: ",
-            contributionChangeRequestsResponse
-          );
+          // console.log(
+          //   "contributionChangeRequestsResponse: ",
+          //   contributionChangeRequestsResponse
+          // );
 
           // map and unify data
           const unifiedRequests = [
@@ -118,7 +118,7 @@ export function RequestList() {
         // let backgroundColor = "";
         // let textColor = "";
 
-        console.log("Estatus: ", status);
+        // console.log("Estatus: ", status);
 
         // switch (status) {
         //   case "Recibida":

@@ -70,7 +70,7 @@ export function UserData() {
       try {
         await userController.updateMe(user.id, conditionalFormValues);
         // console.log("FORMULARIO ENVIADO");
-        console.log(conditionalFormValues);
+        // console.log(conditionalFormValues);
       } catch (error) {
         console.error(error);
       }

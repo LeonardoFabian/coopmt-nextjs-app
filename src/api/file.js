@@ -12,7 +12,7 @@ export class File {
       const response = await fetch(url, params);
       const result = await response.json();
 
-      console.log("File upload result: ", result);
+      // console.log("File upload result: ", result);
 
       if (response.status !== 200) throw result;
 

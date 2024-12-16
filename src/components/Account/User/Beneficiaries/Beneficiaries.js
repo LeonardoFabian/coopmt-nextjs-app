@@ -35,7 +35,7 @@ export function Beneficiaries() {
           const beneficiariesResponse = await beneficiaryController.getAll(
             user.id
           );
-          console.log("USER BENEFICIARIES: ", beneficiariesResponse);
+          // console.log("USER BENEFICIARIES: ", beneficiariesResponse);
           setBeneficiaries(beneficiariesResponse);
         } catch (error) {
           console.error("Error getting beneficiaries: ", error);
@@ -49,7 +49,7 @@ export function Beneficiaries() {
       try {
         const relationshipTypesResponse =
           await relationshipTypesController.getAll();
-        console.log("relationshipTypesResponse: ", relationshipTypesResponse);
+        // console.log("relationshipTypesResponse: ", relationshipTypesResponse);
         setRelationshipTypes(relationshipTypesResponse);
       } catch (error) {
         console.error("Error getting relationship types: ", error);
@@ -62,7 +62,7 @@ export function Beneficiaries() {
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValues) => {
-      console.log("formValues: ", formValues);
+      // console.log("formValues: ", formValues);
       try {
         await beneficiaryController.create(user.id, formValues);
 
@@ -81,7 +81,7 @@ export function Beneficiaries() {
   const onClose = () => setShowModal((prevState) => !prevState);
 
   const handleRelationshipSelect = (e, { name, value }) => {
-    console.log("name: ", name, "value: ", value);
+    // console.log("name: ", name, "value: ", value);
     formik.setFieldValue(name, value);
   };
 

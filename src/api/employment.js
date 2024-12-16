@@ -6,7 +6,7 @@ export class EmploymentInformation {
       const params = `documentId='${documentId}'`;
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS.EMPLOYEE_DATA}?${params}`;
 
-      console.log("URL: ", url);
+      // console.log("URL: ", url);
 
       const response = await authFetch(url);
       const result = await response.json();
@@ -95,7 +95,7 @@ export class EmploymentInformation {
         }),
       };
 
-      console.log("PARAMS: ", params.body);
+      // console.log("PARAMS: ", params.body);
       const response = await authFetch(url, params);
       const result = await response.json();
 

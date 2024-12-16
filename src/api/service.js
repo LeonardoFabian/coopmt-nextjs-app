@@ -23,7 +23,7 @@ export class Service {
       const response = await fetch(url, { agent });
       const result = await response.json();
 
-      console.log("API Service result: ", result);
+      // console.log("API Service result: ", result);
 
       if (response.status !== 200) throw result;
 
@@ -55,7 +55,7 @@ export class Service {
     try {
       const response = await fetch(url, { agent });
       const result = await response.json();
-      console.log("Service API result: ", result);
+      // console.log("Service API result: ", result);
 
       if (response.status !== 200) throw result;
 

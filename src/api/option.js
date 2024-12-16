@@ -40,7 +40,7 @@ export class Option {
     try {
       const response = await fetch(url);
       const result = await response.json();
-      console.log("OPTIONS: ", result);
+      // console.log("OPTIONS: ", result);
 
       if (response.status !== 200) throw result;
 

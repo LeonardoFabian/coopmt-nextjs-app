@@ -16,7 +16,7 @@ export class Post {
       const response = await fetch(url);
       const result = await response.json();
 
-      console.log("Post API getLatestPublished: ", result);
+      // console.log("Post API getLatestPublished: ", result);
 
       if (response.status !== 200) throw result;
 

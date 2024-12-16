@@ -23,7 +23,7 @@ export function Wishlist() {
     (async () => {
       try {
         const response = await wishlistController.getAll(user.id);
-        console.log("wishlistController response: ", response);
+        // console.log("wishlistController response: ", response);
         setProductsWishlisted(response);
       } catch (error) {
         console.error(error);

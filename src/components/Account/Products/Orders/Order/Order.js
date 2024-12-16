@@ -20,7 +20,7 @@ import { fn } from "@/utils";
 
 export function Order(props) {
   const { order } = props;
-  console.log("ORDER: ", order);
+  // console.log("ORDER: ", order);
   const [showModal, setShowModal] = useState(false);
   const createdAt = new Date(order.attributes.createdAt).toISOString();
   const products = order.attributes.products;

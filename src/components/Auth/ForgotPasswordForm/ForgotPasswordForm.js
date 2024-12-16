@@ -13,10 +13,10 @@ export function ForgotPasswordForm() {
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValues) => {
-      console.log("Correo de recuperacion: ", formValues);
+      // console.log("Correo de recuperacion: ", formValues);
       try {
         const response = await authController.forgotPassword(formValues);
-        console.log("Response: ", response);
+        // console.log("Response: ", response);
         if (response?.ok === true) {
           toast.success(
             "Correo enviado con éxito. Por favor, verifique su bandeja de entrada."

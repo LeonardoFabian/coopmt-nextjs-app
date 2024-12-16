@@ -104,12 +104,12 @@ export class MainMenu {
 
     const url = new URL(path, baseUrl);
     url.search = mainMenuQuery;
-    console.log(url.href);
+    // console.log(url.href);
 
     try {
       const response = await fetch(url.href, { cache: "no-store" });
       const result = await response.json();
-      console.log("MainMenu find result: ", result);
+      // console.log("MainMenu find result: ", result);
 
       const flattenedData = flattenAttributes(result);
 

@@ -2,8 +2,8 @@ import { ENV, authFetch } from "@/utils";
 
 export class Loan {
   async sendLoanRequestApplication(userId, data) {
-    console.log("Data: ", data);
-    console.log("userId: ", userId);
+    // console.log("Data: ", data);
+    // console.log("userId: ", userId);
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.LOAN_REQUEST}`;
       const params = {
@@ -121,7 +121,7 @@ export class Loan {
       const response = await authFetch(url);
       const result = await response.json();
 
-      console.log("getUserActiveLoans result: ", result);
+      // console.log("getUserActiveLoans result: ", result);
 
       if (response.status !== 200) throw result;
 
@@ -147,7 +147,7 @@ export class Loan {
       const response = await authFetch(url);
       const result = await response.json();
 
-      console.log("getLoanDetails result: ", result);
+      // console.log("getLoanDetails result: ", result);
 
       if (response.status !== 200) throw result;
 
@@ -173,7 +173,7 @@ export class Loan {
       const response = await authFetch(url);
       const result = await response.json();
 
-      console.log("getLoanNextInstallmentDetails result: ", result);
+      // console.log("getLoanNextInstallmentDetails result: ", result);
 
       if (response.status !== 200) throw result;
 
@@ -199,7 +199,7 @@ export class Loan {
       const response = await authFetch(url);
       const result = await response.json();
 
-      console.log("getMemberLoansNextInstallmentDetails result: ", result);
+      // console.log("getMemberLoansNextInstallmentDetails result: ", result);
 
       if (response.status !== 200) throw result;
 
@@ -225,10 +225,10 @@ export class Loan {
       const response = await authFetch(url);
       const result = await response.json();
 
-      console.log(
-        "getMemberActiveLoansNextInstallmentsDetails result: ",
-        result
-      );
+      // console.log(
+      //   "getMemberActiveLoansNextInstallmentsDetails result: ",
+      //   result
+      // );
 
       if (response.status !== 200) throw result;
 
@@ -254,7 +254,7 @@ export class Loan {
       const response = await authFetch(url);
       const result = await response.json();
 
-      console.log("getLoanAmortizationSchedule result: ", result);
+      // console.log("getLoanAmortizationSchedule result: ", result);
 
       if (response.status !== 200) throw result;
 
@@ -280,7 +280,7 @@ export class Loan {
       const response = await authFetch(url);
       const result = await response.json();
 
-      console.log("getLastMonthTotalLoansAmount result: ", result);
+      // console.log("getLastMonthTotalLoansAmount result: ", result);
 
       if (response.status !== 200) throw result;
 
@@ -306,7 +306,7 @@ export class Loan {
       const response = await authFetch(url);
       const result = await response.json();
 
-      console.log("getLastTwoMonthTotalLoansAmount result: ", result);
+      // console.log("getLastTwoMonthTotalLoansAmount result: ", result);
 
       if (response.status !== 200) throw result;
 

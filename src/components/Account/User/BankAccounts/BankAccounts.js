@@ -37,7 +37,7 @@ export function BankAccounts() {
           const bankAccountsResponse = await bankAccountController.getAll(
             user.id
           );
-          console.log("USER BANK ACCOUNTS: ", bankAccountsResponse);
+          // console.log("USER BANK ACCOUNTS: ", bankAccountsResponse);
           setBankAccounts(bankAccountsResponse);
         } catch (error) {
           console.error("Error loading bank accounts: ", error);
@@ -50,7 +50,7 @@ export function BankAccounts() {
     (async () => {
       try {
         const banksResponse = await bankController.getFinancialInstitutions();
-        console.log("banksResponse: ", banksResponse);
+        // console.log("banksResponse: ", banksResponse);
         setBanks(banksResponse);
       } catch (error) {
         console.log("Error getting financial institutions: ", error);
@@ -62,7 +62,7 @@ export function BankAccounts() {
     (async () => {
       try {
         const currenciesResponse = await currencyController.getAll();
-        console.log("currenciesResponse: ", currenciesResponse);
+        // console.log("currenciesResponse: ", currenciesResponse);
         setCurrencies(currenciesResponse);
       } catch (error) {
         console.log("Error getting currencies: ", error);
@@ -74,7 +74,7 @@ export function BankAccounts() {
     (async () => {
       try {
         const accountTypesResponse = await bankController.getAccountTypes();
-        console.log("accountTypesResponse: ", accountTypesResponse);
+        // console.log("accountTypesResponse: ", accountTypesResponse);
         setAccountTypes(accountTypesResponse);
       } catch (error) {
         console.log("Error getting account types: ", error);
@@ -87,7 +87,7 @@ export function BankAccounts() {
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValues) => {
-      console.log(formValues);
+      // console.log(formValues);
       try {
         await bankAccountController.create(user.id, formValues);
         onReload();
@@ -124,7 +124,9 @@ export function BankAccounts() {
               {bankAccounts?.data ? (
                 <div className={styles.accounts}>
                   {bankAccounts.data.map((account) => {
-                    console.log(account);
+                    {
+                      /* console.log(account); */
+                    }
                     return (
                       <BankAccount
                         key={account.id}

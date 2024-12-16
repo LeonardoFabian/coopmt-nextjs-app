@@ -15,7 +15,7 @@ const beneficiaryController = new BeneficiaryApi();
 
 export function Beneficiary(props) {
   const { beneficiary, onReload } = props;
-  console.log("beneficiary: ", beneficiary);
+  // console.log("beneficiary: ", beneficiary);
   const { user } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -44,7 +44,7 @@ export function Beneficiary(props) {
       try {
         const relationshipTypesResponse =
           await relationshipTypesController.getAll();
-        console.log("relationshipTypesResponse: ", relationshipTypesResponse);
+        // console.log("relationshipTypesResponse: ", relationshipTypesResponse);
         setRelationshipTypes(relationshipTypesResponse);
       } catch (error) {
         console.error("Error getting relationship types: ", error);
@@ -67,7 +67,7 @@ export function Beneficiary(props) {
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValues) => {
-      console.log("formValues: ", formValues);
+      // console.log("formValues: ", formValues);
       try {
         if (beneficiary.id) {
           await beneficiaryController.update(

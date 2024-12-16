@@ -12,6 +12,7 @@ export function BlockRenderer({ blocks }) {
 
     switch (block?.__component) {
       case "page.board-section":
+        console.log("Board section: ", block);
         return (
           <Page.BoardSection
             key={`c-board-section-${block?.id}`}

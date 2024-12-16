@@ -1,0 +1,158 @@
+@import "~/src/scss/index.scss";
+
+.quotationRequestList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 54px;
+    border-top: 1px solid $border-primary;
+    border-bottom: 1px solid $border-primary;
+    gap: 30px;
+
+    .title {
+      font-weight: 700;
+    }
+  }
+
+  .content {
+    height: 45vh;
+    overflow-y: auto;
+  }
+
+  .leyendas {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+
+        > span {
+          width: 12px;
+          height: 12px;
+
+          &.recibida {
+            background-color: $background-info;
+            border: 1px solid $info;
+            color: $info;
+          }
+
+          &.revision {
+            background-color: $info;
+            border: 1px solid $info;
+            color: $light;
+          }
+
+          &.documentacionPendiente {
+            background-color: $background-warning;
+            border: 1px solid $warning;
+            color: $warning;
+          }
+
+          &.espera {
+            background-color: $warning;
+            border: 1px solid $warning;
+            color: $light;
+          }
+
+          &.aprobada {
+            background-color: $background-success;
+            border: 1px solid $primary;
+            color: $primary;
+          }
+
+          &.completada {
+            background-color: $primary;
+            border: 1px solid $primary;
+            color: $light;
+          }
+
+          &.cancelada {
+            background-color: $background-danger;
+            border: 1px solid $danger;
+            color: $danger;
+          }
+
+          &.rechazada {
+            background-color: $danger;
+            border: 1px solid $danger;
+            color: $light;
+          }
+        }
+      }
+    }
+  }
+}
+
+.status {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+
+  &.recibida {
+    background-color: $background-info;
+    border: 1px solid $info;
+    color: $info;
+  }
+
+  &.revision {
+    background-color: $info;
+    border: 1px solid $info;
+    color: $light;
+  }
+
+  &.documentacionPendiente {
+    background-color: $background-warning;
+    border: 1px solid $warning;
+    color: $warning;
+  }
+
+  &.espera {
+    background-color: $warning;
+    border: 1px solid $warning;
+    color: $light;
+  }
+
+  &.aprobada {
+    background-color: $background-success;
+    border: 1px solid $primary;
+    color: $primary;
+  }
+
+  &.completada {
+    background-color: $primary;
+    border: 1px solid $primary;
+    color: $light;
+  }
+
+  &.cancelada {
+    background-color: $background-danger;
+    border: 1px solid $danger;
+    color: $danger;
+  }
+
+  &.rechazada {
+    background-color: $danger;
+    border: 1px solid $danger;
+    color: $light;
+  }
+}

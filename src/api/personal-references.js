@@ -33,7 +33,7 @@ export class PersonalReferences {
    * @returns {object} The response containing the updated personal reference data.
    */
   async update(personalReferenceId, userId, data) {
-    console.log(data);
+    // console.log(data);
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS.PERSONAL_REFERENCES}/${personalReferenceId}`;
       const params = {
@@ -68,7 +68,7 @@ export class PersonalReferences {
    * @returns {object} The response containing the newly created personal reference data.
    */
   async create(userId, data) {
-    console.log(data);
+    // console.log(data);
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS.PERSONAL_REFERENCES}`;
       const params = {

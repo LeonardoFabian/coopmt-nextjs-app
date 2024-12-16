@@ -45,7 +45,7 @@ export function Address() {
       (async () => {
         try {
           const addressesResponse = await addressController.getAll(user.id);
-          console.log("USER ADDRESSES: ", addressesResponse);
+          // console.log("USER ADDRESSES: ", addressesResponse);
           setAddresses(addressesResponse);
         } catch (error) {
           console.error("Error loading addresses: ", error);
@@ -61,7 +61,7 @@ export function Address() {
       (async () => {
         try {
           const response = await countryController.find();
-          console.log("COUNTRIES: ", response);
+          // console.log("COUNTRIES: ", response);
           setCountries(response.data);
         } catch (error) {
           console.error("ERROR LOADING COUNTRIES: ", error);
@@ -76,7 +76,7 @@ export function Address() {
         const response = await stateController.findByCountry(
           selectedCountryId || countryId
         );
-        console.log("STATES: ", response);
+        // console.log("STATES: ", response);
         setStates(response.data);
       } catch (error) {
         console.error("ERROR LOADING STATES: ", error);
@@ -90,7 +90,7 @@ export function Address() {
         const response = await cityController.findByState(
           selectedStateId || stateId
         );
-        console.log("CITIES: ", response);
+        // console.log("CITIES: ", response);
         setCities(response.data);
       } catch (error) {
         console.error("ERROR LOADING  CITIES: ", error);
@@ -103,7 +103,7 @@ export function Address() {
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValues) => {
-      console.log(formValues);
+      // console.log(formValues);
       try {
         await addressController.create(user.id, formValues);
 
@@ -157,7 +157,9 @@ export function Address() {
               {addresses?.data ? (
                 <div className={styles.addresses}>
                   {addresses.data.map((address) => {
-                    console.log(address);
+                    {
+                      /* console.log(address); */
+                    }
                     return (
                       <AddressItem
                         key={address.id}

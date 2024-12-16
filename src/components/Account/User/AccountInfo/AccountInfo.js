@@ -29,10 +29,10 @@ export function AccountInfo() {
         try {
           const membershipInformationResponse =
             await membershipController.check(user?.username);
-          console.log(
-            "membershipInformationResponse: ",
-            membershipInformationResponse
-          );
+          // console.log(
+          //   "membershipInformationResponse: ",
+          //   membershipInformationResponse
+          // );
           setMemberInformation(membershipInformationResponse);
         } catch (error) {
           console.log("Error getting user membership information: ", error);
@@ -63,8 +63,8 @@ export function AccountInfo() {
     onSubmit: async (formValues) => {
       try {
         await userController.updateMe(user.id, formValues);
-        console.log("FORMULARIO ENVIADO");
-        console.log(formValues);
+        // console.log("FORMULARIO ENVIADO");
+        // console.log(formValues);
       } catch (error) {
         console.error("Error updating user: ", error);
       }

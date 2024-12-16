@@ -30,14 +30,14 @@ const checkDocumentIdExists = async (documentId) => {
     const affiliationResponse = await affiliationController.findByDocumentId(
       documentId
     );
-    console.log(affiliationResponse);
+    // console.log(affiliationResponse);
 
     if (affiliationResponse.data.length > 0) {
       return true;
     }
     // verificar si existe un socio con este documento
     const membershipResponse = await membershipController.check(documentId);
-    console.log(membershipResponse);
+    // console.log(membershipResponse);
 
     if (membershipResponse.isMember) {
       return true;

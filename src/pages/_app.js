@@ -16,10 +16,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "material-symbols";
 import { MessageBar } from "@/components/Layout";
+import { Option } from "@/api";
 
-export default function App(props) {
-  const { Component, pageProps } = props;
+const optionsController = new Option();
 
+export default function App({ Component, pageProps, googleAnalyticsCode }) {
   return (
     <AuthProvider>
       <AccountProvider>
@@ -27,6 +28,8 @@ export default function App(props) {
           <ApplicationProvider>
             <MessageBar />
             <ToastContainer />
+            {/* codigo de Google Analytics */}
+            <script dangerouslySetInnerHTML={{ __html: googleAnalyticsCode }} />
             <Component {...pageProps} />
           </ApplicationProvider>
         </CartProvider>
@@ -34,3 +37,15 @@ export default function App(props) {
     </AuthProvider>
   );
 }
+
+App.getInitialProps = async () => {
+  try {
+    const optionsResponse = await optionsController.getAll();
+    const googleAnalyticsCode =
+      optionsResponse?.data?.attributes?.googleAnalyticsCode || "";
+    return { googleAnalyticsCode };
+  } catch (error) {
+    console.error("Error fetching options: ", error);
+    return { googleAnalyticsCode: "" };
+  }
+};

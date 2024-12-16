@@ -19,7 +19,7 @@ const userController = new User();
 
 export function AddressItem(props) {
   const { address, onReload, reload, updateUser } = props;
-  console.log(address);
+  // console.log(address);
   // const { user } = useAuth();
   const [user, setUser] = useState(null);
 
@@ -73,7 +73,7 @@ export function AddressItem(props) {
     (async () => {
       try {
         const response = await countryController.find();
-        console.log("COUNTRIES: ", response);
+        // console.log("COUNTRIES: ", response);
         setCountries(response.data);
       } catch (error) {
         console.error("ERROR LOADING COUNTRIES: ", error);
@@ -87,7 +87,7 @@ export function AddressItem(props) {
         const response = await stateController.findByCountry(
           selectedCountryId || countryId
         );
-        console.log("STATES: ", response);
+        // console.log("STATES: ", response);
         setStates(response.data);
       } catch (error) {
         console.error("ERROR LOADING STATES: ", error);
@@ -101,7 +101,7 @@ export function AddressItem(props) {
         const response = await cityController.findByState(
           selectedStateId || stateId
         );
-        console.log("CITIES: ", response);
+        // console.log("CITIES: ", response);
         setCities(response.data);
       } catch (error) {
         console.error("ERROR LOADING  CITIES: ", error);
@@ -122,7 +122,7 @@ export function AddressItem(props) {
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValues) => {
-      console.log(formValues);
+      // console.log(formValues);
       try {
         if (address.id) {
           await addressController.update(address.id, formValues);
@@ -187,7 +187,7 @@ export function AddressItem(props) {
   };
 
   const showButton = user?.defaultAddress?.id !== address?.id ? true : false;
-  console.log("Show BTN: ", showButton);
+  // console.log("Show BTN: ", showButton);
 
   return (
     <>

@@ -13,7 +13,7 @@ import { Preview } from "./Preview";
 const optionController = new Option();
 
 export function StepFinal({ values }) {
-  console.log("Values: ", values);
+  // console.log("Values: ", values);
 
   const [options, setOptions] = useState(null);
   const componentRef = useRef();
@@ -23,7 +23,7 @@ export function StepFinal({ values }) {
     (async () => {
       try {
         const response = await optionController.getAll();
-        console.log("Preview options response: ", response);
+        // console.log("Preview options response: ", response);
         setOptions(response.data);
       } catch (error) {
         console.error("Options request error: ", error);

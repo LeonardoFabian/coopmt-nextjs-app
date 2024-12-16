@@ -15,7 +15,7 @@ const relationshipTypesController = new RelationshipTypes();
 
 export function PersonalReference(props) {
   const { reference, onReload } = props;
-  console.log("PersonalReference reference: ", reference);
+  // console.log("PersonalReference reference: ", reference);
   const { user } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);

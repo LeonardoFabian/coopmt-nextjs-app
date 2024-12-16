@@ -9,7 +9,7 @@ export function Preview(props) {
   const { values } = props;
   const [options, setOptions] = useState(null);
 
-  console.log(values.beneficiaries);
+  // console.log(values.beneficiaries);
 
   const hasBeneficiaries = size(values.beneficiaries) > 0;
 
@@ -17,7 +17,7 @@ export function Preview(props) {
     (async () => {
       try {
         const response = await optionController.getAll();
-        console.log("Preview options response: ", response);
+        // console.log("Preview options response: ", response);
         setOptions(response.data);
       } catch (error) {
         console.error("Options request error: ", error);

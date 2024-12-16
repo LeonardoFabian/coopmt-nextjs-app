@@ -31,6 +31,14 @@ export function Navigation() {
               Cambios de Aportes
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/me/applications/quotations"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              Cotizaciones
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <Routes>
@@ -38,10 +46,17 @@ export function Navigation() {
           path="/me/applications/all"
           element={<Applications.RequestList />}
         />
-        <Route path="/me/applications/loans" element={<div>Préstamos</div>} />
+        <Route
+          path="/me/applications/loans"
+          element={<Applications.LoanRequestList />}
+        />
         <Route
           path="/me/applications/contributions"
-          element={<div>Cambios de Aportes</div>}
+          element={<Applications.ContributionChangeRequestList />}
+        />
+        <Route
+          path="/me/applications/quotations"
+          element={<Applications.QuotationRequestList />}
         />
         {/* <Route path="/*" element={<Navigate to="/me/applications" />} /> */}
       </Routes>

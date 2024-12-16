@@ -117,8 +117,8 @@ export function FormRenderer({ formData }) {
               user?.id,
               formValues
             );
-            // console.log("Response: ", response);
-            if (response?.data) {
+            // console.log("Loan request Response: ", response);
+            if (response) {
               toast.success("Solicitud de préstamo enviada con exito.");
               router.push("/me/applications/all");
             } else {

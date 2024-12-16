@@ -16,7 +16,7 @@ export function Orders() {
     (async () => {
       try {
         const response = await orderController.getAll(user.id);
-        console.log("User Orders: ", response.data);
+        // console.log("User Orders: ", response.data);
         setOrders(response.data);
       } catch (error) {
         console.error(error);

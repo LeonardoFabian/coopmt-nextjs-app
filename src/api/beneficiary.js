@@ -15,7 +15,7 @@ export class Beneficiary {
     try {
       const response = await authFetch(url);
       const result = await response.json();
-      console.log(result);
+      // console.log(result);
       if (response.status !== 200) throw result;
       return result;
     } catch (error) {
@@ -64,7 +64,7 @@ export class Beneficiary {
    * @throws Will throw an error if the network request fails or the response status is not 200.
    */
   async update(beneficiaryId, userId, data) {
-    console.log(data);
+    // console.log(data);
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS.BENEFICIARIES}/${beneficiaryId}`;
     const params = {
       method: "PUT",

@@ -4,6 +4,7 @@ import { map } from "lodash";
 import { useAuth } from "@/hooks";
 import { useEffect, useState } from "react";
 import { MaritalStatus } from "@/api";
+import { text } from "@fortawesome/fontawesome-svg-core";
 
 const maritalStatusController = new MaritalStatus();
 
@@ -43,15 +44,10 @@ export function DatosPersonales(props) {
           switch (field.name) {
             case "EstadoCivil":
               value = user ? user?.maritalStatus : values[field.name];
-              options = [
-                { key: "casado", text: "Casado(a)", value: "casado" },
-                { key: "soltero", text: "Soltero(a)", value: "soltero" },
-                {
-                  key: "union-libre",
-                  text: "Unión libre",
-                  value: "union-libre",
-                },
-              ];
+              options = maritalStatus?.data?.map((status) => ({
+                text: `${status?.attributes?.label}`,
+                value: status?.id,
+              }));
               break;
           }
 

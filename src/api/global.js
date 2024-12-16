@@ -48,7 +48,7 @@ export class Global {
 
     const url = new URL(path, baseUrl);
     url.search = globalQuery;
-    console.log(url.href);
+    // console.log(url.href);
 
     try {
       const response = await fetch(url.href, { cache: "no-store" });

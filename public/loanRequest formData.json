@@ -1,0 +1,422 @@
+[
+    {
+        "id": 1,
+        "attributes": {
+            "createdAt": "2024-12-08T01:41:48.937Z",
+            "updatedAt": "2024-12-08T01:41:48.937Z",
+            "Cedula": "00117910042",
+            "NumeroDeSocio": "52",
+            "Nombres": "RAMON LEONARDO",
+            "Apellidos": "FABIAN ROMAN",
+            "Apodo": "Eddy",
+            "Direccion1": "Las Palmeras",
+            "Direccion2": "",
+            "Ciudad": "Santo Domingo Oeste",
+            "Provincia": "Santo Domingo",
+            "Pais": "Dominican Republic",
+            "CodigoPostal": "10702",
+            "HijosDependientes": 1,
+            "Telefono": "",
+            "Celular": "",
+            "Correo": "ramon.fabian@mt.gob.do",
+            "SocioDesde": null,
+            "LugarDeTrabajo": "Ministerio de Trabajo",
+            "Departamento": "Dirección de Tecnología",
+            "Cargo": "Soporte Técnico",
+            "Salario": 46000,
+            "DireccionTrabajo1": "Av. Jimenez Moya 5",
+            "DireccionTrabajo2": "Centro de los Heroes, La Feria",
+            "CiudadDondeLabora": "Santo Domingo de Guzman",
+            "ProvinciaDondeLabora": "Distrito Nacional",
+            "PaisDondeLabora": "República Dominicana",
+            "TelefonoTrabajo": "8095354404",
+            "Extension": "3000",
+            "FechaDeIngreso": "2009-05-31",
+            "TrabajaEnLaMismaInstitucion": true,
+            "EsEmpleadoDeCarrera": false,
+            "ReferenciasPersonales": [
+                {
+                    "Cedula": "",
+                    "Nombres": "",
+                    "Apellidos": "",
+                    "Apodo": "",
+                    "Correo": "",
+                    "Telefono": "",
+                    "Celular": "",
+                    "Relacion": 0,
+                    "Direccion1": "",
+                    "Direccion2": "",
+                    "Ciudad": "",
+                    "Provincia": "",
+                    "Pais": ""
+                },
+                {
+                    "Cedula": "00108624289",
+                    "Nombres": "Gregoria",
+                    "Apellidos": "Fabian",
+                    "Apodo": "Gloria",
+                    "Correo": "",
+                    "Telefono": "",
+                    "Celular": "8097163873",
+                    "Relacion": 0,
+                    "Direccion1": "C/ Francisco Cardenas #6-A",
+                    "Direccion2": "Reparto Samaria, Pantoja",
+                    "Ciudad": "Santo Domingo Oeste",
+                    "Provincia": "Santo Domingo",
+                    "Pais": "República Dominicana"
+                },
+                {
+                    "Cedula": "00114868722",
+                    "Nombres": "Geremias",
+                    "Apellidos": "Matos Hilario",
+                    "Apodo": "",
+                    "Correo": "",
+                    "Telefono": "",
+                    "Celular": "8293708508",
+                    "Relacion": 0,
+                    "Direccion1": "C/ Rosa Duarte #20",
+                    "Direccion2": "",
+                    "Ciudad": "Santo Domingo Este",
+                    "Provincia": "Santo Domingo",
+                    "Pais": "República Dominicana"
+                }
+            ],
+            "Monto": 60000,
+            "Plazo": 48,
+            "NumeroDeCuenta": "2460102791",
+            "CedulaDelGarante": "",
+            "NombreDelGarante": "",
+            "ApellidoDelGarante": "",
+            "ApodoDelGarante": "",
+            "TelefonoDelGarante": "",
+            "CelularDelGarante": "",
+            "DireccionDelGarante": "",
+            "TerminosAceptados": true,
+            "CorreoDelGarante": "",
+            "RelacionConElGarante": "",
+            "user": {
+                "data": {
+                    "id": 41,
+                    "attributes": {
+                        "username": "00117910042",
+                        "email": "ramon.fabian@mt.gob.do",
+                        "provider": "local",
+                        "confirmed": true,
+                        "blocked": false,
+                        "createdAt": "2024-09-30T01:29:46.408Z",
+                        "updatedAt": "2024-12-07T23:46:32.925Z",
+                        "documentId": null,
+                        "nickname": "Eddy",
+                        "birthdate": "1986-09-20",
+                        "hasChildren": true,
+                        "childrens": 1,
+                        "firstName": "RAMON LEONARDO",
+                        "lastName": "FABIAN ROMAN",
+                        "isMember": null,
+                        "approvalDate": null,
+                        "effectiveDateOfCapitalContribution": null,
+                        "membershipTerminationDate": null,
+                        "memberId": "52",
+                        "memberStatus": null,
+                        "lastConnection": "06/11/2024, 10:53:45 AM",
+                        "is_administrative_career": null,
+                        "currentJobAtTheSameInstitution": null
+                    }
+                }
+            },
+            "loan_request_status_histories": {
+                "data": []
+            },
+            "status": {
+                "data": {
+                    "id": 1,
+                    "attributes": {
+                        "name": "Recibida",
+                        "description": "Su solicitud ha sido recibida por la cooperativa.",
+                        "createdAt": "2024-06-20T18:48:09.082Z",
+                        "updatedAt": "2024-06-20T18:48:09.082Z"
+                    }
+                }
+            },
+            "EstadoCivil": {
+                "data": {
+                    "id": 2,
+                    "attributes": {
+                        "label": "Soltero(a)",
+                        "createdAt": "2024-10-25T15:36:13.454Z",
+                        "updatedAt": "2024-10-25T15:36:14.250Z",
+                        "publishedAt": "2024-10-25T15:36:14.248Z"
+                    }
+                }
+            },
+            "VinculoLaboral": {
+                "data": {
+                    "id": 1,
+                    "attributes": {
+                        "label": "Fijo",
+                        "createdAt": "2024-10-25T15:33:48.469Z",
+                        "updatedAt": "2024-10-25T15:33:49.163Z",
+                        "publishedAt": "2024-10-25T15:33:49.161Z"
+                    }
+                }
+            },
+            "Grupo": {
+                "data": null
+            },
+            "Garantias": {
+                "data": {
+                    "id": 1,
+                    "attributes": {
+                        "name": "Aportes",
+                        "createdAt": "2024-06-19T19:37:03.403Z",
+                        "updatedAt": "2024-06-19T19:37:03.403Z",
+                        "description": null
+                    }
+                }
+            },
+            "MetodoDeDesembolso": {
+                "data": {
+                    "id": 2,
+                    "attributes": {
+                        "name": "Transferencia",
+                        "createdAt": "2024-10-25T15:33:27.220Z",
+                        "updatedAt": "2024-10-25T15:33:27.918Z",
+                        "publishedAt": "2024-10-25T15:33:27.917Z"
+                    }
+                }
+            },
+            "EntidadFinanciera": {
+                "data": {
+                    "id": 30,
+                    "attributes": {
+                        "name": "BANCO DE RESERVAS DE LA REPUBLICA DOMINICANA",
+                        "code": "BRRD",
+                        "createdAt": "2024-06-19T22:34:09.282Z",
+                        "updatedAt": "2024-06-19T22:34:09.282Z"
+                    }
+                }
+            },
+            "TipoDeCuenta": {
+                "data": {
+                    "id": 1,
+                    "attributes": {
+                        "label": "Cuenta de ahorros",
+                        "createdAt": "2024-10-25T15:30:51.830Z",
+                        "updatedAt": "2024-10-25T15:30:52.707Z",
+                        "publishedAt": "2024-10-25T15:30:52.705Z"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "id": 3,
+        "attributes": {
+            "createdAt": "2024-12-13T15:28:13.814Z",
+            "updatedAt": "2024-12-13T15:28:13.814Z",
+            "Cedula": "00117910042",
+            "NumeroDeSocio": "52",
+            "Nombres": "RAMON LEONARDO",
+            "Apellidos": "FABIAN ROMAN",
+            "Apodo": "Eddy",
+            "Direccion1": "Las Palmeras",
+            "Direccion2": "",
+            "Ciudad": "Santo Domingo Oeste",
+            "Provincia": "Santo Domingo",
+            "Pais": "Dominican Republic",
+            "CodigoPostal": "10702",
+            "HijosDependientes": 1,
+            "Telefono": "",
+            "Celular": "",
+            "Correo": "ramon.fabian@mt.gob.do",
+            "SocioDesde": null,
+            "LugarDeTrabajo": "Ministerio de Trabajo",
+            "Departamento": "Dirección de Tecnología",
+            "Cargo": "Soporte Técnico",
+            "Salario": 46000,
+            "DireccionTrabajo1": "Av. Jimenez Moya 5",
+            "DireccionTrabajo2": "Centro de los Heroes, La Feria",
+            "CiudadDondeLabora": "Santo Domingo de Guzman",
+            "ProvinciaDondeLabora": "Distrito Nacional",
+            "PaisDondeLabora": "República Dominicana",
+            "TelefonoTrabajo": "8095354404",
+            "Extension": "3000",
+            "FechaDeIngreso": "2009-05-31",
+            "TrabajaEnLaMismaInstitucion": false,
+            "EsEmpleadoDeCarrera": false,
+            "ReferenciasPersonales": [
+                {
+                    "Cedula": "",
+                    "Nombres": "",
+                    "Apellidos": "",
+                    "Apodo": "",
+                    "Correo": "",
+                    "Telefono": "",
+                    "Celular": "",
+                    "Relacion": 0,
+                    "Direccion1": "",
+                    "Direccion2": "",
+                    "Ciudad": "",
+                    "Provincia": "",
+                    "Pais": ""
+                },
+                {
+                    "Cedula": "00108624289",
+                    "Nombres": "Gregoria",
+                    "Apellidos": "Fabian",
+                    "Apodo": "Gloria",
+                    "Correo": "",
+                    "Telefono": "",
+                    "Celular": "8097163873",
+                    "Relacion": 0,
+                    "Direccion1": "C/ Francisco Cardenas #6-A",
+                    "Direccion2": "Reparto Samaria, Pantoja",
+                    "Ciudad": "Santo Domingo Oeste",
+                    "Provincia": "Santo Domingo",
+                    "Pais": "República Dominicana"
+                },
+                {
+                    "Cedula": "00114868722",
+                    "Nombres": "Geremias",
+                    "Apellidos": "Matos Hilario",
+                    "Apodo": "",
+                    "Correo": "",
+                    "Telefono": "",
+                    "Celular": "8293708508",
+                    "Relacion": 0,
+                    "Direccion1": "C/ Rosa Duarte #20",
+                    "Direccion2": "",
+                    "Ciudad": "Santo Domingo Este",
+                    "Provincia": "Santo Domingo",
+                    "Pais": "República Dominicana"
+                }
+            ],
+            "Monto": 25000,
+            "Plazo": 6,
+            "NumeroDeCuenta": "2460102791",
+            "CedulaDelGarante": "",
+            "NombreDelGarante": "",
+            "ApellidoDelGarante": "",
+            "ApodoDelGarante": "",
+            "TelefonoDelGarante": "",
+            "CelularDelGarante": "",
+            "DireccionDelGarante": "",
+            "TerminosAceptados": true,
+            "CorreoDelGarante": "",
+            "RelacionConElGarante": "",
+            "user": {
+                "data": {
+                    "id": 41,
+                    "attributes": {
+                        "username": "00117910042",
+                        "email": "ramon.fabian@mt.gob.do",
+                        "provider": "local",
+                        "confirmed": true,
+                        "blocked": false,
+                        "createdAt": "2024-09-30T01:29:46.408Z",
+                        "updatedAt": "2024-12-07T23:46:32.925Z",
+                        "documentId": null,
+                        "nickname": "Eddy",
+                        "birthdate": "1986-09-20",
+                        "hasChildren": true,
+                        "childrens": 1,
+                        "firstName": "RAMON LEONARDO",
+                        "lastName": "FABIAN ROMAN",
+                        "isMember": null,
+                        "approvalDate": null,
+                        "effectiveDateOfCapitalContribution": null,
+                        "membershipTerminationDate": null,
+                        "memberId": "52",
+                        "memberStatus": null,
+                        "lastConnection": "06/11/2024, 10:53:45 AM",
+                        "is_administrative_career": null,
+                        "currentJobAtTheSameInstitution": null
+                    }
+                }
+            },
+            "loan_request_status_histories": {
+                "data": []
+            },
+            "status": {
+                "data": {
+                    "id": 1,
+                    "attributes": {
+                        "name": "Recibida",
+                        "description": "Su solicitud ha sido recibida por la cooperativa.",
+                        "createdAt": "2024-06-20T18:48:09.082Z",
+                        "updatedAt": "2024-06-20T18:48:09.082Z"
+                    }
+                }
+            },
+            "EstadoCivil": {
+                "data": {
+                    "id": 2,
+                    "attributes": {
+                        "label": "Soltero(a)",
+                        "createdAt": "2024-10-25T15:36:13.454Z",
+                        "updatedAt": "2024-10-25T15:36:14.250Z",
+                        "publishedAt": "2024-10-25T15:36:14.248Z"
+                    }
+                }
+            },
+            "VinculoLaboral": {
+                "data": {
+                    "id": 1,
+                    "attributes": {
+                        "label": "Fijo",
+                        "createdAt": "2024-10-25T15:33:48.469Z",
+                        "updatedAt": "2024-10-25T15:33:49.163Z",
+                        "publishedAt": "2024-10-25T15:33:49.161Z"
+                    }
+                }
+            },
+            "Grupo": {
+                "data": null
+            },
+            "Garantias": {
+                "data": {
+                    "id": 1,
+                    "attributes": {
+                        "name": "Aportes",
+                        "createdAt": "2024-06-19T19:37:03.403Z",
+                        "updatedAt": "2024-06-19T19:37:03.403Z",
+                        "description": null
+                    }
+                }
+            },
+            "MetodoDeDesembolso": {
+                "data": {
+                    "id": 2,
+                    "attributes": {
+                        "name": "Transferencia",
+                        "createdAt": "2024-10-25T15:33:27.220Z",
+                        "updatedAt": "2024-10-25T15:33:27.918Z",
+                        "publishedAt": "2024-10-25T15:33:27.917Z"
+                    }
+                }
+            },
+            "EntidadFinanciera": {
+                "data": {
+                    "id": 30,
+                    "attributes": {
+                        "name": "BANCO DE RESERVAS DE LA REPUBLICA DOMINICANA",
+                        "code": "BRRD",
+                        "createdAt": "2024-06-19T22:34:09.282Z",
+                        "updatedAt": "2024-06-19T22:34:09.282Z"
+                    }
+                }
+            },
+            "TipoDeCuenta": {
+                "data": {
+                    "id": 1,
+                    "attributes": {
+                        "label": "Cuenta de ahorros",
+                        "createdAt": "2024-10-25T15:30:51.830Z",
+                        "updatedAt": "2024-10-25T15:30:52.707Z",
+                        "publishedAt": "2024-10-25T15:30:52.705Z"
+                    }
+                }
+            }
+        }
+    }
+]

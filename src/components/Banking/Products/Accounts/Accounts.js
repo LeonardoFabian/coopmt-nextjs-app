@@ -33,7 +33,7 @@ export function UserAccounts() {
   return (
     <>
       <div className={styles.userAccounts}>
-        <h6 className={styles.title}>Cuentas</h6>
+        <h6 className={styles.title}>Aportaciones</h6>
         {contributionBalance && (
           <AccountsList user={user} accounts={contributionBalance} />
         )}

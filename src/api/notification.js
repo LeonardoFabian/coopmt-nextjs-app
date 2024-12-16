@@ -14,7 +14,7 @@ export class Notification {
       const response = await fetch(url);
       const result = await response.json();
 
-      console.log("result: ", result);
+      // console.log("result: ", result);
 
       if (response.status !== 200) throw result;
 

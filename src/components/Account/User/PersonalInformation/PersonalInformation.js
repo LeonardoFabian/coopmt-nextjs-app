@@ -20,7 +20,7 @@ const hasChildrenOptions = [
 
 export function PersonalInformation({ reload, onReload }) {
   const { user } = useAuth();
-  console.log("USER: ", user);
+  // console.log("USER: ", user);
   const [showModal, setShowModal] = useState(false);
   const [userHasChildren, setUserHasChildren] = useState(user.hasChildren);
   const [showChildrensInput, setShowChildrensInput] = useState(

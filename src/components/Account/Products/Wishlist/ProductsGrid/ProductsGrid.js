@@ -9,7 +9,7 @@ export function ProductsGrid(props) {
   //   console.log("ProductsGrid props: ", props);
 
   const { products } = props;
-  console.log(products);
+  // console.log(products);
 
   return (
     <Shared.Grid cols={3} gap="30px">

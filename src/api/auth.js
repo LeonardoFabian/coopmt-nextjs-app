@@ -65,7 +65,7 @@ export class Auth {
    * @return {object} The result of the request.
    */
   async forgotPassword(data) {
-    console.log(data);
+    // console.log(data);
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.AUTH.FORGOT_PASSWORD}`;
       const params = {
@@ -88,8 +88,8 @@ export class Auth {
   }
 
   async resetPassword(data, code) {
-    console.log(data);
-    console.log(code);
+    // console.log(data);
+    // console.log(code);
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.AUTH.RESET_PASSWORD}`;
       const params = {
