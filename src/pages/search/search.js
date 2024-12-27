@@ -121,7 +121,7 @@ export default function SearchPage(props) {
                     }
 
                     const title = post?.attributes?.title;
-                    const link = `/publicaciones/${post?.attributes?.post_type?.data?.attributes?.slug}/${post?.attributes?.slug}`;
+                    const link = `/posts/${post?.attributes?.slug}`;
                     const publishedAt = post?.attributes?.publishedAt;
 
                     return (

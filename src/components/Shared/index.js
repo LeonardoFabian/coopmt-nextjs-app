@@ -24,6 +24,7 @@ import { Seo } from "./Seo";
 import { Title } from "./Title";
 import { Paragraph } from "./Paragraph";
 import { RadioButtons } from "./RadioButtons";
+import { CookieConsentOptions } from "./CookieConsentOptions";
 
 export const Shared = {
   RadioButtons,
@@ -52,4 +53,5 @@ export const Shared = {
   Seo,
   Title,
   Paragraph,
+  CookieConsentOptions,
 };

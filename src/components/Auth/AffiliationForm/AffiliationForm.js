@@ -14,6 +14,7 @@ import { useFormik, FormikProvider } from "formik";
 import { Affiliation, File, Membership } from "@/api";
 import * as Yup from "yup";
 import { PersonalInfo } from "./StepOne/PersonalInfo";
+import { toast } from "react-toastify";
 // import ReactToPrint from "react-to-print";
 // import jsPDF from "jspdf";
 // import html2canvas from "html2canvas";
@@ -241,6 +242,32 @@ export function AffiliationForm() {
               const response = await affiliationController.submit(
                 formDataValues
               );
+
+              if (response) {
+                if (typeof window.gtag === "function") {
+                  window.gtag("event", "affiliation_form_convert", {
+                    document_id: response.documentId,
+                    email: response.email,
+                    phone_number:
+                      `+1${response.phone}` || `+1${response.mobile}`,
+                    address: {
+                      first_name: response.firstName,
+                      last_name: response.lastName,
+                      street: response.location.address,
+                      city: response.location.city,
+                      region: response.location.state,
+                      postal_code: response.location.postalCode,
+                      country: response.location.country,
+                    },
+                    gender:
+                      response.gender === "M"
+                        ? "Masculino"
+                        : response.gender === "F"
+                        ? "Femenino"
+                        : "No Especificado",
+                  });
+                }
+              }
               // console.log("Solicitud de afiliacion response: ", response);
             } catch (error) {
               console.error(error);

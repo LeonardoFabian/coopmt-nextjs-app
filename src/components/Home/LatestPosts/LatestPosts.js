@@ -18,10 +18,7 @@ export function LatestPosts(props) {
     (async () => {
       try {
         // const limit = 3;
-        const response = await postController.getLatestPublished(
-          limit,
-          taxonomyId
-        );
+        const response = await postController.getAll(limit);
         console.log("LATEST POSTS: ", response);
         setLatestPost(response.data);
       } catch (error) {

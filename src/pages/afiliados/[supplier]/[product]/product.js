@@ -8,6 +8,7 @@ import Link from "next/link";
 import numeral from "numeral";
 import { fn } from "@/utils";
 import { map, size } from "lodash";
+import { useEffect } from "react";
 
 export default function SingleProduct(props) {
   console.log("SingleProduct props: ", props);
@@ -16,6 +17,7 @@ export default function SingleProduct(props) {
   const TEST_SLIDE_COUNT = 10;
 
   const title = product?.attributes?.title;
+  const productId = product?.id;
   const summary = product?.attributes?.summary;
   const imageSrc = product?.attributes?.image?.data?.attributes?.url;
   const slides = product?.attributes?.gallery?.data;
@@ -33,6 +35,57 @@ export default function SingleProduct(props) {
   const hasDiscount = Boolean(product?.attributes?.discount);
   const discount = product?.attributes?.discount;
   const supplierData = product?.attributes?.supplier?.data;
+
+  // Google Analytics event
+  useEffect(() => {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "producto_visto", {
+        app_name: "Sitio Web",
+        screen_name: "Detalles del producto",
+        product_id: productId,
+        product_name: title,
+        product_price: priceToPay,
+        product_supplier: supplierData?.attributes?.name,
+      });
+    } else {
+      console.log("Google Analytics no está disponible");
+    }
+  }, [title, productId]);
+
+  /**
+   * Send a Google Analytics event when the user adds a product to the cart
+   *
+   * @function handleAddToCart
+   * @param {Object} event - The event data
+   */
+  const handleAddToCart = () => {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "añadir_al_carrito", {
+        app_name: "Sitio Web",
+        screen_name: "Detalles del producto",
+        product_id: productId,
+        product_name: title,
+        product_price: priceToPay,
+      });
+    }
+  };
+
+  /**
+   * Send a Google Analytics event when the user adds a product to the wishlist
+   *
+   * @function handleAddToWishlist
+   */
+  const handleAddToWishlist = () => {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "añadir_a_lista_de_deseos", {
+        app_name: "Sitio Web",
+        screen_name: "Detalles del producto",
+        product_id: productId,
+        product_name: title,
+        product_price: priceToPay,
+      });
+    }
+  };
 
   return (
     <>
@@ -93,13 +146,17 @@ export default function SingleProduct(props) {
               <p>{summary}</p>
               <Shared.Separator height={16} />
               <div className={styles.actions}>
-                <Shared.AddToCart productId={product?.id} />
+                <Shared.AddToCart
+                  productId={product?.id}
+                  onClick={handleAddToCart}
+                />
                 <Button secondary className={styles.quote}>
                   <Icon name="calculator" /> Cotizar
                 </Button>
                 <Shared.AddToWishlist
                   productId={product?.id}
                   className={styles.wishlist}
+                  onClick={handleAddToWishlist}
                 />
               </div>
             </div>

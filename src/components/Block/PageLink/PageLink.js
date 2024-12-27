@@ -3,7 +3,7 @@ import NextLink from "next/link";
 // import { Image } from "@/components/Shared";
 import { Shared } from "@/components/Shared";
 
-export function PageLink({ block }) {
+export function PageLink({ block, onMouseEnter, onMouseLeave }) {
   const { page, label, description, icon } = block;
 
   // console.log("page: ", page);
@@ -13,6 +13,8 @@ export function PageLink({ block }) {
       href={`/pages/${page.slug}`}
       target="_self"
       className={styles.pageLink}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {icon.url ? (
         <div className={styles.imageWrapper}>

@@ -4,6 +4,7 @@ import { Icon, Container } from "semantic-ui-react";
 import { Shared } from "@/components/Shared";
 import { useRouter } from "next/router";
 import classNames from "classnames";
+import { Block } from "@/components/Block";
 
 export function Header() {
   const {
@@ -30,8 +31,9 @@ export function Header() {
     <div className={styles.cartHeader}>
       <Container isContainer className={styles.wrapper}>
         <div className={styles.title}>
-          <Icon name="cart" />
-          <h3>Carrito</h3>
+          {/* <Icon name="cart" /> */}
+          <Block.MaterialIcon icon="local_mall" height="24px" />
+          <h3>Mi Cesta</h3>
         </div>
 
         <div className={styles.steps}>

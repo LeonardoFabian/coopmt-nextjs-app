@@ -9,16 +9,15 @@ export function initialValues() {
     username: "",
     memberId: "",
     password: "",
+    termsAccepted: false,
+    privacyPolicyAccepted: false,
+    receiveNotifications: false,
   };
 }
 
 // RegisterForm validations
 export function validationSchema(formik) {
   return Yup.object({
-    // documentId: Yup.string()
-    //   .min(11, "El número de cédula debe tener al menos 11 caracteres")
-    //   .max(11, "El número de cédula debe tener un maximo de 11 caracteres")
-    //   .required(true),
     firstName: Yup.string().required(true),
     lastName: Yup.string().required(true),
     email: Yup.string().email(true).required(true),
@@ -33,6 +32,15 @@ export function validationSchema(formik) {
     memberId: Yup.string().required(true),
     password: Yup.string()
       .min(6, "La contraseña debe tener mínimo 6 caracteres")
-      .required(true),
+      .required("La contraseña es obligatoria"),
+    termsAccepted: Yup.boolean()
+      .oneOf([true], "Debe aceptar los Términos y Condiciones.")
+      .required(),
+    privacyPolicyAccepted: Yup.boolean()
+      .oneOf([true], "Debe aceptar la Política de Privacidad.")
+      .required(),
+    receiveNotifications: Yup.boolean()
+      .oneOf([true], "Debe aceptar recibir notificaciones.")
+      .required(),
   });
 }

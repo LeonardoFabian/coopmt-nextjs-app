@@ -12,6 +12,8 @@ export function ProductCard(props) {
   const { productId, title, slug, image, price, discount, supplier } = props;
   const { user } = useAuth();
 
+  console.log("user: ", user);
+
   const hasDiscount = discount > 0;
   const priceToPay = fn.calcDiscount(price, discount);
 
@@ -25,19 +27,21 @@ export function ProductCard(props) {
         )}
       </div>
       <div className={styles.cardBody}>
-        <Link href={`/afiliados/${supplier?.data?.attributes?.slug}/${slug}`}>
-          <h5 className={styles.title}>{title}</h5>
-        </Link>
-
-        <div className={styles.supplierContainer}>
-          <Link
-            href={`/afiliados/${supplier?.data?.attributes?.slug}`}
-            className={styles.supplierLink}
-          >
-            <span className={styles.supplier}>
-              {supplier?.data?.attributes?.name}
-            </span>
+        <div className={styles.cardHeader}>
+          <Link href={`/afiliados/${supplier?.data?.attributes?.slug}/${slug}`}>
+            <h5 className={styles.title}>{title}</h5>
           </Link>
+
+          <div className={styles.supplierContainer}>
+            <Link
+              href={`/afiliados/${supplier?.data?.attributes?.slug}`}
+              className={styles.supplierLink}
+            >
+              <span className={styles.supplier}>
+                {supplier?.data?.attributes?.name}
+              </span>
+            </Link>
+          </div>
         </div>
 
         <div className={styles.cardData}>
@@ -60,14 +64,24 @@ export function ProductCard(props) {
           </div>
         </div>
         <div className={styles.cardFooter}>
-          <Shared.AddToCart productId={productId} />
           {user && (
-            <span className={styles.wishlistBtn}>
-              <Shared.AddToWishlist
+            <>
+              <Shared.AddToCart
                 productId={productId}
-                className={styles.wishlist}
+                title={title}
+                supplier={supplier?.data?.attributes?.name}
+                price={priceToPay}
               />
-            </span>
+              <span className={styles.wishlistBtn}>
+                <Shared.AddToWishlist
+                  productId={productId}
+                  className={styles.wishlist}
+                  title={title}
+                  supplier={supplier?.data?.attributes?.name}
+                  price={priceToPay}
+                />
+              </span>
+            </>
           )}
         </div>
       </div>

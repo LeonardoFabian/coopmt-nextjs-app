@@ -1,10 +1,17 @@
 .ui.circular.label {
-    background-color: $secondary;
-    color: $light;
-    font-weight: bold;
+  background-color: $accent;
+  color: $primary_dark;
+  font-weight: bold;
+  min-width: 18px;
+  min-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0.5em;
 
-    // &:hover {
-    //     background-color: $background-primary;
-    //     color: $light;
-    // }
+  // &:hover {
+  //     background-color: $background-primary;
+  //     color: $light;
+  // }
 }

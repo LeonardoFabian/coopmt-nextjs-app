@@ -6,6 +6,7 @@ import { DateTime } from "luxon";
 import { Suspense } from "react";
 
 export function PostCard({
+  key,
   post,
   image,
   title,
@@ -19,7 +20,7 @@ export function PostCard({
 
   return (
     // <Suspense fallback={<Skeleton />}>
-    <div className={styles.postCard}>
+    <article key={key} className={styles.postCard}>
       <div className={styles.imageContainer}>
         <Shared.Image
           src={post?.attributes?.featuredImage?.data?.attributes?.url}
@@ -39,9 +40,7 @@ export function PostCard({
               </Link>
             </div>
           )}
-          <Link
-            href={`/publicaciones/${postType?.attributes?.slug}/${post?.attributes?.slug}`}
-          >
+          <Link href={`/posts/${post?.attributes?.slug}`}>
             <h5 className={styles.title}>{post?.attributes?.title}</h5>
           </Link>
 
@@ -60,6 +59,6 @@ export function PostCard({
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

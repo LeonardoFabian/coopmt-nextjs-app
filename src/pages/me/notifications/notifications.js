@@ -42,14 +42,28 @@ export default function MeNotificationsPage() {
           {notifications &&
             notifications.map((notification) => {
               const date = fn.formatDate(notification?.attributes?.publishedAt);
+              const dateTime = new Date(
+                notification?.attributes?.publishedAt
+              ).toLocaleString();
 
               return (
-                <li key={notification.id} className={styles.notification}>
+                <li
+                  key={notification.id}
+                  className={classNames(styles.notification, {
+                    [styles.read]: notification.attributes.isRead === true,
+                  })}
+                >
                   <Link href={`/me/notifications/${notification.id}`}>
-                    <h6>{notification.attributes.title}</h6>
+                    <p className={styles.sender}>Coopset</p>
+                    <h6 className={styles.title}>
+                      {notification.attributes.title}
+                    </h6>
+                    <p className={styles.message}>
+                      {notification.attributes.message}
+                    </p>
                   </Link>
                   <div>
-                    <p>{date}</p>
+                    <p>{dateTime}</p>
                   </div>
                 </li>
               );

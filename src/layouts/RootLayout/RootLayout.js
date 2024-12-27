@@ -10,6 +10,19 @@ const globalController = new Global();
 
 export function RootLayout(props) {
   const [data, setData] = useState(null);
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+
+  // detect mobile or tablet screen
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileScreen(window.innerWidth <= 768); // change to true if you want to show the menu on mobile screens
+    };
+
+    handleResize(); // call once on component mount
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -39,11 +52,21 @@ export function RootLayout(props) {
       {/* TopBar */}
       <TopBar isOpenSearch={isOpenSearch} data={data?.header} />
 
-      <Container fluid className={styles.main}>
+      <main
+        className={classNames(styles.main, {
+          ["ui"]: !isMobileScreen,
+          ["fluid"]: !isMobileScreen,
+          ["container"]: !isMobileScreen,
+        })}
+      >
         <div className={classNames({ [styles.relative]: relative })}>
-          {isContainer ? <Container>{children}</Container> : children}
+          {isContainer && !isMobileScreen ? (
+            <Container>{children}</Container>
+          ) : (
+            children
+          )}
         </div>
-      </Container>
+      </main>
 
       {/* Footer */}
       <Footer data={data?.footer} />

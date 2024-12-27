@@ -3,10 +3,13 @@
 .postCard {
   background-color: $light;
   color: $text-secondary;
-  border-radius: 0.5rem;
-  border: 1px solid $lightgray;
+  // border-radius: 0.5rem;
+  // border: 1px solid $lightgray;
   transition: all 0.3s ease-in-out;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
   > .imageContainer {
     height: 12rem;
@@ -25,7 +28,7 @@
   }
 
   > .cardBody {
-    padding: 1.5rem;
+    // padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -52,8 +55,12 @@
           }
         }
       }
-      > .title {
-        color: $text-primary;
+
+      a {
+        > .title {
+          color: $text-primary;
+          font-weight: 500;
+        }
       }
 
       > .description {
@@ -113,7 +120,5 @@
     }
   }
 
-  &:hover {
-    box-shadow: $box-shadow;
-  }
+  // &:hover { //   box-shadow: $box-shadow; // }
 }

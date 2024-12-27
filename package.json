@@ -30,9 +30,11 @@
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "embla-carousel-autoplay": "^8.0.2",
+    "embla-carousel-fade": "^8.5.1",
     "embla-carousel-react": "^8.0.2",
     "formik": "^2.4.5",
     "html2canvas": "^1.4.1",
+    "js-cookie": "^3.0.5",
     "jspdf": "^2.5.1",
     "jwt-decode": "^4.0.0",
     "lodash": "^4.17.21",
@@ -44,6 +46,7 @@
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
+    "react-ga": "^3.3.1",
     "react-player": "^2.16.0",
     "react-router-dom": "6",
     "react-slick": "^0.30.2",
@@ -57,6 +60,7 @@
     "swiper": "^11.1.1",
     "winston": "^3.13.0",
     "winston-transport-browserconsole": "^1.0.5",
+    "yet-another-react-lightbox": "^3.21.7",
     "yup": "^1.4.0"
   },
   "devDependencies": {

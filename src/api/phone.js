@@ -61,6 +61,10 @@ export class Phone {
    */
   async create(userId, data) {
     try {
+      if (!userId || !data) {
+        throw new Error("Missing parameters: userId or data");
+      }
+
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PHONES}`;
       const params = {
         method: "POST",
@@ -76,6 +80,36 @@ export class Phone {
       };
 
       const response = await authFetch(url, params);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async createFromRegistration(data) {
+    try {
+      if (!data) {
+        throw new Error("Missing parameters: data");
+      }
+
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PHONES}`;
+      const params = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: {
+            ...data,
+          },
+        }),
+      };
+
+      const response = await fetch(url, params);
       const result = await response.json();
 
       if (response.status !== 200) throw result;

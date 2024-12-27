@@ -11,6 +11,15 @@ export function BlockRenderer({ blocks }) {
     console.log("BlockRenderer: ", block);
 
     switch (block?.__component) {
+      case "shared.cookie-consent-options":
+        console.log("Cookie consent options: ", block);
+        return (
+          <Shared.CookieConsentOptions
+            key={`cookie-consent-options-${block?.id}`}
+            content={block}
+          />
+        );
+        break;
       case "page.board-section":
         console.log("Board section: ", block);
         return (

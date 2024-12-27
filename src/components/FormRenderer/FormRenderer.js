@@ -15,10 +15,12 @@ import * as Yup from "yup";
 import { initialValues } from "./FormRenderer.form";
 import { CuentaBancaria } from "../Form/CuentaBancaria";
 import { toast } from "react-toastify";
-import { Loan } from "@/api";
+import { Loan, Bank, User } from "@/api";
 import { useRouter } from "next/router";
 
 const loanController = new Loan();
+const bankController = new Bank();
+const userController = new User();
 
 export function FormRenderer({ formData }) {
   const { user } = useAuth();
@@ -72,7 +74,7 @@ export function FormRenderer({ formData }) {
           Extension: user?.currentJob?.ext || "",
           FechaDeIngreso: user?.currentJob?.startDate || null,
           TrabajaEnLaMismaInstitucion: false,
-          Grupo: null,
+          Grupo: 0,
           EsEmpleadoDeCarrera: false,
           ReferenciasPersonales: [
             {
@@ -95,7 +97,7 @@ export function FormRenderer({ formData }) {
           Monto: 0,
           Plazo: 0,
           Garantias: 0,
-          MetodoDesembolso: 0,
+          MetodoDeDesembolso: 0,
           EntidadFinanciera: user?.bank_accounts[0]?.bank?.id || 0,
           TipoDeCuenta: user?.bank_accounts[0]?.type?.id || 0,
           NumeroDeCuenta: user?.bank_accounts[0]?.number || "",
@@ -112,13 +114,78 @@ export function FormRenderer({ formData }) {
         }}
         onSubmit={async (formValues) => {
           // console.log("LoanRequestForm values: ", formValues);
+          const loanTypeId = formValues.Tipo;
+          const disbursementMethodId = formValues.MetodoDeDesembolso;
+          const financialInstitutionId = formValues.EntidadFinanciera;
+          const userGroupId = formValues.Grupo;
+
           try {
             const response = await loanController.sendLoanRequestApplication(
               user?.id,
               formValues
             );
+
             // console.log("Loan request Response: ", response);
+
             if (response) {
+              const loanTypesResponse = await loanController.getLoanTypes();
+              const loanTypesMatch = loanTypesResponse.data.find(
+                (type) => type.id === loanTypeId
+              );
+              console.log("Loan types Match: ", loanTypesMatch);
+
+              const loanDisbursementMethodsResponse =
+                await loanController.getLoanDisbursementMethods();
+              const loanDisbursementMethodsMatch =
+                loanDisbursementMethodsResponse.data.find(
+                  (method) => method.id === disbursementMethodId
+                );
+              console.log(
+                "Loan disbursement methods Match: ",
+                loanDisbursementMethodsMatch
+              );
+
+              const financialInstitutionsResponse =
+                await bankController.getFinancialInstitutions();
+              const financialInstitutionsMatch =
+                financialInstitutionsResponse.data.find(
+                  (institution) => institution.id === financialInstitutionId
+                );
+              console.log(
+                "Financial institutions Match: ",
+                financialInstitutionsMatch
+              );
+
+              const userGroupsResponse = await userController.getUserGroups();
+              // console.log("User groups Response: ", userGroupsResponse);
+              const userGroupsMatch = userGroupsResponse.data.find(
+                (group) => group.id === userGroupId
+              );
+              console.log("User groups Match: ", userGroupsMatch);
+
+              if (typeof window.gtag === "function") {
+                window.gtag("event", "loan_request", {
+                  user_id: user?.id,
+                  loan_id: response.id,
+                  user_group: userGroupsMatch?.attributes?.name,
+                  is_carrer_employee: response.EsEmpleadoDeCarrera,
+                  loan_type: loanTypesMatch?.attributes?.name,
+                  loan_amount: response.Monto,
+                  loan_term: response.Plazo,
+                  disbursement_method:
+                    loanDisbursementMethodsMatch?.attributes?.name,
+                  financial_institution:
+                    financialInstitutionsMatch?.attributes?.name,
+                  institution: response.LugarDeTrabajo,
+                  department: response.Departamento,
+                  job_title: response.Cargo,
+                  salary: response.Salario,
+                  city: response.Ciudad,
+                  state: response.Provincia,
+                  country: response.Pais,
+                });
+              }
+
               toast.success("Solicitud de préstamo enviada con exito.");
               router.push("/me/applications/all");
             } else {
@@ -201,7 +268,7 @@ export function FormRenderer({ formData }) {
             0,
             "Debes seleccionar un tipo de garantía."
           ),
-          MetodoDesembolso: Yup.number().min(
+          MetodoDeDesembolso: Yup.number().min(
             0,
             "Debes seleccionar un método de desembolso"
           ),
@@ -225,7 +292,7 @@ export function FormRenderer({ formData }) {
           ),
         })}
       >
-        {({ handleReset, handleSubmit, ...formik }) => (
+        {({ handleReset, handleSubmit, isSubmitting, ...formik }) => (
           <Form className="formik" onSubmit={handleSubmit}>
             {formData?.data &&
               map(formData.data.attributes, (data) => {
@@ -310,7 +377,7 @@ export function FormRenderer({ formData }) {
               <button
                 type="submit"
                 className="add_button"
-                loading={formik.isSubmitting}
+                loading={isSubmitting}
               >
                 Enviar Solicitud
               </button>

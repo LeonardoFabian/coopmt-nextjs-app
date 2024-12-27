@@ -11,13 +11,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Shared } from "@/components/Shared";
 import { map } from "lodash";
-import { Cart } from "@/api";
+import { Cart, Notification } from "@/api";
 import { fn } from "@/utils";
 import { Block } from "@/components/Block";
+import { useEffect, useState } from "react";
 
 // const quantity = 5;
 
 const cartController = new Cart();
+const notificationController = new Notification();
 
 export function Account(props) {
   const { buttons } = props;
@@ -25,6 +27,27 @@ export function Account(props) {
   const { quantity } = useCart();
   const { user, logout } = useAuth();
   const router = useRouter();
+  const [notifications, setNotifications] = useState(null);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  useEffect(() => {
+    if (user) {
+      (async () => {
+        try {
+          const notificationsResponse =
+            await notificationController.getUserNotifications(user.id);
+          const unreadNotifications = notificationsResponse.data.filter(
+            (n) => !n.attributes.isRead
+          );
+          console.log("notificationsResponse: ", notificationsResponse);
+          setNotifications(notificationsResponse);
+          setUnreadCount(unreadNotifications.length);
+        } catch (error) {
+          console.log("Error loading notifications: ", error);
+        }
+      })();
+    }
+  }, []);
 
   // console.log("Account user: ", user);
 
@@ -124,6 +147,11 @@ export function Account(props) {
           onClick={goToNotifications}
         >
           <Block.MaterialIcon icon="notifications" />
+          {unreadCount > 0 && (
+            <Label circular className={styles.quantity}>
+              {unreadCount > 9 ? "9+" : unreadCount}
+            </Label>
+          )}
           {/* {quantity > 0 && (
           <Label circular>{quantity > 9 ? "9+" : quantity}</Label>
         )} */}
@@ -131,10 +159,13 @@ export function Account(props) {
       )}
 
       {user && (
-        <Button className={styles.cart} title="Mi Carrito" onClick={goToCart}>
-          <FontAwesomeIcon icon={faCartShopping} />
+        <Button className={styles.cart} title="Mi Cesta" onClick={goToCart}>
+          {/* <FontAwesomeIcon icon={faCartShopping} /> */}
+          <Block.MaterialIcon icon="local_mall" />
           {quantity > 0 && (
-            <Label circular>{quantity > 9 ? "9+" : quantity}</Label>
+            <Label circular className={styles.quantity}>
+              {quantity > 9 ? "9+" : quantity}
+            </Label>
           )}
         </Button>
       )}

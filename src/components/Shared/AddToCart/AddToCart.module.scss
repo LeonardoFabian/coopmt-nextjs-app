@@ -2,9 +2,11 @@
 
 .addToCart {
   border-radius: 0.375rem !important;
-  display: flex;
+  display: flex !important;
+  height: 44px !important;
   align-items: center;
   justify-content: center;
+  gap: 4px;
   width: 100%;
   text-align: center;
 }

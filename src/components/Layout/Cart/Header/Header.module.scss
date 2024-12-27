@@ -9,9 +9,10 @@
 
     .title {
       display: flex;
+      gap: 4px;
       align-items: center;
       flex-wrap: nowrap;
-      color: $text-primary;
+      color: $primary;
 
       > i {
         width: 25px;

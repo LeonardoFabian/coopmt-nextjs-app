@@ -10,3 +10,5 @@ export * from "./Container";
 export * from "./Group";
 export * from "./ProductList";
 export * from "./MessageBar";
+export * from "./NotificationToast";
+export * from "./CookieConsent";

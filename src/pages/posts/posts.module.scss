@@ -1,0 +1,24 @@
+@import "~/src/scss/index.scss";
+
+.mainContent {
+  background-color: $light;
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+
+  .header {
+    text-align: center;
+  }
+
+  .featuredImageContainer {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

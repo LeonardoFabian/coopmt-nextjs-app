@@ -3,11 +3,17 @@ import NextLink from "next/link";
 import { Shared } from "@/components/Shared";
 import { Icon } from "semantic-ui-react";
 
-export function Link({ block }) {
+export function Link({ block, onMouseEnter, onMouseLeave }) {
   const { url, target, label, description, icon } = block;
 
   return (
-    <NextLink href={url} target={target || "_self"} className={styles.link}>
+    <NextLink
+      href={url}
+      target={target || "_self"}
+      className={styles.link}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {icon?.name ? (
         <div className={styles.imageWrapper}>
           <Icon name={icon.name} />

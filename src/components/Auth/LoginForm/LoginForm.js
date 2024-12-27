@@ -24,7 +24,21 @@ export function LoginForm() {
     onSubmit: async (formValues) => {
       try {
         const response = await authController.login(formValues);
+        // console.log("LOGIN RESPONSE: ", response);
+
         if (response?.jwt) {
+          // Determinar el método de autenticación
+          const method = /^[0-9]{11}$/.test(formValues.identifier)
+            ? "document_id" // Cédula
+            : "email"; // Correo electrónico
+
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "user_login", {
+              method: method,
+              user_id: response.user.id,
+            });
+          }
+
           login(response.jwt);
         }
         // console.log("LOGIN DATA: ", formValues);

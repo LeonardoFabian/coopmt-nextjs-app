@@ -1,0 +1,33 @@
+@import "~/src/scss/index.scss";
+
+.cookieConsentOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  //   background-color: $lightgray;
+  //   margin-top: 16px;
+  //   margin-bottom: 16px;
+  //   padding: 16px;
+
+  .content {
+    font-size: 13px;
+    color: $text-secondary;
+  }
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    > .actions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+    }
+
+    > a {
+      color: $accent;
+    }
+  }
+}

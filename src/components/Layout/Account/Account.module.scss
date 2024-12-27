@@ -3,7 +3,7 @@
 .account {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 12px;
   margin-left: 35px;
 
   button {
@@ -13,6 +13,8 @@
 
   .notifications {
     padding: 8px;
+    gap: 4px !important;
+    position: relative;
 
     > i {
       color: $darkgray;
@@ -21,10 +23,52 @@
     > span {
       color: $darkgray;
     }
+
+    &:hover {
+      > span {
+        color: $primary;
+      }
+    }
+
+    > .quantity {
+      position: absolute;
+      top: 4px;
+      right: 0px;
+      background-color: $accent;
+      color: $primary_dark;
+      font-size: 12px;
+      width: 15px !important;
+      height: 15px !important;
+      border-radius: 50%;
+    }
   }
 
   .cart {
     padding: 8px;
+    gap: 4px !important;
+    position: relative;
+
+    > span {
+      color: $darkgray;
+    }
+
+    &:hover {
+      > span {
+        color: $primary;
+      }
+    }
+
+    > .quantity {
+      position: absolute;
+      top: 4px;
+      right: 0px;
+      background-color: $accent;
+      color: $primary_dark;
+      font-size: 12px;
+      width: 15px !important;
+      height: 15px !important;
+      border-radius: 50%;
+    }
   }
 
   .user {
